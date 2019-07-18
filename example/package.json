@@ -5,9 +5,10 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.2.0",
     "prop-types": "^15.6.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "react": "../node_modules/react",
+    "react-dom": "../node_modules/react-dom",
     "react-scripts": "^1.1.4",
     "aitmed-react": "file:.."
   },

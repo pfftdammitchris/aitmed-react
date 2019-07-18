@@ -1,0 +1,128 @@
+{
+  "const initialState = {}; const reducer = (state, action)": {
+    "prefix": "rsr",
+    "body": [
+      "const initialState = {",
+      "  //$1",
+      "}",
+      "",
+      "const reducer = (state, action) => {",
+      "  switch (action.type) {",
+      "    default:",
+      "      return state",
+      "  }",
+      "}"
+    ]
+  },
+  "import React from 'react'": {
+    "prefix": "reaa",
+    "body": "import React from 'react'"
+  },
+  "[theme.breakpoints.down(xs)]": {
+    "prefix": "tbx",
+    "body": ["[theme.breakpoints.down('xs')]: {", "	$1", "},"]
+  },
+  "[theme.breakpoints.down(sm)]": {
+    "prefix": "tbs",
+    "body": ["[theme.breakpoints.down('sm')]: {", "	$1", "},"]
+  },
+  "[theme.breakpoints.down(md)]": {
+    "prefix": "tbm",
+    "body": ["[theme.breakpoints.down('md')]: {", "	$1", "},"]
+  },
+  "[theme.breakpoints.down(lg)]": {
+    "prefix": "tbl",
+    "body": ["[theme.breakpoints.down('lg')]: {", "	$1", "},"]
+  },
+  "constructor(props){ super(props) }": {
+    "prefix": "csts",
+    "body": [
+      "constructor(props) {",
+      "  super(props)",
+      "",
+      "  this.state = {",
+      "    $1",
+      "  }",
+      "}"
+    ]
+  },
+  "import toast": {
+    "prefix": "tas",
+    "body": "import { $1 } from 'util/toast'"
+  },
+  "react state component": {
+    "prefix": "rsc",
+    "body": [
+      "class $1 extends React.Component {",
+      "",
+      "  render() {",
+      "    return ($2)",
+      "  }",
+      "}"
+    ]
+  },
+  "import cx from classnames": {
+    "prefix": "cx",
+    "body": "import cx from 'classnames'"
+  },
+  "import Link from components/link": {
+    "prefix": "gcl",
+    "body": "import Link from 'components/link'"
+  },
+  "import typography": {
+    "prefix": "tyy",
+    "body": "import Typography from 'components/typography'"
+  },
+  "import button": {
+    "prefix": "btt",
+    "body": "import Button from 'components/button'"
+  },
+  "import makeStyles": {
+    "prefix": "wst",
+    "body": "import { makeStyles } from '@material-ui/styles'"
+  },
+  "import theme": {
+    "prefix": "wth",
+    "body": "import theme from 'config/theme'"
+  },
+  "comment section": {
+    "prefix": "cs",
+    "body": [
+      "/* -------------------------------------------------------",
+      "  ---- $1",
+      "-------------------------------------------------------- */"
+    ]
+  },
+  "background": {
+    "prefix": "bg",
+    "body": "background: '$1',"
+  },
+  "border test": {
+    "prefix": "b1",
+    "body": "border: '1px solid red',"
+  },
+  "border test2": {
+    "prefix": "b2",
+    "body": "border: '1px solid green',"
+  },
+  "border test3": {
+    "prefix": "b3",
+    "body": "border: '1px solid magenta',"
+  },
+  "border test4": {
+    "prefix": "b4",
+    "body": "border: '1px solid blue',"
+  },
+  "border test5": {
+    "prefix": "b5",
+    "body": "border: '1px solid #fe7200',"
+  },
+  "material useStyles": {
+    "prefix": "cst",
+    "body": ["const useStyle = useStyles((theme) => ({", "  $1", "}))"]
+  },
+  "import { useSelector, useDispatch } from 'react-redux'": {
+    "prefix": "sdr",
+    "body": "import { useSelector, useDispatch } from 'react-redux'"
+  }
+}

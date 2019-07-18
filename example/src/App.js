@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
+import AiTmedReact, { Button } from 'aitmed-react'
 
-import ExampleComponent from 'aitmed-react'
-
-export default class App extends Component {
-  render () {
-    return (
+const App = () => {
+  return (
+    <AiTmedReact>
       <div>
-        <ExampleComponent text='Modern React component module' />
+        <Button>Hello</Button>
       </div>
-    )
-  }
+    </AiTmedReact>
+  )
 }
+
+export default App

@@ -1,7 +1,7 @@
 {
-  "name": "aitmed-react",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@aitmed/react",
+  "version": "1.0.6",
+  "description": "React component library for TM",
   "author": "pfftdammitchris",
   "license": "MIT",
   "repository": "pfftdammitchris/aitmed-react",
@@ -19,11 +19,21 @@
     "start": "rollup -c -w",
     "prepare": "npm run build",
     "predeploy": "cd example && npm install && npm run build",
+    "pub": "npm run build && npm publish --access public",
     "deploy": "gh-pages -d example/build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@material-ui/core": "^4.2.0",
+    "@material-ui/styles": "^4.2.1",
+    "classnames": "^2.2.6",
+    "downshift": "^3.2.10",
+    "final-form": "^4.18.2",
+    "final-form-arrays": "^3.0.1",
+    "react-final-form": "^6.3.0",
+    "react-final-form-arrays": "^3.1.0",
+    "react-google-maps": "^9.4.5"
+  },
   "peerDependencies": {
-    "prop-types": "^15.5.4",
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0"
   },
@@ -32,10 +42,21 @@
     "@types/jest": "^23.1.5",
     "@types/react": "^16.3.13",
     "@types/react-dom": "^16.0.5",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
     "cross-env": "^5.1.4",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.2",
     "gh-pages": "^1.2.0",
+    "prettier": "^1.17.1",
+    "prettier-eslint": "^8.8.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts-ts": "^2.16.0",
@@ -47,7 +68,7 @@
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-typescript2": "^0.17.0",
     "rollup-plugin-url": "^1.4.0",
-    "typescript": "^2.8.3"
+    "typescript": "^3.6.0-dev.20190717"
   },
   "files": [
     "dist"

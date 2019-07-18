@@ -1,0 +1,26 @@
+{
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    { "language": "typescript", "autoFix": true },
+    { "language": "typescriptreact", "autoFix": true }
+  ],
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "typescript.format.enable": true,
+  "typescript.tsc.autoDetect": "on",
+  "typescript.disableAutomaticTypeAcquisition": false,
+  "typescript.validate.enable": true,
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "editor.formatOnSave": true
+}
