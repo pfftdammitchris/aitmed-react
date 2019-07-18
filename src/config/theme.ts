@@ -1,6 +1,6 @@
-import { createMuiTheme } from '@material-ui'
+import { createMuiTheme } from '@material-ui/core/styles'
 
-const primary = {
+const primary: any = {
   lightest: '#69e98a', // custom
   lighter: '#6dda89', // custom
   light: '#63C17B',
@@ -8,7 +8,7 @@ const primary = {
   dark: '#3D844F',
 }
 
-const secondary = {
+const secondary: any = {
   lightest: '#6bc8ff', //custom
   lighter: '#5eb5e9', //custom
   light: '#54A3D3',
@@ -17,14 +17,14 @@ const secondary = {
   darker: '#072E48',
 }
 
-const thirdary = {
+const thirdary: any = {
   lighter: '#ffe658', // custom
   light: '#F8D822',
   main: '#F8A31E',
   dark: '#FC9208',
 }
 
-const theme = createMuiTheme({
+const themeObj: any = {
   palette: {
     background: {
       dark: '#0E0F12',
@@ -117,12 +117,6 @@ const theme = createMuiTheme({
   },
   overrides: {
     MuiTypography: {
-      display1: {
-        color: '#333',
-      },
-      display2: {
-        color: '#333',
-      },
       caption: {
         color: '#333',
       },
@@ -163,6 +157,8 @@ const theme = createMuiTheme({
   typography: {
     useNextVariants: true,
   },
-})
+}
+
+const theme: any = createMuiTheme(themeObj)
 
 export default theme

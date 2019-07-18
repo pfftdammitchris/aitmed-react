@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/styles'
 import cx from 'classnames'
 // import Link from 'components/link'
 
-const Link = (props) => <a {...props} />
+const Link = (props: any) => <a {...props} />
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
@@ -312,7 +312,7 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }))
 
-const Button = ({
+const Button: React.FC<any> = ({
   className,
   children,
   primary,
@@ -341,9 +341,9 @@ const Button = ({
   const classes = useStyles()
   const muiSizes = ['small', 'medium', 'large']
 
-  const Wrapper = ({ children }) => {
+  const Wrapper = ({ children }: any) => {
     const WrapperComponent = to ? Link : Fragment
-    const wrapperProps = {}
+    const wrapperProps: any = {}
     if (to) wrapperProps.to = to
     return <WrapperComponent {...wrapperProps}>{children}</WrapperComponent>
   }
@@ -415,6 +415,7 @@ const Button = ({
         className={overwriteClassName ? overWrittenClassNames : classNames}
         variant={
           (!!outlined && 'outlined') ||
+          // @ts-ignore
           (!!others.variant === 'outlined' && 'outlined') ||
           'contained'
         }
