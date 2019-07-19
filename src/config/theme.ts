@@ -131,6 +131,11 @@ const themeObj: any = {
         color: '#fff',
       },
     },
+    MuiCard: {
+      root: {
+        transition: 'all 0.3s ease-out',
+      },
+    },
     MuiInputLabel: {
       root: {
         color: '#333',

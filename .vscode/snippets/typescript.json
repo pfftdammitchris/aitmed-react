@@ -73,6 +73,10 @@
     "prefix": "tyy",
     "body": "import Typography from 'components/typography'"
   },
+  "import loading spinner": {
+    "prefix": "sss",
+    "body": "import LoadingSpinner from 'components/loadingSpinner'"
+  },
   "import button": {
     "prefix": "btt",
     "body": "import Button from 'components/button'"

@@ -6,8 +6,21 @@ import theme from '../src/config/theme'
 
 const req = require.context('../stories', true, /.stories.tsx$/)
 
-addDecorator(withInfo())
 addDecorator(muiTheme(theme))
+addDecorator(
+  withInfo({
+    inline: true,
+    header: false,
+    source: false,
+    styles: {
+      infoBody: {
+        fontFamily: 'Literata',
+        color: '#000',
+        fontWeight: 500,
+      },
+    },
+  }),
+)
 
 function loadStories() {
   req.keys().forEach(req)

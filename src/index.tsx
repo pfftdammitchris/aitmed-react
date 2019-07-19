@@ -1,6 +1,6 @@
 export { default } from './AiTmedReact'
 // Components
-export { default as Button } from './components/button'
+// export { default as Button } from './components/button'
 // export { default as Cardv2 } from './components/cardv2'
 // export { default as Link } from './components/link'
 // export { default as Typography } from './components/typography'
@@ -8,6 +8,7 @@ export { default as Button } from './components/button'
 export {
   default as useCheckboxesObjectized,
 } from './hooks/useCheckboxesObjectized'
+export { default as useModal } from './hooks/useModal'
 // Modules
 export { default as Templating } from './modules/templating'
 // export { default as Notes } from './modules/forms/notes'

@@ -34,6 +34,10 @@
     "prefix": "tbl",
     "body": ["[theme.breakpoints.down('lg')]: {", "	$1", "},"]
   },
+  "import loading spinner": {
+    "prefix": "sss",
+    "body": "import LoadingSpinner from 'components/loadingSpinner'"
+  },
   "constructor(props){ super(props) }": {
     "prefix": "csts",
     "body": [
