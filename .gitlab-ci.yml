@@ -1,6 +1,4 @@
 pages:
-  before_script:
-    - apt update
   script:
     - npm install
     - echo "Building storybook..."
