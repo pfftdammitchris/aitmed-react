@@ -1,0 +1,12 @@
+pages:
+  stage: deploy
+  script:
+    - echo "Deploying to pages"
+    - npm run build-storybook
+    - mkdir public
+    - mv storybook-static/* public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
