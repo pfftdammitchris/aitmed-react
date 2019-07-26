@@ -1,9 +1,14 @@
+image: node:10.15.3
+
 pages:
+   before_script:
+    - apt update
   stage: deploy
   script:
+    - npm install
     - echo "Deploying to pages"
     - npm run build-storybook
-    - mkdir public
+    # - mkdir public
     - mv storybook-static/* public
   artifacts:
     paths:
