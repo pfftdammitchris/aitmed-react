@@ -1,11 +1,12 @@
 pages:
-   before_script:
+  before_script:
     - apt update
   script:
     - npm install
-    - echo "Deploying to pages"
+    - echo "Building storybook..."
     - npm run build-storybook
-    # - mkdir public
+    - echo "Deploying to pages"
+    - mkdir public
     - mv storybook-static/* public
   artifacts:
     paths:
