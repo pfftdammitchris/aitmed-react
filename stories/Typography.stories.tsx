@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import Grid from '@material-ui/core/Grid'
-import Typography from 'components/typography'
+import Typography from 'components/Typography'
 
 const lorem = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
 explicabo ipsa eveniet porro ullam itaque possimus natus aperiam corrupti

@@ -1,8 +1,8 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import { storiesOf } from '@storybook/react'
-import Typography from 'components/typography'
-import LoadingSpinner from 'components/loadingSpinner'
+import Typography from 'components/Typography'
+import LoadingSpinner from 'components/LoadingSpinner'
 import doc from './docs/loadingSpinner.md'
 
 const Container = (props: any) => (

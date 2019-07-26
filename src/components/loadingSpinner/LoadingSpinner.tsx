@@ -7,7 +7,7 @@ import cx from 'classnames'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import logo from 'resources/appIcon.png'
 import logoWhite from 'resources/appIconWhite.png'
-import Typography from 'components/typography'
+import Typography from 'components/Typography'
 import useLoadingSpinner from './useLoadingSpinner'
 import { SpinnerWithWidthProps, LoadingSpinnerProps } from './types'
 

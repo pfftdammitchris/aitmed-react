@@ -16,7 +16,7 @@
   },
   "import loading spinner": {
     "prefix": "sss",
-    "body": "import LoadingSpinner from 'components/loadingSpinner'"
+    "body": "import LoadingSpinner from 'components/LoadingSpinner'"
   },
   "import React from 'react'": {
     "prefix": "reaa",
@@ -71,15 +71,15 @@
   },
   "import Link from components/link": {
     "prefix": "gcl",
-    "body": "import Link from 'components/link'"
+    "body": "import Link from 'components/Link'"
   },
   "import typography": {
     "prefix": "tyy",
-    "body": "import Typography from 'components/typography'"
+    "body": "import Typography from 'components/Typography'"
   },
   "import button": {
     "prefix": "btt",
-    "body": "import Button from 'components/button'"
+    "body": "import Button from 'components/Button'"
   },
   "import makeStyles": {
     "prefix": "wst",
