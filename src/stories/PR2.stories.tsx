@@ -17,5 +17,9 @@ const onSubmit = async (values) => {
 }
 
 storiesOf('forms', module).add('PR2', () => {
-  return <PR2 onSubmit={onSubmit} onCheck={onCheck} />
+  return (
+    <div style={{ maxWidth: 800, margin: 'auto' }}>
+      <PR2 onSubmit={onSubmit} onCheck={onCheck} />
+    </div>
+  )
 })

@@ -32,6 +32,8 @@
     "rollup.config.js"
   ],
   "awesomeTypescriptLoaderOptions": {
-    "errorsAsWarnings": true
+    "errorsAsWarnings": true,
+    "silent": true,
+    "transpileOnly": true
   }
 }

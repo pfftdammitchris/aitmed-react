@@ -2,12 +2,12 @@
 import React, { Fragment } from 'react'
 import MaterialUIButton from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/styles'
+import { Theme } from '@material-ui/core'
 import cx from 'classnames'
-// import Link from 'components/link'
 
 const Link = (props: any) => <a {...props} />
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     position: 'relative',
     borderRadius: 50,

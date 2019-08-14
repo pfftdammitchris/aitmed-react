@@ -1,11 +1,10 @@
 import React from 'react'
-import withStyles from '@material-ui/core/styles/withStyles'
+import { makeStyles } from '@material-ui/styles'
 import TextField from '@material-ui/core/TextField'
 
-const styles = (theme) => ({
-  root: {
-    border: '1px solid teal',
-  },
+interface DiagnosesProps {}
+
+const useStyles = makeStyles({
   fieldWrapper: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -13,22 +12,27 @@ const styles = (theme) => ({
   },
 })
 
-const Diagnoses = ({ classes, input, meta, items = [], onCheck, ...props }) => {
-  const [checked, setChecked] = React.useState([])
+const Diagnoses: React.FC<DiagnosesProps> = (props) => {
+  const classes = useStyles(props)
 
-  const WrappedTextField = ({ diagnosisProps, icd9Props, ...otherProps }) => (
+  const WrappedTextField = ({
+    diagnosisProps,
+    icd9Props,
+    ...otherProps
+  }: any) => (
     <div className={classes.fieldWrapper} {...otherProps}>
       <TextField
         id="outlined-name"
-        margin="normal"
+        margin="dense"
         variant="outlined"
         fullWidth
         {...diagnosisProps}
       />
+      &nbsp;&nbsp;
       <TextField
         id="outlined-name"
         label="ICD-9"
-        margin="normal"
+        margin="dense"
         variant="outlined"
         fullWidth
         {...icd9Props}
@@ -36,18 +40,7 @@ const Diagnoses = ({ classes, input, meta, items = [], onCheck, ...props }) => {
     </div>
   )
 
-  return (
-    <div>
-      <WrappedTextField diagnosisProps={{}} icd9Props={{}} />
-      <WrappedTextField diagnosisProps={{}} icd9Props={{}} />
-      <WrappedTextField diagnosisProps={{}} icd9Props={{}} />
-      <WrappedTextField diagnosisProps={{}} icd9Props={{}} />
-      <WrappedTextField diagnosisProps={{}} icd9Props={{}} />
-      <WrappedTextField diagnosisProps={{}} icd9Props={{}} />
-      <WrappedTextField diagnosisProps={{}} icd9Props={{}} />
-      <WrappedTextField diagnosisProps={{}} icd9Props={{}} />
-    </div>
-  )
+  return <WrappedTextField diagnosisProps={{}} icd9Props={{}} />
 }
 
-export default withStyles(styles)(Diagnoses)
+export default Diagnoses

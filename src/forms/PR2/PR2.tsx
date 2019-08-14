@@ -1,10 +1,11 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import Divider from '@material-ui/core/Divider'
 import { Form, Field } from 'react-final-form'
-import MuiButton from '@material-ui/core/Button'
 import MuiTextField from '@material-ui/core/TextField'
+import Flex from 'components/Flex'
 import Typography from 'components/Typography'
+import Button from 'components/Button'
+import Divider from 'components/Divider'
 import Header from './Header'
 import ReasonsForForm from './ReasonsForForm'
 import PatientInfo from './PatientInfo'
@@ -14,24 +15,22 @@ import WorkStatusCheckboxes from './WorkStatusCheckboxes'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
+  actions: {
+    padding: '12px 0',
+  },
 }))
 
-const Flex = (props) => (
-  <div
-    style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-    }}
-    {...props}
-  />
+const Label: React.FC<any> = ({ children, ...rest }) => (
+  <Typography variant="overline" fontWeight={700} {...rest}>
+    {children}
+  </Typography>
 )
 
 const PR2 = ({ initialValues, onSubmit, onCheck, ...props }) => {
   const classes = useStyles(undefined)
 
   const TextField = (props) => (
-    <MuiTextField variant="outlined" fullWidth {...props} />
+    <MuiTextField margin="dense" variant="outlined" fullWidth {...props} />
   )
 
   return (
@@ -41,82 +40,104 @@ const PR2 = ({ initialValues, onSubmit, onCheck, ...props }) => {
       render={({ handleSubmit, submitting }: any) => (
         <form onSubmit={handleSubmit} className={classes.root}>
           <Header />
+          <Divider />
           Check the box(es) which indicate why you are submitting a report at
           this time. If the patient is “Permanent and Stationary” (i.e., has
           reached maximum medical improvement), do not use this form. You may
           use DWC Form PR-3 or IMC Form 81556.
+          <Divider margin="10px auto" />
           <Field
             name="reasonsForForm"
             component={ReasonsForForm}
             withTextfields={['infoRequestedBy', 'other']}
           />
-          <PatientInfo />
-          <ClaimsAdministrator />
           <Divider />
-          <Typography>
+          <Label>Patient:</Label>
+          <PatientInfo name="patientInfo" />
+          <br />
+          <Label>Claims Administration:</Label>
+          <ClaimsAdministrator name="claimsAdministrator" />
+          <br />
+          <Typography gutterBottom paragraph italic>
             The information below must be provided. You may use this form or you
             may substitute or append a narrative report.
           </Typography>
-          <Typography>Subjective Complaints:</Typography>
+          <Label>Subjective Complaints:</Label>
           <TextField rows={5} rowsMax={10} multiline />
-          <Typography>
-            Objective Findings: (Include significant physical examination,
-            laboratory, imaging, or other diagnostic findings.)
-          </Typography>
+          <br />
+          <br />
+          <Label>
+            Objective Findings:
+            <br />
+            <Typography variant="caption">
+              (Include significant physical examination, laboratory, imaging, or
+              other diagnostic findings.)
+            </Typography>
+          </Label>
           <TextField rows={5} rowsMax={10} multiline />
-          <Typography>Diagnoses:</Typography>
+          <br />
+          <br />
+          <Label>Diagnoses:</Label>
           <Diagnoses />
           <Divider />
-          <Typography>
-            Treatment Plan: (Include treatment rendered to date. List methods,
-            frequency and duration of planned treatment(s). Specify
-            consultation/referral, surgery, and hospitalization. Identify each
-            physician and non-physician provider. Specify type, frequency and
-            duration of physical medicine services (e.g., physical therapy,
-            manipulation, acupuncture). Use of CPT codes is encouraged. Have
-            there been any changes in treatment plan? If so, why?
+          <Typography variant="body1" gutterBottom paragraph>
+            <b>Treatment Plan</b>: (Include treatment rendered to date. List
+            methods, frequency and duration of planned treatment(s). Specify
+            consultation/referral, surgery, and hospitalization.{' '}
+            <strong>Identify each physician and non-physician provider</strong>.
+            Specify type, frequency and duration of physical medicine services
+            (e.g., physical therapy, manipulation, acupuncture). Use of CPT
+            codes is encouraged. Have there been any <strong>changes</strong> in
+            treatment plan? If so, why?
           </Typography>
           <TextField rows={5} rowsMax={10} multiline />
-          <Typography>Work Status:</Typography>
+          <br />
+          <br />
+          <Label>Work Status:</Label>
           <WorkStatusCheckboxes />
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}
-          >
-            <Typography>
+          <Divider />
+          <Flex spaceBetween>
+            <Typography variant="caption">
               Primary Treating Physician: (Original signature, do not stamp)
             </Typography>
             <TextField label="Date of Exam" />
-          </div>
+          </Flex>
+          <Divider />
           <Typography variant="caption">
             I declare under penalty of perjury that this report is true and
             correct to the best of my knowledge and that I have not violated
             Labor Code § 139.3.
           </Typography>
-          <Flex>
-            <TextField label="Signature: " />
-            <TextField label="Cal. Lic. #: " />
+          <br />
+          <br />
+          <Flex spaceBetween>
+            <TextField label="Signature " /> &nbsp;&nbsp;
+            <TextField label="California License No. " />
           </Flex>
-          <Flex>
-            <TextField label="Executed At: " />
-            <TextField label="Date: " />
+          <Flex spaceBetween>
+            <TextField label="Executed At " /> &nbsp;&nbsp;
+            <TextField label="Date " />
           </Flex>
-          <Flex>
-            <TextField label="Name: " />
-            <TextField label="Specialty: " />
+          <Flex spaceBetween>
+            <TextField label="Name " /> &nbsp;&nbsp;
+            <TextField label="Specialty " />
           </Flex>
-          <Flex>
-            <TextField label="Address: " />
-            <TextField label="Phone: " />
+          <Flex spaceBetween>
+            <TextField label="Address " /> &nbsp;&nbsp;
+            <TextField label="Phone " />
           </Flex>
-          <TextField label="Next report due no later than  " />
-          <div>
-            <MuiButton type="submit" color="primary">
+          <Divider />
+          <Flex>
+            <Typography variant="body2">
+              Next report due no later than: &nbsp;&nbsp;
+            </Typography>
+            <MuiTextField />
+          </Flex>
+          <Divider />
+          <div className={classes.actions}>
+            <Button type="submit" hover={{ secondary: 'white' }} secondary>
               Submit
-            </MuiButton>
+            </Button>
           </div>
         </form>
       )}

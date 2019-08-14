@@ -1,46 +1,65 @@
 import React from 'react'
-import withStyles from '@material-ui/core/styles/withStyles'
-import TextField from '@material-ui/core/TextField'
+import { Field } from 'react-final-form'
+import { makeStyles } from '@material-ui/styles'
+import { Theme } from '@material-ui/core'
+import Flex from 'components/Flex'
+import OutlinedTextField from 'components/finalForm/OutlinedTextField'
 
-const styles = (theme) => ({
-  root: {
-    border: '1px solid teal',
-  },
-})
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {},
+}))
 
-const PatientInfo = ({
-  classes,
-  input,
-  meta,
-  items = [],
-  onCheck,
-  ...props
-}) => {
+const PatientInfo = ({ name, items = [], onCheck, ...props }) => {
+  const classes = useStyles(props)
   const [checked, setChecked] = React.useState([])
 
-  const WrappedTextField = (props) => (
-    <TextField
-      id="outlined-name"
-      label="Last"
-      margin="normal"
-      variant="outlined"
-      {...props}
-    />
-  )
+  const WrappedTextField = (props) => <OutlinedTextField {...props} />
 
   return (
-    <div>
-      <WrappedTextField label="Last" />
-      <WrappedTextField label="First" />
-      <WrappedTextField label="M.I." />
-      <WrappedTextField label="Sex" />
-      <WrappedTextField label="D.O.B" />
-      <WrappedTextField label="Address" />
-      <WrappedTextField label="Occupation" />
-      <WrappedTextField label="SS #" />
-      <WrappedTextField label="Phone" />
-    </div>
+    <Flex center wrap>
+      <Field
+        component={WrappedTextField}
+        name={`${name}.firstName`}
+        label="First Name"
+      />
+      <Field
+        component={WrappedTextField}
+        name={`${name}.middleName`}
+        label="Middle Name"
+      />
+      <Field
+        component={WrappedTextField}
+        name={`${name}.lastName`}
+        label="Last Name"
+      />
+      <Field component={WrappedTextField} name={`${name}.sex`} label="Gender" />
+      <Field
+        component={WrappedTextField}
+        name={`${name}.dob`}
+        label="Date of Birth"
+      />
+      <Field
+        component={WrappedTextField}
+        name={`${name}.address`}
+        label="Address"
+      />
+      <Field
+        component={WrappedTextField}
+        name={`${name}.occupation`}
+        label="Occupation"
+      />
+      <Field
+        component={WrappedTextField}
+        name={`${name}.socialSecurity`}
+        label="Social Security No."
+      />
+      <Field
+        component={WrappedTextField}
+        name={`${name}.phone`}
+        label="Phone"
+      />
+    </Flex>
   )
 }
 
-export default withStyles(styles)(PatientInfo)
+export default PatientInfo
