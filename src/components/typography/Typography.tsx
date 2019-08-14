@@ -163,12 +163,12 @@ const useStyles = makeStyles((theme: any) => ({
 const Typography: React.FC<TypographyProps> = ({
   className,
   style,
-  white,
-  black,
   primary,
   secondary,
   darkBlue,
   thirdary,
+  white,
+  black,
   soft,
   inactive,
   error,
@@ -192,15 +192,20 @@ const Typography: React.FC<TypographyProps> = ({
   const theme = useTheme<any>()
 
   const styles: any = {}
-  if (darkBlue) styles.color = theme.palette.secondary.darker
-  if (white) styles.color = '#fff'
-  if (black) styles.color = '#000'
-  if (error || red) styles.color = theme.palette.error.main
-  if (soft) styles.color = theme.palette.text.light
-  if (inactive) styles.color = theme.palette.inactive
+
+  // Computes the font color
+  if (primary) styles.color = theme.palette.primary.main
+  else if (secondary) styles.color = theme.palette.secondary.main
+  else if (darkBlue) styles.color = theme.palette.secondary.dark
+  else if (thirdary) styles.color = theme.palette.thirdary.main
+  else if (error || red) styles.color = theme.palette.error.main
+  else if (white) styles.color = '#fff'
+  else if (black) styles.color = '#000'
+
+  if (margin) styles.margin = margin
   if (marginBottom) styles.marginBottom = marginBottom
-  if (fontWeight) styles.fontWeight = fontWeight
   if (padding) styles.padding = padding
+  if (fontWeight) styles.fontWeight = fontWeight
   if (left) styles.textAlign = 'left'
   if (center) styles.textAlign = 'center'
   if (right) styles.textAlign = 'right'

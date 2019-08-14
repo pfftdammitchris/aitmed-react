@@ -3,6 +3,7 @@ import React from 'react'
 export interface TypographyProps {
   className?: string
   style?: React.CSSProperties
+  color?: string
   primary?: boolean
   secondary?: boolean
   darkBlue?: boolean

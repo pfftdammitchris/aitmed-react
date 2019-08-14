@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info'
 import { muiTheme } from 'storybook-addon-material-ui'
 import theme from '../src/config/theme'
 
-const req = require.context('../stories', true, /.stories.tsx$/)
+const req = require.context('../src/stories', true, /.stories.tsx$/)
 
 addDecorator(muiTheme(theme))
 addDecorator(

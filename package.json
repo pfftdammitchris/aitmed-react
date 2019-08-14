@@ -1,6 +1,6 @@
 {
   "name": "@aitmed/react",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "React component library for TM",
   "author": "pfftdammitchris",
   "license": "MIT",
@@ -32,8 +32,7 @@
     "final-form": "^4.18.2",
     "final-form-arrays": "^3.0.1",
     "react-final-form": "^6.3.0",
-    "react-final-form-arrays": "^3.1.0",
-    "react-google-maps": "^9.4.5"
+    "react-final-form-arrays": "^3.1.0"
   },
   "peerDependencies": {
     "react": "^15.0.0 || ^16.0.0",
@@ -79,7 +78,7 @@
     "rollup-plugin-typescript2": "^0.17.0",
     "rollup-plugin-url": "^1.4.0",
     "storybook-addon-material-ui": "^0.9.0-alpha.20",
-    "typescript": "^3.6.0-dev.20190717"
+    "typescript": "^3.6.0-dev.20190810"
   },
   "files": [
     "dist"

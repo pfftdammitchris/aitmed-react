@@ -1,0 +1,41 @@
+import React from 'react'
+import cx from 'classnames'
+import MuiDivider from '@material-ui/core/Divider'
+import { makeStyles } from '@material-ui/styles'
+import { Theme } from '@material-ui/core'
+
+interface DividerProps {
+  classNames?: {
+    root?: string
+    absolute?: string
+    inset?: string
+    light?: string
+    middle?: string
+  }
+  margin?: string | number
+}
+
+const useStyles: (props: DividerProps) => any = makeStyles((theme: Theme) => ({
+  root: ({ margin }) => ({
+    margin: margin || `${theme.spacing(2.5) + 'px'} auto`,
+  }),
+}))
+
+const Divider: React.FC<DividerProps> = ({
+  classNames = {},
+  ...props
+}: any) => {
+  const classes = useStyles(props)
+
+  return (
+    <MuiDivider
+      classes={{
+        ...classNames,
+        root: cx(classes.root, classNames.root),
+      }}
+      {...props}
+    />
+  )
+}
+
+export default Divider

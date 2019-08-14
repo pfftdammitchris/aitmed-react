@@ -83,7 +83,10 @@
   },
   "import makeStyles": {
     "prefix": "wst",
-    "body": "import { makeStyles } from '@material-ui/styles'"
+    "body": [
+      "import { makeStyles } from '@material-ui/styles'",
+      "import { Theme } from '@material-ui/core'"
+    ]
   },
   "import theme": {
     "prefix": "wth",
@@ -128,5 +131,39 @@
   "import { useSelector, useDispatch } from 'react-redux'": {
     "prefix": "sdr",
     "body": "import { useSelector, useDispatch } from 'react-redux'"
+  },
+  "import Flex from components/Flex": {
+    "prefix": "flex",
+    "body": "import Flex from 'components/Flex'"
+  },
+  "import Divider from components/Divider": {
+    "prefix": "divider",
+    "body": "import Divider from 'components/Divider'"
+  },
+  "new component file": {
+    "prefix": "component",
+    "body": [
+      "import React from 'react'",
+      "import { makeStyles } from '@material-ui/styles'",
+      "import { Theme } from '@material-ui/core'",
+      "",
+      "interface $1Props {",
+      "  //",
+      "}",
+      "",
+      "const useStyles: (props: $1Props) => any = makeStyles((theme: Theme) => ({",
+      "  root: {",
+      "    //",
+      "  }",
+      "}))",
+      "",
+      "const $1 = (props: any) => {",
+      "  const classes = useStyles(props)",
+      "  ",
+      "  return <$1 />",
+      "}",
+      "",
+      "export default $1"
+    ]
   }
 }
