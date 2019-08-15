@@ -1,9 +1,11 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import { Form, Field } from 'react-final-form'
+import arrayMutators from 'final-form-arrays'
 import MuiTextField from '@material-ui/core/TextField'
 import Flex from 'components/Flex'
 import Typography from 'components/Typography'
+import OutlinedTextField from 'components/finalForm/OutlinedTextField'
 import Button from 'components/Button'
 import Divider from 'components/Divider'
 import Header from './Header'
@@ -15,6 +17,9 @@ import WorkStatusCheckboxes from './WorkStatusCheckboxes'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
+  textFieldRoot: {
+    fontSize: '0.72rem',
+  },
   actions: {
     padding: '12px 0',
   },
@@ -30,13 +35,21 @@ const PR2 = ({ initialValues, onSubmit, onCheck, ...props }) => {
   const classes = useStyles(undefined)
 
   const TextField = (props) => (
-    <MuiTextField margin="dense" variant="outlined" fullWidth {...props} />
+    <MuiTextField
+      classes={{ root: classes.textFieldRoot }}
+      margin="dense"
+      variant="outlined"
+      fullWidth
+      {...props}
+    />
   )
 
   return (
     <Form
+      keepDirtyOnReinitialize
       onSubmit={onSubmit}
       subscription={{ submitting: true }}
+      mutators={arrayMutators}
       render={({ handleSubmit, submitting }: any) => (
         <form onSubmit={handleSubmit} className={classes.root}>
           <Header />
@@ -63,7 +76,14 @@ const PR2 = ({ initialValues, onSubmit, onCheck, ...props }) => {
             may substitute or append a narrative report.
           </Typography>
           <Label>Subjective Complaints:</Label>
-          <TextField rows={5} rowsMax={10} multiline />
+          <Field
+            name="subjectiveComplaints"
+            component={OutlinedTextField}
+            rows={5}
+            rowsMax={10}
+            multiline
+            fullWidth
+          />
           <br />
           <br />
           <Label>
@@ -74,7 +94,14 @@ const PR2 = ({ initialValues, onSubmit, onCheck, ...props }) => {
               other diagnostic findings.)
             </Typography>
           </Label>
-          <TextField rows={5} rowsMax={10} multiline />
+          <Field
+            name="objectiveFindings"
+            component={OutlinedTextField}
+            rows={5}
+            rowsMax={10}
+            multiline
+            fullWidth
+          />
           <br />
           <br />
           <Label>Diagnoses:</Label>
@@ -90,17 +117,35 @@ const PR2 = ({ initialValues, onSubmit, onCheck, ...props }) => {
             codes is encouraged. Have there been any <strong>changes</strong> in
             treatment plan? If so, why?
           </Typography>
-          <TextField rows={5} rowsMax={10} multiline />
+          <Field
+            name="treatmentPlan"
+            component={OutlinedTextField}
+            rows={5}
+            rowsMax={10}
+            multiline
+            fullWidth
+          />
           <br />
           <br />
           <Label>Work Status:</Label>
-          <WorkStatusCheckboxes />
+          <Field name="workStatusForPatient" component={WorkStatusCheckboxes} />
           <Divider />
           <Flex spaceBetween>
             <Typography variant="caption">
               Primary Treating Physician: (Original signature, do not stamp)
             </Typography>
-            <TextField label="Date of Exam" />
+            <Field
+              name="dateOfExam"
+              type="date"
+              render={({ input, meta, ...rest }) => (
+                <TextField
+                  helperText="Date of Exam"
+                  FormHelperTextProps={{ style: { color: '#333' } }}
+                  {...input}
+                  {...rest}
+                />
+              )}
+            />
           </Flex>
           <Divider />
           <Typography variant="caption">
@@ -131,7 +176,13 @@ const PR2 = ({ initialValues, onSubmit, onCheck, ...props }) => {
             <Typography variant="body2">
               Next report due no later than: &nbsp;&nbsp;
             </Typography>
-            <MuiTextField />
+            <Field
+              name="nextReportDueNoLaterThan"
+              type="date"
+              render={({ input, meta, ...rest }) => (
+                <MuiTextField {...input} {...rest} />
+              )}
+            />
           </Flex>
           <Divider />
           <div className={classes.actions}>
@@ -187,14 +238,14 @@ const PR2 = ({ initialValues, onSubmit, onCheck, ...props }) => {
         ],
         treatmentPlan: '',
         workStatusForPatient: {
-          remainOffWorkUntil: '',
-          returnToModifiedWork: {
-            on: '',
-            limitations: '',
-          },
-          returnToFullDuty: {
-            on: '',
-          },
+          // remainOffWorkUntil: '',
+          // returnToModifiedWork: {
+          //   on: '',
+          //   limitations: '',
+          // },
+          // returnToFullDuty: {
+          //   on: '',
+          // },
         },
         employer: {
           name: '',

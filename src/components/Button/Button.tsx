@@ -4,6 +4,7 @@ import MaterialUIButton from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/styles'
 import { Theme } from '@material-ui/core'
 import cx from 'classnames'
+import { ButtonProps } from './types'
 
 const Link = (props: any) => <a {...props} />
 
@@ -312,7 +313,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-const Button: React.FC<any> = ({
+const Button: React.FC<ButtonProps> = ({
   className,
   children,
   primary,
@@ -383,10 +384,10 @@ const Button: React.FC<any> = ({
     [classes.hoverBlackOnThirdary]: hover.black === 'thirdary',
     [classes.hoverBlackOnWhite]: hover.black === 'white',
     [classes.hoverError]: !!hover.red || !!hover.danger || !!hover.error,
-    [classes.small]: !!small || size === 'small',
-    [classes.medium]: !!medium || size === 'medium',
-    [classes.large]: !!large || size === 'large',
-    [classes.xlarge]: !!xlarge || size === 'xlarge',
+    [classes.small]: !!small,
+    [classes.medium]: !!medium,
+    [classes.large]: !!large,
+    [classes.xlarge]: !!xlarge,
     [classes.disabled]: disabled,
     [classes.outlined]: !!outlined,
     [classes.textPrimary]: textColor === 'primary',
@@ -398,7 +399,7 @@ const Button: React.FC<any> = ({
       (!!thirdary || !!hover.primary),
     [classes.textNeutral]: (textColor === 'neutral' || !!outlined) && !!neutral,
     [classes.textDanger]:
-      (['error', 'red', 'danger'].includes(textColor) || !!outlined) &&
+      (['error', 'red', 'danger'].includes(textColor || '') || !!outlined) &&
       (!!danger ||
         !!red ||
         !!error ||
@@ -431,38 +432,5 @@ const Button: React.FC<any> = ({
     </Wrapper>
   )
 }
-
-// Button.propTypes = {
-//   classes: PropTypes.object.isRequired,
-//   children: PropTypes.node.isRequired,
-//   className: PropTypes.string,
-//   primary: PropTypes.bool,
-//   secondary: PropTypes.bool,
-//   thirdary: PropTypes.bool,
-//   neutral: PropTypes.bool,
-//   error: PropTypes.bool,
-//   red: PropTypes.bool,
-//   danger: PropTypes.bool,
-//   hover: PropTypes.shape({
-//     primary: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-//     secondary: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-//     thirdary: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-//     white: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-//     black: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-//   }),
-//   small: PropTypes.bool,
-//   medium: PropTypes.bool,
-//   large: PropTypes.bool,
-//   xlarge: PropTypes.bool,
-//   size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
-//   disabled: PropTypes.bool,
-//   outlined: PropTypes.bool,
-//   to: PropTypes.string,
-//   textColor: PropTypes.string,
-//   background: PropTypes.string,
-//   overwriteClassName: PropTypes.bool,
-//   overWrittenClassNames: PropTypes.string,
-//   centerOnSmall: PropTypes.bool,
-// }
 
 export default Button

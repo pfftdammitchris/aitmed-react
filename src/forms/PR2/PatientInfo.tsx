@@ -5,14 +5,16 @@ import { Theme } from '@material-ui/core'
 import Flex from 'components/Flex'
 import OutlinedTextField from 'components/finalForm/OutlinedTextField'
 
+interface PatientInfoProps {
+  name: string
+}
+
 const useStyles = makeStyles((theme: Theme) => ({
   root: {},
 }))
 
-const PatientInfo = ({ name, items = [], onCheck, ...props }) => {
+const PatientInfo: React.FC<PatientInfoProps> = ({ name, ...props }) => {
   const classes = useStyles(props)
-  const [checked, setChecked] = React.useState([])
-
   const WrappedTextField = (props) => <OutlinedTextField {...props} />
 
   return (

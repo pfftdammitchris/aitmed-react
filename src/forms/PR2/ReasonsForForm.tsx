@@ -1,6 +1,5 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { Theme } from '@material-ui/core'
 import FormGroup from '@material-ui/core/FormGroup'
 import Flex from 'components/Flex'
 import Checkbox from 'components/Checkbox'
@@ -45,6 +44,7 @@ const useStyles = makeStyles({
     fontSize: '0.72rem',
     marginLeft: 0,
     marginRight: 11,
+    userSelect: 'none',
   },
 })
 

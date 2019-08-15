@@ -20,4 +20,3 @@ The `Card` component is mainly used for Modal/Dialog, but can be used as part of
 | content  | string |
 | divider  | string |
 | header   | string |
-

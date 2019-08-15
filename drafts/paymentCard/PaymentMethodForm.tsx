@@ -9,7 +9,7 @@
 */
 import React from 'react'
 import { Form, Field } from 'react-final-form'
-import withStyles from '@material-ui/core/styles/withStyles'
+import { makeStyles } from '@material-ui/styles'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import Fade from '@material-ui/core/Fade'
@@ -17,14 +17,14 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import teal from '@material-ui/core/colors/teal'
 import Cards from 'react-credit-cards'
-import LoadingSpinner from 'components/common/LoadingSpinner'
-import Typography from 'components/common/Typography'
+import LoadingSpinner from 'components/LoadingSpinner'
+import Typography from 'components/Typography'
 import useCreditCard from './useCreditCard'
-import { PaymentMethodFormProps } from './types'
 import { months, years, states } from './paymentUtils'
 import 'react-credit-cards/es/styles-compiled.css'
+import * as T from './types'
 
-const styles = (theme: any) => ({
+const useStyles = makeStyles((theme: any) => ({
   buttonContainer: {
     marginTop: '25px',
   },
@@ -58,10 +58,9 @@ const styles = (theme: any) => ({
     margin: 0,
     marginBottom: 10,
   },
-})
+}))
 
-const PatientPortalPaymentMethodForm: React.FC<PaymentMethodFormProps> = ({
-  classes,
+const PatientPortalPaymentMethodForm: React.FC<T.PaymentMethodFormProps> = ({
   initialValues,
   onSubmit,
   submitting,
@@ -69,6 +68,7 @@ const PatientPortalPaymentMethodForm: React.FC<PaymentMethodFormProps> = ({
   midLabel = '', // Provided for convenience to render something between the card image and the form because it looks better
   ...otherProps
 }) => {
+  const classes: any = useStyles()
   const { parse, getCardProps, getActive } = useCreditCard()
 
   const renderTextField: React.FC<any> = ({
@@ -272,4 +272,4 @@ const PatientPortalPaymentMethodForm: React.FC<PaymentMethodFormProps> = ({
   )
 }
 
-export default withStyles(styles)(PatientPortalPaymentMethodForm)
+export default PatientPortalPaymentMethodForm

@@ -1,6 +1,6 @@
 import React from 'react'
+import Typography from '@material-ui/core/Typography'
 import { storiesOf } from '@storybook/react'
-import Typography from 'components/Typography'
 import Card from 'components/Card'
 import doc from './docs/card.md'
 

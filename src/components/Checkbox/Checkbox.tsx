@@ -13,6 +13,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import TextField from '@material-ui/core/TextField'
 
 interface Props {
+  wrapperRootProps?: any
   wrapperProps?: any
   classNames?: any
   label?: React.ReactNode
@@ -20,22 +21,26 @@ interface Props {
   onChange: (e: any) => void
   value: any
   withTextField?: object | false
+  textField?: React.ReactNode
 }
 
 const Checkbox: React.FC<Props> = ({
+  wrapperRootProps,
   wrapperProps,
   classNames,
   label,
   withTextField,
+  textField,
   ...rest
 }) => (
-  <div style={{ flexGrow: 1 }}>
+  <div style={{ flexGrow: 1 }} {...wrapperRootProps}>
     <FormControlLabel
       control={<MuiCheckbox classes={classNames} {...rest} />}
       label={label}
       {...wrapperProps}
     />
-    {withTextField && <TextField {...withTextField} />}
+    {!textField && withTextField && <TextField {...withTextField} />}
+    {textField}
   </div>
 )
 

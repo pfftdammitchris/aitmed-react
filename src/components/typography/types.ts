@@ -3,6 +3,8 @@ import React from 'react'
 export interface TypographyProps {
   className?: string
   style?: React.CSSProperties
+  gutterBottom?: boolean
+  paragraph?: boolean
   color?: string
   primary?: boolean
   secondary?: boolean

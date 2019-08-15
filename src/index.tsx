@@ -3,7 +3,7 @@ export { default } from './AiTmedReact'
 // export { default as Button } from './components/button'
 // export { default as Cardv2 } from './components/cardv2'
 // export { default as Link } from './components/link'
-// export { default as Typography } from './components/typography'
+// export { default as Typography } from './components/Typography'
 // Hooks
 export {
   default as useCheckboxesObjectized,
