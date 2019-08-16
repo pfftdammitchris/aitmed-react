@@ -4,7 +4,7 @@
 
 ```jsx
 import React from 'react'
-import CreditCardForm from '@aitmed/react/components/forms/CreditCard'
+import { CreditCardForm } from '@aitmed/react'
 
 const onSubmit = (values) => {
   console.log(values)

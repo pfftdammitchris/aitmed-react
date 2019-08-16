@@ -24,7 +24,7 @@ const thirdary: any = {
   dark: '#FC9208',
 }
 
-const themeObj: any = {
+const themeObj = {
   palette: {
     background: {
       dark: '#0E0F12',
@@ -164,6 +164,6 @@ const themeObj: any = {
   },
 }
 
-const theme: any = createMuiTheme(themeObj)
+const theme = createMuiTheme(themeObj)
 
 export default theme

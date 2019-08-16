@@ -2,13 +2,11 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import { storiesOf } from '@storybook/react'
 import Card from 'components/Card'
-import doc from './docs/card.md'
+import readme from './docs/card.md'
 
 storiesOf('Card', module)
-  .addParameters({
-    info: {
-      text: doc,
-    },
+  .add('README', () => <div />, {
+    readme: { content: readme },
   })
   .add('default', () => (
     <Card

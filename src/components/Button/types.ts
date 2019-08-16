@@ -23,4 +23,5 @@ export interface ButtonProps {
   overwriteClassName?: boolean
   overWrittenClassNames?: string
   centerOnSmall?: boolean
+  type?: 'button' | 'submit'
 }

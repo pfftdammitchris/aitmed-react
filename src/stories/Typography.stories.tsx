@@ -2,6 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import Grid from '@material-ui/core/Grid'
 import Typography from 'components/Typography'
+import readme from './docs/typography.md'
 
 const lorem = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
 explicabo ipsa eveniet porro ullam itaque possimus natus aperiam corrupti
@@ -9,6 +10,14 @@ vitae laboriosam debitis laudantium excepturi ducimus maxime necessitatibus
 adipisci, officia perferendis.`
 
 storiesOf('Typography', module)
+  .addParameters({
+    info: {
+      text: '',
+    },
+  })
+  .add('README', () => <div />, {
+    readme: { content: readme },
+  })
   .add('default', () => <Typography>{lorem}</Typography>)
   .add('primary', () => <Typography primary>{lorem}</Typography>)
   .add('secondary', () => <Typography secondary>{lorem}</Typography>)

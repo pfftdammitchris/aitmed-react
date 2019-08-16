@@ -1,6 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import Flex from 'components/Flex'
+import getCodeDoc from 'utils/getCodeDoc'
+import readme from './docs/flex.md'
 
 storiesOf('Flex', module)
   .addParameters({
@@ -8,4 +10,7 @@ storiesOf('Flex', module)
       text: '',
     },
   })
-  .add('Stub', () => <Flex>Coming Soon</Flex>)
+  .add('README', () => <div />, {
+    readme: { content: readme },
+  })
+  .add('default', () => <Flex />)

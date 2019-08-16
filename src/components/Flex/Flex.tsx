@@ -1,16 +1,29 @@
 import React from 'react'
+import { makeStyles } from '@material-ui/styles'
+import { Theme } from '@material-ui/core'
+import cx from 'classnames'
 
 interface Props {
-  style?: React.CSSProperties
   center?: boolean
-  spaceBetween?: boolean
-  spaceAround?: boolean
   flexStart?: boolean
   flexEnd?: boolean
   flexGrow?: number
   flexWrap?: 'nowrap' | 'wrap'
+  spaceBetween?: boolean
+  spaceAround?: boolean
+  style?: React.CSSProperties
   wrap?: boolean
+  xsBlock?: boolean // In some cases we need an escape hatch to do display: 'block' on small screens
 }
+
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {},
+  xsBlock: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'block !important',
+    },
+  },
+}))
 
 function computeJustify(props: Props) {
   if (props.center) return 'center'
@@ -22,6 +35,7 @@ function computeJustify(props: Props) {
 }
 
 const Flex: React.FC<Props> = (props) => {
+  const classes = useStyles(props)
   const {
     style,
     center,
@@ -32,10 +46,14 @@ const Flex: React.FC<Props> = (props) => {
     flexGrow,
     flexWrap,
     wrap,
+    xsBlock,
     ...rest
   } = props
   return (
     <div
+      className={cx(classes.root, {
+        [classes.xsBlock]: !!xsBlock,
+      })}
       style={{
         display: 'flex',
         justifyContent: computeJustify(props),
