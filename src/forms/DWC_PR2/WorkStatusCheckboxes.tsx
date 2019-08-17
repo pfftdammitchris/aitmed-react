@@ -26,7 +26,7 @@ interface WorkStatusCheckboxesProps {
   meta: any
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {},
   checkboxRoot: {
     color: '#333',

@@ -13,7 +13,7 @@ npm install --save aitmed-react
 ## Usage
 
 ```tsx
-import * as React from 'react'
+import React from 'react'
 
 import MyComponent from 'aitmed-react'
 

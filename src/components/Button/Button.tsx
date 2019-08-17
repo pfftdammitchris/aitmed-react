@@ -1,14 +1,12 @@
-// UNDER CONSTRUCTION
-import React, { Fragment } from 'react'
+import React from 'react'
 import MaterialUIButton from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/styles'
-import { Theme } from '@material-ui/core'
 import cx from 'classnames'
 import { ButtonProps } from './types'
 
 const Link = (props: any) => <a {...props} />
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {
     position: 'relative',
     borderRadius: 50,
@@ -343,10 +341,8 @@ const Button: React.FC<ButtonProps> = ({
   const muiSizes = ['small', 'medium', 'large']
 
   const Wrapper = ({ children }: any) => {
-    const WrapperComponent = to ? Link : Fragment
-    const wrapperProps: any = {}
-    if (to) wrapperProps.to = to
-    return <WrapperComponent {...wrapperProps}>{children}</WrapperComponent>
+    if (to) return <Link to={to}>{children}</Link>
+    return <>{children}</>
   }
 
   const classNames = cx(classes.root, className, {

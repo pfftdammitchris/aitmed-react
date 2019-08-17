@@ -126,7 +126,7 @@
   },
   "material useStyles": {
     "prefix": "cst",
-    "body": ["const useStyles = makeStyles((theme: Theme) => ({", "  $1", "}))"]
+    "body": ["const useStyles = makeStyles((theme: any) => ({", "  $1", "}))"]
   },
   "import { useSelector, useDispatch } from 'react-redux'": {
     "prefix": "sdr",
@@ -151,7 +151,7 @@
       "  //",
       "}",
       "",
-      "const useStyles: (props: $1Props) => any = makeStyles((theme: Theme) => ({",
+      "const useStyles: (props: $1Props) => any = makeStyles((theme: any) => ({",
       "  root: {",
       "    //",
       "  }",

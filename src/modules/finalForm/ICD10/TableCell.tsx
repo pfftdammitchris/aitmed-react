@@ -8,20 +8,18 @@ interface TableCellProps {
 }
 
 // cell name example:  diagnosis.code, diagnosis.description, diagnosis.comment
-const useStyles: (props: TableCellProps) => any = makeStyles(
-  (theme: Theme) => ({
-    cellRoot: {},
-    cellHead: {
-      backgroundColor: theme.palette.background.dark,
-      color: theme.palette.common.white,
-    },
-    cellBody: {
-      fontSize: 14,
-      padding: '0 !important',
-    },
-    cellFooter: {},
-  }),
-)
+const useStyles: (props: TableCellProps) => any = makeStyles((theme: any) => ({
+  cellRoot: {},
+  cellHead: {
+    backgroundColor: theme.palette.background.dark,
+    color: theme.palette.common.white,
+  },
+  cellBody: {
+    fontSize: 14,
+    padding: '0 !important',
+  },
+  cellFooter: {},
+}))
 
 const TableCell = ({ children, ...rest }: any) => {
   const classes = useStyles(rest)

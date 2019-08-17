@@ -22,7 +22,7 @@ interface ICD10SearchInputProps {
   onKeyPress: (e: any) => void
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {
     margin: 'auto',
   },

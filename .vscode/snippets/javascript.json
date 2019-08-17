@@ -151,7 +151,7 @@
       "  //",
       "}",
       "",
-      "const useStyles: (props: $1Props) => any = makeStyles((theme: Theme) => ({",
+      "const useStyles: (props: $1Props) => any = makeStyles((theme: any) => ({",
       "  root: {",
       "    //",
       "  }",

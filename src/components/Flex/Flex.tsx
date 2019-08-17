@@ -1,6 +1,5 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { Theme } from '@material-ui/core'
 import cx from 'classnames'
 
 interface Props {
@@ -16,7 +15,7 @@ interface Props {
   xsBlock?: boolean // In some cases we need an escape hatch to do display: 'block' on small screens
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {},
   xsBlock: {
     [theme.breakpoints.down('xs')]: {

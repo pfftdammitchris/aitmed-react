@@ -10,7 +10,7 @@ import svgr from '@svgr/rollup'
 import pkg from './package.json'
 
 export default {
-  input: 'src/index.tsx',
+  input: './src/index.tsx',
   output: [
     {
       file: pkg.main,
@@ -41,6 +41,7 @@ export default {
       abortOnError: false,
       check: false,
       clean: true,
+      importHelpers: true,
       rollupCommonJSResolveHack: true,
     }),
     commonjs(),

@@ -2,7 +2,6 @@ import React from 'react'
 import cx from 'classnames'
 import MuiDivider from '@material-ui/core/Divider'
 import { makeStyles } from '@material-ui/styles'
-import { Theme } from '@material-ui/core'
 
 interface DividerProps {
   classNames?: {
@@ -15,7 +14,7 @@ interface DividerProps {
   margin?: string | number
 }
 
-const useStyles: (props: DividerProps) => any = makeStyles((theme: Theme) => ({
+const useStyles: (props: DividerProps) => any = makeStyles((theme: any) => ({
   root: ({ margin }) => ({
     margin: margin || `${theme.spacing(2.5) + 'px'} auto`,
   }),

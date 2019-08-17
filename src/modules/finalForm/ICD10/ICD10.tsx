@@ -12,7 +12,7 @@ interface ICD10Props {
   meta: any
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {
     padding: '15px 0',
     '& hr': {

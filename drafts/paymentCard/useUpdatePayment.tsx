@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { error as toastError, success as toastSuccess } from 'util/toast'
 import { fetchPaymentProfile } from 'actions/patients'

@@ -16,7 +16,7 @@ interface RowRendererProps {
   isHighlighted: boolean
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   field: {
     '&:hover': {
       '& $closeIcon': {

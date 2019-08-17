@@ -5,12 +5,8 @@ import getCodeDoc from 'utils/getCodeDoc'
 import readme from './docs/divider.md'
 
 storiesOf('Divider', module)
-  .addParameters({
-    info: {
-      text: '',
-    },
-  })
   .add('README', () => <div />, {
     readme: { content: readme },
   })
   .add('default', () => <Divider />)
+  .add('margin 35px auto', () => <Divider margin="35px auto" />)

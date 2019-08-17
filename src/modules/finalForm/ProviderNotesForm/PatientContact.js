@@ -36,7 +36,7 @@ ProviderMeetingDrawerPatientContact.propTypes = {
   firstName: PropTypes.string,
   middleName: PropTypes.string,
   lastName: PropTypes.string,
-  primaryPhoneNum:PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  primaryPhoneNum: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export default React.memo(ProviderMeetingDrawerPatientContact)

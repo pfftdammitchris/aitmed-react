@@ -10,11 +10,6 @@ vitae laboriosam debitis laudantium excepturi ducimus maxime necessitatibus
 adipisci, officia perferendis.`
 
 storiesOf('Typography', module)
-  .addParameters({
-    info: {
-      text: '',
-    },
-  })
   .add('README', () => <div />, {
     readme: { content: readme },
   })

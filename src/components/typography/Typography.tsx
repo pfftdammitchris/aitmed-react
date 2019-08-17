@@ -1,4 +1,3 @@
-// UNDER CONSTRUCTION
 import React from 'react'
 import cx from 'classnames'
 import { Typography as MUITypography } from '@material-ui/core'

@@ -20,7 +20,7 @@ interface ICD10PopupMenuProps {
   highlightedIndex: number | null
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   list: {
     borderRadius: 12,
     background: theme.palette.background.cool,

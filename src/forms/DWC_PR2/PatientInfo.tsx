@@ -9,7 +9,7 @@ interface PatientInfoProps {
   name: string
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {},
   textFieldRoot: {
     [theme.breakpoints.down('xs')]: {

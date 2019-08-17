@@ -15,7 +15,7 @@ interface DWC_1Props {
   onSubmit: (values: any) => Promise<void>
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {},
   textFieldRoot: {},
   actions: {

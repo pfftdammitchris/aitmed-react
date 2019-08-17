@@ -10,11 +10,4 @@ export interface DWC_1FormValues {
     time?: string
     address?: string
   }
-  name?: string
-  name?: string
-  name?: string
-  name?: string
-  name?: string
-  name?: string
-  name?: string
 }

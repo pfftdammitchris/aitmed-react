@@ -35,7 +35,7 @@ interface ReasonsForFormProps {
   withTextfields: string[]
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {},
   checkboxRoot: {
     color: '#333',
