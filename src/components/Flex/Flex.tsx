@@ -7,10 +7,12 @@ interface Props {
   flexStart?: boolean
   flexEnd?: boolean
   flexGrow?: number
+  flexDirection?: 'unset' | 'column' | 'column-reverse' | 'row' | 'row-reverse'
   flexWrap?: 'nowrap' | 'wrap'
   spaceBetween?: boolean
   spaceAround?: boolean
   style?: React.CSSProperties
+  textAlign?: 'left' | 'center' | 'right'
   wrap?: boolean
   xsBlock?: boolean // In some cases we need an escape hatch to do display: 'block' on small screens
 }
@@ -20,6 +22,11 @@ const useStyles = makeStyles((theme: any) => ({
   xsBlock: {
     [theme.breakpoints.down('xs')]: {
       display: 'block !important',
+    },
+  },
+  spaced: {
+    '& fieldset': {
+      marginRight: 4,
     },
   },
 }))
@@ -43,7 +50,9 @@ const Flex: React.FC<Props> = (props) => {
     flexStart,
     flexEnd,
     flexGrow,
+    flexDirection,
     flexWrap,
+    textAlign,
     wrap,
     xsBlock,
     ...rest
@@ -58,6 +67,8 @@ const Flex: React.FC<Props> = (props) => {
         justifyContent: computeJustify(props),
         alignItems: 'center',
         flexGrow,
+        flexDirection,
+        textAlign,
         flexWrap: wrap ? 'wrap' : flexWrap,
         ...style,
       }}

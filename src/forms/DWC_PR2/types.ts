@@ -38,7 +38,7 @@ export interface DWC_PR2FormValues {
     state?: string
     zip?: string | number
     occupation?: string
-    socialSecurity?: string | number
+    ssn?: string | number
     phone?: string
   }
   claimsAdministrator: {

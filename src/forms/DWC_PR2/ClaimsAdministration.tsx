@@ -10,7 +10,7 @@ interface ClaimsAdministrationProps {
   name: string
 }
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   textFieldRoot: {
     [theme.breakpoints.down('xs')]: {
       width: '100% !important',

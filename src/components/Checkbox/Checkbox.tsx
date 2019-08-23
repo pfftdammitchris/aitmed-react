@@ -15,9 +15,11 @@ import TextField from '@material-ui/core/TextField'
 interface Props {
   wrapperRootProps?: any
   wrapperProps?: any
+  checkboxProps?: any
+  classes?: any
   classNames?: any
   label?: React.ReactNode
-  checked: boolean
+  checked?: boolean
   onChange: (e: any) => void
   value: any
   withTextField?: object | false
@@ -27,6 +29,7 @@ interface Props {
 const Checkbox: React.FC<Props> = ({
   wrapperRootProps,
   wrapperProps,
+  checkboxProps,
   classNames,
   label,
   withTextField,
@@ -35,9 +38,9 @@ const Checkbox: React.FC<Props> = ({
 }) => (
   <div style={{ flexGrow: 1 }} {...wrapperRootProps}>
     <FormControlLabel
-      control={<MuiCheckbox classes={classNames} {...rest} />}
+      control={<MuiCheckbox classes={classNames} {...checkboxProps} />}
       label={label}
-      {...wrapperProps}
+      {...rest}
     />
     {!textField && withTextField && <TextField {...withTextField} />}
     {textField}

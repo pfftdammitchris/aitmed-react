@@ -23,7 +23,7 @@ interface DWC_PR2Props {
   onSubmit: (values: any) => Promise<void>
 }
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {},
   textFieldRoot: {},
   actions: {

@@ -69,10 +69,8 @@ const WorkStatusCheckboxes: React.FC<WorkStatusCheckboxesProps> = ({
   })
 
   const checkboxProps = {
-    wrapperProps: {
-      classes: {
-        label: classes.checkboxLabel,
-      },
+    classes: {
+      label: classes.checkboxLabel,
     },
     classNames: {
       root: classes.checkboxRoot,

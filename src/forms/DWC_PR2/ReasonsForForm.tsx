@@ -35,7 +35,7 @@ interface ReasonsForFormProps {
   withTextfields: string[]
 }
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {},
   checkboxRoot: {
     color: '#333',
@@ -134,10 +134,8 @@ const ReasonsForForm: React.FC<ReasonsForFormProps> = ({
           {list.map((key: string) => (
             <Checkbox
               key={key}
-              wrapperProps={{
-                classes: {
-                  label: classes.checkboxLabel,
-                },
+              classes={{
+                label: classes.checkboxLabel,
               }}
               classNames={{
                 root: classes.checkboxRoot,

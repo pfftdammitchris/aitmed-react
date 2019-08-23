@@ -5,6 +5,7 @@ import { Theme } from '@material-ui/core'
 import Signature from 'react-signature-canvas'
 import Typography from 'components/Typography'
 import Button from 'components/Button'
+import Flex from 'components/Flex'
 
 interface SignatureCanvasProps {
   input: {
@@ -150,13 +151,16 @@ const FinalFormSignatureCanvas: React.FC<SignatureCanvasProps> = ({
   return (
     <div className={classes.root}>
       <div className={classes.contentRoot}>
-        <Typography
-          className={cx(classes.x, classNames.x)}
-          variant="h2"
-          {...xProps}
-        >
-          X
-        </Typography>
+        <Flex flexDirection="column">
+          <Typography variant="caption">Signature</Typography>
+          <Typography
+            className={cx(classes.x, classNames.x)}
+            variant="h2"
+            {...xProps}
+          >
+            X
+          </Typography>
+        </Flex>
         <div
           className={cx(classes.canvasContainer, classNames.canvasContainer)}
           {...canvasContainerProps}
