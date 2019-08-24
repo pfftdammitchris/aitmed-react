@@ -1,7 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
 import { makeStyles } from '@material-ui/styles'
-import { Theme } from '@material-ui/core'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Input from '@material-ui/core/Input'
 import { IoIosSearch } from 'react-icons/io'
@@ -91,6 +90,30 @@ const ICD10SearchInput: React.FC<ICD10SearchInputProps> = ({
 }) => {
   const classes = useStyles()
 
+  // Extracted this outside because TS was giving a weird error
+  const SearchInput: React.FC<any> = ({ getInputProps, ...props }) => (
+    <Input
+      {...getInputProps({
+        startAdornment: (
+          <IoIosSearch
+            className={cx(classes.searchIcon, {
+              [classes.searchIconSearching]: fetching,
+            })}
+          />
+        ),
+        endAdornment: (
+          <LoadingSpinner className={classes.spinner} loading={fetching} />
+        ),
+        placeholder: ' Find references',
+        disableUnderline: true,
+        className: classes.input,
+        title: 'Search ICD10 diagnosis',
+        onKeyPress,
+        ...props,
+      })}
+    />
+  )
+
   return (
     <Downshift
       onSelect={onSelect}
@@ -107,35 +130,14 @@ const ICD10SearchInput: React.FC<ICD10SearchInputProps> = ({
         isOpen,
       }) => (
         <div className={classes.inputWrapper}>
-          <Input
-            {...getInputProps({
-              startAdornment: (
-                <IoIosSearch
-                  className={cx(classes.searchIcon, {
-                    [classes.searchIconSearching]: fetching,
-                  })}
-                />
-              ),
-              endAdornment: (
-                <LoadingSpinner
-                  className={classes.spinner}
-                  loading={fetching}
-                />
-              ),
-              placeholder: ' Find references',
-              disableUnderline: true,
-              className: classes.input,
-              title: 'Search ICD10 diagnosis',
-              onKeyPress,
-            })}
-          />
+          <SearchInput getInputProps={getInputProps} />
           {!!codes.length && (
             <ICD10PopupMenu
               codes={codes}
               results={results}
               total={total}
               isOpen={isOpen}
-              inputValue={inputValue}
+              inputValue={inputValue || ''}
               getMenuProps={getMenuProps}
               getItemProps={getItemProps}
               highlightedIndex={highlightedIndex}

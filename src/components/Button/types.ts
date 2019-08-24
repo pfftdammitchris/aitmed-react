@@ -14,7 +14,7 @@ export interface ButtonProps {
   medium?: boolean
   large?: boolean
   xlarge?: boolean
-  size?: boolean
+  size?: Size
   disabled?: boolean
   outlined?: boolean
   to?: string
@@ -25,3 +25,5 @@ export interface ButtonProps {
   centerOnSmall?: boolean
   type?: 'button' | 'submit'
 }
+
+export type Size = 'small' | 'medium' | 'large'

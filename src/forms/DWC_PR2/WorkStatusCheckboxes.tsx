@@ -1,6 +1,7 @@
 import React from 'react'
+import { FieldProps } from 'react-final-form'
 import { makeStyles } from '@material-ui/styles'
-import { FormGroup, TextField, Theme } from '@material-ui/core'
+import { FormGroup, TextField } from '@material-ui/core'
 import get from 'lodash/get'
 import has from 'lodash/has'
 import Flex from 'components/Flex'
@@ -8,7 +9,7 @@ import Checkbox from 'components/Checkbox'
 import Typography from 'components/Typography'
 import useObjectizedCheckboxes from 'hooks/finalForm/useObjectizedCheckboxes'
 
-interface WorkStatusCheckboxesProps {
+interface WorkStatusCheckboxesProps extends FieldProps<any, any> {
   input: {
     name: 'workStatusForPatient'
     value: {

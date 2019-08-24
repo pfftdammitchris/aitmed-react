@@ -1,6 +1,5 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { Theme } from '@material-ui/core'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableHeader from './TableHeader'
@@ -38,7 +37,7 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }))
 
-const ICD10: React.FC<ICD10Props> = ({ fields = [], meta }) => {
+const ICD10: React.FC<ICD10Props> = ({ fields = [] }) => {
   const classes = useStyles()
   const [highlightedField, setHighlightedField] = React.useState(0)
 

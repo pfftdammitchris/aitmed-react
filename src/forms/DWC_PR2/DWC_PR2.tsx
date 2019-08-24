@@ -1,6 +1,5 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { Theme } from '@material-ui/core'
 import { Form, Field } from 'react-final-form'
 import { FieldArray } from 'react-final-form-arrays'
 import arrayMutators from 'final-form-arrays'
@@ -23,13 +22,13 @@ interface DWC_PR2Props {
   onSubmit: (values: any) => Promise<void>
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles({
   root: {},
   textFieldRoot: {},
   actions: {
     padding: '12px 0',
   },
-}))
+})
 
 const Label: React.FC<any> = ({ children, ...rest }) => (
   <Typography variant="overline" fontWeight={700} {...rest}>
@@ -51,8 +50,22 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
     />
   )
 
-  const WrappedOutlinedTextField = (props) => (
+  const WrappedOutlinedTextField: React.FC<any> = (props) => (
     <OutlinedTextField classes={{ root: classes.textFieldRoot }} {...props} />
+  )
+
+  // Extracted these fields outside since TS was giving a useless component prop error
+  const workStatusForPatient = (
+    // @ts-ignore
+    <Field name="workStatusForPatient" component={WorkStatusCheckboxes} />
+  )
+  const signatureCanvas = (
+    <Field
+      // @ts-ignore
+      component={SignatureCanvas}
+      name="signature"
+      signatureRef={signatureRef}
+    />
   )
 
   return (
@@ -60,6 +73,7 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
       keepDirtyOnReinitialize
       onSubmit={onSubmit}
       subscription={{ submitting: true }}
+      // @ts-ignore
       mutators={arrayMutators}
       render={({ handleSubmit, submitting }: any) => (
         <form onSubmit={handleSubmit} className={classes.root}>
@@ -74,6 +88,7 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
           <Divider margin="10px auto" />
           <Field
             name="reasonsForForm"
+            // @ts-ignore
             component={ReasonsForForm}
             withTextfields={['infoRequestedBy', 'other']}
           />
@@ -141,7 +156,7 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
           <br />
           <br />
           <Label>Work Status:</Label>
-          <Field name="workStatusForPatient" component={WorkStatusCheckboxes} />
+          {workStatusForPatient}
           <Divider />
           <Flex spaceBetween>
             <Typography variant="caption">
@@ -232,11 +247,7 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
             />
           </Flex>
           <Divider />
-          <Field
-            component={SignatureCanvas}
-            name="signature"
-            signatureRef={signatureRef}
-          />
+          {signatureCanvas}
           <div className={classes.actions}>
             <Button
               type="submit"

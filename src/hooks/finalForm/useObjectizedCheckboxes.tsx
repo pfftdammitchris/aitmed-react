@@ -1,3 +1,4 @@
+// @ts-ignore
 import React from 'react'
 import useCache from 'hooks/useCache'
 import cloneDeep from 'lodash/cloneDeep'
@@ -6,7 +7,7 @@ import has from 'lodash/has'
 import set from 'lodash/set'
 import unset from 'lodash/unset'
 
-const useObjectizedCheckboxes = ({ input }) => {
+const useObjectizedCheckboxes = ({ input }: any) => {
   const { cache, onMountRef } = useCache()
 
   function updateOnBlur(key: string) {

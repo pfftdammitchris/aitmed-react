@@ -74,7 +74,9 @@ const ICD10Searcher: React.FC<ICD10SearcherProps> = ({
         results={results}
         total={total}
         fetching={fetching}
+        // @ts-ignore
         onSelect={onSelect}
+        // @ts-ignore
         onInputValueChange={onSearch}
         highlightedField={highlightedField}
         stringify={stringify}

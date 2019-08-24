@@ -18,6 +18,7 @@ storiesOf('CreditCard', module)
   .add('README', () => <div />, {
     readme: { content: readme },
   })
+  // @ts-ignore
   .add('default', () => <CreditCardForm onSubmit={onSubmit} />, {
     readme: {
       content: getCodeDoc(`
@@ -35,6 +36,7 @@ const App = () => <CreditCardForm onSubmit={onSubmit} />
   .add(
     'initialValues',
     () => (
+      // @ts-ignore
       <CreditCardForm
         onSubmit={onSubmit}
         initialValues={{
@@ -82,6 +84,7 @@ const App = () => (
     },
   )
   .add('renderSubmit', () => (
+    // @ts-ignore
     <CreditCardForm
       onSubmit={onSubmit}
       renderSubmit={(props: any) => {
@@ -104,6 +107,7 @@ const App = () => (
     />
   ))
   .add('midLabel', () => (
+    // @ts-ignore
     <CreditCardForm
       onSubmit={onSubmit}
       midLabel={
@@ -114,6 +118,7 @@ const App = () => (
     />
   ))
   .add('submittingText', () => (
+    // @ts-ignore
     <CreditCardForm
       onSubmit={onSubmit}
       submittingText="Please wait while we process your credit card..."

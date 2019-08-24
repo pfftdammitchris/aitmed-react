@@ -75,7 +75,7 @@ const ClaimsAdministration: React.FC<ClaimsAdministrationProps> = ({
             {...input}
             {...rest}
           >
-            {[undefined, ...states].map((state: string, index: number) => (
+            {[undefined, ...states].map((state: any, index: number) => (
               <option key={`state${index}`} value={state}>
                 {state}
               </option>

@@ -146,6 +146,7 @@ const DWC_1_Employee = ({ name, signatureRef, ...rest }: any) => {
         />
       </div>
       <Field
+        // @ts-ignore
         component={SignatureCanvas}
         name={`${name}.signature`}
         signatureRef={signatureRef}

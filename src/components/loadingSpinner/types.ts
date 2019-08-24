@@ -19,6 +19,7 @@ export interface LoadingSpinnerProps extends SpinnerWithWidthProps {
   childrenClassName?: string
   wrapperStyle?: React.CSSProperties
   childrenStyle?: React.CSSProperties
+  margin?: string
   fullscreen?: boolean
   dim?: boolean
   white?: boolean

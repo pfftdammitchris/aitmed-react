@@ -1,6 +1,5 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { Theme } from '@material-ui/core'
 import MuiTextField from '@material-ui/core/TextField'
 import cx from 'classnames'
 import Typography from 'components/Typography'
@@ -16,7 +15,7 @@ interface FinalFormOutlinedTextFieldProps {
   marginRight?: number
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles({
   root: {
     //
   },
@@ -26,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         marginRight: wrapperProps.marginRight,
       },
     },
-}))
+})
 
 const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = (
   props,

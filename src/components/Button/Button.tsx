@@ -326,7 +326,7 @@ const Button: React.FC<ButtonProps> = ({
   medium,
   large,
   xlarge,
-  size,
+  size = 'medium',
   disabled,
   outlined,
   to,

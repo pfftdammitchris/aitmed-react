@@ -24,7 +24,7 @@ const thirdary: any = {
   dark: '#FC9208',
 }
 
-const themeObj = {
+const themeObj: any = {
   palette: {
     background: {
       dark: '#0E0F12',

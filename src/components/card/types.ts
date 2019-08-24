@@ -6,7 +6,7 @@ export interface Cardv2Props {
     divider?: string
     header?: string
   }
-  contentProps: any
+  contentProps?: any
   render?: any
   square?: boolean
 }

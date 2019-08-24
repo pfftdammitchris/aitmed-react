@@ -1,10 +1,10 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { Form, Field } from 'react-final-form'
+import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
 import Button from 'components/Button'
-import Divider from 'components/Divider'
-import EmployeeFields from './Employee'
+// import Divider from 'components/Divider'
+// import EmployeeFields from './Employee'
 import EmployerFields from './Employer'
 import { DWC_1FormValues } from './types'
 
@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 
 const DWC_1: React.FC<DWC_1Props> = ({ initialValues, onSubmit, ...props }) => {
   const classes = useStyles(undefined)
-  const employeeSignatureRef = React.useRef()
+  // const employeeSignatureRef = React.useRef()
   const employerSignatureRef = React.createRef()
 
   // const TextField: React.FC<any> = (props) => (

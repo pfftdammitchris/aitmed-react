@@ -8,11 +8,11 @@ import Button from 'components/Button'
 import Flex from 'components/Flex'
 
 interface SignatureCanvasProps {
-  input: {
+  input?: {
     value?: boolean
     onChange: (value: boolean) => void
   }
-  meta: any
+  meta?: any
   value?: boolean
   onChange?: (value: boolean) => void
   canvasContainerProps?: any
@@ -29,7 +29,7 @@ interface SignatureCanvasProps {
   hideClear?: boolean
   onDrawEnd?: () => void
   penColor?: string
-  signatureRef: { current: null | any }
+  signatureRef?: { current: null | any }
   signatureInputRef?: { current: null | any }
   signatureCaption?: React.ReactNode
   xProps?: any
@@ -128,7 +128,9 @@ const FinalFormSignatureCanvas: React.FC<SignatureCanvasProps> = ({
 
   const onDraw = () => {
     if (!value && typeof onChange === 'function') onChange(true)
+    // @ts-ignore
     if (signatureRef.current) {
+      // @ts-ignore
       setTrimmedUrl(signatureRef.current.toDataURL('image/png'))
     } else {
       console.warn(
@@ -139,6 +141,7 @@ const FinalFormSignatureCanvas: React.FC<SignatureCanvasProps> = ({
 
   const clear = () => {
     if (typeof onChange === 'function') onChange(false)
+    // @ts-ignore
     if (signatureRef.current != null) signatureRef.current.clear()
     else if (typeof clearSignature === 'function') clearSignature()
     else {

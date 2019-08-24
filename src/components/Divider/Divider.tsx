@@ -15,7 +15,7 @@ interface DividerProps {
 }
 
 const useStyles: (props: DividerProps) => any = makeStyles((theme: any) => ({
-  root: ({ margin }) => ({
+  root: ({ margin }: DividerProps) => ({
     margin: margin || `${theme.spacing(2.5) + 'px'} auto`,
   }),
 }))

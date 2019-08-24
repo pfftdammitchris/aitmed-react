@@ -1,6 +1,5 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { Theme } from '@material-ui/core'
 import cx from 'classnames'
 import reduce from 'lodash/reduce'
 import List from '@material-ui/core/List'
@@ -14,7 +13,7 @@ interface ICD10PopupMenuProps {
   codes: string[]
   results: ICD10ResultItem[]
   total: number
-  inputValue: string | null
+  inputValue: string
   getMenuProps: Function
   getItemProps: Function
   highlightedIndex: number | null
@@ -53,10 +52,10 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }))
 
-const filterer = (
-  results: ICD10ResultItem[],
-  inputValue: string | null = '',
-) => (acc: any[] = [], code: string) => {
+const filterer = (results: ICD10ResultItem[], inputValue: string = '') => (
+  acc: any[] = [],
+  code: string,
+) => {
   let shouldShow = false
   const diagnosisResult = results[code] || ''
   const hasInvalidChars = /^.*?(?=[\+\^#%&$\*:<>\?/\{\|\}\[\]\\\)\(]).*$/g.test(

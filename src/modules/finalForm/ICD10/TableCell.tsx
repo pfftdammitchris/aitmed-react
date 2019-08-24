@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { Theme, TableCell as MuiTableCell } from '@material-ui/core'
+import { TableCell as MuiTableCell } from '@material-ui/core'
 
 interface TableCellProps {
   cellName: string

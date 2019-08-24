@@ -14,6 +14,7 @@ const parseResponse = (data: any) => {
       if (!acc.hasOwnProperty(code)) acc[code] = description
       return acc
     }
+    // @ts-ignore
     const [totalResults, codes, _, codesAndNames] = data
     return {
       total: totalResults,
@@ -141,15 +142,15 @@ const useICD10Searcher = ({ fields }: { fields: any }) => {
 
   // This function will attempt to remove empty fields when adding new fields
   // It will also add an empty field when the user selects an item
-  const onSelect = (code: string, downshift) => {
+  const onSelect = (code: string, downshift: any) => {
     let description
     if (code) {
       fields.forEach((fieldName: string, index: number) => {
-        const codeElem = document.getElementById(`${fieldName}.code`)
-        const descriptionElem = document.getElementById(
+        const codeElem: any = document.getElementById(`${fieldName}.code`)
+        const descriptionElem: any = document.getElementById(
           `${fieldName}.description`,
         )
-        const commentElem = document.getElementById(`${fieldName}.comment`)
+        const commentElem: any = document.getElementById(`${fieldName}.comment`)
         if (codeElem && descriptionElem) {
           if (!codeElem.value && !descriptionElem.value) {
             if (commentElem && !commentElem.value) {
