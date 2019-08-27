@@ -15,9 +15,15 @@ interface DividerProps {
 }
 
 const useStyles: (props: DividerProps) => any = makeStyles((theme: any) => ({
-  root: ({ margin }: DividerProps) => ({
-    margin: margin || `${theme.spacing(2.5) + 'px'} auto`,
-  }),
+  root: ({ margin }: DividerProps) => {
+    const smallMargin = typeof margin === 'number' ? margin / 2 : false
+    return {
+      margin: margin || `${theme.spacing(2.5) + 'px'} auto`,
+      [theme.breakpoints.down('xs')]: {
+        margin: smallMargin || `${theme.spacing(1.5) + 'px'} auto`,
+      },
+    }
+  },
 }))
 
 const Divider: React.FC<DividerProps> = ({
