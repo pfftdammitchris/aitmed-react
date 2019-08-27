@@ -32,6 +32,7 @@ interface SignatureCanvasProps {
   signatureRef?: { current: null | any }
   signatureInputRef?: { current: null | any }
   signatureCaption?: React.ReactNode
+  signatureLabel?: React.ReactNode
   xProps?: any
 }
 
@@ -55,6 +56,8 @@ const useStyles = makeStyles((theme: any) => ({
     alignItems: 'flex-end',
   },
   x: {
+    position: 'relative',
+    bottom: 15,
     userSelect: 'none',
     display: 'inline-block',
   },
@@ -106,6 +109,7 @@ const FinalFormSignatureCanvas: React.FC<SignatureCanvasProps> = ({
   signatureRef,
   signatureInputRef,
   signatureCaption,
+  signatureLabel,
   value,
   xProps,
 }) => {
@@ -155,13 +159,18 @@ const FinalFormSignatureCanvas: React.FC<SignatureCanvasProps> = ({
     <div className={classes.root}>
       <div className={classes.contentRoot}>
         <Flex flexDirection="column">
-          <Typography variant="caption">Signature</Typography>
           <Typography
             className={cx(classes.x, classNames.x)}
             variant="h2"
             {...xProps}
           >
             X
+          </Typography>
+          <Typography
+            variant="caption"
+            style={{ position: 'absolute', bottom: 0, left: 0 }}
+          >
+            {signatureLabel || 'Signature'}
           </Typography>
         </Flex>
         <div
