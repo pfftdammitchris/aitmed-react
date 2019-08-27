@@ -6,6 +6,7 @@ import DWC_PR2 from 'forms/DWC_PR2'
 const onSubmit = async (values: any) => {
   try {
     console.log(values)
+    return
   } catch (error) {
     throw error
   }
