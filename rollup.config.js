@@ -41,7 +41,6 @@ export default {
       abortOnError: false,
       check: false,
       clean: true,
-      importHelpers: true,
       rollupCommonJSResolveHack: true,
     }),
     commonjs(),
