@@ -15,9 +15,9 @@ interface FinalFormOutlinedTextFieldProps {
   marginRight?: number
 }
 
-const useStyles = makeStyles({
-  root: {
-    //
+const useStyles = makeStyles((theme: any) => ({
+  helperTextRoot: {
+    color: theme.palette.text.soft,
   },
   marginRight: ({ wrapperProps }: FinalFormOutlinedTextFieldProps) =>
     wrapperProps && {
@@ -25,7 +25,7 @@ const useStyles = makeStyles({
         marginRight: wrapperProps.marginRight,
       },
     },
-})
+}))
 
 const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = (
   props,
@@ -61,7 +61,7 @@ const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = (
           ...formHelperTextProps,
           classes: {
             root: cx(
-              ...formHelperTextProps.classes,
+              classes.helperTextRoot,
               formHelperTextProps.className,
               formHelperTextProps.classes
                 ? formHelperTextProps.classes.root
