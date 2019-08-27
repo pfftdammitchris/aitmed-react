@@ -9,10 +9,12 @@ interface FinalFormOutlinedTextFieldProps {
   meta?: any
   className?: string
   inline?: boolean
-  wrapperProps?: any
-  formHelperTextProps?: any
   errorProps?: any
+  formHelperTextProps?: any
+  inputLabelProps?: any
+  wrapperProps?: any
   marginRight?: number
+  classes?: any
 }
 
 const useStyles = makeStyles((theme: any) => ({
@@ -34,9 +36,12 @@ const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = (
     input,
     meta,
     inline,
+    className,
     wrapperProps = {},
     formHelperTextProps = {},
+    inputLabelProps = {},
     errorProps = {},
+    classes: classesProp = {},
     ...otherProps
   } = props
 
@@ -57,6 +62,14 @@ const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = (
     >
       <MuiTextField
         margin="dense"
+        classes={{
+          ...classesProp,
+          root: cx(classesProp.root, className),
+        }}
+        InputLabelProps={{
+          shrink: true,
+          ...inputLabelProps,
+        }}
         FormHelperTextProps={{
           ...formHelperTextProps,
           classes: {
