@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import DWC_1 from 'forms/DWC_1'
 import DWC_PR2 from 'forms/DWC_PR2'
-import IMR from 'forms/IMR'
+import RFA from 'forms/RFA'
 
 const onSubmit = async (values: any) => {
   try {
@@ -28,10 +28,10 @@ storiesOf('forms', module)
       </div>
     )
   })
-  .add('IMR', () => {
+  .add('RFA', () => {
     return (
       <div style={{ maxWidth: 800, margin: 'auto' }}>
-        <IMR onSubmit={onSubmit} />
+        <RFA onSubmit={onSubmit} />
       </div>
     )
   })
