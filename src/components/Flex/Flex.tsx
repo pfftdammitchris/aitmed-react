@@ -22,6 +22,11 @@ const useStyles = makeStyles((theme: any) => ({
   xsBlock: {
     [theme.breakpoints.down('xs')]: {
       display: 'block !important',
+      // Sometimes we do a "wrapperProps={{ marginRight: 3 }} for input components".
+      //    This is used to restore it on a mobile screen
+      '& fieldset': {
+        marginRight: 0,
+      },
     },
   },
   spaced: {
