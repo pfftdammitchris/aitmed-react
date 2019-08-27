@@ -14,9 +14,6 @@ interface DWC_1_EmployeeProps {
 
 const useStyles: (props: DWC_1_EmployeeProps) => any = makeStyles(
   (theme: any) => ({
-    root: {
-      //
-    },
     spaced: {
       '& fieldset': {
         marginRight: 2,
@@ -42,43 +39,11 @@ const useStyles: (props: DWC_1_EmployeeProps) => any = makeStyles(
   }),
 )
 
-const InjuryFields: React.FC<{ name: string }> = ({ name }) => (
-  <>
-    <Flex>
-      <Field
-        label="Date of Injury"
-        name={`${name}.date`}
-        component={OutlinedTextField}
-        fullWidth
-        wrapperProps={{ marginRight: 3 }}
-      />
-      <Field
-        label="Time of Injury"
-        name={`${name}.time`}
-        component={OutlinedTextField}
-        fullWidth
-      />
-    </Flex>
-    <Field
-      label="Address Injury Occurred"
-      name={`${name}.address`}
-      component={OutlinedTextField}
-      fullWidth
-    />
-    <Field
-      label="Description of Injury"
-      name={`${name}.address`}
-      component={OutlinedTextField}
-      fullWidth
-    />
-  </>
-)
-
 const DWC_1_Employee = ({ name, signatureRef, ...rest }: any) => {
   const classes = useStyles(rest)
 
   return (
-    <div className={classes.root}>
+    <>
       <Typography variant="h6" gutterBottom>
         Employee
       </Typography>
@@ -125,23 +90,46 @@ const DWC_1_Employee = ({ name, signatureRef, ...rest }: any) => {
           fullWidth
         />
       </Flex>
-      <InjuryFields name={`${name}.injury`} />
       <Flex>
         <Field
-          label="Social Security No."
-          name={`${name}.ssn`}
+          label="Date of Injury"
+          name={`${name}.injury.date`}
           component={OutlinedTextField}
+          fullWidth
           wrapperProps={{ marginRight: 3 }}
+        />
+        <Field
+          label="Time of Injury"
+          name={`${name}.injury.time`}
+          component={OutlinedTextField}
           fullWidth
         />
       </Flex>
+      <Field
+        label="Address Injury Occurred"
+        name={`${name}.injury.address`}
+        component={OutlinedTextField}
+        fullWidth
+      />
+      <Field
+        label="Description of Injury"
+        name={`${name}.injury.description`}
+        component={OutlinedTextField}
+        fullWidth
+      />
+      <Field
+        label="Social Security No."
+        name={`${name}.ssn`}
+        component={OutlinedTextField}
+        fullWidth
+      />
+      <Field
+        label="Email"
+        name={`${name}.email`}
+        component={OutlinedTextField}
+        fullWidth
+      />
       <div style={{ padding: '10px 5px' }}>
-        <Field
-          label="Email"
-          name={`${name}.email`}
-          component={OutlinedTextField}
-          fullWidth
-        />
         <Field
           name={`${name}.receiveClaimNoticesByEmail`}
           type="checkbox"
@@ -164,9 +152,10 @@ const DWC_1_Employee = ({ name, signatureRef, ...rest }: any) => {
         // @ts-ignore
         component={SignatureCanvas}
         name={`${name}.signature`}
+        signatureLabel="Patient Signature"
         signatureRef={signatureRef}
       />
-    </div>
+    </>
   )
 }
 

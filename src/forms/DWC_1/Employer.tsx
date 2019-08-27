@@ -1,158 +1,86 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
 import { Field } from 'react-final-form'
-import Checkbox from 'components/Checkbox'
 import SignatureCanvas from 'components/finalForm/SignatureCanvas'
-import Flex from 'components/Flex'
 import OutlinedTextField from 'components/finalForm/OutlinedTextField'
 import Typography from 'components/Typography'
 
-interface DWC_1_EmployeeProps {
-  name: 'employee'
-  signatureRef: any
-}
-
-const useStyles: (props: DWC_1_EmployeeProps) => any = makeStyles(
-  (theme: any) => ({
-    root: {
-      //
-    },
-    spaced: {
-      '& fieldset': {
-        marginRight: 2,
-      },
-    },
-    checkboxRoot: {
-      color: '#333',
-      transform: 'scale(0.9)',
-      padding: 3,
-      [theme.breakpoints.down('xs')]: {
-        marginLeft: 8,
-      },
-    },
-    checkboxLabel: {
-      fontSize: '0.72rem',
-      marginLeft: 0,
-      marginRight: 11,
-      userSelect: 'none',
-      [theme.breakpoints.down('xs')]: {
-        fontSize: '0.67rem',
-      },
-    },
-  }),
-)
-
-const InjuryFields: React.FC<{ name: string }> = ({ name }) => (
+const DWC_1_Employee = ({ name, signatureRef }: any) => (
   <>
-    <Flex>
-      <Field
-        label="Date of Injury"
-        name={`${name}.date`}
-        component={OutlinedTextField}
-        fullWidth
-        wrapperProps={{ marginRight: 3 }}
-      />
-      <Field
-        label="Time of Injury"
-        name={`${name}.time`}
-        component={OutlinedTextField}
-        fullWidth
-      />
-    </Flex>
+    <Typography variant="h6" gutterBottom>
+      Employer
+    </Typography>
     <Field
-      label="Address Injury Occurred"
+      label="Name"
+      name={`${name}.name`}
+      component={OutlinedTextField}
+      fullWidth
+    />
+    <Field
+      label="Address"
       name={`${name}.address`}
       component={OutlinedTextField}
       fullWidth
     />
     <Field
-      label="Description of Injury"
-      name={`${name}.address`}
+      type="date"
+      label="Date first known of injury"
+      name={`${name}.dateNoticedInjury`}
       component={OutlinedTextField}
       fullWidth
+    />
+    <Field
+      type="date"
+      label="Date when claim form was provided to employee"
+      name={`${name}.dateClaimFormProvidedToEmployee`}
+      component={OutlinedTextField}
+      fullWidth
+    />
+    <Field
+      type="date"
+      label="Date when employer received claim form"
+      name={`${name}.dateReceivedClaimForm`}
+      component={OutlinedTextField}
+      fullWidth
+    />
+    <Field
+      label="Name of insurance carrier/adjusting agency"
+      name={`${name}.insurance.name`}
+      component={OutlinedTextField}
+      fullWidth
+    />
+    <Field
+      label="Address of insurance carrier/adjusting agency"
+      name={`${name}.insurance.address`}
+      component={OutlinedTextField}
+      fullWidth
+    />
+    <Field
+      label="Insurance policy number"
+      name={`${name}.insurance.policyNumber`}
+      component={OutlinedTextField}
+      fullWidth
+    />
+    <Field
+      label="Title"
+      name={`${name}.title`}
+      component={OutlinedTextField}
+      fullWidth
+    />
+    <Field
+      label="Phone"
+      type="phone"
+      name={`${name}.phone`}
+      component={OutlinedTextField}
+      fullWidth
+    />
+    <Field
+      // @ts-ignore
+      component={SignatureCanvas}
+      name={`${name}.signature`}
+      signatureLabel="Signature of employer representative"
+      signatureRef={signatureRef}
     />
   </>
 )
-
-const DWC_1_Employee = ({ name, signatureRef, ...rest }: any) => {
-  const classes = useStyles(rest)
-
-  return (
-    <div className={classes.root}>
-      <Typography variant="h6" gutterBottom>
-        Employer
-      </Typography>
-      <Field
-        label="Name"
-        name={`${name}.name`}
-        component={OutlinedTextField}
-        fullWidth
-      />
-      <Field
-        label="Address"
-        name={`${name}.address`}
-        component={OutlinedTextField}
-        fullWidth
-      />
-      <Flex>
-        <Field
-          helperText="Date first known of injury"
-          name={`${name}.dateKnownInjury`}
-          component={OutlinedTextField}
-          fullWidth
-          wrapperProps={{ marginRight: 3 }}
-        />
-        <Field
-          helperText="Date when claim form was provided to employee"
-          name={`${name}.state`}
-          component={OutlinedTextField}
-          fullWidth
-          wrapperProps={{ marginRight: 3 }}
-        />
-      </Flex>
-      <InjuryFields name={`${name}.injury`} />
-      <Flex>
-        <Field
-          label="Social Security No."
-          name={`${name}.ssn`}
-          component={OutlinedTextField}
-          wrapperProps={{ marginRight: 3 }}
-          fullWidth
-        />
-        <Field
-          label="Email"
-          name={`${name}.email`}
-          component={OutlinedTextField}
-          fullWidth
-        />
-      </Flex>
-      <div style={{ padding: '10px 5px' }}>
-        <Field
-          name={`${name}.receiveClaimNoticesByEmail`}
-          type="checkbox"
-          render={({ input, ...rest }) => (
-            <Checkbox
-              classes={{
-                label: classes.checkboxLabel,
-              }}
-              classNames={{
-                root: classes.checkboxRoot,
-              }}
-              label="Check this box if you agree to receive notices about your claim by email only"
-              {...input}
-              {...rest}
-            />
-          )}
-        />
-      </div>
-      <Field
-        // @ts-ignore
-        component={SignatureCanvas}
-        name={`${name}.signature`}
-        signatureRef={signatureRef}
-      />
-    </div>
-  )
-}
 
 export default DWC_1_Employee

@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/styles'
 import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
 import Button from 'components/Button'
-// import Divider from 'components/Divider'
-// import EmployeeFields from './Employee'
+import Divider from 'components/Divider'
+import EmployeeFields from './Employee'
 import EmployerFields from './Employer'
 import { DWC_1FormValues } from './types'
 
@@ -23,18 +23,8 @@ const useStyles = makeStyles({
 
 const DWC_1: React.FC<DWC_1Props> = ({ initialValues, onSubmit, ...props }) => {
   const classes = useStyles(undefined)
-  // const employeeSignatureRef = React.useRef()
+  const employeeSignatureRef = React.useRef()
   const employerSignatureRef = React.createRef()
-
-  // const TextField: React.FC<any> = (props) => (
-  //   <MuiTextField
-  //     classes={{ root: classes.textFieldRoot }}
-  //     margin="dense"
-  //     variant="outlined"
-  //     fullWidth
-  //     {...props}
-  //   />
-  // )
 
   return (
     <Form
@@ -45,15 +35,9 @@ const DWC_1: React.FC<DWC_1Props> = ({ initialValues, onSubmit, ...props }) => {
       mutators={arrayMutators}
       render={({ handleSubmit, submitting }: any) => (
         <form onSubmit={handleSubmit} className={classes.root}>
-          {/* <EmployeeFields name="employee" signatureRef={employeeSignatureRef} />
-          <Divider /> */}
+          <EmployeeFields name="employee" signatureRef={employeeSignatureRef} />
+          <Divider />
           <EmployerFields name="employer" signatureRef={employerSignatureRef} />
-          {/* <Field
-            // @ts-ignore
-            component={SignatureCanvas}
-            name="signature"
-            signatureRef={signatureRef}
-          /> */}
           <div className={classes.actions}>
             <Button
               type="submit"
@@ -66,9 +50,7 @@ const DWC_1: React.FC<DWC_1Props> = ({ initialValues, onSubmit, ...props }) => {
           </div>
         </form>
       )}
-      initialValues={{
-        ...initialValues,
-      }}
+      initialValues={initialValues}
       {...props}
     />
   )
