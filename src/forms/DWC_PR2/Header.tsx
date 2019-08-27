@@ -11,4 +11,4 @@ const Header: React.FC<any> = () => (
   </div>
 )
 
-export default React.memo(Header, () => true)
+export default Header
