@@ -1,7 +1,5 @@
 # aitmed-react
 
->
-
 [![NPM](https://img.shields.io/npm/v/aitmed-react.svg)](https://www.npmjs.com/package/aitmed-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
@@ -12,17 +10,18 @@ npm install --save aitmed-react
 
 ## Usage
 
-```tsx
+Wrap your app with the default export as shown below:
+
+```jsx
 import React from 'react'
+import AiTmedReact from 'aitmed-react'
+import MyComponent from './MyComponent'
 
-import MyComponent from 'aitmed-react'
+const App = () => (
+  <AiTmedReact>
+    <MyComponent />
+  </AiTmedReact>
+)
 
-class Example extends React.Component {
-  render () {
-    return (
-      <MyComponent />
-    )
-  }
-}
+export default App
 ```
-
