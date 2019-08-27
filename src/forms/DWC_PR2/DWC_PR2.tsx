@@ -188,6 +188,7 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
               label="California License No."
               name="licenseNumber"
               component={WrappedOutlinedTextField}
+              wrapperProps={{ marginRight: 3 }}
               fullWidth
             />
             <Field
@@ -202,6 +203,7 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
               label="Executed At"
               name="executedAt"
               component={WrappedOutlinedTextField}
+              wrapperProps={{ marginRight: 3 }}
               fullWidth
             />
             <Field
@@ -216,6 +218,7 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
               label="Name"
               name="name"
               component={WrappedOutlinedTextField}
+              wrapperProps={{ marginRight: 3 }}
               fullWidth
             />
             <Field
