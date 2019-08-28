@@ -1,4 +1,3 @@
-import React from 'react'
 import { addParameters, configure, addDecorator } from '@storybook/react'
 import { addReadme } from 'storybook-readme'
 import { muiTheme } from 'storybook-addon-material-ui'
