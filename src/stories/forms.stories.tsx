@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react'
 import DWC_1 from 'forms/DWC_1'
 import DWC_PR2 from 'forms/DWC_PR2'
 import RFA from 'forms/RFA'
-import useFetchSpecialties from 'hooks/useFetchSpecialties'
 import AiTmedReact from '../AiTmedReact'
 
 const onSubmit = async (values: any) => {
@@ -28,18 +27,23 @@ storiesOf('forms', module)
     )
   })
   .add('DWC_PR2', () => {
+    const genders = ['Male', 'Female', 'PNS']
     return (
       <div style={{ maxWidth: 800, margin: 'auto' }}>
-        <DWC_PR2 onSubmit={onSubmit} />
+        <DWC_PR2 onSubmit={onSubmit} genders={genders} />
       </div>
     )
   })
   .add('RFA', () => {
+    const specialties = [
+      'FAMILY_MEDICINE',
+      'INTERNAL_MEDICINE',
+      'EMERGENCY_MEDICINE',
+    ]
     const component = React.createElement(() => {
-      const { specialties } = useFetchSpecialties({ fetchOnMount: true })
       return (
         <div style={{ maxWidth: 800, margin: 'auto' }}>
-          <RFA onSubmit={onSubmit} />
+          <RFA onSubmit={onSubmit} specialties={specialties} />
         </div>
       )
     })

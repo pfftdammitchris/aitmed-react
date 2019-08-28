@@ -1,5 +1,6 @@
 import React from 'react'
 import { Field } from 'react-final-form'
+import { parsePhone } from 'utils/finalForm'
 import Flex from 'components/Flex'
 import SignatureCanvas from 'components/finalForm/SignatureCanvas'
 
@@ -66,6 +67,7 @@ const RFA_UROResponse: React.FC<RFA_UROResponseProps> = ({
     <Flex>
       <Field
         label="Phone"
+        parse={parsePhone}
         name={`${name}.phone`}
         component={WrappedOutlinedTextField}
         wrapperProps={{ marginRight: 3 }}
@@ -73,6 +75,7 @@ const RFA_UROResponse: React.FC<RFA_UROResponseProps> = ({
       />
       <Field
         label="Fax"
+        parse={parsePhone}
         name={`${name}.fax`}
         component={WrappedOutlinedTextField}
         fullWidth

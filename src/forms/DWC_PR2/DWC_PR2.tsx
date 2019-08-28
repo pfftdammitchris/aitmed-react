@@ -4,6 +4,8 @@ import { Form, Field } from 'react-final-form'
 import { FieldArray } from 'react-final-form-arrays'
 import arrayMutators from 'final-form-arrays'
 import MuiTextField from '@material-ui/core/TextField'
+import { format } from 'date-fns'
+import { parsePhone } from 'utils/finalForm'
 import Flex from 'components/Flex'
 import Typography from 'components/Typography'
 import OutlinedTextField from 'components/finalForm/OutlinedTextField'
@@ -19,16 +21,22 @@ import WorkStatusCheckboxes from './WorkStatusCheckboxes'
 
 interface DWC_PR2Props {
   initialValues?: any
+  genders: string[]
+  specialties: string[]
   onSubmit: (values: any) => Promise<void>
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: any) => ({
   root: {},
-  textFieldRoot: {},
+  textFieldRoot: {
+    [theme.breakpoints.down('xs')]: {
+      width: '100% !important',
+    },
+  },
   actions: {
     padding: '12px 0',
   },
-})
+}))
 
 const Label: React.FC<any> = ({ children, ...rest }) => (
   <Typography variant="overline" fontWeight={700} {...rest}>
@@ -36,13 +44,19 @@ const Label: React.FC<any> = ({ children, ...rest }) => (
   </Typography>
 )
 
-const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
+const PR2: React.FC<DWC_PR2Props> = ({
+  initialValues,
+  onSubmit,
+  genders = [],
+  specialties = [],
+  ...props
+}) => {
   const classes = useStyles(undefined)
   const signatureRef = React.createRef()
 
   const TextField: React.FC<any> = (props) => (
     <MuiTextField
-      classes={{ root: classes.textFieldRoot }}
+      className={classes.textFieldRoot}
       margin="dense"
       variant="outlined"
       fullWidth
@@ -51,7 +65,7 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
   )
 
   const WrappedOutlinedTextField: React.FC<any> = (props) => (
-    <OutlinedTextField classes={{ root: classes.textFieldRoot }} {...props} />
+    <OutlinedTextField className={classes.textFieldRoot} {...props} />
   )
 
   // Extracted these fields outside since TS was giving a useless component prop error
@@ -94,7 +108,7 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
           />
           <Divider />
           <Label>Patient:</Label>
-          <PatientInfo name="patientInfo" />
+          <PatientInfo name="patientInfo" genders={genders} />
           <br />
           <Label>Claims Administration:</Label>
           <ClaimsAdministration name="claimsAdministration" />
@@ -124,7 +138,7 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
           </Label>
           <Field
             name="objectiveFindings"
-            component={OutlinedTextField}
+            component={WrappedOutlinedTextField}
             rows={5}
             rowsMax={10}
             multiline
@@ -194,12 +208,14 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
             <Field
               label="Phone"
               name="phone"
+              parse={parsePhone}
               component={WrappedOutlinedTextField}
               fullWidth
             />
           </Flex>
           <Flex xsBlock spaceBetween>
             <Field
+              type="date"
               label="Executed At"
               name="executedAt"
               component={WrappedOutlinedTextField}
@@ -207,10 +223,17 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
               fullWidth
             />
             <Field
+              type="date"
               name="date"
-              component={WrappedOutlinedTextField}
               label="Date"
               fullWidth
+              render={({ input, meta, ...rest }) => (
+                <WrappedOutlinedTextField
+                  {...input}
+                  {...rest}
+                  value={format(new Date(), 'yyyy-MM-dd')}
+                />
+              )}
             />
           </Flex>
           <Flex xsBlock spaceBetween>
@@ -222,11 +245,18 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
               fullWidth
             />
             <Field
-              label="Specialty"
               name="specialty"
               component={WrappedOutlinedTextField}
+              selectProps={{ native: true }}
+              select
               fullWidth
-            />
+            >
+              {['Select Specialty', ...specialties].map((specialty: string) => (
+                <option key={`specialty_${specialty}`} value={specialty}>
+                  {specialty}
+                </option>
+              ))}
+            </Field>
           </Flex>
           <Flex xsBlock spaceBetween>
             <Field
@@ -255,7 +285,7 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
             <Button
               type="submit"
               hover={{ secondary: 'white' }}
-              disabled={submitting}
+              // disabled={submitting}
               secondary
             >
               Submit
@@ -275,47 +305,47 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
           // surgeryOrHospitalization: '',
           // other: '',
         },
-        patientInfo: {
-          lastName: '',
-          firstName: '',
-          middleName: '',
-          sex: '',
-          dob: '',
-          address: '',
-          city: '',
-          state: '',
-          zip: '',
-          occupation: '',
-          socialSecurity: '',
-          phone: '',
-        },
-        claimsAdministration: {
-          name: '',
-          claimNumber: '',
-          address: '',
-          city: '',
-          state: '',
-          zip: '',
-          phone: '',
-          fax: '',
-        },
-        subjectiveComplaints: '',
-        objectiveFindings: '',
-        diagnoses: [
-          // {
-          //   diagnose: '',
-          //   icd9: '',
-          // },
-          // {
-          //   diagnose: '',
-          //   icd9: '',
-          // },
-          // {
-          //   diagnose: '',
-          //   icd9: '',
-          // },
-        ],
-        treatmentPlan: '',
+        // patientInfo: {
+        //   lastName: '',
+        //   firstName: '',
+        //   middleName: '',
+        //   sex: '',
+        //   dob: '',
+        //   address: '',
+        //   city: '',
+        //   state: '',
+        //   zip: '',
+        //   occupation: '',
+        //   socialSecurity: '',
+        //   phone: '',
+        // },
+        // claimsAdministration: {
+        //   name: '',
+        //   claimNumber: '',
+        //   address: '',
+        //   city: '',
+        //   state: '',
+        //   zip: '',
+        //   phone: '',
+        //   fax: '',
+        // },
+        // subjectiveComplaints: '',
+        // objectiveFindings: '',
+        // diagnoses: [
+        // {
+        //   diagnose: '',
+        //   icd9: '',
+        // },
+        // {
+        //   diagnose: '',
+        //   icd9: '',
+        // },
+        // {
+        //   diagnose: '',
+        //   icd9: '',
+        // },
+        // ],
+        // treatmentPlan: '',
         workStatusForPatient: {
           // remainOffWorkUntil: '',
           // returnToModifiedWork: {
@@ -326,20 +356,20 @@ const PR2: React.FC<DWC_PR2Props> = ({ initialValues, onSubmit, ...props }) => {
           //   on: '',
           // },
         },
-        employer: {
-          name: '',
-          phone: '',
-        },
-        dateOfExam: '',
-        signature: '',
-        licenseNumber: '',
-        executedAt: '',
-        date: '',
-        name: '',
-        specialty: '',
-        address: '',
-        phone: '',
-        nextReportDueNoLaterThan: '',
+        // employer: {
+        //   name: '',
+        //   phone: '',
+        // },
+        // dateOfExam: '',
+        // signature: '',
+        // licenseNumber: '',
+        // executedAt: '',
+        // date: '',
+        // name: '',
+        // specialty: '',
+        // address: '',
+        // phone: '',
+        // nextReportDueNoLaterThan: '',
         ...initialValues,
       }}
       {...props}

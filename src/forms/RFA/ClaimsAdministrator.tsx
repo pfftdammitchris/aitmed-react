@@ -2,6 +2,7 @@ import React from 'react'
 import { Field } from 'react-final-form'
 import Flex from 'components/Flex'
 import { states } from 'utils/info'
+import { parsePhone } from 'utils/finalForm'
 
 interface RFA_ClaimsAdministratorProps {
   name: 'claimsAdministrator'
@@ -44,12 +45,9 @@ const RFA_ClaimsAdministrator: React.FC<RFA_ClaimsAdministratorProps> = ({
         fullWidth
       />
       <Field
-        label="State"
         name={`${name}.state`}
         component={WrappedOutlinedTextField}
-        SelectProps={{
-          native: true,
-        }}
+        selectProps={{ SelectProps: { native: true } }}
         select
         fullWidth
       >
@@ -62,7 +60,6 @@ const RFA_ClaimsAdministrator: React.FC<RFA_ClaimsAdministratorProps> = ({
     </Flex>
     <Flex>
       <Field
-        type="number"
         label="Zip Code"
         name={`${name}.zip`}
         component={WrappedOutlinedTextField}
@@ -72,12 +69,14 @@ const RFA_ClaimsAdministrator: React.FC<RFA_ClaimsAdministratorProps> = ({
       <Field
         label="Phone"
         name={`${name}.phone`}
+        parse={parsePhone}
         component={WrappedOutlinedTextField}
         wrapperProps={{ marginRight: 3 }}
         fullWidth
       />
       <Field
         label="Fax"
+        parse={parsePhone}
         name={`${name}.fax`}
         component={WrappedOutlinedTextField}
         fullWidth

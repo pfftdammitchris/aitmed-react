@@ -20,6 +20,7 @@ import { RFA_FormValues } from './types'
 
 interface RFAProps {
   initialValues?: RFA_FormValues
+  specialties: string[]
   onSubmit: (values: RFA_FormValues) => Promise<void>
 }
 
@@ -52,6 +53,7 @@ const focusOnError = createDecorator()
 const RFA: React.FC<RFAProps> = ({
   initialValues = {},
   onSubmit,
+  specialties = [],
   ...props
 }: any) => {
   const signatureRef = React.useRef()
@@ -132,6 +134,7 @@ const RFA: React.FC<RFAProps> = ({
           <PhysicianFields
             name="physician"
             component={WrappedOutlinedTextField}
+            specialties={specialties}
           />
           <Divider />
           <Typography variant="h6" gutterBottom paragraph>

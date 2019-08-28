@@ -2,15 +2,18 @@ import React from 'react'
 import { Field } from 'react-final-form'
 import Flex from 'components/Flex'
 import { states } from 'utils/info'
+import { formatOnlyNumbers, parsePhone } from 'utils/finalForm'
 
 interface RFA_PhysicianProps {
   name: 'physician'
   component: React.FC<any>
+  specialties: string[]
 }
 
 const RFA_Physician: React.FC<RFA_PhysicianProps> = ({
   name,
   component: WrappedOutlinedTextField,
+  specialties = [],
 }: any) => (
   <>
     <Flex xsBlock>
@@ -51,12 +54,9 @@ const RFA_Physician: React.FC<RFA_PhysicianProps> = ({
         fullWidth
       />
       <Field
-        label="State"
         name={`${name}.state`}
         component={WrappedOutlinedTextField}
-        SelectProps={{
-          native: true,
-        }}
+        selectProps={{ SelectProps: { native: true } }}
         select
         fullWidth
       >
@@ -69,7 +69,6 @@ const RFA_Physician: React.FC<RFA_PhysicianProps> = ({
     </Flex>
     <Flex spaceBetween>
       <Field
-        type="number"
         label="Zip Code"
         name={`${name}.zip`}
         component={WrappedOutlinedTextField}
@@ -79,6 +78,7 @@ const RFA_Physician: React.FC<RFA_PhysicianProps> = ({
       <Field
         label="Phone"
         name={`${name}.phone`}
+        parse={parsePhone}
         component={WrappedOutlinedTextField}
         wrapperProps={{ marginRight: 3 }}
         fullWidth
@@ -86,21 +86,28 @@ const RFA_Physician: React.FC<RFA_PhysicianProps> = ({
       <Field
         label="Fax"
         name={`${name}.fax`}
+        parse={parsePhone}
         component={WrappedOutlinedTextField}
         fullWidth
       />
     </Flex>
     <Flex spaceBetween>
       <Field
-        label="Specialty"
         name={`${name}.specialty`}
         component={WrappedOutlinedTextField}
         wrapperProps={{ marginRight: 3 }}
+        selectProps={{ SelectProps: { native: true } }}
+        select
         fullWidth
-      />
+      >
+        {['Select Specialty', ...specialties].map((specialty: string) => (
+          <option key={`select_${specialty}`} value={specialty}>
+            {specialty}
+          </option>
+        ))}
+      </Field>
       <Field
-        type="number"
-        format={(v) => v && v.replace(/[0-9]+/, '')}
+        format={formatOnlyNumbers}
         label="NPI"
         name={`${name}.NPI`}
         component={WrappedOutlinedTextField}

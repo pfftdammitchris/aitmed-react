@@ -1,6 +1,8 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import { Field } from 'react-final-form'
+import { format } from 'date-fns'
+import { formatOnlyNumbers, parsePhone, parseSSN } from 'utils/finalForm'
 import Checkbox from 'components/Checkbox'
 import SignatureCanvas from 'components/finalForm/SignatureCanvas'
 import Flex from 'components/Flex'
@@ -10,36 +12,40 @@ import Typography from 'components/Typography'
 interface DWC_1_EmployeeProps {
   name: 'employee'
   signatureRef: any
+  states: string[]
 }
 
-const useStyles: (props: DWC_1_EmployeeProps) => any = makeStyles(
-  (theme: any) => ({
-    spaced: {
-      '& fieldset': {
-        marginRight: 2,
-      },
+const useStyles = makeStyles((theme: any) => ({
+  spaced: {
+    '& fieldset': {
+      marginRight: 2,
     },
-    checkboxRoot: {
-      color: '#333',
-      transform: 'scale(0.9)',
-      padding: 3,
-      [theme.breakpoints.down('xs')]: {
-        marginLeft: 8,
-      },
+  },
+  checkboxRoot: {
+    color: '#333',
+    transform: 'scale(0.9)',
+    padding: 3,
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 8,
     },
-    checkboxLabel: {
-      fontSize: '0.72rem',
-      marginLeft: 0,
-      marginRight: 11,
-      userSelect: 'none',
-      [theme.breakpoints.down('xs')]: {
-        fontSize: '0.67rem',
-      },
+  },
+  checkboxLabel: {
+    fontSize: '0.72rem',
+    marginLeft: 0,
+    marginRight: 11,
+    userSelect: 'none',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '0.67rem',
     },
-  }),
-)
+  },
+}))
 
-const DWC_1_Employee = ({ name, signatureRef, ...rest }: any) => {
+const DWC_1_Employee: React.FC<DWC_1_EmployeeProps> = ({
+  name,
+  signatureRef,
+  states = [],
+  ...rest
+}) => {
   const classes = useStyles(rest)
 
   return (
@@ -56,10 +62,17 @@ const DWC_1_Employee = ({ name, signatureRef, ...rest }: any) => {
           fullWidth
         />
         <Field
+          type="date"
           label="Today's Date"
           name={`${name}.date`}
-          component={OutlinedTextField}
           fullWidth
+          render={({ input, meta, ...rest }) => (
+            <OutlinedTextField
+              {...input}
+              {...rest}
+              value={format(new Date(), 'yyyy-MM-dd')}
+            />
+          )}
         />
       </Flex>
       <Field
@@ -77,28 +90,37 @@ const DWC_1_Employee = ({ name, signatureRef, ...rest }: any) => {
           wrapperProps={{ marginRight: 3 }}
         />
         <Field
-          label="State"
-          name={`${name}.state`}
-          component={OutlinedTextField}
-          fullWidth
-          wrapperProps={{ marginRight: 3 }}
-        />
-        <Field
           label="Zip Code"
           name={`${name}.zip`}
           component={OutlinedTextField}
+          wrapperProps={{ marginRight: 3 }}
           fullWidth
         />
+        <Field
+          name={`${name}.state`}
+          component={OutlinedTextField}
+          selectProps={{ native: true }}
+          select
+          fullWidth
+        >
+          {['Select State', ...states].map((state: any, index: number) => (
+            <option key={`state${index}`} value={state}>
+              {state}
+            </option>
+          ))}
+        </Field>
       </Flex>
       <Flex>
         <Field
+          type="date"
           label="Date of Injury"
           name={`${name}.injury.date`}
           component={OutlinedTextField}
-          fullWidth
           wrapperProps={{ marginRight: 3 }}
+          fullWidth
         />
         <Field
+          type="time"
           label="Time of Injury"
           name={`${name}.injury.time`}
           component={OutlinedTextField}
@@ -121,9 +143,11 @@ const DWC_1_Employee = ({ name, signatureRef, ...rest }: any) => {
         label="Social Security No."
         name={`${name}.ssn`}
         component={OutlinedTextField}
+        parse={parseSSN}
         fullWidth
       />
       <Field
+        type="email"
         label="Email"
         name={`${name}.email`}
         component={OutlinedTextField}

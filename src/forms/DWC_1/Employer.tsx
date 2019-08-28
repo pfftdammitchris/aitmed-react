@@ -3,6 +3,7 @@ import { Field } from 'react-final-form'
 import SignatureCanvas from 'components/finalForm/SignatureCanvas'
 import OutlinedTextField from 'components/finalForm/OutlinedTextField'
 import Typography from 'components/Typography'
+import { parsePhone } from 'utils/finalForm'
 
 const DWC_1_Employee = ({ name, signatureRef }: any) => (
   <>
@@ -69,6 +70,7 @@ const DWC_1_Employee = ({ name, signatureRef }: any) => (
     <Field
       label="Phone"
       type="phone"
+      parse={parsePhone}
       name={`${name}.phone`}
       component={OutlinedTextField}
       fullWidth

@@ -10,6 +10,7 @@ import { DWC_1FormValues } from './types'
 
 interface DWC_1Props {
   initialValues?: DWC_1FormValues
+  states: string[]
   onSubmit: (values: DWC_1FormValues) => Promise<void>
 }
 
@@ -21,7 +22,12 @@ const useStyles = makeStyles({
   },
 })
 
-const DWC_1: React.FC<DWC_1Props> = ({ initialValues, onSubmit, ...props }) => {
+const DWC_1: React.FC<DWC_1Props> = ({
+  initialValues,
+  onSubmit,
+  states = [],
+  ...props
+}) => {
   const classes = useStyles(undefined)
   const employeeSignatureRef = React.useRef()
   const employerSignatureRef = React.createRef()
@@ -35,7 +41,11 @@ const DWC_1: React.FC<DWC_1Props> = ({ initialValues, onSubmit, ...props }) => {
       mutators={arrayMutators}
       render={({ handleSubmit, submitting }: any) => (
         <form onSubmit={handleSubmit} className={classes.root}>
-          <EmployeeFields name="employee" signatureRef={employeeSignatureRef} />
+          <EmployeeFields
+            name="employee"
+            signatureRef={employeeSignatureRef}
+            states={states}
+          />
           <Divider />
           <EmployerFields name="employer" signatureRef={employerSignatureRef} />
           <div className={classes.actions}>
