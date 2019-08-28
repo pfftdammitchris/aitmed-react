@@ -3,6 +3,8 @@ import { storiesOf } from '@storybook/react'
 import DWC_1 from 'forms/DWC_1'
 import DWC_PR2 from 'forms/DWC_PR2'
 import RFA from 'forms/RFA'
+import useFetchSpecialties from 'hooks/useFetchSpecialties'
+import AiTmedReact from '../AiTmedReact'
 
 const onSubmit = async (values: any) => {
   try {
@@ -12,6 +14,10 @@ const onSubmit = async (values: any) => {
     throw error
   }
 }
+
+const WithAiTmedProvider = ({ children }: any) => (
+  <AiTmedReact env="testapi">{children}</AiTmedReact>
+)
 
 storiesOf('forms', module)
   .add('DWC_1', () => {
@@ -29,9 +35,13 @@ storiesOf('forms', module)
     )
   })
   .add('RFA', () => {
-    return (
-      <div style={{ maxWidth: 800, margin: 'auto' }}>
-        <RFA onSubmit={onSubmit} />
-      </div>
-    )
+    const component = React.createElement(() => {
+      const { specialties } = useFetchSpecialties({ fetchOnMount: true })
+      return (
+        <div style={{ maxWidth: 800, margin: 'auto' }}>
+          <RFA onSubmit={onSubmit} />
+        </div>
+      )
+    })
+    return <WithAiTmedProvider>{component}</WithAiTmedProvider>
   })
