@@ -1,6 +1,7 @@
 import React from 'react'
 import { Field } from 'react-final-form'
 import Flex from 'components/Flex'
+import { states } from 'utils/info'
 
 interface RFA_ClaimsAdministratorProps {
   name: 'claimsAdministrator'
@@ -46,11 +47,22 @@ const RFA_ClaimsAdministrator: React.FC<RFA_ClaimsAdministratorProps> = ({
         label="State"
         name={`${name}.state`}
         component={WrappedOutlinedTextField}
+        SelectProps={{
+          native: true,
+        }}
+        select
         fullWidth
-      />
+      >
+        {['Select State', ...states].map((state: string) => (
+          <option key={`select_${state}`} value={state}>
+            {state}
+          </option>
+        ))}
+      </Field>
     </Flex>
     <Flex>
       <Field
+        type="number"
         label="Zip Code"
         name={`${name}.zip`}
         component={WrappedOutlinedTextField}
@@ -72,6 +84,7 @@ const RFA_ClaimsAdministrator: React.FC<RFA_ClaimsAdministratorProps> = ({
       />
     </Flex>
     <Field
+      type="email"
       label="Email"
       name={`${name}.email`}
       component={WrappedOutlinedTextField}

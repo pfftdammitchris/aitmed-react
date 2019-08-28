@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import { Form, Field } from 'react-final-form'
+import createDecorator from 'final-form-focus'
 import { Theme } from '@material-ui/core'
 import { format } from 'date-fns'
 import Typography from 'components/Typography'
@@ -46,6 +47,8 @@ const useStyles: (props: RFAProps) => any = makeStyles((theme: Theme) => ({
   },
 }))
 
+const focusOnError = createDecorator()
+
 const RFA: React.FC<RFAProps> = ({
   initialValues = {},
   onSubmit,
@@ -59,13 +62,14 @@ const RFA: React.FC<RFAProps> = ({
     <OutlinedTextField classes={{ root: classes.textFieldRoot }} {...args} />
   )
 
-  const WrappedCheckbox: React.FC<any> = (args) => (
+  const WrappedCheckbox: React.FC<any> = ({ input, meta, ...rest }) => (
     <Checkbox
       classes={{ label: classes.checkboxLabel }}
       classNames={{
         root: classes.checkboxRoot,
       }}
-      {...args}
+      {...input}
+      {...rest}
     />
   )
 
@@ -76,6 +80,7 @@ const RFA: React.FC<RFAProps> = ({
       keepDirtyOnReinitialize
       onSubmit={onSubmit}
       subscription={{ submitting: true }}
+      decorators={[focusOnError]}
       initialValues={{
         ...initialValues,
         physicianSignature: {
@@ -178,7 +183,7 @@ const RFA: React.FC<RFAProps> = ({
             <Button
               type="submit"
               hover={{ secondary: 'white' }}
-              disabled={submitting}
+              // disabled={submitting}
               secondary
             >
               Submit

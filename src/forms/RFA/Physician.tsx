@@ -1,6 +1,7 @@
 import React from 'react'
 import { Field } from 'react-final-form'
 import Flex from 'components/Flex'
+import { states } from 'utils/info'
 
 interface RFA_PhysicianProps {
   name: 'physician'
@@ -53,11 +54,22 @@ const RFA_Physician: React.FC<RFA_PhysicianProps> = ({
         label="State"
         name={`${name}.state`}
         component={WrappedOutlinedTextField}
+        SelectProps={{
+          native: true,
+        }}
+        select
         fullWidth
-      />
+      >
+        {['Select State', ...states].map((state: string) => (
+          <option key={`select_${state}`} value={state}>
+            {state}
+          </option>
+        ))}
+      </Field>
     </Flex>
     <Flex spaceBetween>
       <Field
+        type="number"
         label="Zip Code"
         name={`${name}.zip`}
         component={WrappedOutlinedTextField}
@@ -87,6 +99,8 @@ const RFA_Physician: React.FC<RFA_PhysicianProps> = ({
         fullWidth
       />
       <Field
+        type="number"
+        format={(v) => v && v.replace(/[0-9]+/, '')}
         label="NPI"
         name={`${name}.NPI`}
         component={WrappedOutlinedTextField}
@@ -94,6 +108,7 @@ const RFA_Physician: React.FC<RFA_PhysicianProps> = ({
       />
     </Flex>
     <Field
+      type="email"
       label="Email"
       name={`${name}.email`}
       component={WrappedOutlinedTextField}
