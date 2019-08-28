@@ -65,11 +65,11 @@ const useStyles = makeStyles((theme: any) => ({
     width: '100%',
   },
   canvas: {
+    border: '1px solid teal',
     width: '90%',
-    height: 120,
+    height: 90,
     [theme.breakpoints.down('xs')]: {
       width: '100%',
-      height: 90,
     },
   },
   clearBtn: {
