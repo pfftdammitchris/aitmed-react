@@ -1,7 +1,7 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import { storiesOf } from '@storybook/react'
-import Card from 'components/Card'
+import Card from '../components/Card'
 import readme from './docs/card.md'
 
 storiesOf('Card', module)

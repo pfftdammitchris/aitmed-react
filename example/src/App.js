@@ -1,14 +1,15 @@
 import React from 'react'
-import AiTmedReact from 'aitmed-react'
-import useModal from 'aitmed-react/hooks/useModal'
+import AiTmedReact, { PR2, Button } from 'aitmed-react'
 
 const App = () => {
-  const modal = useModal()
-  console.log(modal)
+  const onSubmit = (values) => {
+    console.log(values)
+  }
+
   return (
     <AiTmedReact>
-      <div>
-        <button>Hello</button>
+      <div style={{ maxWidth: 800, margin: 'auto' }}>
+        <PR2 onSubmit={onSubmit} states={['CA']} />
       </div>
     </AiTmedReact>
   )

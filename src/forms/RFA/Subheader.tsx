@@ -1,5 +1,5 @@
 import React from 'react'
-import Typography from 'components/Typography'
+import Typography from '../../components/Typography'
 
 const RFA_Subheader: React.FC<any> = () => (
   <Typography variant="subtitle2" style={{ padding: '15px 0' }}>

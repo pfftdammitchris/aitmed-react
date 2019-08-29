@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field } from 'react-final-form'
-import Flex from 'components/Flex'
-import OutlinedTextField from 'components/finalForm/OutlinedTextField'
+import Flex from '../../components/Flex'
+import OutlinedTextField from '../../components/finalForm/OutlinedTextField'
 
 interface RFA_EmployeeProps {
   name: 'employee'

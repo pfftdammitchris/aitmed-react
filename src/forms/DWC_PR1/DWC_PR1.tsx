@@ -2,13 +2,13 @@ import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
-import Button from 'components/Button'
-import Divider from 'components/Divider'
+import Button from '../../components/Button'
+import Divider from '../../components/Divider'
 import EmployeeFields from './Employee'
 import EmployerFields from './Employer'
 import { DWC_1FormValues } from './types'
 
-interface DWC_1Props {
+interface DWC_PR1Props {
   initialValues?: DWC_1FormValues
   states: string[]
   onSubmit: (values: DWC_1FormValues) => Promise<void>
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   },
 })
 
-const DWC_1: React.FC<DWC_1Props> = ({
+const DWC_PR1: React.FC<DWC_PR1Props> = ({
   initialValues,
   onSubmit,
   states = [],
@@ -66,4 +66,4 @@ const DWC_1: React.FC<DWC_1Props> = ({
   )
 }
 
-export default DWC_1
+export default DWC_PR1

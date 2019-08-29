@@ -5,10 +5,10 @@ import FormGroup from '@material-ui/core/FormGroup'
 import TextField from '@material-ui/core/TextField'
 import get from 'lodash/get'
 import has from 'lodash/has'
-import Flex from 'components/Flex'
-import Checkbox from 'components/Checkbox'
-import Typography from 'components/Typography'
-import useObjectizedCheckboxes from 'hooks/finalForm/useObjectizedCheckboxes'
+import Flex from '../../components/Flex'
+import Checkbox from '../../components/Checkbox'
+import Typography from '../../components/Typography'
+import useObjectizedCheckboxes from '../../hooks/finalForm/useObjectizedCheckboxes'
 
 interface WorkStatusCheckboxesProps extends FieldProps<any, any> {
   input: {

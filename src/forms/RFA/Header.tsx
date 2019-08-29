@@ -1,5 +1,5 @@
 import React from 'react'
-import Typography from 'components/Typography'
+import Typography from '../../components/Typography'
 
 const RFA_Header: React.FC<any> = () => (
   <div style={{ position: 'relative', textAlign: 'center' }}>

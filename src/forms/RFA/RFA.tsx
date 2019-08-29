@@ -3,13 +3,13 @@ import { makeStyles } from '@material-ui/styles'
 import { Form, Field } from 'react-final-form'
 import createDecorator from 'final-form-focus'
 import { Theme } from '@material-ui/core'
-import { format } from 'date-fns'
-import Typography from 'components/Typography'
-import Checkbox from 'components/Checkbox'
-import Divider from 'components/Divider'
-import OutlinedTextField from 'components/finalForm/OutlinedTextField'
-import Button from 'components/Button'
-import SignatureCanvas from 'components/finalForm/SignatureCanvas'
+import format from 'date-fns/format'
+import Typography from '../../components/Typography'
+import Checkbox from '../../components/Checkbox'
+import Divider from '../../components/Divider'
+import OutlinedTextField from '../../components/finalForm/OutlinedTextField'
+import Button from '../../components/Button'
+import SignatureCanvas from '../../components/finalForm/SignatureCanvas'
 import Header from './Header'
 import Subheader from './Subheader'
 import EmployeeFields from './Employee'
@@ -90,7 +90,7 @@ const RFA: React.FC<RFAProps> = ({
           ...initialValues.physicianSignature,
         },
       }}
-      render={({ handleSubmit, submitting }: any) => (
+      render={({ handleSubmit }: any) => (
         <form onSubmit={handleSubmit} className={classes.root}>
           <Header />
           <Subheader />

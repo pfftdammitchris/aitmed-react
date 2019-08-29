@@ -9,8 +9,9 @@ export { default as LoadingSpinner } from './components/LoadingSpinner'
 export { default as Typography } from './components/Typography'
 export { default as CreditCardForm } from './components/forms/CreditCard'
 // Forms
-export { default as DWC_1 } from './forms/DWC_1'
+export { default as DWC_PR1 } from './forms/DWC_PR1'
 export { default as DWC_PR2 } from './forms/DWC_PR2'
+export { default as RFA } from './forms/RFA'
 // Hooks
 export { default as useCache } from './hooks/useCache'
 export { default as useModal } from './hooks/useModal'

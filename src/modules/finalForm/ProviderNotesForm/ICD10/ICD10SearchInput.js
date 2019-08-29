@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Input from '@material-ui/core/Input'
-import { IoIosSearch } from 'react-icons/io'
+import { IoIosSearch } from 'react-icons/io/index.esm'
 import Downshift from 'downshift'
 import PopupMenu from './PopupMenu'
 

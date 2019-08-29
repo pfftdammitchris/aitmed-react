@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import MuiTextField from '@material-ui/core/TextField'
 import cx from 'classnames'
-import Typography from 'components/Typography'
+import Typography from '../../Typography'
 
 interface FinalFormOutlinedTextFieldProps {
   input?: any

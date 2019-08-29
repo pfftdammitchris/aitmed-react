@@ -13,7 +13,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
 
 import Cropper from 'react-easy-crop'
-import { MdClose } from 'react-icons/md'
+import { MdClose } from 'react-icons/md/index.esm'
 import Avatar from '@material-ui/core/Avatar'
 
 const styles = (theme) => ({

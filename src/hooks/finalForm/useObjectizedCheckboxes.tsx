@@ -1,11 +1,11 @@
 // @ts-ignore
 import React from 'react'
-import useCache from 'hooks/useCache'
 import cloneDeep from 'lodash/cloneDeep'
 import get from 'lodash/get'
 import has from 'lodash/has'
 import set from 'lodash/set'
 import unset from 'lodash/unset'
+import useCache from '../../hooks/useCache'
 
 const useObjectizedCheckboxes = ({ input }: any) => {
   const { cache, onMountRef } = useCache()

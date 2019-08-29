@@ -1,8 +1,8 @@
 import React from 'react'
 import { Field } from 'react-final-form'
-import Flex from 'components/Flex'
-import { states } from 'utils/info'
-import { parsePhone } from 'utils/finalForm'
+import Flex from '../../components/Flex'
+import { states } from '../../utils/info'
+import { parsePhone } from '../../utils/finalForm'
 
 interface RFA_ClaimsAdministratorProps {
   name: 'claimsAdministrator'

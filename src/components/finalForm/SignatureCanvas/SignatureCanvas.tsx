@@ -3,9 +3,9 @@ import cx from 'classnames'
 import { makeStyles, useTheme } from '@material-ui/styles'
 import { Theme } from '@material-ui/core'
 import Signature from 'react-signature-canvas'
-import Typography from 'components/Typography'
-import Button from 'components/Button'
-import Flex from 'components/Flex'
+import Typography from '../../Typography'
+import Button from '../../Button'
+import Flex from '../../Flex'
 
 interface SignatureCanvasProps {
   input?: {

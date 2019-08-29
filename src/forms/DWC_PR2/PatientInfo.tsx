@@ -1,9 +1,9 @@
 import React from 'react'
 import { Field } from 'react-final-form'
 import { makeStyles } from '@material-ui/styles'
-import { parsePhone, parseSSN } from 'utils/finalForm'
-import Flex from 'components/Flex'
-import OutlinedTextField from 'components/finalForm/OutlinedTextField'
+import { parsePhone, parseSSN } from '../../utils/finalForm'
+import Flex from '../../components/Flex'
+import OutlinedTextField from '../../components/finalForm/OutlinedTextField'
 
 interface PatientInfoProps {
   name: string

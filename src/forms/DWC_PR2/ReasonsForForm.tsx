@@ -2,9 +2,9 @@ import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import { Theme } from '@material-ui/core'
 import FormGroup from '@material-ui/core/FormGroup'
-import Flex from 'components/Flex'
-import Checkbox from 'components/Checkbox'
-import useCache from 'hooks/useCache'
+import Flex from '../../components/Flex'
+import Checkbox from '../../components/Checkbox'
+import useCache from '../../hooks/useCache'
 
 const reasons = {
   periodicReport: 'Periodic Report',

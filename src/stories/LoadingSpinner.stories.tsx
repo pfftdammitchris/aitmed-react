@@ -1,9 +1,9 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import { storiesOf } from '@storybook/react'
-import Typography from 'components/Typography'
-import LoadingSpinner from 'components/LoadingSpinner'
-import getCodeDoc from 'utils/getCodeDoc'
+import Typography from '../components/Typography'
+import LoadingSpinner from '../components/LoadingSpinner'
+import getCodeDoc from '../utils/getCodeDoc'
 import readme from './docs/loadingSpinner.md'
 
 const darkBg = '#072E48'

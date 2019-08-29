@@ -1,8 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import DWC_1 from 'forms/DWC_1'
-import DWC_PR2 from 'forms/DWC_PR2'
-import RFA from 'forms/RFA'
+import DWC_1 from '../forms/DWC_1'
+import DWC_PR2 from '../forms/DWC_PR2'
+import RFA from '../forms/RFA'
 import AiTmedReact from '../AiTmedReact'
 
 const onSubmit = async (values: any) => {

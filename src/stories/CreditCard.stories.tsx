@@ -4,9 +4,9 @@ import Button from '@material-ui/core/Button'
 import Select from '@material-ui/core/Select'
 import { Field } from 'react-final-form'
 import { storiesOf } from '@storybook/react'
-import Typography from 'components/Typography'
-import CreditCardForm from 'components/forms/CreditCard'
-import getCodeDoc from 'utils/getCodeDoc'
+import Typography from '../components/Typography'
+import CreditCardForm from '../components/forms/CreditCard'
+import getCodeDoc from '../utils/getCodeDoc'
 import readme from './docs/creditCard.md'
 
 const onSubmit = (values: any) => {

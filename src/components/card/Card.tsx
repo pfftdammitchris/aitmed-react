@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/styles'
 import Card from '@material-ui/core/Card'
 import Divider from '@material-ui/core/Divider'
 import CardContent from '@material-ui/core/CardContent'
-import Typography from 'components/Typography'
+import Typography from '../Typography'
 import { Cardv2Props, CardDividerProps } from './types'
 
 const useStyles = makeStyles((theme: any) => ({

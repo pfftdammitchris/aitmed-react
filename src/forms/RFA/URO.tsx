@@ -1,8 +1,8 @@
 import React from 'react'
 import { Field } from 'react-final-form'
-import { parsePhone } from 'utils/finalForm'
-import Flex from 'components/Flex'
-import SignatureCanvas from 'components/finalForm/SignatureCanvas'
+import { parsePhone } from '../../utils/finalForm'
+import Flex from '../../components/Flex'
+import SignatureCanvas from '../../components/finalForm/SignatureCanvas'
 
 interface RFA_UROResponseProps {
   name: 'uroResponse'

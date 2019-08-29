@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import Typography from 'components/Typography'
+import Typography from '../../../components/Typography'
 import useICD10Searcher from './useICD10Searcher'
 import ICD10SearchInput from './ICD10SearchInput'
 
