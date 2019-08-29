@@ -1,6 +1,6 @@
 import React from 'react'
 import AiTmedReact from 'aitmed-react'
-import useModal from 'aitmed-react/dist/hooks/useModal'
+import useModal from 'aitmed-react/hooks/useModal'
 
 const App = () => {
   const modal = useModal()
@@ -8,7 +8,7 @@ const App = () => {
   return (
     <AiTmedReact>
       <div>
-        <Button>Hello</Button>
+        <button>Hello</button>
       </div>
     </AiTmedReact>
   )

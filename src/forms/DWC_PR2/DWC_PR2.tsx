@@ -4,13 +4,13 @@ import { Form, Field } from 'react-final-form'
 import { FieldArray } from 'react-final-form-arrays'
 import arrayMutators from 'final-form-arrays'
 import MuiTextField from '@material-ui/core/TextField'
-import { format } from 'date-fns'
+import format from 'date-fns/format'
 import { parsePhone } from 'utils/finalForm'
+import Button from 'components/Button'
+import Divider from 'components/Divider'
 import Flex from 'components/Flex'
 import Typography from 'components/Typography'
 import OutlinedTextField from 'components/finalForm/OutlinedTextField'
-import Button from 'components/Button'
-import Divider from 'components/Divider'
 import SignatureCanvas from 'components/finalForm/SignatureCanvas'
 import ICD10 from 'modules/finalForm/ICD10'
 import Header from './Header'
@@ -75,7 +75,6 @@ const PR2: React.FC<DWC_PR2Props> = ({
   )
   const signatureCanvas = (
     <Field
-      // @ts-ignore
       component={SignatureCanvas}
       name="signature"
       signatureRef={signatureRef}
@@ -89,7 +88,7 @@ const PR2: React.FC<DWC_PR2Props> = ({
       subscription={{ submitting: true }}
       // @ts-ignore
       mutators={arrayMutators}
-      render={({ handleSubmit, submitting }: any) => (
+      render={({ handleSubmit }: any) => (
         <form onSubmit={handleSubmit} className={classes.root}>
           <Header />
           <Divider />
