@@ -1,6 +1,6 @@
 import { createMuiTheme } from '@material-ui/core/styles'
 
-const primary: any = {
+export const primary: any = {
   lightest: '#69e98a', // custom
   lighter: '#6dda89', // custom
   light: '#63C17B',
@@ -8,7 +8,7 @@ const primary: any = {
   dark: '#3D844F',
 }
 
-const secondary: any = {
+export const secondary: any = {
   lightest: '#6bc8ff', //custom
   lighter: '#5eb5e9', //custom
   light: '#54A3D3',
@@ -17,69 +17,88 @@ const secondary: any = {
   darker: '#072E48',
 }
 
-const thirdary: any = {
+export const thirdary: any = {
   lighter: '#ffe658', // custom
   light: '#F8D822',
   main: '#F8A31E',
   dark: '#FC9208',
 }
 
-const themeObj: any = {
+export const success: any = {
+  nav: '#333',
+  normal: '#0070c2',
+  hovering: '#F8A31E',
+  hoveringOnSecondary: '#b9f0ff',
+}
+
+export const error: any = {
+  main: '#ff4545',
+  dark: '#dd2a2a',
+}
+
+export const link: any = {
+  nav: '#333',
+  normal: '#0070c2',
+  hovering: '#F8A31E',
+  hoveringOnSecondary: '#b9f0ff',
+}
+
+export const background: any = {
+  dark: '#0E0F12',
+  darkAdmin: '#2f323b',
+  darkAdminLightShade: 'rgba(68, 70, 79, 0.5)',
+  darkAdminDark: '#2a2d35',
+  darkAdminDarkerShade: '#24262d',
+  coolShade: '#98abb5',
+  cool: '#eef5f9',
+  lightGrey2: '#EBEBEB',
+  lightGrey: '#f0f0f0',
+  light: '#f6f6f6',
+  primary: '#2EB254',
+  secondary: '#072E48',
+  thirdary: '#F8A31E',
+  thirdaryDark: '#CB9B52',
+}
+
+export const borders: any = {
+  secondary: secondary.main,
+  cool: '#d7dfe3',
+  dark: '#333',
+  slightlyDark: '#acacac',
+  darkAdmin: '#2a2d35',
+  darkAdminLightShade: 'rgba(68, 70, 79, 0.5)',
+  ghost: '#ecf4f2',
+  cloud: '#e4eaec',
+  cloudier: '#e5ebed',
+  cloudiest: '#dbe1e3',
+  cloudiest2: '#cad0d2',
+}
+
+export const text: any = {
+  lighter2: '#DCEAED',
+  lighter: '#cdcbcb',
+  light: '#999',
+  soft: '#666',
+  normal: '#333',
+  dark: '#000',
+  secondary: '#5dd3ff',
+}
+
+export const inactive = '#a09e9e'
+
+export const themeObj: any = {
   palette: {
-    background: {
-      dark: '#0E0F12',
-      darkAdmin: '#2f323b',
-      darkAdminLightShade: 'rgba(68, 70, 79, 0.5)',
-      darkAdminDark: '#2a2d35',
-      darkAdminDarkerShade: '#24262d',
-      coolShade: '#98abb5',
-      cool: '#eef5f9',
-      lightGrey2: '#EBEBEB',
-      lightGrey: '#f0f0f0',
-      light: '#f6f6f6',
-      primary: '#2EB254',
-      secondary: '#072E48',
-      thirdary: '#F8A31E',
-      thirdaryDark: '#CB9B52',
-    },
-    borders: {
-      secondary: secondary.main,
-      cool: '#d7dfe3',
-      dark: '#333',
-      slightlyDark: '#acacac',
-      darkAdmin: '#2a2d35',
-      darkAdminLightShade: 'rgba(68, 70, 79, 0.5)',
-      ghost: '#ecf4f2',
-      cloud: '#e4eaec',
-      cloudier: '#e5ebed',
-      cloudiest: '#dbe1e3',
-      cloudiest2: '#cad0d2',
-    },
+    background,
+    borders,
     primary,
     secondary,
     thirdary,
-    inactive: '#a09e9e',
-    text: {
-      lighter2: '#DCEAED',
-      lighter: '#cdcbcb',
-      light: '#999',
-      soft: '#666',
-      normal: '#333',
-      dark: '#000',
-      secondary: '#5dd3ff',
-    },
-    error: {
-      main: '#ff4545',
-      dark: '#dd2a2a',
-    },
+    inactive,
+    text,
+    error,
     warning: '#c1632f',
     success: '#267d3b',
-    link: {
-      nav: '#333',
-      normal: '#0070c2',
-      hovering: '#F8A31E',
-      hoveringOnSecondary: '#b9f0ff',
-    },
+    link,
     highlight: {
       teal: '#5BCEFF',
     },
