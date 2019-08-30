@@ -180,7 +180,7 @@ const RFA: React.FC<RFAProps> = ({
             checkbox={WrappedCheckbox}
             signatureRef={uroSignatureRef}
           />
-          {render({ submitting, ...rest })}
+          {render && render({ submitting, ...rest })}
         </form>
       )}
     />

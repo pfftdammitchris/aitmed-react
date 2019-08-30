@@ -278,7 +278,7 @@ const PR2: React.FC<DWC_PR2Props> = ({
           </Flex>
           <Divider />
           {signatureCanvas}
-          {render({ submitting, ...rest })}
+          {render && render({ submitting, ...rest })}
         </form>
       )}
       initialValues={{

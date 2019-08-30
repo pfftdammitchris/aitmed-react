@@ -46,7 +46,7 @@ const DWC_PR1: React.FC<DWC_PR1Props> = ({
           />
           <Divider />
           <EmployerFields name="employer" signatureRef={employerSignatureRef} />
-          {render({ submitting, ...rest })}
+          {render && render({ submitting, ...rest })}
         </form>
       )}
       initialValues={initialValues}
