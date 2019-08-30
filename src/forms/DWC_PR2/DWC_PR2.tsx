@@ -6,7 +6,6 @@ import arrayMutators from 'final-form-arrays'
 import MuiTextField from '@material-ui/core/TextField'
 import format from 'date-fns/format'
 import { parsePhone } from '../../utils/finalForm'
-import Button from '../../components/Button'
 import Divider from '../../components/Divider'
 import Flex from '../../components/Flex'
 import Typography from '../../components/Typography'
@@ -24,6 +23,7 @@ interface DWC_PR2Props {
   genders: string[]
   specialties: string[]
   onSubmit: (values: any) => Promise<void>
+  render: (args: any) => any
 }
 
 const useStyles = makeStyles((theme: any) => ({
@@ -32,9 +32,6 @@ const useStyles = makeStyles((theme: any) => ({
     [theme.breakpoints.down('xs')]: {
       width: '100% !important',
     },
-  },
-  actions: {
-    padding: '12px 0',
   },
 }))
 
@@ -45,6 +42,7 @@ const Label: React.FC<any> = ({ children, ...rest }) => (
 )
 
 const PR2: React.FC<DWC_PR2Props> = ({
+  render,
   initialValues,
   onSubmit,
   genders = [],
@@ -88,7 +86,7 @@ const PR2: React.FC<DWC_PR2Props> = ({
       subscription={{ submitting: true }}
       // @ts-ignore
       mutators={arrayMutators}
-      render={({ handleSubmit }: any) => (
+      render={({ handleSubmit, submitting, ...rest }: any) => (
         <form onSubmit={handleSubmit} className={classes.root}>
           <Header />
           <Divider />
@@ -280,16 +278,7 @@ const PR2: React.FC<DWC_PR2Props> = ({
           </Flex>
           <Divider />
           {signatureCanvas}
-          <div className={classes.actions}>
-            <Button
-              type="submit"
-              hover={{ secondary: 'white' }}
-              // disabled={submitting}
-              secondary
-            >
-              Submit
-            </Button>
-          </div>
+          {render({ submitting, ...rest })}
         </form>
       )}
       initialValues={{

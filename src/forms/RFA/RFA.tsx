@@ -8,7 +8,6 @@ import Typography from '../../components/Typography'
 import Checkbox from '../../components/Checkbox'
 import Divider from '../../components/Divider'
 import OutlinedTextField from '../../components/finalForm/OutlinedTextField'
-import Button from '../../components/Button'
 import SignatureCanvas from '../../components/finalForm/SignatureCanvas'
 import Header from './Header'
 import Subheader from './Subheader'
@@ -22,14 +21,12 @@ interface RFAProps {
   initialValues?: RFA_FormValues
   specialties: string[]
   onSubmit: (values: RFA_FormValues) => Promise<void>
+  render: (args: any) => any
 }
 
 const useStyles: (props: RFAProps) => any = makeStyles((theme: Theme) => ({
   root: {
     overflowX: 'hidden',
-  },
-  actions: {
-    padding: '12px 0',
   },
   checkboxRoot: {
     color: '#333',
@@ -51,6 +48,7 @@ const useStyles: (props: RFAProps) => any = makeStyles((theme: Theme) => ({
 const focusOnError = createDecorator()
 
 const RFA: React.FC<RFAProps> = ({
+  render,
   initialValues = {},
   onSubmit,
   specialties = [],
@@ -90,7 +88,7 @@ const RFA: React.FC<RFAProps> = ({
           ...initialValues.physicianSignature,
         },
       }}
-      render={({ handleSubmit }: any) => (
+      render={({ handleSubmit, submitting, ...rest }: any) => (
         <form onSubmit={handleSubmit} className={classes.root}>
           <Header />
           <Subheader />
@@ -182,16 +180,7 @@ const RFA: React.FC<RFAProps> = ({
             checkbox={WrappedCheckbox}
             signatureRef={uroSignatureRef}
           />
-          <div className={classes.actions}>
-            <Button
-              type="submit"
-              hover={{ secondary: 'white' }}
-              // disabled={submitting}
-              secondary
-            >
-              Submit
-            </Button>
-          </div>
+          {render({ submitting, ...rest })}
         </form>
       )}
     />
