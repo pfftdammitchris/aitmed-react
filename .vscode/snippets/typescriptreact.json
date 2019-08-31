@@ -65,6 +65,10 @@
       "}"
     ]
   },
+  "@ts-ignore": {
+    "prefix": "tsg",
+    "body": "// @ts-ignore"
+  },
   "import cx from classnames": {
     "prefix": "cx",
     "body": "import cx from 'classnames'"
@@ -90,7 +94,7 @@
   },
   "import theme": {
     "prefix": "wth",
-    "body": "import theme from 'config/theme'"
+    "body": "import { primary, secondary, thirdary, success, error, link, background, borders, text, inactive } from 'config/theme'"
   },
   "comment section": {
     "prefix": "cs",

@@ -36,6 +36,7 @@ interface SignatureCanvasProps {
   xProps?: any
 }
 
+// @ts-ignore
 const useStyles = makeStyles((theme: any) => ({
   root: {
     position: 'relative',

@@ -27,20 +27,18 @@ export default {
     url(),
     svgr(),
     resolve({
+      only: ['@material-ui/core', '@material-ui/styles'],
       customResolveOptions: {
         moduleDirectory: './src',
       },
     }),
     typescript({
       abortOnError: false,
-      verbosity: 3,
+      // verbosity: 3,
       check: true,
       clean: true,
       rollupCommonJSResolveHack: true,
-      // typescript: require('typescript'),
     }),
-    commonjs({
-      // 'node_modules/@material-ui/core'
-    }),
+    commonjs(),
   ],
 }

@@ -11,23 +11,11 @@ import Typography from '../../components/Typography'
 import useObjectizedCheckboxes from '../../hooks/finalForm/useObjectizedCheckboxes'
 
 interface WorkStatusCheckboxesProps extends FieldProps<any, any> {
-  input: {
-    name: 'workStatusForPatient'
-    value: {
-      remainOffWorkUntil?: string
-      returnToModifiedWork?: {
-        on?: string
-        limitations?: string
-      }
-      returnToFullDuty?: {
-        on?: string
-      }
-    }
-    onChange: (args: any) => void
-  }
+  input: any
   meta: any
 }
 
+// @ts-ignore
 const useStyles = makeStyles((theme: any) => ({
   root: {},
   checkboxRoot: {

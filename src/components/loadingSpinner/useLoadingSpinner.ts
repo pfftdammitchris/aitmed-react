@@ -1,32 +1,31 @@
 import { useState, useEffect, useCallback } from 'react'
 import random from 'lodash/random'
+import { primary, secondary, thirdary } from '../../config/theme'
 
-const useLoadingSpinner = ({ theme }: any) => {
-  const [dynamicColor, setNewDynamicColor] = useState(
-    theme.palette.secondary.main,
-  )
+const useLoadingSpinner = () => {
+  const [dynamicColor, setNewDynamicColor] = useState(secondary.main)
 
   const getRandomColor = useCallback(() => {
     const colors = [
-      theme.palette.primary.lightest,
-      theme.palette.primary.lighter,
-      theme.palette.primary.main,
-      theme.palette.secondary.lightest2,
-      theme.palette.secondary.lightest,
-      theme.palette.secondary.main,
-      theme.palette.thirdary.lighter,
-      theme.palette.thirdary.light,
+      primary.lightest,
+      primary.lighter,
+      primary.main,
+      secondary.lightest2,
+      secondary.lightest,
+      secondary.main,
+      thirdary.lighter,
+      thirdary.light,
     ]
     return colors[random(0, colors.length - 1)]
   }, [
-    theme.palette.primary.lighter,
-    theme.palette.primary.lightest,
-    theme.palette.primary.main,
-    theme.palette.secondary.lightest,
-    theme.palette.secondary.lightest2,
-    theme.palette.secondary.main,
-    theme.palette.thirdary.light,
-    theme.palette.thirdary.lighter,
+    primary.lighter,
+    primary.lightest,
+    primary.main,
+    secondary.lightest,
+    secondary.lightest2,
+    secondary.main,
+    thirdary.light,
+    thirdary.lighter,
   ])
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core/styles'
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 
 export const primary: any = {
   lightest: '#69e98a', // custom
@@ -86,9 +86,10 @@ export const text: any = {
 
 export const inactive = '#a09e9e'
 
-export const themeObj: any = {
+const theme = createMuiTheme({
   palette: {
     background,
+    // @ts-ignore
     borders,
     primary,
     secondary,
@@ -178,11 +179,6 @@ export const themeObj: any = {
       },
     },
   },
-  typography: {
-    useNextVariants: true,
-  },
-}
-
-const theme = createMuiTheme(themeObj)
+})
 
 export default theme

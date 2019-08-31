@@ -24,6 +24,7 @@ interface RFAProps {
   render: (args: any) => any
 }
 
+// @ts-ignore
 const useStyles: (props: RFAProps) => any = makeStyles((theme: Theme) => ({
   root: {
     overflowX: 'hidden',
@@ -47,7 +48,7 @@ const useStyles: (props: RFAProps) => any = makeStyles((theme: Theme) => ({
 
 const focusOnError = createDecorator()
 
-const RFA: React.FC<RFAProps> = ({
+const DWC_RFA: React.FC<RFAProps> = ({
   render,
   initialValues = {},
   onSubmit,
@@ -187,4 +188,4 @@ const RFA: React.FC<RFAProps> = ({
   )
 }
 
-export default RFA
+export default DWC_RFA

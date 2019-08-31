@@ -1,5 +1,5 @@
 import React from 'react'
-import AiTmedReact, { PR2, Button } from 'aitmed-react'
+import { Button } from 'aitmed-react'
 
 const App = () => {
   const onSubmit = (values) => {
@@ -7,11 +7,9 @@ const App = () => {
   }
 
   return (
-    <AiTmedReact>
-      <div style={{ maxWidth: 800, margin: 'auto' }}>
-        <PR2 onSubmit={onSubmit} states={['CA']} />
-      </div>
-    </AiTmedReact>
+    <div style={{ maxWidth: 800, margin: 'auto' }}>
+      <Button>Hewllo</Button>
+    </div>
   )
 }
 

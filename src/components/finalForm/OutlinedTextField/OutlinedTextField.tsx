@@ -1,12 +1,14 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import MuiTextField from '@material-ui/core/TextField'
+import { FieldRenderProps } from 'react-final-form'
 import cx from 'classnames'
 import Typography from '../../Typography'
 
-interface FinalFormOutlinedTextFieldProps {
-  input?: any
-  meta?: any
+interface FinalFormOutlinedTextFieldProps
+  extends FieldRenderProps<any, HTMLElement> {
+  input: any
+  meta: any
   value?: any
   className?: string
   inline?: boolean
@@ -23,6 +25,7 @@ interface FinalFormOutlinedTextFieldProps {
   classes?: any
 }
 
+// @ts-ignore
 const useStyles = makeStyles((theme: any) => ({
   helperTextRoot: {
     color: theme.palette.text.soft,

@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { makeStyles } from '@material-ui/styles'
 import MaterialUIInput from '@material-ui/core/Input'
 import TableRow from '@material-ui/core/TableRow'
-import { IoIosCloseCircle } from 'react-icons/io/index.esm'
+import { IoIosCloseCircle } from 'react-icons/io'
 import TableCell from './TableCell'
 
 interface RowRendererProps {

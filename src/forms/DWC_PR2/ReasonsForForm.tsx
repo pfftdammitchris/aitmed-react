@@ -1,6 +1,5 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { Theme } from '@material-ui/core'
 import FormGroup from '@material-ui/core/FormGroup'
 import Flex from '../../components/Flex'
 import Checkbox from '../../components/Checkbox'
@@ -35,7 +34,8 @@ interface ReasonsForFormProps {
   withTextfields: string[]
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
+// @ts-ignore
+const useStyles = makeStyles((theme: any) => ({
   root: {},
   checkboxRoot: {
     color: '#333',

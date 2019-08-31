@@ -15,6 +15,7 @@ interface DWC_1_EmployeeProps {
   states: string[]
 }
 
+// @ts-ignore
 const useStyles = makeStyles((theme: any) => ({
   spaced: {
     '& fieldset': {
@@ -67,6 +68,7 @@ const DWC_1_Employee: React.FC<DWC_1_EmployeeProps> = ({
           name={`${name}.date`}
           fullWidth
           render={({ input, meta, ...rest }) => (
+            // @ts-ignore
             <OutlinedTextField
               {...input}
               {...rest}

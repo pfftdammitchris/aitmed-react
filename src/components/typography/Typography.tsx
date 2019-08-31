@@ -5,6 +5,7 @@ import { makeStyles, useTheme } from '@material-ui/styles'
 import Divider from '@material-ui/core/Divider'
 import { TypographyProps } from './types'
 
+// @ts-ignore
 const useStyles = makeStyles((theme: any) => ({
   h1: {
     fontWeight: 600,
@@ -162,15 +163,15 @@ const useStyles = makeStyles((theme: any) => ({
 const Typography: React.FC<TypographyProps> = ({
   className,
   style,
-  primary,
-  secondary,
+  primary: primaryProp,
+  secondary: secondaryProp,
+  thirdary: thirdaryProp,
   darkBlue,
-  thirdary,
   white,
   black,
   soft,
   inactive,
-  error,
+  error: errorProp,
   red,
   link,
   variant,
@@ -189,15 +190,14 @@ const Typography: React.FC<TypographyProps> = ({
 }) => {
   const classes = useStyles()
   const theme = useTheme<any>()
-
   const styles: any = {}
 
   // Computes the font color
-  if (primary) styles.color = theme.palette.primary.main
-  else if (secondary) styles.color = theme.palette.secondary.main
+  if (primaryProp) styles.color = theme.palette.primary.main
+  else if (secondaryProp) styles.color = theme.palette.secondary.main
+  else if (thirdaryProp) styles.color = theme.palette.thirdary.main
   else if (darkBlue) styles.color = theme.palette.secondary.dark
-  else if (thirdary) styles.color = theme.palette.thirdary.main
-  else if (error || red) styles.color = theme.palette.error.main
+  else if (errorProp || red) styles.color = theme.palette.error.main
   else if (white) styles.color = '#fff'
   else if (black) styles.color = '#000'
 
@@ -218,9 +218,9 @@ const Typography: React.FC<TypographyProps> = ({
       <MUITypography
         style={{ ...style, ...styles }}
         className={cx(className, ...classNames, {
-          [classes.primary]: !!primary,
-          [classes.secondary]: !!secondary,
-          [classes.thirdary]: !!thirdary,
+          [classes.primary]: !!primaryProp,
+          [classes.secondary]: !!secondaryProp,
+          [classes.thirdary]: !!thirdaryProp,
           [classes.darkBlue]: !!darkBlue,
           [classes.link]: !!link,
           [classes.italic]: !!italic,

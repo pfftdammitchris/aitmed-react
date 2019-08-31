@@ -14,7 +14,8 @@ interface DividerProps {
   margin?: string | number
 }
 
-const useStyles: (props: DividerProps) => any = makeStyles((theme: any) => ({
+// @ts-ignore
+const useStyles = makeStyles((theme: any) => ({
   root: ({ margin }: DividerProps) => {
     const smallMargin = typeof margin === 'number' ? margin / 2 : false
     return {

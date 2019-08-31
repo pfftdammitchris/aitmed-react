@@ -5,7 +5,7 @@ import cx from 'classnames'
 import withStyles from '@material-ui/core/styles/withStyles'
 import MaterialUIInput from '@material-ui/core/Input'
 import TableRow from '@material-ui/core/TableRow'
-import { IoIosCloseCircle } from 'react-icons/io/index.esm'
+import { IoIosCloseCircle } from 'react-icons/io'
 import onlyUpdateForKeys from 'util/onlyUpdateForKeys'
 import Cell from './Cell'
 

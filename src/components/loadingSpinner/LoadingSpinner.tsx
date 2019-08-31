@@ -1,6 +1,6 @@
 import React from 'react'
 import isFunction from 'lodash/isFunction'
-import { makeStyles, useTheme } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/styles'
 import Fade from '@material-ui/core/Fade'
 import withWidth from '@material-ui/core/withWidth'
 import cx from 'classnames'
@@ -97,8 +97,7 @@ const SpinnerWithWidth: React.FC<SpinnerWithWidthProps> = ({
   xl,
   ...rest
 }) => {
-  const theme = useTheme<any>()
-  const dynamicColor = useLoadingSpinner({ theme })
+  const dynamicColor = useLoadingSpinner()
   let spinnerSize
   if (xxs || width === 'xxs') spinnerSize = 30
   else if (xs || width === 'xs') spinnerSize = 45
