@@ -1,4 +1,4 @@
-import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
+import { createMuiTheme } from '@material-ui/core/styles'
 
 export const primary: any = {
   lightest: '#69e98a', // custom
