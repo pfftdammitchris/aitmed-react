@@ -54,7 +54,7 @@ import { ICD10 } from '@aitmed/react/finalForm/modules'
 import { finalForm, info, callAll } from '@aitmed/react/utils'
 ```
 
-## More documentation is underway. The rest of the documentation will mostly be in [storybook](https://storybook.js.org/).
+> More documentation is underway. The rest of the documentation will mostly be in [storybook](https://storybook.js.org/).
 
 ### Components (stub)
 
