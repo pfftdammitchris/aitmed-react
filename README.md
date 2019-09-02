@@ -4,6 +4,8 @@
 ![](https://img.shields.io/npm/dw/@aitmed/react)
 ![](https://img.shields.io/npm/types/@aitmed/react)
 
+> A react component library to assist in establishing online TeleMedicine services through user interfaces on the client.
+
 ## Install
 
 ```bash
@@ -33,7 +35,7 @@ const App = () => (
 export default App
 ```
 
-If you end up providing your own custom `theme` object and pass it into the `ThemeProvider` that was exported from `@aitmed/react`, it will be merged with our theme object.
+If you want to provide your own `theme` object when using our `ThemeProvider`, you can pass it into the `ThemeProvider` (note: it _has_ to be a plain JavaScript object). It will be merged with our theme object so that your changes will still be applied.
 
 We support both the `require` syntax as well as `import`:
 
