@@ -21,7 +21,7 @@ interface RFAProps {
   initialValues?: RFA_FormValues
   specialties: string[]
   onSubmit: (values: RFA_FormValues) => Promise<void>
-  render: (args: any) => any
+  render?: (args: any) => any
 }
 
 // @ts-ignore

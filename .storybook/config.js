@@ -7,7 +7,7 @@ const req = require.context('../src/stories', true, /.stories.tsx$/)
 
 addDecorator(muiTheme(theme))
 addDecorator(addReadme)
-addParameters({ readme: { codeTheme: 'ghcolors' } })
+addParameters({ readme: { codeTheme: 'ghcolors' }, showPanel: false })
 
 function loadStories() {
   req.keys().forEach(req)

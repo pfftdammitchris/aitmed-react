@@ -1,9 +1,9 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import DWC_1 from '../forms/DWC_1'
+import DWC_PR1 from '../forms/DWC_PR1'
 import DWC_PR2 from '../forms/DWC_PR2'
-import RFA from '../forms/RFA'
-import AiTmedReact from '../AiTmedReact'
+import DWC_RFA from '../forms/DWC_RFA'
+import ThemeProvider from '../ThemeProvider'
 
 const onSubmit = async (values: any) => {
   try {
@@ -15,14 +15,14 @@ const onSubmit = async (values: any) => {
 }
 
 const WithAiTmedProvider = ({ children }: any) => (
-  <AiTmedReact env="testapi">{children}</AiTmedReact>
+  <ThemeProvider>{children}</ThemeProvider>
 )
 
 storiesOf('forms', module)
-  .add('DWC_1', () => {
+  .add('DWC_PR1', () => {
     return (
       <div style={{ maxWidth: 800, margin: 'auto' }}>
-        <DWC_1 onSubmit={onSubmit} />
+        <DWC_PR1 onSubmit={onSubmit} states={['CA', 'IL', 'WA']} />
       </div>
     )
   })
@@ -30,11 +30,15 @@ storiesOf('forms', module)
     const genders = ['Male', 'Female', 'PNS']
     return (
       <div style={{ maxWidth: 800, margin: 'auto' }}>
-        <DWC_PR2 onSubmit={onSubmit} genders={genders} />
+        <DWC_PR2
+          onSubmit={onSubmit}
+          genders={genders}
+          specialties={['FAMILY_MEDICINE', 'INTERNAL_MEDICINE']}
+        />
       </div>
     )
   })
-  .add('RFA', () => {
+  .add('DWC_RFA', () => {
     const specialties = [
       'FAMILY_MEDICINE',
       'INTERNAL_MEDICINE',
@@ -43,7 +47,7 @@ storiesOf('forms', module)
     const component = React.createElement(() => {
       return (
         <div style={{ maxWidth: 800, margin: 'auto' }}>
-          <RFA onSubmit={onSubmit} specialties={specialties} />
+          <DWC_RFA onSubmit={onSubmit} specialties={specialties} />
         </div>
       )
     })

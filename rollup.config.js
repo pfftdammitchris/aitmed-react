@@ -77,6 +77,15 @@ const componentsAlt = {
   plugins,
 }
 
+const finalFormComponents = {
+  input: 'src/components/forms/index.tsx',
+  output: [
+    getOutput({ file: 'dist/components/forms/index.js', format: 'cjs' }),
+    getOutput({ file: 'dist/components/forms/index.es.js', format: 'es' }),
+  ],
+  plugins,
+}
+
 // Forms
 const forms = {
   input: 'src/forms/index.tsx',
@@ -138,6 +147,7 @@ const utilities = {
 const configs = [
   components,
   componentsAlt,
+  finalFormComponents,
   hooks,
   finalFormHooks,
   forms,

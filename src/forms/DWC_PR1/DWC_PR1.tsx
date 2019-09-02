@@ -11,7 +11,7 @@ interface DWC_PR1Props {
   initialValues?: DWC_1FormValues
   states: string[]
   onSubmit: (values: DWC_1FormValues) => Promise<void>
-  render: (args: any) => any
+  render?: (args: any) => any
 }
 
 const useStyles = makeStyles({

@@ -23,7 +23,7 @@ interface DWC_PR2Props {
   genders: string[]
   specialties: string[]
   onSubmit: (values: any) => Promise<void>
-  render: (args: any) => any
+  render?: (args: any) => any
 }
 
 const useStyles = makeStyles((theme: any) => ({
