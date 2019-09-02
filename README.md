@@ -21,7 +21,8 @@ import React from 'react'
 import { ThemeProvider } from '@aitmed/react'
 import MyComponent from './MyComponent'
 
-const theme = {...} // optional. It will use the default theme internally if this isn't provided
+// optional. It will use the default theme internally if this isn't provided
+const theme = {...}
 
 const App = () => (
   <ThemeProvider theme={theme}>
@@ -42,7 +43,8 @@ const { Button, LoadingSpinner } = require('@aitmed/react')
 
 // ES6
 import { Button, LoadingSpinner } from '@aitmed/react'
-import { Button, LoadingSpinner } from '@aitmed/react/components' // alias for the above. provided in case you want to be consistent with the imports below
+// alias for the above. provided in case you want to be consistent with the imports below
+import { Button, LoadingSpinner } from '@aitmed/react/components'
 // you will have to use /components/ here to get to the finalForm components
 import { OutputTextField } from '@aitmed/react/components/finalForm'
 import { DWC_PR1, DWC_PR2, DWC_RFA } from '@aitmed/react/forms'
@@ -52,4 +54,14 @@ import { ICD10 } from '@aitmed/react/finalForm/modules'
 import { finalForm, info, callAll } from '@aitmed/react/utils'
 ```
 
-### More documentation is coming
+## More documentation is underway. The rest of the documentation will mostly be in [storybook](https://storybook.js.org/).
+
+### Components (stub)
+
+### Forms (stub)
+
+### Hooks (stub)
+
+### Modules (stub)
+
+### Utilities (stub)
