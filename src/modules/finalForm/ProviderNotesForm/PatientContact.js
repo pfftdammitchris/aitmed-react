@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { MdEmail, MdCall } from 'react-icons/md'
-import Typography from 'components/common/Typography'
+import Typography from '../../../components/common/Typography'
 
 const ProviderMeetingDrawerPatientContact = ({
   firstName,

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field } from 'redux-form'
 import MaterialUITextField from '@material-ui/core/TextField'
-import Typography from 'components/common/Typography'
+import Typography from '../../../components/common/Typography'
 
 const renderTextField = ({ input, label, sublabel, meta, ...others }) => (
   <MaterialUITextField

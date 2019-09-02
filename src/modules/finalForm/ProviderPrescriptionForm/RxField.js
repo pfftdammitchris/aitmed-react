@@ -4,9 +4,9 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
 import { Field } from 'react-final-form'
-import Typography from 'components/common/Typography'
-import Icon from 'static/img/rx.png'
-import shouldUpdate from 'util/shouldUpdate'
+import Typography from '../../../components/common/Typography'
+import Icon from '../../../static/img/rx.png'
+import shouldUpdate from '../../../util/shouldUpdate'
 
 const styles = (theme) => ({
   root: {

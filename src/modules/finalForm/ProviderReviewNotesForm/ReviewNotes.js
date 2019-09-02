@@ -1,18 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
-
 import { Field } from 'react-final-form'
-
 import Divider from '@material-ui/core/Divider'
 import Grid from '@material-ui/core/Grid'
-
-import Typography from 'components/common/Typography'
-import SignatureCanvas from 'components/common/SignatureCanvas'
-import Header from 'components/PortalPage/Provider/FormsHeader'
-
+import Typography from '../../../components/common/Typography'
+import SignatureCanvas from '../../../components/common/SignatureCanvas'
+import Header from '../../../components/PortalPage/Provider/FormsHeader'
 import renderFormDatePicker from '../renderFormDatePicker'
-
 import PatientDemographics from './PatientDemographics'
 import MultilineField from './MultilineField'
 import ICD10 from './ICD10'

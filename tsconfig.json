@@ -3,6 +3,7 @@
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
+    "declarationDir": "dist/types",
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "jsx": "react",
@@ -21,7 +22,7 @@
     "strict": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "target": "es5"
+    "target": "esnext"
   },
   "include": ["src"],
   "exclude": [

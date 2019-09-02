@@ -6,7 +6,7 @@ import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
-import Typography from 'components/common/Typography'
+import Typography from '../../../components/common/Typography'
 
 const CustomTableCell = withStyles((theme) => ({
   head: {

@@ -6,7 +6,7 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery'
-import Typography from 'components/common/Typography'
+import Typography from '../../../components/common/Typography'
 import useVitalsDisplay from './useVitalsDisplay'
 
 const styles = (theme) => ({

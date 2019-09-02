@@ -2,7 +2,7 @@ import React from 'react'
 import { Field } from 'react-final-form'
 import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid'
-import SignatureCanvas from 'components/common/SignatureCanvas'
+import SignatureCanvas from '../../../components/common/SignatureCanvas'
 
 const ProviderWorkAbsenceFooterAndSignature = ({
   signatureRef,

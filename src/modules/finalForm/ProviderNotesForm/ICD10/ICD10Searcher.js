@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import withStyles from '@material-ui/core/styles/withStyles'
 import onlyUpdateForKeys from 'util/onlyUpdateForKeys'
-import Typography from 'components/common/Typography'
+import Typography from '../../../../components/common/Typography'
 import useICD10 from 'hooks/useICD10'
 import ICD10SearchInput from './ICD10SearchInput'
 

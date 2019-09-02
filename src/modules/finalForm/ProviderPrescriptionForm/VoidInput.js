@@ -6,7 +6,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
 import range from 'lodash/range'
-import Typography from 'components/common/Typography'
+import Typography from '../../../components/common/Typography'
 
 const styles = (theme) => ({
   text: {

@@ -4,9 +4,9 @@ import { FieldArray } from 'react-final-form-arrays'
 import PropTypes from 'prop-types'
 import Divider from '@material-ui/core/Divider'
 import withStyles from '@material-ui/core/styles/withStyles'
-import Typography from 'components/common/Typography'
-import SignatureCanvas from 'components/common/SignatureCanvas'
-import Header from 'components/PortalPage/Provider/FormsHeader'
+import Typography from '../../../components/common/Typography'
+import SignatureCanvas from '../../../components/common/SignatureCanvas'
+import Header from '../../../components/PortalPage/Provider/FormsHeader'
 import { renderBottles, RxField } from '.'
 
 const styles = (theme) => ({

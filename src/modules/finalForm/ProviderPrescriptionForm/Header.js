@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
-import Typography from 'components/common/Typography'
-import onlyUpdateForKeys from 'util/onlyUpdateForKeys'
-import logo from 'resources/logo.jpg'
+import Typography from '../../../components/common/Typography'
+import onlyUpdateForKeys from '../../../util/onlyUpdateForKeys'
+import logo from '../../../resources/logo.jpg'
 
 const styles = (theme) => ({
   logoContainer: {

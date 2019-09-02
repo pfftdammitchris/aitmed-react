@@ -2,7 +2,7 @@ import React from 'react'
 import Input from '@material-ui/core/Input'
 import FormControl from '@material-ui/core/FormControl'
 import withStyles from '@material-ui/core/styles/withStyles'
-import Typography from 'components/common/Typography'
+import Typography from '../../../components/common/Typography'
 
 const styles = (theme) => ({
   root: {

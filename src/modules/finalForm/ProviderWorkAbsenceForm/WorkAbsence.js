@@ -1,18 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
-
 import { Field } from 'react-final-form'
-
 import Divider from '@material-ui/core/Divider'
 import TextField from '@material-ui/core/TextField'
-
-import Typography from 'components/common/Typography'
-import FooterAndSignature from 'components/PortalPage/Provider/FooterAndSignature'
-import Header from 'components/PortalPage/Provider/FormsHeader'
-
+import Typography from '../../../components/common/Typography'
+import FooterAndSignature from '../../../components/PortalPage/Provider/FooterAndSignature'
+import Header from '../../../components/PortalPage/Provider/FormsHeader'
 import renderFormDatePicker from '../renderFormDatePicker'
-
 import NormalField from './NormalField'
 import PleaseExcuse from './PleaseExcuse'
 import FromDueTo from './FromDueTo'

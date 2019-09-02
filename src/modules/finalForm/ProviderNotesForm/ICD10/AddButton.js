@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from 'components/common/Button'
+import Button from '../../../../components/common/Button'
 
 const ProviderPortalMeetingICD10AddButton = (props) => (
   <Button

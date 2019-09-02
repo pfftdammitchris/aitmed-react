@@ -1,10 +1,10 @@
 import React from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { Field } from 'react-final-form'
-import Typography from 'components/common/Typography'
 import Grid from '@material-ui/core/Grid'
 import MuiSelect from '@material-ui/core/Select'
 import MuiMenuItem from '@material-ui/core/MenuItem'
+import Typography from '../../../components/common/Typography'
 
 const NormalField = React.memo(
   ({ children, label }) => (

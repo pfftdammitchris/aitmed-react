@@ -1,5 +1,5 @@
 import React from 'react'
-import Typography from 'components/common/Typography'
+import Typography from '../../../../components/common/Typography'
 import shouldUpdate from 'util/shouldUpdate'
 
 const ProviderPortalMeetingICD10OutsideLink = () => (

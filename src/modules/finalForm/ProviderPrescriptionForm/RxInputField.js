@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Downshift from 'downshift'
 import { connect } from 'react-redux'
-import Typography from 'components/common/Typography'
-import { request } from 'util/requests'
-import urls from 'config/urls'
+import Typography from '../../../components/common/Typography'
+import { request } from '../../../util/requests'
+import urls from '../../../config/urls'
 
 const styles = (theme) => ({
   field: {
