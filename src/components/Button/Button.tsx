@@ -329,7 +329,6 @@ const Button: React.FC<ButtonProps> = ({
   size = 'medium',
   disabled,
   outlined,
-  to,
   textColor,
   background,
   overwriteClassName,
@@ -339,11 +338,6 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const classes = useStyles()
   const muiSizes = ['small', 'medium', 'large']
-
-  const Wrapper = ({ children }: any) => {
-    if (to) return <Link to={to}>{children}</Link>
-    return <>{children}</>
-  }
 
   const classNames = cx(classes.root, className, {
     [classes.primary]: !!primary,
@@ -388,14 +382,12 @@ const Button: React.FC<ButtonProps> = ({
     [classes.outlined]: !!outlined,
     [classes.textPrimary]: textColor === 'primary',
     [classes.textSecondary]:
-      (textColor === 'secondary' || !!outlined) &&
-      (!!secondary || !!hover.secondary),
+      textColor === 'secondary' && (!!secondary || !!hover.secondary),
     [classes.textThirdary]:
-      (textColor === 'thirdary' || !!outlined) &&
-      (!!thirdary || !!hover.primary),
-    [classes.textNeutral]: (textColor === 'neutral' || !!outlined) && !!neutral,
+      textColor === 'thirdary' && (!!thirdary || !!hover.primary),
+    [classes.textNeutral]: textColor === 'neutral' && !!neutral,
     [classes.textDanger]:
-      (['error', 'red', 'danger'].includes(textColor || '') || !!outlined) &&
+      ['error', 'red', 'danger'].includes(textColor || '') &&
       (!!danger ||
         !!red ||
         !!error ||
@@ -406,26 +398,24 @@ const Button: React.FC<ButtonProps> = ({
   })
 
   return (
-    <Wrapper>
-      <MaterialUIButton
-        style={{ background }}
-        className={overwriteClassName ? overWrittenClassNames : classNames}
-        variant={
-          (!!outlined && 'outlined') ||
-          // @ts-ignore
-          (!!others.variant === 'outlined' && 'outlined') ||
-          'contained'
-        }
-        size={
-          (muiSizes.includes(size) && size) ||
-          (small ? 'small' : medium ? 'medium' : large ? 'large' : 'medium')
-        }
-        disabled={disabled}
-        {...others}
-      >
-        {children}
-      </MaterialUIButton>
-    </Wrapper>
+    <MaterialUIButton
+      style={{ background }}
+      className={overwriteClassName ? overWrittenClassNames : classNames}
+      variant={
+        (!!outlined && 'outlined') ||
+        // @ts-ignore
+        (!!others.variant === 'outlined' && 'outlined') ||
+        'contained'
+      }
+      size={
+        (muiSizes.includes(size) && size) ||
+        (small ? 'small' : medium ? 'medium' : large ? 'large' : 'medium')
+      }
+      disabled={disabled}
+      {...others}
+    >
+      {children}
+    </MaterialUIButton>
   )
 }
 

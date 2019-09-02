@@ -17,7 +17,6 @@ export interface ButtonProps {
   size?: Size
   disabled?: boolean
   outlined?: boolean
-  to?: string
   textColor?: string
   background?: string
   overwriteClassName?: boolean
