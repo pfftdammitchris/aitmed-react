@@ -1,3 +1,5 @@
+# (Stub - coming soon)
+
 The `Card` component is mainly used for Modal/Dialog, but can be used as part of any UI.
 
 | Prop              | Type     | Default | Description                                           |

@@ -1,4 +1,4 @@
-# OutlinedTextField (final-form)
+# OutlinedTextField (final-form) (Stub - coming soon)
 
 ## Usage
 
@@ -6,11 +6,9 @@
 import React from 'react'
 import { OutlinedTextField } from '@aitmed/react/finalForm'
 
-const App = () => (
-    <OutlinedTextField />
-)
+const App = () => <OutlinedTextField />
 ```
-
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
+

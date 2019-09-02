@@ -1,4 +1,4 @@
-# Divider
+# Divider (Stub - coming soon)
 
 ## Usage
 
@@ -6,11 +6,9 @@
 import React from 'react'
 import { Divider } from '@aitmed/react'
 
-const App = () => (
-    <Divider />
-)
+const App = () => <Divider />
 ```
-
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
+

@@ -1,4 +1,4 @@
-# SignatureCanvas
+# SignatureCanvas (Stub - coming soon)
 
 ## Usage
 
@@ -6,11 +6,9 @@
 import React from 'react'
 import { SignatureCanvas } from '@aitmed/react'
 
-const App = () => (
-    <SignatureCanvas />
-)
+const App = () => <SignatureCanvas />
 ```
-
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
+

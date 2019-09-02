@@ -1,4 +1,4 @@
-# Flex
+# Flex (Stub - coming soon)
 
 ## Usage
 
@@ -6,11 +6,9 @@
 import React from 'react'
 import { Flex } from '@aitmed/react'
 
-const App = () => (
-    <Flex />
-)
+const App = () => <Flex />
 ```
-
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
+
