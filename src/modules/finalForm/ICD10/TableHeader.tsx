@@ -1,11 +1,10 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
-import { Theme } from '@material-ui/core'
+import makeStyles from '@material-ui/styles/makeStyles'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import TableCell from './TableCell'
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   tableRow: {
     height: 40,
     [theme.breakpoints.down('xs')]: {

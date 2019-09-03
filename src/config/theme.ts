@@ -87,7 +87,6 @@ export const inactive = '#a09e9e'
 const theme: any = {
   palette: {
     background,
-    // @ts-ignore
     borders,
     primary,
     secondary,

@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
+import makeStyles from '@material-ui/styles/makeStyles'
 import Typography from '../../../components/Typography'
 import useICD10Searcher from './useICD10Searcher'
 import ICD10SearchInput from './ICD10SearchInput'

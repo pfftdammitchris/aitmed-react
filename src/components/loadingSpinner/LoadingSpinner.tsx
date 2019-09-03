@@ -1,6 +1,6 @@
 import React from 'react'
 import isFunction from 'lodash/isFunction'
-import { makeStyles } from '@material-ui/styles'
+import makeStyles from '@material-ui/styles/makeStyles'
 import Fade from '@material-ui/core/Fade'
 import withWidth from '@material-ui/core/withWidth'
 import cx from 'classnames'

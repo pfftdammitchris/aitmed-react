@@ -2,7 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import withStyles from '@material-ui/core/styles/withStyles'
 
-import { Field } from 'react-final-form'
+import { Field } from 'react-final-form/dist'
 
 import MuiGrid from '@material-ui/core/Grid'
 import MuiInputLabel from '@material-ui/core/InputLabel'

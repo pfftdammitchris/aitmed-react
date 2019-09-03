@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 
-import { useForm } from 'react-final-form'
+import { useForm } from 'react-final-form/dist'
 
 import { textSelect, removeDefaultBehavior } from './utils'
 

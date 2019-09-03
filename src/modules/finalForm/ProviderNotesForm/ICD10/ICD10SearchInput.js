@@ -5,7 +5,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Input from '@material-ui/core/Input'
 import { IoIosSearch } from 'react-icons/io'
-import Downshift from 'downshift'
+import Downshift from 'downshift/dist'
 import PopupMenu from './PopupMenu'
 
 const styles = (theme) => ({

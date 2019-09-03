@@ -2,7 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import withStyles from '@material-ui/core/styles/withStyles'
 
-import { Field, FieldRenderProps, useForm } from 'react-final-form'
+import { Field, FieldRenderProps, useForm } from 'react-final-form/dist'
 
 import usePhoneNumber from './usePhoneNumber'
 import { Input, Select } from './fieldComponents'

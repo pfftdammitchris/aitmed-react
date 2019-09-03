@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Payment from 'payment'
+import Payment from 'payment/dist'
 import { states } from 'util/info'
 
 const clearNumber = (value = '') => {

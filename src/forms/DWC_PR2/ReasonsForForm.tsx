@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
+import makeStyles from '@material-ui/styles/makeStyles'
 import FormGroup from '@material-ui/core/FormGroup'
 import Flex from '../../components/Flex'
 import Checkbox from '../../components/Checkbox'

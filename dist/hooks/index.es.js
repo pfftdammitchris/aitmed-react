@@ -207,16 +207,18 @@ function baseTimes(n, iteratee) {
 
 var _baseTimes = baseTimes;
 
-var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
-
-function createCommonjsModule(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
-}
+var global$1 = (typeof global !== "undefined" ? global :
+            typeof self !== "undefined" ? self :
+            typeof window !== "undefined" ? window : {});
 
 /** Detect free variable `global` from Node.js. */
-var freeGlobal = typeof commonjsGlobal == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
+var freeGlobal = typeof global$1 == 'object' && global$1 && global$1.Object === Object && global$1;
 
-var _freeGlobal = freeGlobal;
+module.exports = freeGlobal;
+
+var _freeGlobal = /*#__PURE__*/Object.freeze({
+
+});
 
 /** Detect free variable `self`. */
 var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
@@ -430,6 +432,10 @@ var isArguments_1 = isArguments;
 var isArray = Array.isArray;
 
 var isArray_1 = isArray;
+
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
 
 /**
  * This method returns `false`.

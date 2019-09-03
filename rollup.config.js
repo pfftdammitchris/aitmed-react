@@ -1,28 +1,63 @@
 import commonjs from 'rollup-plugin-commonjs'
 import external from 'rollup-plugin-peer-deps-external'
 import babel from 'rollup-plugin-babel'
+import builtins from 'rollup-plugin-node-builtins'
+import globals from 'rollup-plugin-node-globals'
 import postcss from 'rollup-plugin-postcss'
 import json from 'rollup-plugin-json'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
-import builtins from 'rollup-plugin-node-builtins'
 // import pkg from './package.json'
 
-const extensions = ['.js', '.jsx', '.ts', '.tsx', 'json', '.es6', '.mjs']
+const extensions = ['.js', '.jsx', '.ts', '.tsx', 'json', '.mjs', '.es6']
 
 const plugins = [
   external(),
+  globals(),
+  builtins(),
   postcss({ modules: true }),
   url(),
   json(),
   resolve({
+    mainFields: ['jsnext', 'main'],
     extensions,
     customResolveOptions: {
       moduleDirectory: ['node_modules', 'src'],
     },
-    preferBuiltins: true,
+    preferBuiltins: false,
   }),
   commonjs({
+    include: [
+      'node_modules/@material-ui/styles/ThemeProvider/index.js',
+      'node_modules/@material-ui/core/**',
+      'node_modules/axios/**',
+      'node_modules/payment/dist/payment.js',
+      'node_modules/downshift/dist/**',
+      'node_modules/react-signature-canvas/build/**',
+      'node_modules/react-credit-cards/lib/**',
+      'node_modules/react-final-form/dist/**',
+      'node_modules/final-form-focus/dist/**',
+      'node_modules/classnames/**',
+      'node_modules/date-fns/**',
+      'node_modules/react-icons/io/**',
+      'node_modules/react-icons/fa/**',
+      'node_modules/react-icons/md/**',
+      'node_modules/lodash/**',
+      // 'node_modules/lodash/merge.js',
+      // 'node_modules/lodash/random.js',
+      // 'node_modules/lodash/isPlainObject.js',
+      // 'node_modules/lodash/isFunction.js',
+      // 'node_modules/lodash/isString.js',
+      // 'node_modules/lodash/isArray.js',
+      // 'node_modules/lodash/reduce.js',
+      // 'node_modules/lodash/startCase.js',
+      // 'node_modules/lodash/get.js',
+      // 'node_modules/lodash/has.js',
+      // 'node_modules/lodash/set.js',
+      // 'node_modules/lodash/unset.js',
+      // 'node_modules/lodash/forEach.js',
+      // 'node_modules/lodash/cloneDeep.js',
+    ],
     namedExports: {
       'react-is': [
         'ForwardRef',
@@ -31,6 +66,7 @@ const plugins = [
         'isContextConsumer',
       ],
       'node_modules/prop-types/index.js': ['element', 'elementType'],
+      'node_modules/@material-ui/core/styles/index.js': ['createMuiTheme'],
       'node_modules/@material-ui/utils/index.js': [
         'elementAcceptingRef',
         'elementTypeAcceptingRef',
@@ -44,7 +80,7 @@ const plugins = [
   babel({
     extensions,
     include: ['src/**/*'],
-    exclude: ['node_modules/**', 'stories'],
+    exclude: ['node_modules/**', 'src/stories/**/*'],
   }),
 ]
 
@@ -115,21 +151,20 @@ const finalFormHooks = {
   plugins,
 }
 
-// Modules
 const modules = {
   input: 'src/modules/index.tsx',
   output: [
     getOutput({ file: 'dist/modules/index.js', format: 'cjs' }),
     getOutput({ file: 'dist/modules/index.es.js', format: 'es' }),
   ],
-  plugins: [...plugins, builtins],
+  plugins,
 }
 
 const finalFormModules = {
   input: 'src/modules/finalForm/index.tsx',
   output: [
-    getOutput({ file: 'dist/modules/index.js', format: 'cjs' }),
-    getOutput({ file: 'dist/modules/index.es.js', format: 'es' }),
+    getOutput({ file: 'dist/modules/finalForm/index.js', format: 'cjs' }),
+    getOutput({ file: 'dist/modules/finalForm/index.es.js', format: 'es' }),
   ],
   plugins,
 }

@@ -1,4 +1,4 @@
-import Payment from 'payment'
+import Payment from 'payment/dist'
 import forEach from 'lodash/forEach'
 import { CreditCard } from '../../../types'
 

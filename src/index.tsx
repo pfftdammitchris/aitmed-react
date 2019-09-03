@@ -1,4 +1,5 @@
 export { default as ThemeProvider } from './ThemeProvider'
+export { default as theme } from './config/theme'
 // Components
 export { default as Button } from 'components/Button'
 export { default as Card } from 'components/Card'

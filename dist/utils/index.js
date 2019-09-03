@@ -2,7 +2,9 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-function e(e,r){if(!r)return r;var t=String(r).replace(/[^\da-zA-Z\n|]/g,""),l=e.split(/[^\da-zA-Z\n|]/g).filter(Boolean).map(function(e){return e.length}),n=e.split(/[\da-zA-Z\n|]/g).filter(Boolean),u=n[0];return e.startsWith(u)?n.reduce(function(e,r,t){var n=l[t],u=e.value.slice(0,n),a=e.value.slice(n);return {result:u?e.result.concat(r,u):e.result,value:a}},{result:"",value:t}).result.slice(0,e.length):l.reduce(function(e,r,t){var l=n[t]||"",u="$1"+l+"$2",a=r+e.prevSlice+e.prevSeparator.length,i=new RegExp("(.{"+a+"})(.)");return {prevSeparator:l,prevSlice:a,value:e.value.replace(i,u)}},{prevSeparator:"",prevSlice:0,value:t}).value.slice(0,e.length)}function formatString(r,t){return void 0===t?function(t){return e(r,t)}:e(r,t)}
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var formatString = _interopDefault(require('format-string-by-pattern/dist'));
 
 /* -------------------------------------------------------
   ---- FORMATTERS (pass into "format" prop to <Field />)

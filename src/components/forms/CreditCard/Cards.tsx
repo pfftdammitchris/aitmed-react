@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
+import makeStyles from '@material-ui/styles/makeStyles'
 import Cards from 'react-credit-cards'
 import { InitialValues, PaymentCardsAnimationProps } from './types'
 

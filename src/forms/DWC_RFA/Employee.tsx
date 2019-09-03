@@ -1,5 +1,5 @@
 import React from 'react'
-import { Field } from 'react-final-form'
+import { Field } from 'react-final-form/dist'
 import Flex from '../../components/Flex'
 import OutlinedTextField from '../../components/finalForm/OutlinedTextField'
 

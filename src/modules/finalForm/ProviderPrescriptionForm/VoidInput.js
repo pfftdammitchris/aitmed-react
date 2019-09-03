@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Field } from 'react-final-form'
+import { Field } from 'react-final-form/dist'
 import Grid from '@material-ui/core/Grid'
 import withStyles from '@material-ui/core/styles/withStyles'
 import MenuItem from '@material-ui/core/MenuItem'

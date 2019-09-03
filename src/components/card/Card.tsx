@@ -1,6 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
-import { makeStyles } from '@material-ui/styles'
+import makeStyles from '@material-ui/styles/makeStyles'
 import Card from '@material-ui/core/Card'
 import Divider from '@material-ui/core/Divider'
 import CardContent from '@material-ui/core/CardContent'

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Field } from 'react-final-form'
-import { makeStyles } from '@material-ui/styles'
+import { Field } from 'react-final-form/dist'
+import makeStyles from '@material-ui/styles/makeStyles'
 import { parsePhone, parseSSN } from '../../utils/finalForm'
 import Flex from '../../components/Flex'
 import OutlinedTextField from '../../components/finalForm/OutlinedTextField'

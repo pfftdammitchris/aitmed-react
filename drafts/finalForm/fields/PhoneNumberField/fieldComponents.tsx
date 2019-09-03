@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { FieldRenderProps } from 'react-final-form'
+import { FieldRenderProps } from 'react-final-form/dist'
 
 import MuiTextField, { TextFieldProps } from '@material-ui/core/TextField'
 import MuiMenuItem from '@material-ui/core/MenuItem'
