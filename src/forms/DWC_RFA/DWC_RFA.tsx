@@ -1,5 +1,5 @@
 import React from 'react'
-import makeStyles from '@material-ui/styles/makeStyles'
+import { makeStyles } from '@material-ui/styles'
 import { Form, Field } from 'react-final-form/dist'
 import createDecorator from 'final-form-focus'
 import { Theme } from '@material-ui/core'

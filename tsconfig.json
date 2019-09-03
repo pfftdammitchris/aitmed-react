@@ -16,7 +16,7 @@
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "build",
+    "outDir": "dist",
     "resolveJsonModule": false,
     "sourceMap": true,
     "strict": true,

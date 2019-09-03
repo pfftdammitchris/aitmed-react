@@ -1,5 +1,5 @@
 import React from 'react'
-import makeStyles from '@material-ui/styles/makeStyles'
+import { makeStyles } from '@material-ui/styles'
 import MuiTextField from '@material-ui/core/TextField'
 import { FieldRenderProps } from 'react-final-form/dist'
 import cx from 'classnames'

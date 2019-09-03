@@ -1,6 +1,6 @@
 import React from 'react'
 import { FieldProps } from 'react-final-form/dist'
-import makeStyles from '@material-ui/styles/makeStyles'
+import { makeStyles } from '@material-ui/styles'
 import FormGroup from '@material-ui/core/FormGroup'
 import TextField from '@material-ui/core/TextField'
 import get from 'lodash/get'

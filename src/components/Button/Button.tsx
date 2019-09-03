@@ -1,6 +1,6 @@
 import React from 'react'
 import MaterialUIButton from '@material-ui/core/Button'
-import makeStyles from '@material-ui/styles/makeStyles'
+import { makeStyles } from '@material-ui/styles'
 import cx from 'classnames'
 import { ButtonProps } from './types'
 

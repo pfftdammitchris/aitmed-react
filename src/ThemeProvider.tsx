@@ -1,6 +1,7 @@
 import React from 'react'
 import { createMuiTheme } from '@material-ui/core/styles'
-import ThemeProvider from '@material-ui/styles/ThemeProvider'
+// import { createMuiTheme } from '@material-ui/core/styles'
+import { ThemeProvider } from '@material-ui/styles'
 import themeObj from './config/theme'
 
 interface LibraryProps {

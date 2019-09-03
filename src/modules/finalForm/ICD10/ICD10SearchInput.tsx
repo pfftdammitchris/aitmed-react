@@ -1,6 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
-import makeStyles from '@material-ui/styles/makeStyles'
+import { makeStyles } from '@material-ui/styles'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Input from '@material-ui/core/Input'
 import { IoIosSearch } from 'react-icons/io'

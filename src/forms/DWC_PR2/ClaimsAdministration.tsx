@@ -1,5 +1,5 @@
 import React from 'react'
-import makeStyles from '@material-ui/styles/makeStyles'
+import { makeStyles } from '@material-ui/styles'
 import { Theme } from '@material-ui/core'
 import { Field } from 'react-final-form/dist'
 import OutlinedTextField from '../../components/finalForm/OutlinedTextField'

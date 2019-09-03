@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import MuiDivider from '@material-ui/core/Divider'
-import makeStyles from '@material-ui/styles/makeStyles'
+import { makeStyles } from '@material-ui/styles'
 
 interface DividerProps {
   classNames?: {

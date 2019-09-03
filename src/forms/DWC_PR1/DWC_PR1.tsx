@@ -1,5 +1,5 @@
 import React from 'react'
-import makeStyles from '@material-ui/styles/makeStyles'
+import { makeStyles } from '@material-ui/styles'
 import { Form } from 'react-final-form/dist'
 import arrayMutators from 'final-form-arrays/dist'
 import Divider from '../../components/Divider'
