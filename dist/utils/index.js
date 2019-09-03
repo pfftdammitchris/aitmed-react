@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var formatString = _interopDefault(require('format-string-by-pattern/dist'));
+var formatString = _interopDefault(require('format-string-by-pattern'));
 
 /* -------------------------------------------------------
   ---- FORMATTERS (pass into "format" prop to <Field />)

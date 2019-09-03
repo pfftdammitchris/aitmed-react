@@ -13,7 +13,7 @@ const extensions = ['.js', '.jsx', '.ts', '.tsx', 'json', '.mjs', '.es6']
 
 const plugins = [
   external({
-    // includeDependencies: true,
+    includeDependencies: true,
   }),
   postcss({ modules: true }),
   url(),
@@ -24,7 +24,7 @@ const plugins = [
     customResolveOptions: {
       moduleDirectory: ['node_modules', 'src'],
     },
-    preferBuiltins: true,
+    preferBuiltins: false,
   }),
   commonjs({
     include: [
@@ -35,10 +35,10 @@ const plugins = [
       // 'node_modules/warning',
       // 'node_modules/axios/**',
       // 'node_modules/payment/dist/payment.js',
-      // 'node_modules/downshift/dist/**',
+      // 'node_modules/downshift/**',
       // 'node_modules/react-signature-canvas/build/**',
       // 'node_modules/react-credit-cards/lib/**',
-      // 'node_modules/react-final-form/dist/**',
+      // 'node_modules/react-final-form/**',
       // 'node_modules/final-form-focus/dist/**',
       // 'node_modules/classnames/**',
       // 'node_modules/date-fns/**',

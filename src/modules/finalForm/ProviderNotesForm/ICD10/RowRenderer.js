@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Field } from 'react-final-form/dist'
+import { Field } from 'react-final-form'
 import cx from 'classnames'
 import withStyles from '@material-ui/core/styles/withStyles'
 import MaterialUIInput from '@material-ui/core/Input'

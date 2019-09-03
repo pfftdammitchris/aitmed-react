@@ -1,4 +1,4 @@
-import formatString from 'format-string-by-pattern/dist'
+import formatString from 'format-string-by-pattern'
 
 /* -------------------------------------------------------
   ---- FORMATTERS (pass into "format" prop to <Field />)

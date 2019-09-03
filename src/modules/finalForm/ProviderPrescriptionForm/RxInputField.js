@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
-import Downshift from 'downshift/dist'
+import Downshift from 'downshift'
 import { connect } from 'react-redux'
 import Typography from '../../../components/common/Typography'
 import { request } from '../../../util/requests'

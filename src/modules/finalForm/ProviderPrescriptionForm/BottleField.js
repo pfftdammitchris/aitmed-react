@@ -3,7 +3,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import Typography from '@material-ui/core/Typography'
 import TextField from '@material-ui/core/TextField'
 import PropTypes from 'prop-types'
-import { Field } from 'react-final-form/dist'
+import { Field } from 'react-final-form'
 import { renderQuantityOption, renderBottleRefills } from './fieldRenderers'
 import RxInputField from './RxInputField'
 

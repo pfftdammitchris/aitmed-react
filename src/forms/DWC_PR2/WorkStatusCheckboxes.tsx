@@ -1,5 +1,5 @@
 import React from 'react'
-import { FieldProps } from 'react-final-form/dist'
+import { FieldProps } from 'react-final-form'
 import { makeStyles } from '@material-ui/styles'
 import FormGroup from '@material-ui/core/FormGroup'
 import TextField from '@material-ui/core/TextField'

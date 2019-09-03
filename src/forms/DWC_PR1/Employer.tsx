@@ -1,5 +1,5 @@
 import React from 'react'
-import { Field } from 'react-final-form/dist'
+import { Field } from 'react-final-form'
 import SignatureCanvas from '../../components/finalForm/SignatureCanvas'
 import OutlinedTextField from '../../components/finalForm/OutlinedTextField'
 import Typography from '../../components/Typography'

@@ -1,7 +1,7 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
-import { Field } from 'react-final-form/dist'
+import { Field } from 'react-final-form'
 import { IoIosAdd, IoIosSearch } from 'react-icons/io'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import BottleField from './BottleField'

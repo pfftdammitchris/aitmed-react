@@ -1,6 +1,6 @@
 import React from 'react'
-import { Field } from 'react-final-form/dist'
-import { FieldArray } from 'react-final-form-arrays/dist'
+import { Field } from 'react-final-form'
+import { FieldArray } from 'react-final-form-arrays'
 import PropTypes from 'prop-types'
 import Divider from '@material-ui/core/Divider'
 import withStyles from '@material-ui/core/styles/withStyles'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Field } from 'react-final-form/dist'
+import { Field } from 'react-final-form'
 import Flex from '../../components/Flex'
 import { states } from '../../utils/info'
 import { formatOnlyNumbers, parsePhone } from '../../utils/finalForm'

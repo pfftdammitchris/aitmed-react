@@ -14,7 +14,7 @@ const AiTmedThemeProvider: React.FC<LibraryProps> = ({
 }) => {
   const theme = createMuiTheme(themeProp || themeObj)
 
-  return <ThemeProvider theme={createMuiTheme(theme)}>{children}</ThemeProvider>
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
 }
 
 export default AiTmedThemeProvider

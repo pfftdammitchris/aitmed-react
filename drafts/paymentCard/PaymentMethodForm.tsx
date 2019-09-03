@@ -8,7 +8,7 @@
       - Pass in "submittingText" to provide your own loading text
 */
 import React from 'react'
-import { Form, Field } from 'react-final-form/dist'
+import { Form, Field } from 'react-final-form'
 import { makeStyles } from '@material-ui/styles'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'

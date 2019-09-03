@@ -1,5 +1,5 @@
 import React from 'react'
-import { Field } from 'react-final-form/dist'
+import { Field } from 'react-final-form'
 import { makeStyles } from '@material-ui/styles'
 import { parsePhone, parseSSN } from '../../utils/finalForm'
 import Flex from '../../components/Flex'

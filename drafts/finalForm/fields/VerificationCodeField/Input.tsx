@@ -1,6 +1,6 @@
 import React from 'react'
 import MuiTextField, { TextFieldProps } from '@material-ui/core/TextField'
-import { FieldRenderProps } from 'react-final-form/dist'
+import { FieldRenderProps } from 'react-final-form'
 
 // Input Component
 const Input: React.FC<

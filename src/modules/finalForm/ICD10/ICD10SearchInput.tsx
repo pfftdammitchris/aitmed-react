@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/styles'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Input from '@material-ui/core/Input'
 import { IoIosSearch } from 'react-icons/io'
-import Downshift from 'downshift/dist'
+import Downshift from 'downshift'
 import ICD10PopupMenu from './ICD10PopupMenu'
 import { ICD10ResultItem } from './types'
 

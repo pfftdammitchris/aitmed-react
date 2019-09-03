@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Input from '@material-ui/core/Input'
-import { Field } from 'react-final-form/dist'
+import { Field } from 'react-final-form'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Typography from '@material-ui/core/Typography'
 

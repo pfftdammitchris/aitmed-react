@@ -1,5 +1,5 @@
 import React from 'react'
-import Downshift from 'downshift/dist'
+import Downshift from 'downshift'
 import reduce from 'lodash/reduce'
 import axios from 'axios'
 import {

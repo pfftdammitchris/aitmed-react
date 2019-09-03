@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import { Theme } from '@material-ui/core'
-import { Field } from 'react-final-form/dist'
+import { Field } from 'react-final-form'
 import OutlinedTextField from '../../components/finalForm/OutlinedTextField'
 import Flex from '../../components/Flex'
 import { states } from '../../utils/info'

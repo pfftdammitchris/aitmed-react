@@ -1,5 +1,5 @@
 import React from 'react'
-import { Field } from 'react-final-form/dist'
+import { Field } from 'react-final-form'
 import cx from 'classnames'
 import { makeStyles } from '@material-ui/styles'
 import MaterialUIInput from '@material-ui/core/Input'

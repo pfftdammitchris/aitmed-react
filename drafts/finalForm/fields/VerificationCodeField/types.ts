@@ -1,5 +1,5 @@
 import React from 'react'
-import { FieldRenderProps } from 'react-final-form/dist'
+import { FieldRenderProps } from 'react-final-form'
 import { TextFieldProps } from '@material-ui/core/TextField'
 import { GridProps } from '@material-ui/core/Grid'
 

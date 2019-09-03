@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { Form, Field } from 'react-final-form/dist'
+import { Form, Field } from 'react-final-form'
 import createDecorator from 'final-form-focus'
 import { Theme } from '@material-ui/core'
 import format from 'date-fns/format'

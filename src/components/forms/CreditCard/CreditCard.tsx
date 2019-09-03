@@ -1,7 +1,7 @@
 import React from 'react'
 import isPlainObject from 'lodash/isPlainObject'
 import isFunction from 'lodash/isFunction'
-import { Form, Field } from 'react-final-form/dist'
+import { Form, Field } from 'react-final-form'
 import { makeStyles } from '@material-ui/styles'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'

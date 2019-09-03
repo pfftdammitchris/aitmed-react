@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { Field } from 'react-final-form/dist'
+import { Field } from 'react-final-form'
 import format from 'date-fns/format'
 import { parseSSN } from '../../utils/finalForm'
 import Checkbox from '../../components/Checkbox'
