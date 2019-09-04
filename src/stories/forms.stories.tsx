@@ -1,9 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import DWC_PR1 from '../forms/DWC_PR1'
-import DWC_PR2 from '../forms/DWC_PR2'
-import DWC_RFA from '../forms/DWC_RFA'
-import ThemeProvider from '../ThemeProvider'
+import DWC_PR1 from 'forms/DWC_PR1'
+import DWC_PR2 from 'forms/DWC_PR2'
+import DWC_RFA from 'forms/DWC_RFA'
 
 const onSubmit = async (values: any) => {
   try {
@@ -13,10 +12,6 @@ const onSubmit = async (values: any) => {
     throw error
   }
 }
-
-const WithAiTmedProvider = ({ children }: any) => (
-  <ThemeProvider>{children}</ThemeProvider>
-)
 
 storiesOf('forms', module)
   .add('DWC_PR1', () => {

@@ -1,31 +1,39 @@
 import formatString from 'format-string-by-pattern'
-
-/* -------------------------------------------------------
-  ---- FORMATTERS (pass into "format" prop to <Field />)
-  ----    update: These can also be passed as "parse" prop to <Field />
--------------------------------------------------------- */
-
-// Strips away non-letters
-export function formatOnlyLetters(val: string): string {
-  if (!val) return val
-  const regex = /^[a-zA-Z]/g
-  return String(val).replace(regex, '')
-}
-
-// Strips away non-numbers
-export function formatOnlyNumbers(val: string): string {
-  if (!val) return val
-  const regex = /[^\d]/g
-  return String(val).replace(regex, '')
-}
+import isFunction from 'lodash/isFunction'
+import { formatOnlyNumbers } from './common'
 
 /* -------------------------------------------------------
   ---- PARSERS (pass into "parse" prop to <Field />)
 -------------------------------------------------------- */
 
+function callFormatter(val, formatter) {
+  let format = '+9 (999) 999-9999'
+  if (formatter != undefined) {
+    if (isFunction(formatter)) {
+      format = formatter(val)
+    } else if (typeof formatter === 'string') {
+      format = formatter
+    }
+  }
+  return formatString(format, formatOnlyNumbers(val))
+}
+
 // Strips away non-numbers and returns the val in format --> +1 (626) 452-0559
-export function parsePhone(val: string): string {
-  const format = '+9 (999) 999-9999'
+export function parsePhone(
+  val: string,
+  formatter?: (val: string) => string | string,
+): string {
+  if (isFunction(val)) {
+    // Caller wants to pass in their own formatter
+  }
+  let format = '+9 (999) 999-9999'
+  if (formatter != undefined) {
+    if (isFunction(formatter)) {
+      format = formatter(val)
+    } else if (typeof formatter === 'string') {
+      format = formatter
+    }
+  }
   return formatString(format, formatOnlyNumbers(val))
 }
 

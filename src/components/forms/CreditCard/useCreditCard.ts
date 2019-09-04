@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Payment from 'payment/dist'
+import Payment from 'payment'
 import { clearNumber } from './utils'
 
 const useCreditCard = () => {
