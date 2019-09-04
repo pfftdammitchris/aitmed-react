@@ -1,6 +1,6 @@
 import React from 'react'
+import merge from 'lodash/merge'
 import { createMuiTheme } from '@material-ui/core/styles'
-// import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import themeObj from './config/theme'
 
@@ -10,9 +10,9 @@ interface LibraryProps {
 
 const AiTmedThemeProvider: React.FC<LibraryProps> = ({
   children,
-  theme: themeProp,
+  theme: themeProp = {},
 }) => {
-  const theme = createMuiTheme(themeProp || themeObj)
+  const theme = createMuiTheme(merge({}, themeObj, themeProp))
 
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>
 }

@@ -9,13 +9,15 @@ storiesOf('Card', module)
     readme: { content: readme },
   })
   .add('default', () => (
-    <Card
-      render={({ CardHeader, CardDivider }: any) => (
-        <div>
-          <CardHeader>The header</CardHeader>
-          <CardDivider />
-          <Typography>Please Login Now</Typography>
-        </div>
-      )}
-    />
+    <div style={{ maxWidth: 450, margin: 'auto' }}>
+      <Card
+        render={({ CardHeader, CardDivider }: any) => (
+          <div>
+            <CardHeader>The header</CardHeader>
+            <CardDivider />
+            <Typography>Please Login Now</Typography>
+          </div>
+        )}
+      />
+    </div>
   ))

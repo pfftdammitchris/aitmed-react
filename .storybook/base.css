@@ -1,7 +1,30 @@
-.markdown-body blockquote {
-  color: red !important;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  color: #2d3e58;
 }
 
-body {
-  background: green !important;
+p {
+  font-size: 0.9rem !important;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+code {
+  font-family: 'Consolas' 'Liberation Mono', Menlo, Courier, sans-serif;
+}
+
+.language-ts,
+.language-tsx,
+.language-json,
+.language-js,
+.language-jsx,
+.language-shell,
+.language-bash {
+  font-size: 0.8rem !important;
 }
