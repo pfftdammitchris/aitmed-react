@@ -34,7 +34,7 @@ const plugins = [
       // 'node_modules/@material-ui/core/**',
       // 'node_modules/warning',
       // 'node_modules/axios/**',
-      // 'node_modules/payment/dist/payment.js',
+      // 'node_modules/payment/payment.js',
       // 'node_modules/downshift/**',
       // 'node_modules/react-signature-canvas/build/**',
       // 'node_modules/react-credit-cards/lib/**',
