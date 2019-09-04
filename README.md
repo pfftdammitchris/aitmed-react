@@ -1,4 +1,4 @@
-# @aitmed/react (pending release)
+# @aitmed/react (pending release) ([Documentation](https://pfftdammitchris.github.io/aitmed-react/))
 
 ![](https://img.shields.io/github/package-json/v/pfftdammitchris/aitmed-react?color=%232EB254) ![](https://img.shields.io/bundlephobia/min/@aitmed/react)
 ![](https://img.shields.io/npm/dw/@aitmed/react)
