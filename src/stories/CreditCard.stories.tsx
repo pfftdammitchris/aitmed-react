@@ -4,9 +4,9 @@ import Button from '@material-ui/core/Button'
 import Select from '@material-ui/core/Select'
 import { Field } from 'react-final-form'
 import { storiesOf } from '@storybook/react'
-import Typography from '../components/Typography'
-import CreditCardForm from '../components/forms/CreditCard'
-import getCodeDoc from '../utils/getCodeDoc'
+import Typography from 'components/Typography'
+import CreditCard from 'components/finalForm/CreditCard'
+import getCodeDoc from 'utils/getCodeDoc'
 import readme from './docs/creditCard.md'
 
 const onSubmit = (values: any) => {
@@ -19,17 +19,17 @@ storiesOf('CreditCard', module)
     readme: { content: readme },
   })
   // @ts-ignore
-  .add('default', () => <CreditCardForm onSubmit={onSubmit} />, {
+  .add('default', () => <CreditCard onSubmit={onSubmit} />, {
     readme: {
       content: getCodeDoc(`
 import React from 'react'
-import CreditCardForm from '@aitmed/react/components/forms/creditCard'
+import { CreditCard } from '@aitmed/react/components/finalForm'
 
 const onSubmit = (values) => {
   console.log(values)
 }
 
-const App = () => <CreditCardForm onSubmit={onSubmit} />
+const App = () => <CreditCard onSubmit={onSubmit} />
 `),
     },
   })
@@ -37,7 +37,7 @@ const App = () => <CreditCardForm onSubmit={onSubmit} />
     'initialValues',
     () => (
       // @ts-ignore
-      <CreditCardForm
+      <CreditCard
         onSubmit={onSubmit}
         initialValues={{
           card_number: '4111111111111111',
@@ -57,14 +57,14 @@ const App = () => <CreditCardForm onSubmit={onSubmit} />
       readme: {
         content: getCodeDoc(`
 import React from 'react'
-import CreditCardForm from '@aitmed/react/components/forms/creditCard'
+import { CreditCard } from '@aitmed/react/components/finalForm'
 
 const onSubmit = (values) => {
   console.log(values)
 }
 
 const App = () => (
-  <CreditCardForm
+  <CreditCard
     onSubmit={onSubmit}
     initialValues={{
       card_number: '4111111111111111',
@@ -85,7 +85,7 @@ const App = () => (
   )
   .add('renderSubmit', () => (
     // @ts-ignore
-    <CreditCardForm
+    <CreditCard
       onSubmit={onSubmit}
       renderSubmit={(props: any) => {
         console.log(props)
@@ -108,7 +108,7 @@ const App = () => (
   ))
   .add('midLabel', () => (
     // @ts-ignore
-    <CreditCardForm
+    <CreditCard
       onSubmit={onSubmit}
       midLabel={
         <Typography variant="subheading" center>
@@ -119,7 +119,7 @@ const App = () => (
   ))
   .add('submittingText', () => (
     // @ts-ignore
-    <CreditCardForm
+    <CreditCard
       onSubmit={onSubmit}
       submittingText="Please wait while we process your credit card..."
       submitting
@@ -128,7 +128,7 @@ const App = () => (
   .add(
     'render prop',
     () => (
-      <CreditCardForm
+      <CreditCard
         onSubmit={onSubmit}
         renderSelectField={({ input }: any) => (
           <div>
@@ -190,14 +190,14 @@ const App = () => (
       readme: {
         content: getCodeDoc(`
 import React from 'react'
-import CreditCardForm from '@aitmed/react/components/forms/creditCard'
+import { CreditCard } from '@aitmed/react/components/finalForm'
 
 const onSubmit = (values) => {
   console.log(values)
 }
 
 const App = () => (
-  <CreditCardForm
+  <CreditCard
     onSubmit={onSubmit}
     renderSelectField={({ input }: any) => (
       <div>

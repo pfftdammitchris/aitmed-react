@@ -27,40 +27,6 @@ const plugins = [
     preferBuiltins: false,
   }),
   commonjs({
-    include: [
-      // 'node_modules/@material-ui/styles/ThemeProvider/index.js',
-      // 'node_modules/@material-ui/styles/esm/**',
-      // 'node_modules/@material-ui/styles/useTheme/index.js',
-      // 'node_modules/@material-ui/core/**',
-      // 'node_modules/warning',
-      // 'node_modules/axios/**',
-      // 'node_modules/payment/payment.js',
-      // 'node_modules/downshift/**',
-      // 'node_modules/react-signature-canvas/build/**',
-      // 'node_modules/react-credit-cards/lib/**',
-      // 'node_modules/react-final-form/**',
-      // 'node_modules/final-form-focus/dist/**',
-      // 'node_modules/classnames/**',
-      // 'node_modules/date-fns/**',
-      // 'node_modules/react-icons/io/**',
-      // 'node_modules/react-icons/fa/**',
-      // 'node_modules/react-icons/md/**',
-      // 'node_modules/lodash/**',
-      // 'node_modules/lodash/merge.js',
-      // 'node_modules/lodash/random.js',
-      // 'node_modules/lodash/isPlainObject.js',
-      // 'node_modules/lodash/isFunction.js',
-      // 'node_modules/lodash/isString.js',
-      // 'node_modules/lodash/isArray.js',
-      // 'node_modules/lodash/reduce.js',
-      // 'node_modules/lodash/startCase.js',
-      // 'node_modules/lodash/get.js',
-      // 'node_modules/lodash/has.js',
-      // 'node_modules/lodash/set.js',
-      // 'node_modules/lodash/unset.js',
-      // 'node_modules/lodash/forEach.js',
-      // 'node_modules/lodash/cloneDeep.js',
-    ],
     namedExports: {
       'react-is': [
         'ForwardRef',
@@ -144,10 +110,10 @@ const componentsAlt = {
 }
 
 const finalFormComponents = {
-  input: 'src/components/forms/index.tsx',
+  input: 'src/components/finalForm/index.tsx',
   output: [
-    getOutput({ file: 'dist/components/forms/index.js', format: 'cjs' }),
-    getOutput({ file: 'dist/components/forms/index.es.js', format: 'es' }),
+    getOutput({ file: 'dist/components/finalForm/index.js', format: 'cjs' }),
+    getOutput({ file: 'dist/components/finalForm/index.es.js', format: 'es' }),
   ],
   plugins,
 }

@@ -13,15 +13,7 @@ storiesOf('utilities', module)
   .add(
     'final form',
     () => {
-      return (
-        <div>
-          <pre>formatOnlyLetters</pre>
-          <pre>formatOnlyNumbers</pre>
-          <pre>parsePhone</pre>
-          <pre>parseSSN</pre>
-          <pre>validate</pre>
-        </div>
-      )
+      return <div />
     },
     {
       readme: { content: readme },

@@ -46,5 +46,5 @@ storiesOf('forms', module)
         </div>
       )
     })
-    return <WithAiTmedProvider>{component}</WithAiTmedProvider>
+    return component
   })

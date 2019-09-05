@@ -48,7 +48,7 @@ import { Button, LoadingSpinner } from '@aitmed/react'
 // alias for the above. provided in case you want to be consistent with the imports below
 import { Button, LoadingSpinner } from '@aitmed/react/components'
 // you will have to use /components/ here to get to the finalForm components
-import { OutputTextField } from '@aitmed/react/components/finalForm'
+import { CreditCard, OutputTextField } from '@aitmed/react/components/finalForm'
 import { DWC_PR1, DWC_PR2, DWC_RFA } from '@aitmed/react/forms'
 import { useModal, useCache } from '@aitmed/react/hooks'
 import { useObjectizedCheckboxes } from '@aitmed/react/hooks/finalForm'

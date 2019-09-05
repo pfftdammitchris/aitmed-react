@@ -4,7 +4,7 @@
 
 ```jsx
 import React from 'react'
-import { OutlinedTextField } from '@aitmed/react/finalForm'
+import { OutlinedTextField } from '@aitmed/react/components/finalForm'
 
 const App = () => <OutlinedTextField />
 ```

@@ -4,7 +4,7 @@
 
 ```jsx
 import React from 'react'
-import { SignatureCanvas } from '@aitmed/react'
+import { SignatureCanvas } from '@aitmed/react/components/finalForm'
 
 const App = () => <SignatureCanvas />
 ```

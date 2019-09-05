@@ -157,6 +157,7 @@ const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
   dim = false,
   white = false,
   renderContent,
+  src,
   ...rest
 }) => {
   const classes = useStyles(undefined)
@@ -179,9 +180,15 @@ const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
             className={cx(classes.spinner, className)}
             {...rest}
           />
-          <div className={classes.logoContainer}>
-            <img src={logoSrc} className={classes.logo} title="AiTmed" />
-          </div>
+          {src && (
+            <div className={classes.logoContainer}>
+              <img
+                src={src || logoSrc}
+                className={classes.logo}
+                title="AiTmed"
+              />
+            </div>
+          )}
         </div>
         <Fade timeout={2000} in>
           {isFunction(renderContent) ? (

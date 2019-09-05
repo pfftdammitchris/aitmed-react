@@ -23,5 +23,6 @@ export interface LoadingSpinnerProps extends SpinnerWithWidthProps {
   fullscreen?: boolean
   dim?: boolean
   white?: boolean
+  src?: string
   renderContent?: () => React.ReactNode
 }

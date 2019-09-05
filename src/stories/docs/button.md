@@ -97,7 +97,7 @@ Example:
 </Button>
 ```
 
-If we were to read this, it goes like this: "\*The button with a theme of `primary` is hovering on a `thirdary` background.
+If we were to read this, it goes like this: "_The button with a theme of `primary` is hovering on a `thirdary` background._"
 
 When the user hovers over the button, it will transition its colors as if it was on a `thirdary` background.
 

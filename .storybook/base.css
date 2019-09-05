@@ -10,9 +10,24 @@ li {
   color: #2d3e58;
 }
 
-p {
+p,
+ul,
+li {
   font-size: 0.9rem !important;
   font-family: 'Roboto', sans-serif !important;
+}
+
+p > code,
+li > code {
+  font-size: 0.8rem;
+  background: #eef5f9;
+  font-weight: 700;
+  padding: 4px;
+}
+
+::selection {
+  background: #fc9208 !important;
+  color: #fff;
 }
 
 code {

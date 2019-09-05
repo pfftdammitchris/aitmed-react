@@ -4,7 +4,7 @@
 
 ```jsx
 import React from 'react'
-import LoadingSpinner from '@aitmed/react/components/LoadingSpinner'
+import { LoadingSpinner } from '@aitmed/react'
 
 const App = () => (
   <div style={{ width: 500, height: 300 }}>
@@ -33,3 +33,4 @@ However, if you place this on a dark background the dark text will become camouf
 | renderContent (optional)       | React.ReactNode     |         | Custom renderer function to override the default content/typography component       |
 | margin (optional)              | string / number     |         | Margin applied to the loading spinner's `style`                                     |
 | typographyProps (optional)     | any                 |         | Props that will be applied to the `Typography` component below the spinner          |
+| src (optional)                 | string              |         | Optionally supply an image to be rendered in the middle of the spinning circle      |

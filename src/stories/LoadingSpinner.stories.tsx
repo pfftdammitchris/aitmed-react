@@ -1,6 +1,7 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import { storiesOf } from '@storybook/react'
+import logo from 'resources/appIcon.png'
 import Typography from '../components/Typography'
 import LoadingSpinner from '../components/LoadingSpinner'
 import getCodeDoc from '../utils/getCodeDoc'
@@ -45,7 +46,7 @@ storiesOf('LoadingSpinner', module)
     readme: {
       content: getCodeDoc(`
 import React from 'react'
-import LoadingSpinner from '@aitmed/react/components/LoadingSpinner'
+import { LoadingSpinner } from '@aitmed/react'
 
 const App = () => (
    <LoadingSpinner>
@@ -62,7 +63,7 @@ const App = () => (
       readme: {
         content: getCodeDoc(`
 import React from 'react'
-import LoadingSpinner from '@aitmed/react/components/LoadingSpinner'
+import { LoadingSpinner } from '@aitmed/react'
 
 const App = () => (
    <LoadingSpinner dim>
@@ -80,7 +81,7 @@ const App = () => (
       readme: {
         content: getCodeDoc(`
 import React from 'react'
-import LoadingSpinner from '@aitmed/react/components/LoadingSpinner'
+import { LoadingSpinner } from '@aitmed/react'
 
 const App = () => (
   <div style={{ background: '#072E48' }}>
@@ -109,7 +110,7 @@ const App = () => (
       readme: {
         content: getCodeDoc(`
 import React from 'react'
-import LoadingSpinner from '@aitmed/react/components/LoadingSpinner'
+import { LoadingSpinner } from '@aitmed/react'
 
 const App = () => (
   <LoadingSpinner
@@ -131,7 +132,7 @@ const App = () => (
       readme: {
         content: getCodeDoc(`
 import React from 'react'
-import LoadingSpinner from '@aitmed/react/components/LoadingSpinner'
+import { LoadingSpinner } from '@aitmed/react'
 
 const App = () => (
   <LoadingSpinner fullscreen>
@@ -161,7 +162,7 @@ const App = () => (
       readme: {
         content: getCodeDoc(`
 import React from 'react'
-import LoadingSpinner from '@aitmed/react/components/LoadingSpinner'
+import { LoadingSpinner } from '@aitmed/react'
 
 const App = () => (
   <LoadingSpinner fullscreen white>
@@ -172,3 +173,20 @@ const App = () => (
       },
     },
   )
+  .add('src', () => renderLoadingSpinner({ spinner: { src: logo } }), {
+    readme: {
+      content: getCodeDoc(`
+import React from 'react'
+import { LoadingSpinner } from '@aitmed/react'
+import logo from '../resources/logo.png'
+
+const App = () => (
+  <div>
+    <LoadingSpinner src={logo}>
+      Loading...
+    </LoadingSpinner>
+  </div>
+)
+      `),
+    },
+  })

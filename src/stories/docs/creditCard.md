@@ -4,7 +4,7 @@
 
 ```jsx
 import React from 'react'
-import { CreditCardForm } from '@aitmed/react'
+import { CreditCard } from '@aitmed/react/components/finalForm'
 
 const onSubmit = (values) => {
   console.log(values)
@@ -12,12 +12,12 @@ const onSubmit = (values) => {
 
 const App = () => (
   <div>
-    <CreditCardForm onSubmit={onSubmit} />
+    <CreditCard onSubmit={onSubmit} />
   </div>
 )
 ```
 
-`CreditCardForm` is used to display forms for payment cards.
+`CreditCard` is used to display forms for payment cards.
 
 The only required prop is `onSubmit`, a function that invokes when the user submits the form. When called, it will receive the values of the form as the first argument. Any additional props will be passed to the root [Form](https://github.com/final-form/react-final-form#form--reactcomponenttypeformprops) component.
 
@@ -25,14 +25,14 @@ If you need to override the entire user interface, you can pass in a `render` pr
 
 ```js
 import React from 'react'
-import CreditCardForm from '@aitmed/react/components/forms/CreditCard'
+import { CreditCard } from '@aitmed/react/components/finalForm'
 
 const onSubmit = (values) => {
   console.log(values)
 }
 
 const App = () => (
-  <CreditCardForm
+  <CreditCard
     onSubmit={onSubmit}
     render={({ fields, fieldKeys, formApi, Cards }) => {
       const { handleSubmit, form, values, active, submitting } = formApi
@@ -89,8 +89,8 @@ You might have noticed that each of the fields in the `fields` object comes with
 
 ```js
 import React from 'react'
-import CreditCardForm from '@aitmed/react/components/forms/CreditCard'
-import Typography from '@aitmed/react/components/Typography'
+import { CreditCard } from '@aitmed/react/components/finalForm'
+import { Typography } from '@aitmed/react'
 import TextField from '@material-ui/core/TextField'
 
 const onSubmit = (values) => {
@@ -111,7 +111,7 @@ const renderTextField = ({ input, meta, ...rest }) => (
 )
 
 const App = () => (
-  <CreditCardForm
+  <CreditCard
     renderTextField={renderTextField}
     onSubmit={onSubmit}
     render={({ fields, fieldKeys, formApi, Cards }) => {
