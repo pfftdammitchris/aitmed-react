@@ -1,5 +1,4 @@
 import React from 'react'
-import isPlainObject from 'lodash/isPlainObject'
 import isFunction from 'lodash/isFunction'
 import { Form, Field } from 'react-final-form'
 import { makeStyles } from '@material-ui/styles'
@@ -14,6 +13,7 @@ import Cards from './Cards'
 import useCreditCard from './useCreditCard'
 import MidLabel from './MidLabel'
 import { years } from './utils'
+import { isObject } from '../../../utils'
 import { CreditCardProps } from './types'
 import 'react-credit-cards/es/styles-compiled.css'
 
@@ -115,7 +115,7 @@ const CreditCardForm: React.FC<CreditCardProps> = ({
     >
       {items &&
         items.map((item: any, index: number) => {
-          const isObj = isPlainObject(item)
+          const isObj = isObject(item)
           const value = isObj ? item.value : item
           const label = isObj ? item.label : item
           return (

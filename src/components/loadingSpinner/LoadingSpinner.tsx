@@ -1,10 +1,10 @@
 import React from 'react'
-import isFunction from 'lodash/isFunction'
 import { makeStyles } from '@material-ui/styles'
 import Fade from '@material-ui/core/Fade'
 import withWidth from '@material-ui/core/withWidth'
 import cx from 'classnames'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import { isFunction } from '../../utils'
 import logo from '../../resources/appIcon.png'
 import logoWhite from '../../resources/appIconWhite.png'
 import Typography from '../Typography'
@@ -165,7 +165,6 @@ const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
 
   let logoSrc = logo // default to logo with dark text
   if (white || dim) logoSrc = logoWhite
-
   return (
     <div
       style={{ ...styles, ...wrapperStyle }}
@@ -190,9 +189,9 @@ const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
             </div>
           )}
         </div>
+
         <Fade timeout={2000} in>
           {isFunction(renderContent) ? (
-            // @ts-ignore
             renderContent()
           ) : (
             <Typography
