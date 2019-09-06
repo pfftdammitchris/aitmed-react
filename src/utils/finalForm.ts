@@ -1,8 +1,5 @@
 import formatString from 'format-string-by-pattern'
-import isFunction from 'lodash/isFunction'
-import isObject from 'lodash/isObject'
-import isString from 'lodash/isString'
-import { formatOnlyNumbers } from './common'
+import { formatOnlyNumbers, isFunction, isObject, isString } from './common'
 
 /* -------------------------------------------------------
   ---- PARSERS (pass into "parse" prop to <Field />)
@@ -32,7 +29,7 @@ function evalCustomFormatter({
       format = formatter(val) || format || defaultFormat
     }
     // Else evaluate the string afterwards
-    else if (format && isString(format)) {
+    else if (isString(format)) {
       return formatString(format, wrap ? wrap(val) : val)
     }
     return ''
