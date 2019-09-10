@@ -11,13 +11,12 @@ import X from './X'
 interface SignatureCanvasProps {
   input: any
   meta: any
+  signatureRef: { current: null | any }
   canvasContainerProps?: any
   canvasProps?: any
-  className?: string
   classNames?: {
     x?: string
     canvasContainer?: string
-    canvas?: string
     clearBtn?: string
   }
   clearBtnProps?: any
@@ -25,7 +24,6 @@ interface SignatureCanvasProps {
   hideClear?: boolean
   onDrawEnd?: () => void
   penColor?: string
-  signatureRef?: { current: null | any }
   signatureCaption?: React.ReactNode
   signatureLabel?: React.ReactNode
   xProps?: any
@@ -61,8 +59,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     right: 0,
     bottom: -30,
     zIndex: 9999,
-    padding: '0 !important',
-    margin: '0 !important',
+    padding: '0',
+    margin: '0',
     fontSize: 9.8,
     minHeight: 0,
     height: 20,
@@ -81,11 +79,11 @@ const FinalFormSignatureCanvas: React.FC<SignatureCanvasProps> = (props) => {
   const classes = useStyles()
   const theme = useTheme<Theme>()
   const {
+    input,
     meta,
-    canvasContainerProps,
+    canvasContainerProps = {},
     canvasProps,
     clearBtnProps,
-    className,
     classNames = {},
     hideClear,
     onDrawEnd,
@@ -106,17 +104,18 @@ const FinalFormSignatureCanvas: React.FC<SignatureCanvasProps> = (props) => {
           xProps={{ ...xProps, className: cx(xProps.className, classNames.x) }}
         />
         <div
-          className={cx(classes.canvasContainer, classNames.canvasContainer)}
           {...canvasContainerProps}
+          className={cx(
+            classes.canvasContainer,
+            classNames.canvasContainer,
+            canvasContainerProps.className,
+          )}
         >
           {trimmedDataUrl && meta.submitting ? (
-            <img
-              className={cx(classes.canvas, classNames.canvas, className)}
-              src={trimmedDataUrl}
-            />
+            <img className={classes.canvas} src={trimmedDataUrl} />
           ) : (
             <Signature
-              className={cx(classes.canvas, classNames.canvas, className)}
+              className={classes.canvas}
               ref={signatureRef}
               penColor={penColor || theme.palette.secondary.dark}
               clearOnResize={false}
@@ -137,10 +136,10 @@ const FinalFormSignatureCanvas: React.FC<SignatureCanvasProps> = (props) => {
         disrupt the cursor positioning behavior. If this happens, clear the
         signature by clicking on the "Clear" button and try again.
       </Typography>
-      {!hideClear && (
+      {!hideClear && !!input && !!input.value && (
         <Button
           id="clear-button"
-          className={classes.clearBtn}
+          className={cx(classes.clearBtn, classNames.clearBtn)}
           onClick={clear}
           hover={{ secondary: 'white' }}
           secondary

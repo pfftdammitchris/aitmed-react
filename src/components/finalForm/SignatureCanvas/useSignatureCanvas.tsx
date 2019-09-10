@@ -2,15 +2,23 @@ import React from 'react'
 import { isFunction } from '../../../utils'
 
 interface Args {
+  input?: any
   clearSignature?: () => void
   signatureRef?: { current: null | any }
 }
 
-function useSignatureCanvas({ clearSignature, signatureRef }: Args) {
+function useSignatureCanvas({
+  input = {},
+  clearSignature,
+  signatureRef,
+}: Args) {
   const [trimmedDataUrl, setTrimmedUrl] = React.useState('')
 
   function onDraw() {
     if (signatureRef && signatureRef.current) {
+      if (!input.value && isFunction(input.onChange)) {
+        input.onChange(true)
+      }
       setTrimmedUrl(signatureRef.current.toDataURL('image/png'))
     } else {
       console.warn(
@@ -22,6 +30,9 @@ function useSignatureCanvas({ clearSignature, signatureRef }: Args) {
   function clear() {
     if (signatureRef && signatureRef.current) {
       signatureRef.current.clear()
+      if (input.value && isFunction(input.onChange)) {
+        input.onChange(false)
+      }
     } else if (isFunction(clearSignature)) {
       clearSignature()
     } else {

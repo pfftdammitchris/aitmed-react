@@ -14,13 +14,12 @@ interface FinalFormOutlinedTextFieldProps
   inline?: boolean
   wrapperProps?: any
   errorProps?: any
+  menuProps?: any
   formHelperTextProps?: any
   inputProps?: any
   inputLabelProps?: any
-  menuProps?: any
   selectDisplayProps?: any
   selectProps?: any
-  marginRight?: number
   select?: boolean
   classes?: any
 }
@@ -61,6 +60,8 @@ const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = (
     inputLabelProps = {},
     // select props
     selectProps = {},
+    selectDisplayProps = {},
+    menuProps = {},
     ...otherProps
   } = props
 
@@ -85,6 +86,8 @@ const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = (
             selectProps.classes && selectProps.classes.select,
           ),
         },
+        MenuProps: menuProps,
+        SelectDisplayProps: selectDisplayProps,
       },
       inputProps,
     }
@@ -123,29 +126,31 @@ const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = (
   }
 
   return (
-    <div
-      style={{
-        display: inline ? 'inline-block' : 'block',
-        flexGrow: 1,
-      }}
-      {...otherWrapperProps}
-      className={cx(wrapperProps.className, {
-        [classes.marginRight]: marginRight != undefined,
-      })}
-    >
-      <MuiTextField
-        margin="dense"
-        {...fieldProps}
-        {...input}
-        {...otherProps}
-        variant="outlined"
-      />
+    <>
+      <div
+        style={{
+          display: inline ? 'inline-block' : 'block',
+          flexGrow: 1,
+        }}
+        {...otherWrapperProps}
+        className={cx(wrapperProps.className, {
+          [classes.marginRight]: marginRight != undefined,
+        })}
+      >
+        <MuiTextField
+          margin="dense"
+          {...fieldProps}
+          {...input}
+          {...otherProps}
+          variant="outlined"
+        />
+      </div>
       {meta && meta.error && meta.touched && (
         <Typography variant="caption" error {...errorProps}>
           {meta.error}
         </Typography>
       )}
-    </div>
+    </>
   )
 }
 
