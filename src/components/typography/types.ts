@@ -15,8 +15,6 @@ export interface TypographyProps {
   error?: boolean
   red?: boolean
   link?: boolean
-  soft?: boolean
-  inactive?: boolean
   fontWeight?: string | number
   variant?: string
   left?: boolean

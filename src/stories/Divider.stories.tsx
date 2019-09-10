@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import Divider from '../components/Divider'
-// import getCodeDoc from 'utils/getCodeDoc'
+import getCodeDoc from 'utils/getCodeDoc'
 import readme from './docs/divider.md'
 
 storiesOf('Divider', module)
@@ -9,4 +9,15 @@ storiesOf('Divider', module)
     readme: { content: readme },
   })
   .add('default', () => <Divider />)
-  .add('margin 35px auto', () => <Divider margin="35px auto" />)
+  .add('props.margin', () => <Divider margin="35px auto" />, {
+    readme: {
+      content: getCodeDoc(`
+import React from 'react'
+import { Divider } from '@aitmed/react'
+
+const App = () => (
+  <Divider margin="35px auto" />
+)
+`),
+    },
+  })

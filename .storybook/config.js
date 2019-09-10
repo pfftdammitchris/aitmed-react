@@ -1,16 +1,16 @@
+import React from 'react'
 import { addParameters, configure, addDecorator } from '@storybook/react'
 import { addReadme } from 'storybook-readme'
-import { muiTheme } from 'storybook-addon-material-ui'
-import theme from '../src/config/theme'
-import storybookTheme from './theme'
 import registerWithPanelTitle from 'storybook-readme/registerWithPanelTitle'
+import ThemeProvider from '../src/ThemeProvider'
+import storybookTheme from './theme'
 import './base.css'
 
 registerWithPanelTitle('Docs')
 
 const req = require.context('../src/stories', true, /.stories.tsx$/)
 
-addDecorator(muiTheme(theme))
+addDecorator((storyFn) => <ThemeProvider>{storyFn()}</ThemeProvider>)
 addDecorator(addReadme)
 addParameters({
   options: {

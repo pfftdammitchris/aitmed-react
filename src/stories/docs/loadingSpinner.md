@@ -1,5 +1,7 @@
 # LoadingSpinner
 
+A `LoadingSpinner` is used as a placeholder when data is loading.
+
 ## Usage
 
 ```jsx

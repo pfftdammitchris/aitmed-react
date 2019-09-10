@@ -33,6 +33,7 @@
     "final-form-arrays": "^3.0.1",
     "final-form-focus": "^1.1.2",
     "format-string-by-pattern": "^1.1.1",
+    "invariant": "^2.2.4",
     "payment": "^2.3.0",
     "react-credit-cards": "^0.7.0",
     "react-final-form": "^6.3.0",
@@ -94,7 +95,6 @@
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-typescript2": "^0.24.0",
     "rollup-plugin-url": "^2.2.2",
-    "storybook-addon-material-ui": "^0.9.0-alpha.20",
     "storybook-readme": "^5.0.8",
     "typescript": "^3.6.2"
   },

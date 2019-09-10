@@ -1,5 +1,8 @@
 const getCodeDoc = (str: string) => `
 <!-- STORY -->
+
+<br />
+
 \`\`\`jsx
 ${str}
 \`\`\`

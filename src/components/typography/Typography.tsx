@@ -170,8 +170,6 @@ const Typography: React.FC<TypographyProps> = ({
   darkBlue,
   white,
   black,
-  soft,
-  inactive,
   error: errorProp,
   red,
   link,

@@ -1,4 +1,4 @@
-export interface Cardv2Props {
+export interface CardProps {
   className?: string
   classNames?: {
     card?: string

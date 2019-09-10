@@ -1,21 +1,16 @@
 import React from 'react'
 import cx from 'classnames'
-import useTheme from '@material-ui/styles/useTheme'
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles, useTheme } from '@material-ui/styles'
 import { Theme } from '@material-ui/core'
 import Signature from 'react-signature-canvas'
+import useSignatureCanvas from './useSignatureCanvas'
 import Typography from '../../Typography'
 import Button from '../../Button'
-import Flex from '../../Flex'
+import X from './X'
 
 interface SignatureCanvasProps {
-  input?: {
-    value?: boolean
-    onChange: (value: boolean) => void
-  }
-  meta?: any
-  value?: boolean
-  onChange?: (value: boolean) => void
+  input: any
+  meta: any
   canvasContainerProps?: any
   canvasProps?: any
   className?: string
@@ -31,24 +26,17 @@ interface SignatureCanvasProps {
   onDrawEnd?: () => void
   penColor?: string
   signatureRef?: { current: null | any }
-  signatureInputRef?: { current: null | any }
   signatureCaption?: React.ReactNode
   signatureLabel?: React.ReactNode
   xProps?: any
 }
 
-// @ts-ignore
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     position: 'relative',
   },
   contentRoot: {
     position: 'relative',
-    width: '100%',
-    '& h2': {
-      fontWeight: 700,
-      padding: '12px 12px 0',
-    },
     '& label': {
       fontSize: '3.5em !important',
       fontWeight: 500,
@@ -57,12 +45,7 @@ const useStyles = makeStyles((theme: any) => ({
     display: 'flex',
     alignItems: 'flex-end',
   },
-  x: {
-    position: 'relative',
-    bottom: 15,
-    userSelect: 'none',
-    display: 'inline-block',
-  },
+
   canvasContainer: {
     width: '100%',
   },
@@ -94,86 +77,34 @@ const useStyles = makeStyles((theme: any) => ({
   Supports react-final-form by applying input.value and input.onChange to props.value and props.onChange
 */
 
-const FinalFormSignatureCanvas: React.FC<SignatureCanvasProps> = ({
-  input,
-  meta,
-  canvasContainerProps,
-  canvasProps,
-  clearBtnProps,
-  className,
-  classNames = {},
-  clearSignature,
-  hideClear,
-  onChange,
-  onDrawEnd,
-  penColor,
-  signatureRef,
-  signatureInputRef,
-  signatureCaption,
-  signatureLabel,
-  value,
-  xProps,
-}) => {
+const FinalFormSignatureCanvas: React.FC<SignatureCanvasProps> = (props) => {
   const classes = useStyles()
   const theme = useTheme<Theme>()
-  // Pass input ref to outside, so input value can be change from outside
-  if (signatureInputRef) signatureInputRef.current = input
+  const {
+    meta,
+    canvasContainerProps,
+    canvasProps,
+    clearBtnProps,
+    className,
+    classNames = {},
+    hideClear,
+    onDrawEnd,
+    penColor,
+    signatureRef,
+    signatureCaption,
+    signatureLabel,
+    xProps = {},
+  } = props
 
-  const [trimmedDataUrl, setTrimmedUrl] = React.useState('')
-
-  if (onChange == undefined && (!!input && typeof input === 'object')) {
-    value = input.value
-    onChange = input.onChange
-  } else {
-    console.warn(
-      'Warning: You tried to set value and onChange with "input.value" and "input.onChange" ' +
-        'but input was null or undefined',
-    )
-  }
-
-  const onDraw = () => {
-    if (!value && typeof onChange === 'function') onChange(true)
-    // @ts-ignore
-    if (signatureRef.current) {
-      // @ts-ignore
-      setTrimmedUrl(signatureRef.current.toDataURL('image/png'))
-    } else {
-      console.warn(
-        'Tried to set the new drawing on canvas but signatureRef.current was null or undefined',
-      )
-    }
-  }
-
-  const clear = () => {
-    if (typeof onChange === 'function') onChange(false)
-    // @ts-ignore
-    if (signatureRef.current != null) signatureRef.current.clear()
-    else if (typeof clearSignature === 'function') clearSignature()
-    else {
-      console.warn(
-        'Tried to clear the signature but no clearSignature function or signatureRef was available',
-      )
-    }
-  }
+  const { clear, onDraw, trimmedDataUrl } = useSignatureCanvas(props)
 
   return (
     <div className={classes.root}>
       <div className={classes.contentRoot}>
-        <Flex flexDirection="column">
-          <Typography
-            className={cx(classes.x, classNames.x)}
-            variant="h2"
-            {...xProps}
-          >
-            X
-          </Typography>
-          <Typography
-            variant="caption"
-            style={{ position: 'absolute', bottom: 0, left: 0 }}
-          >
-            {signatureLabel || 'Signature'}
-          </Typography>
-        </Flex>
+        <X
+          signatureLabel={signatureLabel}
+          xProps={{ ...xProps, className: cx(xProps.className, classNames.x) }}
+        />
         <div
           className={cx(classes.canvasContainer, classNames.canvasContainer)}
           {...canvasContainerProps}
@@ -191,9 +122,6 @@ const FinalFormSignatureCanvas: React.FC<SignatureCanvasProps> = ({
               clearOnResize={false}
               onEnd={onDrawEnd || onDraw}
               clearButton
-              canvasProps={{
-                className: cx(classes.canvas, classNames.canvas, className),
-              }}
               {...canvasProps}
             />
           )}
@@ -209,7 +137,7 @@ const FinalFormSignatureCanvas: React.FC<SignatureCanvasProps> = ({
         disrupt the cursor positioning behavior. If this happens, clear the
         signature by clicking on the "Clear" button and try again.
       </Typography>
-      {!hideClear && !!value && (
+      {!hideClear && (
         <Button
           id="clear-button"
           className={classes.clearBtn}

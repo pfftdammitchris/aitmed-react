@@ -5,7 +5,7 @@ import Card from '@material-ui/core/Card'
 import Divider from '@material-ui/core/Divider'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '../Typography'
-import { Cardv2Props, CardDividerProps } from './types'
+import { CardProps, CardDividerProps } from './types'
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }))
 
-const Cardv2: React.FC<Cardv2Props> = ({
+const Cardv2: React.FC<CardProps> = ({
   className,
   classNames = {},
   render,
