@@ -15,7 +15,6 @@ import inputLabelPropsMd from 'stories/docs/finalForm/OutlinedTextField/inputLab
 import menuPropsMd from 'stories/docs/finalForm/OutlinedTextField/menuProps.md'
 import selectDisplayPropsMd from 'stories/docs/finalForm/OutlinedTextField/selectDisplayProps.md'
 import selectPropsMd from 'stories/docs/finalForm/OutlinedTextField/selectProps.md'
-import marginRightMd from 'stories/docs/finalForm/OutlinedTextField/marginRight.md'
 import selectMd from 'stories/docs/finalForm/OutlinedTextField/select.md'
 import classesMd from 'stories/docs/finalForm/OutlinedTextField/classes.md'
 

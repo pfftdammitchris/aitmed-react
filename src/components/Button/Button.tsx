@@ -1,315 +1,317 @@
 import React from 'react'
 import MaterialUIButton from '@material-ui/core/Button'
-import { makeStyles } from '@material-ui/styles'
+import { createStyles, makeStyles } from '@material-ui/styles'
 import cx from 'classnames'
 import { ButtonProps } from './types'
 
 const Link = (props: any) => <a {...props} />
 
-const useStyles = makeStyles((theme: any) => ({
-  root: {
-    position: 'relative',
-    borderRadius: 50,
-    boxShadow: 'none',
-    background: theme.palette.primary.main,
-    border: `1px solid ${theme.palette.primary.main}`,
-    color: '#fff',
-    '&:hover': {
-      background: 'none',
-      color: theme.palette.primary.main,
-    },
-  },
-  primary: {
-    border: `1px solid ${theme.palette.primary.main}`,
-    color: '#fff',
-    background: `${theme.palette.primary.main} !important`,
-    '&:hover': {
-      border: `1px solid ${theme.palette.primary.dark} !important`,
-      background: `${theme.palette.primary.dark} !important`,
+const useStyles = makeStyles((theme: any) =>
+  createStyles({
+    root: {
+      position: 'relative',
+      borderRadius: 50,
+      boxShadow: 'none',
+      background: theme.palette.primary.main,
+      border: `1px solid ${theme.palette.primary.main}`,
       color: '#fff',
+      '&:hover': {
+        background: 'none',
+        color: theme.palette.primary.main,
+      },
     },
-  },
-  secondary: {
-    border: `1px solid ${theme.palette.secondary.main}`,
-    color: '#fff',
-    background: `${theme.palette.secondary.main}`,
-    '&:hover': {
-      border: `1px solid ${theme.palette.secondary.dark} !important`,
-      background: `${theme.palette.secondary.dark} !important`,
+    primary: {
+      border: `1px solid ${theme.palette.primary.main}`,
       color: '#fff',
+      background: `${theme.palette.primary.main} !important`,
+      '&:hover': {
+        border: `1px solid ${theme.palette.primary.dark} !important`,
+        background: `${theme.palette.primary.dark} !important`,
+        color: '#fff',
+      },
     },
-  },
-  thirdary: {
-    border: `1px solid ${theme.palette.thirdary.main}`,
-    color: '#fff',
-    background: theme.palette.thirdary.main,
-    '&:hover': {
-      border: `1px solid ${theme.palette.thirdary.dark} !important`,
-      background: `${theme.palette.thirdary.dark} !important`,
+    secondary: {
+      border: `1px solid ${theme.palette.secondary.main}`,
       color: '#fff',
+      background: `${theme.palette.secondary.main}`,
+      '&:hover': {
+        border: `1px solid ${theme.palette.secondary.dark} !important`,
+        background: `${theme.palette.secondary.dark} !important`,
+        color: '#fff',
+      },
     },
-  },
-  neutral: {
-    border: `1px solid ${theme.palette.inactive}`,
-    color: '#fff',
-    background: 'grey',
-    '&:hover': {
-      background: 'none !important',
-      color: theme.palette.text.light,
-    },
-  },
-  error: {
-    border: `1px solid ${theme.palette.error.main}`,
-    color: '#fff',
-    background: theme.palette.error.main,
-    '&:hover': {
-      background: `${theme.palette.error.dark} !important`,
+    thirdary: {
+      border: `1px solid ${theme.palette.thirdary.main}`,
       color: '#fff',
+      background: theme.palette.thirdary.main,
+      '&:hover': {
+        border: `1px solid ${theme.palette.thirdary.dark} !important`,
+        background: `${theme.palette.thirdary.dark} !important`,
+        color: '#fff',
+      },
     },
-  },
-  hoverPrimaryOnSecondary: {
-    color: '#fff',
-    border: `1px solid ${theme.palette.primary.main} !important`,
-    '&:hover': {
-      background: 'none !important',
-      border: '1px solid #fff !important',
+    neutral: {
+      border: `1px solid ${theme.palette.inactive}`,
+      color: '#fff',
+      background: 'grey',
+      '&:hover': {
+        background: 'none !important',
+        color: theme.palette.text.light,
+      },
+    },
+    error: {
+      border: `1px solid ${theme.palette.error.main}`,
+      color: '#fff',
+      background: theme.palette.error.main,
+      '&:hover': {
+        background: `${theme.palette.error.dark} !important`,
+        color: '#fff',
+      },
+    },
+    hoverPrimaryOnSecondary: {
+      color: '#fff',
+      border: `1px solid ${theme.palette.primary.main} !important`,
+      '&:hover': {
+        background: 'none !important',
+        border: '1px solid #fff !important',
+        color: '#fff !important',
+      },
+    },
+    hoverPrimaryOnThirdary: {
+      color: '#fff',
+      border: `1px solid ${theme.palette.primary.main} !important`,
+      '&:hover': {
+        background: 'none !important',
+        border: '1px solid #fff !important',
+        color: '#fff !important',
+      },
+    },
+    hoverPrimaryOnWhite: {
+      color: '#fff',
+      border: `1px solid ${theme.palette.primary.main} !important`,
+      '&:hover': {
+        background: 'none !important',
+        color: `${theme.palette.primary.main} !important`,
+      },
+    },
+    hoverPrimaryOnBlack: {
+      color: '#fff',
+      border: `1px solid ${theme.palette.primary.main}`,
+      '&:hover': {
+        background: 'none !important',
+        color: '#fff !important',
+      },
+    },
+    hoverSecondaryOnPrimary: {
+      color: '#fff',
+      background: theme.palette.secondary.main,
+      border: `1px solid ${theme.palette.secondary.main}`,
+      '&:hover': {
+        border: '1px solid #fff',
+        background: 'none !important',
+        color: '#fff !important',
+      },
+    },
+    hoverSecondaryOnThirdary: {
+      color: '#fff',
+      background: theme.palette.secondary.main,
+      border: `1px solid ${theme.palette.secondary.main}`,
+      '&:hover': {
+        border: '1px solid #fff',
+        background: 'none !important',
+        color: '#fff !important',
+      },
+    },
+    hoverSecondaryOnWhite: {
+      color: '#fff',
+      background: theme.palette.secondary.main,
+      border: `1px solid ${theme.palette.secondary.main}`,
+      '&:hover': {
+        background: 'none !important',
+        color: `${theme.palette.secondary.main} !important`,
+      },
+    },
+    hoverSecondaryOnBlack: {
+      color: '#fff',
+      background: theme.palette.secondary.main,
+      border: `1px solid ${theme.palette.secondary.main}`,
+      '&:hover': {
+        background: 'none !important',
+        color: '#fff !important',
+      },
+    },
+    hoverThirdaryOnPrimary: {
+      color: '#fff',
+      background: theme.palette.thirdary.main,
+      border: `1px solid ${theme.palette.thirdary.main}`,
+      '&:hover': {
+        border: '1px solid #fff',
+        background: 'none !important',
+        color: '#fff !important',
+      },
+    },
+    hoverThirdaryOnSecondary: {
+      color: '#fff',
+      background: theme.palette.thirdary.main,
+      border: `1px solid ${theme.palette.thirdary.main} !important`,
+      '&:hover': {
+        border: '1px solid #fff !important',
+        background: 'none !important',
+        color: '#fff !important',
+      },
+    },
+    hoverThirdaryOnWhite: {
+      color: '#fff',
+      background: theme.palette.thirdary.main,
+      border: `1px solid ${theme.palette.thirdary.main} !important`,
+      '&:hover': {
+        background: 'none !important',
+        color: `${theme.palette.thirdary.main} !important`,
+      },
+    },
+    hoverThirdaryOnBlack: {
+      color: '#fff',
+      background: theme.palette.thirdary.main,
+      border: `1px solid ${theme.palette.thirdary.main}`,
+      '&:hover': {
+        background: 'none !important',
+        color: '#fff !important',
+      },
+    },
+    hoverWhiteOnPrimary: {
+      color: theme.palette.text.normal,
+      background: '#fff',
+      border: `1px solid ${theme.palette.primary.lighter}`,
+      '&:hover': {
+        border: '1px solid #fff',
+        background: 'none !important',
+        color: '#fff !important',
+      },
+    },
+    hoverWhiteOnSecondary: {
+      color: theme.palette.text.normal,
+      background: '#fff',
+      border: `1px solid ${theme.palette.secondary.lighter}`,
+      '&:hover': {
+        border: '1px solid #fff',
+        background: 'none !important',
+        color: '#fff !important',
+      },
+    },
+    hoverWhiteOnThirdary: {
+      color: theme.palette.text.normal,
+      background: '#fff',
+      border: `1px solid ${theme.palette.thirdary.lighter}`,
+      '&:hover': {
+        border: '1px solid #fff',
+        background: 'none !important',
+        color: '#fff !important',
+      },
+    },
+    hoverWhiteOnBlack: {
+      color: theme.palette.text.soft,
+      background: '#fff',
+      border: `1px solid ${theme.palette.borders.slightlyDark}`,
+      '&:hover': {
+        border: `1px solid ${theme.palette.borders.cloud} !important`,
+        background: '#000 !important',
+        color: '#fff !important',
+      },
+    },
+    hoverBlackOnPrimary: {
+      color: '#fff',
+      background: '#000',
+      border: '1px solid #000',
+      '&:hover': {
+        border: '1px solid #fff',
+        background: 'none !important',
+        color: '#fff !important',
+      },
+    },
+    hoverBlackOnSecondary: {
+      color: '#fff',
+      background: '#000',
+      border: '1px solid #000',
+      '&:hover': {
+        border: '1px solid #fff',
+        background: 'none !important',
+        color: '#fff !important',
+      },
+    },
+    hoverBlackOnThirdary: {
+      color: '#fff',
+      background: '#000',
+      border: '1px solid #000',
+      '&:hover': {
+        border: '1px solid #fff',
+        background: 'none !important',
+        color: '#fff !important',
+      },
+    },
+    hoverBlackOnWhite: {
+      color: '#fff',
+      background: '#000',
+      border: '1px solid #000',
+      '&:hover': {
+        border: `1px solid ${theme.palette.borders.dark} !important`,
+        background: 'none !important',
+        color: `${theme.palette.text.normal} !important`,
+      },
+    },
+    hoverError: {
+      '&:hover': {
+        background: 'none !important',
+        color: `${theme.palette.error.main} !important`,
+      },
+    },
+    small: {
+      fontSize: '0.65em',
+    },
+    medium: {
+      fontSize: '0.8em',
+    },
+    large: {
+      fontSize: '1.2em !important',
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '0.9em !important',
+      },
+    },
+    xlarge: {
+      fontSize: '1.1em',
+      padding: '20px 45px',
+    },
+    disabled: {
+      background: `${theme.palette.inactive} !important`,
+      border: `${theme.palette.inactive} !important`,
       color: '#fff !important',
     },
-  },
-  hoverPrimaryOnThirdary: {
-    color: '#fff',
-    border: `1px solid ${theme.palette.primary.main} !important`,
-    '&:hover': {
+    outlined: {
       background: 'none !important',
-      border: '1px solid #fff !important',
-      color: '#fff !important',
     },
-  },
-  hoverPrimaryOnWhite: {
-    color: '#fff',
-    border: `1px solid ${theme.palette.primary.main} !important`,
-    '&:hover': {
-      background: 'none !important',
+    textPrimary: {
       color: `${theme.palette.primary.main} !important`,
     },
-  },
-  hoverPrimaryOnBlack: {
-    color: '#fff',
-    border: `1px solid ${theme.palette.primary.main}`,
-    '&:hover': {
-      background: 'none !important',
-      color: '#fff !important',
-    },
-  },
-  hoverSecondaryOnPrimary: {
-    color: '#fff',
-    background: theme.palette.secondary.main,
-    border: `1px solid ${theme.palette.secondary.main}`,
-    '&:hover': {
-      border: '1px solid #fff',
-      background: 'none !important',
-      color: '#fff !important',
-    },
-  },
-  hoverSecondaryOnThirdary: {
-    color: '#fff',
-    background: theme.palette.secondary.main,
-    border: `1px solid ${theme.palette.secondary.main}`,
-    '&:hover': {
-      border: '1px solid #fff',
-      background: 'none !important',
-      color: '#fff !important',
-    },
-  },
-  hoverSecondaryOnWhite: {
-    color: '#fff',
-    background: theme.palette.secondary.main,
-    border: `1px solid ${theme.palette.secondary.main}`,
-    '&:hover': {
-      background: 'none !important',
+    textSecondary: {
       color: `${theme.palette.secondary.main} !important`,
     },
-  },
-  hoverSecondaryOnBlack: {
-    color: '#fff',
-    background: theme.palette.secondary.main,
-    border: `1px solid ${theme.palette.secondary.main}`,
-    '&:hover': {
-      background: 'none !important',
-      color: '#fff !important',
-    },
-  },
-  hoverThirdaryOnPrimary: {
-    color: '#fff',
-    background: theme.palette.thirdary.main,
-    border: `1px solid ${theme.palette.thirdary.main}`,
-    '&:hover': {
-      border: '1px solid #fff',
-      background: 'none !important',
-      color: '#fff !important',
-    },
-  },
-  hoverThirdaryOnSecondary: {
-    color: '#fff',
-    background: theme.palette.thirdary.main,
-    border: `1px solid ${theme.palette.thirdary.main} !important`,
-    '&:hover': {
-      border: '1px solid #fff !important',
-      background: 'none !important',
-      color: '#fff !important',
-    },
-  },
-  hoverThirdaryOnWhite: {
-    color: '#fff',
-    background: theme.palette.thirdary.main,
-    border: `1px solid ${theme.palette.thirdary.main} !important`,
-    '&:hover': {
-      background: 'none !important',
+    textThirdary: {
       color: `${theme.palette.thirdary.main} !important`,
     },
-  },
-  hoverThirdaryOnBlack: {
-    color: '#fff',
-    background: theme.palette.thirdary.main,
-    border: `1px solid ${theme.palette.thirdary.main}`,
-    '&:hover': {
-      background: 'none !important',
-      color: '#fff !important',
+    textNeutral: {
+      color: `${theme.palette.text.soft} !important`,
     },
-  },
-  hoverWhiteOnPrimary: {
-    color: theme.palette.text.normal,
-    background: '#fff',
-    border: `1px solid ${theme.palette.primary.lighter}`,
-    '&:hover': {
-      border: '1px solid #fff',
-      background: 'none !important',
-      color: '#fff !important',
-    },
-  },
-  hoverWhiteOnSecondary: {
-    color: theme.palette.text.normal,
-    background: '#fff',
-    border: `1px solid ${theme.palette.secondary.lighter}`,
-    '&:hover': {
-      border: '1px solid #fff',
-      background: 'none !important',
-      color: '#fff !important',
-    },
-  },
-  hoverWhiteOnThirdary: {
-    color: theme.palette.text.normal,
-    background: '#fff',
-    border: `1px solid ${theme.palette.thirdary.lighter}`,
-    '&:hover': {
-      border: '1px solid #fff',
-      background: 'none !important',
-      color: '#fff !important',
-    },
-  },
-  hoverWhiteOnBlack: {
-    color: theme.palette.text.soft,
-    background: '#fff',
-    border: `1px solid ${theme.palette.borders.slightlyDark}`,
-    '&:hover': {
-      border: `1px solid ${theme.palette.borders.cloud} !important`,
-      background: '#000 !important',
-      color: '#fff !important',
-    },
-  },
-  hoverBlackOnPrimary: {
-    color: '#fff',
-    background: '#000',
-    border: '1px solid #000',
-    '&:hover': {
-      border: '1px solid #fff',
-      background: 'none !important',
-      color: '#fff !important',
-    },
-  },
-  hoverBlackOnSecondary: {
-    color: '#fff',
-    background: '#000',
-    border: '1px solid #000',
-    '&:hover': {
-      border: '1px solid #fff',
-      background: 'none !important',
-      color: '#fff !important',
-    },
-  },
-  hoverBlackOnThirdary: {
-    color: '#fff',
-    background: '#000',
-    border: '1px solid #000',
-    '&:hover': {
-      border: '1px solid #fff',
-      background: 'none !important',
-      color: '#fff !important',
-    },
-  },
-  hoverBlackOnWhite: {
-    color: '#fff',
-    background: '#000',
-    border: '1px solid #000',
-    '&:hover': {
-      border: `1px solid ${theme.palette.borders.dark} !important`,
-      background: 'none !important',
-      color: `${theme.palette.text.normal} !important`,
-    },
-  },
-  hoverError: {
-    '&:hover': {
-      background: 'none !important',
+    textDanger: {
       color: `${theme.palette.error.main} !important`,
     },
-  },
-  small: {
-    fontSize: '0.65em',
-  },
-  medium: {
-    fontSize: '0.8em',
-  },
-  large: {
-    fontSize: '1.2em !important',
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '0.9em !important',
+    centerOnSmall: {
+      [theme.breakpoints.down('xs')]: {
+        textAlign: 'center',
+        display: 'block',
+        margin: 'auto',
+      },
     },
-  },
-  xlarge: {
-    fontSize: '1.1em',
-    padding: '20px 45px',
-  },
-  disabled: {
-    background: `${theme.palette.inactive} !important`,
-    border: `${theme.palette.inactive} !important`,
-    color: '#fff !important',
-  },
-  outlined: {
-    background: 'none !important',
-  },
-  textPrimary: {
-    color: `${theme.palette.primary.main} !important`,
-  },
-  textSecondary: {
-    color: `${theme.palette.secondary.main} !important`,
-  },
-  textThirdary: {
-    color: `${theme.palette.thirdary.main} !important`,
-  },
-  textNeutral: {
-    color: `${theme.palette.text.soft} !important`,
-  },
-  textDanger: {
-    color: `${theme.palette.error.main} !important`,
-  },
-  centerOnSmall: {
-    [theme.breakpoints.down('xs')]: {
-      textAlign: 'center',
-      display: 'block',
-      margin: 'auto',
-    },
-  },
-}))
+  }),
+)
 
 const Button: React.FC<ButtonProps> = ({
   className,

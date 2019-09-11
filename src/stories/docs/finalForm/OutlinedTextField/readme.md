@@ -6,9 +6,30 @@
 
 ```jsx
 import React from 'react'
+import { Form, Field } from 'react-final-form'
+import { Button } from '@aitmed/react'
 import { OutlinedTextField } from '@aitmed/react/components/finalForm'
 
-const App = () => <OutlinedTextField />
+function onSubmit(values) {
+  console.log(values)
+}
+
+const App = () => (
+  <Form
+    onSubmit={onSubmit}
+    subscription={{ submitting: true }}
+    render={({ handleSubmit }) => (
+      <form onSubmit={handleSubmit}>
+        <Field name="age" component={OutlinedTextField} label="Your age" />
+        <div>
+          <Button type="submit" primary small>
+            Submit
+          </Button>
+        </div>
+      </form>
+    )}
+  />
+)
 ```
 
 | Prop                  | Type | Default | Description                                                                                               |
