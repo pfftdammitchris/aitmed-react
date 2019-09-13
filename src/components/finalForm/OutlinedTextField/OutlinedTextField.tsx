@@ -3,12 +3,13 @@ import { makeStyles } from '@material-ui/styles'
 import MuiTextField from '@material-ui/core/TextField'
 import { FieldRenderProps } from 'react-final-form'
 import cx from 'classnames'
+import InputAdornment from './InputAdornment'
 import Typography from '../../Typography'
 
 interface FinalFormOutlinedTextFieldProps
   extends FieldRenderProps<any, HTMLElement> {
-  input?: any
-  meta?: any
+  input: any
+  meta: any
   helperText?: string
   error?: boolean
   value?: any
@@ -67,6 +68,8 @@ const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = (
     menuProps = {},
     ...otherProps
   } = props
+  // Override input.type for more control (ex: for show/hide passwords)
+  const [inputType, setInputType] = React.useState(input.type)
 
   const classes = useStyles({ wrapperProps })
 
@@ -108,6 +111,13 @@ const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = (
           ...inputProps.classes,
           input: classes.input,
         },
+        endAdornment: inputProps.endAdornment || (
+          <InputAdornment
+            originalInputType={input.type}
+            inputType={inputType}
+            setInputType={setInputType}
+          />
+        ),
       },
       InputLabelProps: {
         shrink: true,
@@ -145,6 +155,7 @@ const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = (
           {...fieldProps}
           {...input}
           {...otherProps}
+          type={inputType}
           variant="outlined"
         />
       </div>

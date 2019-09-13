@@ -18,7 +18,7 @@ import menuPropsMd from '../docs/finalForm/OutlinedTextField/menuProps.md'
 import selectDisplayPropsMd from '../docs/finalForm/OutlinedTextField/selectDisplayProps.md'
 import selectPropsMd from '../docs/finalForm/OutlinedTextField/selectProps.md'
 import selectMd from '../docs/finalForm/OutlinedTextField/select.md'
-import classesMd from '../docs/finalForm/OutlinedTextField/classes.md'
+import typeMd from '../docs/finalForm/OutlinedTextField/type.md'
 
 function onSubmit(values) {
   console.log(values)
@@ -257,3 +257,21 @@ storiesOf('(final-form) OutlinedTextField', module)
       </Wrapper>
     )
   })
+  .add(
+    "props.type === 'password'",
+    () => {
+      return React.createElement(() => {
+        return (
+          <Wrapper>
+            <Field
+              name="password"
+              component={OutlinedTextField}
+              label="Password"
+              type="password"
+            />
+          </Wrapper>
+        )
+      })
+    },
+    { readme: { content: typeMd } },
+  )
