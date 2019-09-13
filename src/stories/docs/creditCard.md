@@ -4,7 +4,7 @@
 
 ```jsx
 import React from 'react'
-import { CreditCard } from '@aitmed/react/components/finalForm'
+import { CreditCard } from '@aitmed/react/dist/components/finalForm'
 
 const onSubmit = (values) => {
   console.log(values)
@@ -25,7 +25,7 @@ If you need to override the entire user interface, you can pass in a `render` pr
 
 ```js
 import React from 'react'
-import { CreditCard } from '@aitmed/react/components/finalForm'
+import { CreditCard } from '@aitmed/react/dist/components/finalForm'
 
 const onSubmit = (values) => {
   console.log(values)
@@ -89,7 +89,7 @@ You might have noticed that each of the fields in the `fields` object comes with
 
 ```js
 import React from 'react'
-import { CreditCard } from '@aitmed/react/components/finalForm'
+import { CreditCard } from '@aitmed/react/dist/components/finalForm'
 import { Typography } from '@aitmed/react'
 import TextField from '@material-ui/core/TextField'
 

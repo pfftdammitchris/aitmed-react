@@ -1,25 +1,19 @@
-import React from 'react'
+import * as React from 'react'
 import cx from 'classnames'
 import { makeStyles } from '@material-ui/styles'
 import { Field } from 'react-final-form'
-import TextField from '@material-ui/core/TextField'
+import { AsYouType } from 'libphonenumber-js'
 import CountryCodeField from './CountryCodeField'
-import usePhoneNoField from './usePhoneNoField'
-import countries from './countries'
+import Typography from '../../Typography'
+import OutlinedTextField from '../OutlinedTextField'
+import Synchronizer from './Synchronizer'
 
 export interface PhoneNumFieldProps {
   input: any
   meta: any
-  phoneFieldName?: string
-  countryCodeProps?: {
-    className?: string
-    inputProps?: any
-    inputLabelProps?: any
-    selectProps?: any
-    wrapperProps?: any
-  }
-  phoneNumLabel?: string
-  variant?: 'outlined' | 'standard' | 'filled'
+  wrapperProps?: any
+  countryFieldProps?: any
+  phoneFieldProps?: any
 }
 
 const useStyles = makeStyles({
@@ -28,7 +22,7 @@ const useStyles = makeStyles({
     flexDirection: 'row',
   },
   phone: {
-    flexGrow: 1,
+    width: '100%',
   },
   phoneInput: {
     borderTopLeftRadius: 0,
@@ -42,84 +36,68 @@ const useStyles = makeStyles({
 
 function PhoneNumField({
   input,
-  countryCodeProps = {},
-  phoneNumProps,
-  phoneNumLabel,
-  variant = 'standard',
+  meta,
+  countryFieldProps = {},
+  phoneFieldProps = {},
   wrapperProps = {},
-  countryCodeProps = {},
 }: PhoneNumFieldProps) {
   const classes = useStyles()
 
-  const { parseCountryCode, parsePhoneNum } = usePhoneNoField({
-    input,
-    phoneNum: input.value.phone_number || '',
-  })
+  const currentPhoneVal = input.value.phone_number || ''
 
   return (
-    <div {...wrapperProps} className={cx(classes.root, wrapperProps.className)}>
-      <Field
-        name={`${input.name}.code`}
-        component={CountryCodeField}
-        parse={parseCountryCode}
-        render={({ input, meta }) => {
-          const errMsg = meta.error || meta.submitError || ''
-          return (
-            <TextField
-              error={!!errMsg}
-              helperText={errMsg}
-              margin="normal"
-              variant={variant}
-              {...countryCodeProps}
-              InputProps={{
-                ...countryCodeProps.inputProps,
-                className: cx(classes.code, countryCodeProps.InputProps ? countryCodeProps.Input.className),
-              }}
-              InputLabelProps={{
-                ...countryCodeProps.inputLabelProps,
-                shrink: true,
-              }}
-              SelectProps={{
-                displayEmpty: true,
-                native: true,
-                ...countryCodeProps.selectProps,
-              }}
-              select
-              {...input}
-            >
-              {countries.codes.map((code) => (
-                <option key={code} value={code}>
-                  {`${code} +${countries.mapper[code].phone_code}`}
-                </option>
-              ))}
-            </TextField>
-          )
-        }}
-        allowNull
-        {...countryCodeProps}
-      />
-      <Field
-        name={`${input.name}.phone_number`}
-        parse={parsePhoneNum}
-        render={({ input, meta }) => {
-          const errMsg = meta.error || meta.submitError || ''
-          return (
-            <TextField
-              className={classes.phone}
-              margin="normal"
-              label={phoneNumLabel}
-              InputProps={{ className: classes.phoneInput }}
-              InputLabelProps={{ shrink: true }}
-              error={!!errMsg}
-              helperText={errMsg || ''}
-              variant={variant}
-              {...input}
-              {...phoneNumProps}
-            />
-          )
-        }}
-        allowNull
-      />
+    <div>
+      <div
+        {...wrapperProps}
+        className={cx(classes.root, wrapperProps.className)}
+      >
+        <Synchronizer phoneKey={input.name} />
+        <Field
+          name={`${input.name}.code`}
+          component={CountryCodeField}
+          allowNull
+          {...countryFieldProps}
+        />
+        <Field
+          name={`${input.name}.phone_number`}
+          parse={(value) => {
+            const trimValue = value.trim()
+            let phone
+            // If deleting a non number character
+            if (
+              trimValue.length < currentPhoneVal.length &&
+              !/(\d)$/.test(currentPhoneVal)
+            ) {
+              phone = trimValue
+            } else {
+              phone = new AsYouType(input.value.code).input(trimValue)
+            }
+            return phone
+          }}
+          {...phoneFieldProps}
+          render={({ input, meta, ...rest }) => {
+            const errMsg = meta.error || meta.submitError || ''
+            return (
+              <OutlinedTextField
+                classes={{ root: classes.phone }}
+                margin="normal"
+                inputProps={{ className: classes.phoneInput }}
+                inputLabelProps={{ shrink: true }}
+                error={!!errMsg}
+                helperText={errMsg || ''}
+                {...input}
+                {...rest}
+              />
+            )
+          }}
+          allowNull
+        />
+      </div>
+      {meta && (meta.error || meta.submitError) && (
+        <Typography variant="caption" error>
+          {meta.error || meta.submitError}
+        </Typography>
+      )}
     </div>
   )
 }

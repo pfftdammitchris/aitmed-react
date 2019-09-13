@@ -20,7 +20,7 @@ const styles = (theme) => ({
     borderRadius: '8px !important',
     boxShadow: 'none',
     border: `1px solid ${theme.palette.borders.slightlyDark}`,
-    color: `${theme.palette.text.soft} !important`,
+    color: `${'#666'} !important`,
     background: 'none !important',
     textTransform: 'none',
     fontSize: '0.9em',

@@ -1,3 +1,5 @@
+import formatString from 'format-string-by-pattern'
+
 export const callAll = (...fns: any[]) => (...args: any[]) =>
   fns.forEach((fn) => fn && fn(...args))
 
@@ -34,4 +36,59 @@ export function isObject(val: any): val is Object {
 
 export function isString(val: any): val is string {
   return typeof val === 'string'
+}
+
+/* -------------------------------------------------------
+  ---- PARSERS (pass into "parse" prop to <Field />)
+-------------------------------------------------------- */
+
+type Formatter = (val: string) => string
+
+interface FormatOptions {
+  format?: string
+  formatter?: Formatter
+  defaultFormat?: string
+  wrap?: Function
+}
+
+const defaultPhoneFormat = '+9 (999) 999-9999'
+const defaultSSNFormat = '999-99-9999'
+// If the user passes
+function evalCustomFormatter({
+  defaultFormat,
+  format,
+  formatter,
+  wrap,
+}: FormatOptions) {
+  return function(val: string): string {
+    // Evaluate the formatter function first (give it higher specificity)
+    if (isFunction(formatter)) {
+      format = formatter(val) || format || defaultFormat
+    }
+    // Else evaluate the string afterwards
+    else if (isString(format)) {
+      return formatString(format, wrap ? wrap(val) : val)
+    }
+    return ''
+  }
+}
+
+// Strips away non-numbers and returns the val in format --> +1 (626) 452-0559
+export function parsePhone(
+  val: string | FormatOptions,
+  // formatter?: (val: string) => string | string,
+): Formatter | string {
+  let format = defaultPhoneFormat
+  if (isObject(val)) {
+    return evalCustomFormatter({ ...val, wrap: formatOnlyNumbers })
+  }
+  return formatString(format, formatOnlyNumbers(val))
+}
+
+// Turns a string into a social security number format
+export function parseSSN(val: string | FormatOptions): Formatter | string {
+  if (isObject(val)) {
+    return evalCustomFormatter({ ...val, wrap: formatOnlyNumbers })
+  }
+  return formatString(defaultSSNFormat, formatOnlyNumbers(val))
 }

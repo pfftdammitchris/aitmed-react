@@ -156,7 +156,7 @@ storiesOf('Button', module)
                     ? theme.palette.thirdary.main
                     : props.red
                     ? theme.palette.error.main
-                    : theme.palette.text.normal,
+                    : '#333',
                   ...(typographyProps.style || typographyProps.styles || {}),
                 }}
               >
@@ -402,7 +402,7 @@ storiesOf('Button', module)
                   ? theme.palette.thirdary.main
                   : props.red
                   ? theme.palette.error.main
-                  : theme.palette.text.normal,
+                  : '#333',
                 ...(typographyProps.style || typographyProps.styles || {}),
               }}
             >

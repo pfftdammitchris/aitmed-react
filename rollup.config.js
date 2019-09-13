@@ -99,7 +99,7 @@ const components = {
 }
 
 // Alias / copy of components in case the dev wants to be explicit with imports such as:
-//    "import { Button } from '@aitmed/react/components"
+//    "import { Button } from '@aitmed/react/dist/components"
 const componentsAlt = {
   input: 'src/index.tsx',
   output: [

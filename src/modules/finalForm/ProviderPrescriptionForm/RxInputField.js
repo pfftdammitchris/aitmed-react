@@ -20,7 +20,7 @@ const styles = (theme) => ({
     display: 'block',
     padding: 12,
     border: '1px solid #fff',
-    color: theme.palette.text.light,
+    color: '#999',
     fontSize: '0.8rem',
     maxWidth: '93%',
     marginBottom: -6,

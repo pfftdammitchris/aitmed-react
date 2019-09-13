@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme: any) => ({
     '&:hover': {
       border: `1px solid ${theme.palette.thirdary.dark}`,
       background: '#fff',
-      color: theme.palette.text.soft,
+      color: '#666',
       '& $highlightedCell': {
         border: 'none !important',
       },
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme: any) => ({
     borderBottom: '0 !important',
     '& input': {
       border: `1px solid ${theme.palette.secondary.main}`,
-      color: theme.palette.text.normal,
+      color: '#333',
       '&:hover': {
         border: `1px solid ${theme.palette.thirdary.dark}`,
       },

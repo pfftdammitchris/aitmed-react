@@ -5,7 +5,7 @@ import { Field } from 'react-final-form'
 import OutlinedTextField from '../../components/finalForm/OutlinedTextField'
 import Flex from '../../components/Flex'
 import { states } from '../../utils/info'
-import { formatOnlyNumbers, parsePhone } from '../../utils/finalForm'
+import { formatOnlyNumbers, parsePhone } from '../../utils'
 
 interface ClaimsAdministrationProps {
   name: string

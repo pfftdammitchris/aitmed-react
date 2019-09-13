@@ -43,7 +43,7 @@ const styles = (theme) => ({
     [theme.breakpoints.down('sm')]: {
       width: '100%',
     },
-    backgroundColor: theme.palette.text.soft,
+    backgroundColor: '#666',
   },
   actions: {
     borderTop: `1px solid ${theme.palette.divider}`,

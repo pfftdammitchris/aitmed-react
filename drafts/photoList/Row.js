@@ -30,7 +30,7 @@ const styles = (theme) => ({
   description: {
     fontWeight: 400,
     fontSize: '0.8rem',
-    color: theme.palette.text.soft,
+    color: '#666',
     [theme.breakpoints.down('xs')]: {
       fontSize: '0.6rem',
     },

@@ -4,7 +4,7 @@
 
 ```jsx
 import React from 'react'
-import { SignatureCanvas } from '@aitmed/react/components/finalForm'
+import { SignatureCanvas } from '@aitmed/react/dist/components/finalForm'
 import { Form, Field } from 'react-final-form'
 
 const onSubmit = (values) => {

@@ -2,7 +2,7 @@
 
 ```jsx
 import React from 'react'
-import { OutlinedTextField } from '@aitmed/react/components/finalForm'
+import { OutlinedTextField } from '@aitmed/react/dist/components/finalForm'
 import { Form, Field } from 'react-final-form'
 import { makeStyles } from '@material-ui/styles'
 

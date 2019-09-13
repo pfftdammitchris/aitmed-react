@@ -18,7 +18,7 @@ const styles = (theme) => ({
     '& $checkbox': {
       marginLeft: 0,
       padding: 0,
-      color: theme.palette.text.soft,
+      color: '#666',
       display: 'inline-block',
       '& svg': {
         width: 18,
@@ -31,10 +31,10 @@ const styles = (theme) => ({
     justifyContent: 'flex-start',
     alignItems: 'center',
     padding: '15px 5px',
-    borderRight: `2px solid ${theme.palette.text.soft}`,
-    borderBottom: `2px solid ${theme.palette.text.soft}`,
+    borderRight: `2px solid ${'#666'}`,
+    borderBottom: `2px solid ${'#666'}`,
     [theme.breakpoints.down('xs')]: {
-      borderLeft: `2px solid ${theme.palette.text.soft}`,
+      borderLeft: `2px solid ${'#666'}`,
     },
     minWidth: '55%',
   },
@@ -42,10 +42,10 @@ const styles = (theme) => ({
   meta: {
     maxWidth: '40%',
     padding: '5px 10px',
-    borderRight: `2px solid ${theme.palette.text.soft}`,
-    borderBottom: `2px solid ${theme.palette.text.soft}`,
+    borderRight: `2px solid ${'#666'}`,
+    borderBottom: `2px solid ${'#666'}`,
     [theme.breakpoints.down('xs')]: {
-      borderLeft: `2px solid ${theme.palette.text.soft}`,
+      borderLeft: `2px solid ${'#666'}`,
     },
     flexWrap: 'wrap',
     [theme.breakpoints.down('lg')]: {
@@ -84,10 +84,10 @@ const styles = (theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    borderBottom: `2px solid ${theme.palette.text.soft}`,
+    borderBottom: `2px solid ${'#666'}`,
     [theme.breakpoints.down('xs')]: {
-      borderLeft: `2px solid ${theme.palette.text.soft}`,
-      borderRight: `2px solid ${theme.palette.text.soft}`,
+      borderLeft: `2px solid ${'#666'}`,
+      borderRight: `2px solid ${'#666'}`,
     },
     padding: 1,
     flexBasis: '4%',

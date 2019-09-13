@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field } from 'react-final-form'
-import { parsePhone } from '../../utils/finalForm'
+import { parsePhone } from '../../utils'
 import Flex from '../../components/Flex'
 import SignatureCanvas from '../../components/finalForm/SignatureCanvas'
 

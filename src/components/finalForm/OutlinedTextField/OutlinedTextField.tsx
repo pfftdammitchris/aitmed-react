@@ -7,10 +7,13 @@ import Typography from '../../Typography'
 
 interface FinalFormOutlinedTextFieldProps
   extends FieldRenderProps<any, HTMLElement> {
-  input: any
-  meta: any
+  input?: any
+  meta?: any
+  helperText?: string
+  error?: boolean
   value?: any
   className?: string
+  margin?: 'normal' | 'dense'
   inline?: boolean
   wrapperProps?: any
   errorProps?: any
@@ -27,7 +30,7 @@ interface FinalFormOutlinedTextFieldProps
 // @ts-ignore
 const useStyles = makeStyles((theme: any) => ({
   helperTextRoot: {
-    color: theme.palette.text.soft,
+    color: '#666',
   },
   select: {
     fontSize: '0.9rem !important',

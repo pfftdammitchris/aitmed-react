@@ -7,7 +7,7 @@
 ```jsx
 import React from 'react'
 import { Form, Field } from 'react-final-form'
-import { SignatureCanvas } from '@aitmed/react/components/finalForm'
+import { SignatureCanvas } from '@aitmed/react/dist/components/finalForm'
 
 async function onSubmit(values) {
   try {

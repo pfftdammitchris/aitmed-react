@@ -165,5 +165,9 @@
       "",
       "export default $1"
     ]
+  },
+  "import { muiTheme } from 'storybook-addon-material-ui'": {
+    "prefix": "swth",
+    "body": "import { muiTheme } from 'storybook-addon-material-ui'"
   }
 }

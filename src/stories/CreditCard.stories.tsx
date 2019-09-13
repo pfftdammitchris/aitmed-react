@@ -23,7 +23,7 @@ storiesOf('CreditCard', module)
     readme: {
       content: getCodeDoc(`
 import React from 'react'
-import { CreditCard } from '@aitmed/react/components/finalForm'
+import { CreditCard } from '@aitmed/react/dist/components/finalForm'
 
 const onSubmit = (values) => {
   console.log(values)
@@ -57,7 +57,7 @@ const App = () => <CreditCard onSubmit={onSubmit} />
       readme: {
         content: getCodeDoc(`
 import React from 'react'
-import { CreditCard } from '@aitmed/react/components/finalForm'
+import { CreditCard } from '@aitmed/react/dist/components/finalForm'
 
 const onSubmit = (values) => {
   console.log(values)
@@ -190,7 +190,7 @@ const App = () => (
       readme: {
         content: getCodeDoc(`
 import React from 'react'
-import { CreditCard } from '@aitmed/react/components/finalForm'
+import { CreditCard } from '@aitmed/react/dist/components/finalForm'
 
 const onSubmit = (values) => {
   console.log(values)

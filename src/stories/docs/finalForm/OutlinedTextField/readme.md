@@ -8,7 +8,7 @@
 import React from 'react'
 import { Form, Field } from 'react-final-form'
 import { Button } from '@aitmed/react'
-import { OutlinedTextField } from '@aitmed/react/components/finalForm'
+import { OutlinedTextField } from '@aitmed/react/dist/components/finalForm'
 
 function onSubmit(values) {
   console.log(values)

@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme: any) =>
       background: 'grey',
       '&:hover': {
         background: 'none !important',
-        color: theme.palette.text.light,
+        color: '#999',
       },
     },
     error: {
@@ -179,7 +179,7 @@ const useStyles = makeStyles((theme: any) =>
       },
     },
     hoverWhiteOnPrimary: {
-      color: theme.palette.text.normal,
+      color: '#333',
       background: '#fff',
       border: `1px solid ${theme.palette.primary.lighter}`,
       '&:hover': {
@@ -189,7 +189,7 @@ const useStyles = makeStyles((theme: any) =>
       },
     },
     hoverWhiteOnSecondary: {
-      color: theme.palette.text.normal,
+      color: '#333',
       background: '#fff',
       border: `1px solid ${theme.palette.secondary.lighter}`,
       '&:hover': {
@@ -199,7 +199,7 @@ const useStyles = makeStyles((theme: any) =>
       },
     },
     hoverWhiteOnThirdary: {
-      color: theme.palette.text.normal,
+      color: '#333',
       background: '#fff',
       border: `1px solid ${theme.palette.thirdary.lighter}`,
       '&:hover': {
@@ -209,7 +209,7 @@ const useStyles = makeStyles((theme: any) =>
       },
     },
     hoverWhiteOnBlack: {
-      color: theme.palette.text.soft,
+      color: '#666',
       background: '#fff',
       border: `1px solid ${theme.palette.borders.slightlyDark}`,
       '&:hover': {
@@ -255,7 +255,7 @@ const useStyles = makeStyles((theme: any) =>
       '&:hover': {
         border: `1px solid ${theme.palette.borders.dark} !important`,
         background: 'none !important',
-        color: `${theme.palette.text.normal} !important`,
+        color: `${'#333'} !important`,
       },
     },
     hoverError: {
@@ -298,7 +298,7 @@ const useStyles = makeStyles((theme: any) =>
       color: `${theme.palette.thirdary.main} !important`,
     },
     textNeutral: {
-      color: `${theme.palette.text.soft} !important`,
+      color: `${'#666'} !important`,
     },
     textDanger: {
       color: `${theme.palette.error.main} !important`,

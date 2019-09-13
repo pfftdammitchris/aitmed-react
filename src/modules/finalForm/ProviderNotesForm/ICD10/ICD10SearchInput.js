@@ -33,9 +33,9 @@ const styles = (theme) => ({
     },
     '&:hover': {
       background: theme.palette.background.lightGrey2,
-      color: theme.palette.text.soft,
+      color: '#666',
       '& $searchIcon': {
-        color: theme.palette.text.soft,
+        color: '#666',
       },
     },
   },
