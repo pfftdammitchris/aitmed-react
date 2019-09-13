@@ -1,9 +1,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import Grid from '@material-ui/core/Grid'
+import { muiTheme } from 'storybook-addon-material-ui'
 import getCodeDoc from '../utils/getCodeDoc'
 import Typography from '../components/Typography'
 import readme from './docs/typography.md'
+import theme from '../config/theme'
 
 const Wrapper = (props) => (
   <div style={{ maxWidth: 450, padding: 12 }}>
@@ -17,6 +19,7 @@ vitae laboriosam debitis laudantium excepturi ducimus maxime necessitatibus
 adipisci, officia perferendis.`
 
 storiesOf('Typography', module)
+  .addDecorator(muiTheme(theme))
   .add('README', () => <div />, {
     readme: { content: readme },
   })

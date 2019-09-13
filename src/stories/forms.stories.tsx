@@ -1,8 +1,10 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { muiTheme } from 'storybook-addon-material-ui'
 import DWC_PR1 from '../forms/DWC_PR1'
 import DWC_PR2 from '../forms/DWC_PR2'
 import DWC_RFA from '../forms/DWC_RFA'
+import theme from '../config/theme'
 
 const onSubmit = async (values: any) => {
   try {
@@ -14,6 +16,7 @@ const onSubmit = async (values: any) => {
 }
 
 storiesOf('forms', module)
+  .addDecorator(muiTheme(theme))
   .add('DWC_PR1', () => {
     return (
       <div style={{ maxWidth: 800, margin: 'auto' }}>

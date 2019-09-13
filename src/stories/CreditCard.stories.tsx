@@ -2,12 +2,14 @@ import React from 'react'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Select from '@material-ui/core/Select'
+import { muiTheme } from 'storybook-addon-material-ui'
 import { Field } from 'react-final-form'
 import { storiesOf } from '@storybook/react'
 import Typography from '../components/Typography'
 import CreditCard from '../components/finalForm/CreditCard'
 import getCodeDoc from '../utils/getCodeDoc'
 import readme from './docs/creditCard.md'
+import theme from '../config/theme'
 
 const onSubmit = (values: any) => {
   console.log(values)
@@ -15,6 +17,7 @@ const onSubmit = (values: any) => {
 }
 
 storiesOf('CreditCard', module)
+  .addDecorator(muiTheme(theme))
   .add('README', () => <div />, {
     readme: { content: readme },
   })

@@ -1,5 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { muiTheme } from 'storybook-addon-material-ui'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControl from '@material-ui/core/FormControl'
@@ -30,6 +31,7 @@ CPanel.Section = function({ header, children }: any) {
 }
 
 storiesOf('Button', module)
+  .addDecorator(muiTheme(theme))
   .add('README', () => <div />, {
     readme: { content: readme },
   })

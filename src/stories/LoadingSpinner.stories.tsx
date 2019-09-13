@@ -1,10 +1,12 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
+import { muiTheme } from 'storybook-addon-material-ui'
 import { storiesOf } from '@storybook/react'
 import logo from '../resources/appIcon.png'
 import Typography from '../components/Typography'
 import LoadingSpinner from '../components/LoadingSpinner'
 import getCodeDoc from '../utils/getCodeDoc'
+import theme from '../config/theme'
 import readme from './docs/loadingSpinner.md'
 
 const darkBg = '#072E48'
@@ -39,6 +41,7 @@ const renderLoadingSpinner = ({ dark, spinner }: any = {}) => {
 }
 
 storiesOf('LoadingSpinner', module)
+  .addDecorator(muiTheme(theme))
   .add('README', () => <div />, {
     readme: { content: readme },
   })

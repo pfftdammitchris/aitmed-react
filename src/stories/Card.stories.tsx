@@ -1,16 +1,19 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import Typography from '@material-ui/core/Typography'
+import { muiTheme } from 'storybook-addon-material-ui'
 import { storiesOf } from '@storybook/react'
 import Card from '../components/Card'
 import getCodeDoc from '../utils/getCodeDoc'
 import readme from './docs/card.md'
+import theme from '../config/theme'
 
 function Wrapper(props: any) {
   return <div style={{ maxWidth: 450 }} {...props} />
 }
 
 storiesOf('Card', module)
+  .addDecorator(muiTheme(theme))
   .add('README', () => <div />, {
     readme: { content: readme },
   })

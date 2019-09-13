@@ -1,7 +1,9 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { muiTheme } from 'storybook-addon-material-ui'
 import Flex from '../components/Flex'
 import getCodeDoc from '../utils/getCodeDoc'
+import theme from '../config/theme'
 import readme from './docs/flex.md'
 
 const FlexComponent = (props) => (
@@ -18,6 +20,7 @@ const FlexComponent = (props) => (
 )
 
 storiesOf('Flex', module)
+  .addDecorator(muiTheme(theme))
   .addParameters({
     info: {
       text: '',

@@ -1,5 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { muiTheme } from 'storybook-addon-material-ui'
 import { Form, Field } from 'react-final-form'
 import { makeStyles } from '@material-ui/styles'
 import Button from '../components/Button'
@@ -19,6 +20,7 @@ import signatureRefMd from './docs/finalForm/SignatureCanvas/signatureRef.md'
 import signatureCaptionMd from './docs/finalForm/SignatureCanvas/signatureCaption.md'
 import signatureLabelMd from './docs/finalForm/SignatureCanvas/signatureLabel.md'
 import xPropsMd from './docs/finalForm/SignatureCanvas/xProps.md'
+import theme from '../config/theme'
 
 async function onSubmit(values) {
   try {
@@ -48,6 +50,7 @@ function Wrapper({ children }) {
 }
 
 storiesOf('(final-form) SignatureCanvas', module)
+  .addDecorator(muiTheme(theme))
   .add('README', () => <div />, {
     readme: { content: readme },
   })

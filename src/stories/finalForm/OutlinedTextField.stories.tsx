@@ -1,7 +1,9 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Form, Field } from 'react-final-form'
+import { muiTheme } from 'storybook-addon-material-ui'
 import { makeStyles } from '@material-ui/styles'
+import theme from '../../config/theme'
 import Button from '../../components/Button'
 import OutlinedTextField from '../../components/finalForm/OutlinedTextField'
 import readme from '../docs/finalForm/OutlinedTextField/readme.md'
@@ -43,6 +45,7 @@ function Wrapper({ children }) {
 }
 
 storiesOf('(final-form) OutlinedTextField', module)
+  .addDecorator(muiTheme(theme))
   .add('README', () => <div />, {
     readme: { content: readme },
   })
