@@ -15,12 +15,12 @@
   "scripts": {
     "build": "npm run deploydocs && rollup -c",
     "build-storybook": "build-storybook -c .storybook -o docs",
-    "deploydocs": "npm run build-storybook && storybook-to-ghpages --existing-output-dir=docs",
+    "deploydocs": "npm run build-storybook && storybook-to-ghpages --ci --existing-output-dir=docs",
     "predeploy": "cd example && npm install && npm run build",
     "pub": "npm run build && npm publish --access public",
     "start": "rollup -c -w",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "test": "cross-env CI=1 react-scripts-ts test --env=jsdom"
+    "test": "cross-env CI=1 npm run deploydocs"
   },
   "dependencies": {
     "@material-ui/core": "^4.4.0",
