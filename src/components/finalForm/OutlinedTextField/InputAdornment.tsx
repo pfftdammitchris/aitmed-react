@@ -5,6 +5,7 @@ import { FaEyeSlash, FaEye } from 'react-icons/fa'
 
 interface OutlinedTextFieldInputAdornmentProps {
   children?: React.ReactNode
+  isNull?: boolean
   originalInputType: string // react-final-form
   inputType: string
   setInputType: (inputType: string) => void
@@ -14,6 +15,7 @@ interface OutlinedTextFieldInputAdornmentProps {
 
 function OutlinedTextFieldInputAdornment({
   children,
+  isNull,
   originalInputType,
   inputType,
   setInputType,
@@ -21,6 +23,10 @@ function OutlinedTextFieldInputAdornment({
   iconProps,
   ...rest
 }: OutlinedTextFieldInputAdornmentProps) {
+  if (isNull) {
+    return null
+  }
+
   function onToggle() {
     if (originalInputType === 'password') {
       if (inputType === 'password') {

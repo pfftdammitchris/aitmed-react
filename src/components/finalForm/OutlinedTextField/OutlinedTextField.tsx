@@ -113,6 +113,7 @@ const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = (
         },
         endAdornment: inputProps.endAdornment || (
           <InputAdornment
+            isNull={inputProps.endAdornment === null}
             originalInputType={input.type}
             inputType={inputType}
             setInputType={setInputType}

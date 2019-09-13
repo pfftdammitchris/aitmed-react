@@ -259,19 +259,15 @@ storiesOf('(final-form) OutlinedTextField', module)
   })
   .add(
     "props.type === 'password'",
-    () => {
-      return React.createElement(() => {
-        return (
-          <Wrapper>
-            <Field
-              name="password"
-              component={OutlinedTextField}
-              label="Password"
-              type="password"
-            />
-          </Wrapper>
-        )
-      })
-    },
+    () => (
+      <Wrapper>
+        <Field
+          name="password"
+          component={OutlinedTextField}
+          label="Password"
+          type="password"
+        />
+      </Wrapper>
+    ),
     { readme: { content: typeMd } },
   )
