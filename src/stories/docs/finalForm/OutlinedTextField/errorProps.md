@@ -15,6 +15,13 @@ const onSubmit = (values) => {
 }
 
 const App = () => {
+  const errorProps = {
+    style: {
+      border: '1px solid red',
+      fontWeight: 700,
+    },
+  }
+
   return (
     <Form
       onSubmit={onSubmit}
@@ -26,12 +33,7 @@ const App = () => {
             label="Your age"
             placeholder="Type something"
             validate={() => 'This is the error component'}
-            errorProps={{
-              style: {
-                border: '1px solid red',
-                fontWeight: 700,
-              },
-            }}
+            errorProps={errorProps}
           />
           <div style={{ margin: '25px 0' }}>
             <Button type="submit" primary small>

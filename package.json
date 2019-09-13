@@ -15,12 +15,12 @@
   "scripts": {
     "build": "npm run deploydocs && rollup -c",
     "build-storybook": "build-storybook -c .storybook -o docs",
-    "deploydocs": "npm run build-storybook && storybook-to-ghpages --ci --existing-output-dir=docs",
+    "deploydocs": "npm run build-storybook && storybook-to-ghpages --existing-output-dir=docs",
     "predeploy": "cd example && npm install && npm run build",
     "pub": "npm run build && npm publish --access public",
     "start": "rollup -c -w",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "test": "cross-env CI=1 npm run deploydocs"
+    "test": "cross-env CI=1 react-scripts-ts test --env=jsdom"
   },
   "dependencies": {
     "@material-ui/core": "^4.4.0",
@@ -60,6 +60,7 @@
     "@storybook/storybook-deployer": "^2.8.1",
     "@storybook/theming": "^5.1.11",
     "@testing-library/react": "^9.1.3",
+    "@types/jest": "^24.0.18",
     "@types/lodash": "^4.14.138",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
@@ -98,6 +99,7 @@
     "rollup-plugin-url": "^2.2.2",
     "storybook-addon-material-ui": "^0.9.0-alpha.20",
     "storybook-readme": "^5.0.8",
+    "ts-jest": "^24.1.0",
     "typescript": "^3.6.2"
   },
   "files": [
