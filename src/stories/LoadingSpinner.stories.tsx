@@ -1,7 +1,7 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import { storiesOf } from '@storybook/react'
-import logo from 'resources/appIcon.png'
+import logo from '../resources/appIcon.png'
 import Typography from '../components/Typography'
 import LoadingSpinner from '../components/LoadingSpinner'
 import getCodeDoc from '../utils/getCodeDoc'

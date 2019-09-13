@@ -1,8 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import Grid from '@material-ui/core/Grid'
-import getCodeDoc from 'utils/getCodeDoc'
-import Typography from 'components/Typography'
+import getCodeDoc from '../utils/getCodeDoc'
+import Typography from '../components/Typography'
 import readme from './docs/typography.md'
 
 const Wrapper = (props) => (
