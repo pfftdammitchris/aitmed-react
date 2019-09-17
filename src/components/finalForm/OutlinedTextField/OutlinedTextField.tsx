@@ -69,7 +69,7 @@ const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = (
     ...otherProps
   } = props
   // Override input.type for more control (ex: for show/hide passwords)
-  const [inputType, setInputType] = React.useState(input.type)
+  const [inputType, setInputType] = React.useState(input && input.type)
 
   const classes = useStyles({ wrapperProps })
 
@@ -111,14 +111,16 @@ const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = (
           ...inputProps.classes,
           input: classes.input,
         },
-        endAdornment: inputProps.endAdornment || (
-          <InputAdornment
-            isNull={inputProps.endAdornment === null}
-            originalInputType={input.type}
-            inputType={inputType}
-            setInputType={setInputType}
-          />
-        ),
+        endAdornment:
+          inputProps.endAdornment ||
+          (!!input && input.type === 'password' && (
+            <InputAdornment
+              isNull={inputProps.endAdornment === null}
+              originalInputType={input && input.type}
+              inputType={inputType}
+              setInputType={setInputType}
+            />
+          )),
       },
       InputLabelProps: {
         shrink: true,

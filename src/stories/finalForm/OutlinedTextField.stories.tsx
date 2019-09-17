@@ -196,58 +196,51 @@ storiesOf('(final-form) OutlinedTextField', module)
   )
   .add(
     'props.selectProps',
-    () => {
-      const items = [false, 'california', 'florida', 'miami', 'new york']
-      return (
-        <Wrapper>
-          <Field
-            name="state"
-            component={OutlinedTextField}
-            label="Select a state"
-            selectProps={{
-              style: {
-                color: 'magenta',
-                minWidth: 250,
-              },
-              displayEmpty: true,
-              variant: 'outlined',
-              labelWidth: 100,
-              native: true,
-            }}
-            select
-          >
-            {items.map((state) => (
+    () => (
+      <Wrapper>
+        <Field
+          name="state"
+          component={OutlinedTextField}
+          label="Select a state"
+          selectProps={{
+            style: {
+              color: 'magenta',
+              minWidth: 250,
+            },
+            displayEmpty: true,
+            variant: 'outlined',
+            labelWidth: 100,
+            native: true,
+          }}
+          select
+        >
+          {[false, 'california', 'florida', 'miami', 'new york'].map(
+            (state) => (
               <option key={state} value={state}>
                 {state}
               </option>
-            ))}
-          </Field>
-        </Wrapper>
-      )
-    },
+            ),
+          )}
+        </Field>
+      </Wrapper>
+    ),
     { readme: { content: selectPropsMd } },
   )
   .add(
     'props.select',
-    () => {
-      const items = [false, 'california', 'florida', 'miami', 'new york']
-      return (
-        <Wrapper>
-          <Field
-            name="state"
-            component={OutlinedTextField}
-            label="State"
-            select
-          >
-            {items.map((state) => (
+    () => (
+      <Wrapper>
+        <Field name="state" component={OutlinedTextField} label="State" select>
+          {[false, 'california', 'florida', 'miami', 'new york'].map(
+            (state) => (
               <option key={state} value={state}>
                 {state}
               </option>
-            ))}
-          </Field>
-        </Wrapper>
-      )
-    },
+            ),
+          )}
+        </Field>
+      </Wrapper>
+    ),
     { readme: { content: selectMd } },
   )
   .add('props.classes', () => {
