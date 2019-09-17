@@ -1,9 +1,10 @@
-import React from 'react'
+import * as React from 'react'
 import { Field, FieldRenderProps } from 'react-final-form'
 import FormHelperText from '@material-ui/core/FormHelperText'
+import Flex from '../../Flex'
 import useVerificationCodeField from './useVerificationCodeField'
-import OutlinedTextField from '../OutlinedTextField'
 import InputLabel from './InputLabel'
+import CodeInput from './CodeInput'
 
 interface VerificationCodeProps extends FieldRenderProps<any, HTMLElement> {
   input: any
@@ -16,6 +17,13 @@ interface VerificationCodeProps extends FieldRenderProps<any, HTMLElement> {
   inputLabelProps?: any
   textFieldProps?: any
   errorTextProps?: any
+}
+
+function onValidate(value: string) {
+  if (!value) {
+    return 'This field is required'
+  }
+  return undefined
 }
 
 function VerificationCodeField({
@@ -31,7 +39,12 @@ function VerificationCodeField({
   variant,
 }: VerificationCodeProps) {
   const errorMessage = meta.error || meta.submitError || null
-  const { getInputId, onChange, onKeyDown } = useVerificationCodeField({
+  const {
+    getInputElem,
+    getInputId,
+    focusNext,
+    focus,
+  } = useVerificationCodeField({
     input,
   })
 
@@ -45,25 +58,30 @@ function VerificationCodeField({
         required={required}
         {...inputLabelProps}
       />
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        {new Array(digits).fill(undefined).map((_, index) => {
+      <Flex>
+        {new Array(digits).fill(null).map((_, index) => {
+          //  getInputId => `${input.name}[${index}]`
           const fieldName = getInputId(index)
           return (
             <Field
               key={fieldName}
               id={fieldName}
               name={fieldName}
+              index={index}
               autoFocus={autoFocus && index === 0}
-              component={OutlinedTextField}
-              onChange={onChange(index)}
-              onKeyDown={onKeyDown(index)}
+              component={CodeInput}
               variant={variant}
               required={required}
+              validate={required ? onValidate : undefined}
+              focusNext={focusNext}
+              getInputElem={getInputElem}
+              getInputId={getInputId}
+              focus={focus}
               {...textFieldProps}
             />
           )
         })}
-      </div>
+      </Flex>
       {errorMessage && (
         <FormHelperText variant={variant} error {...errorTextProps}>
           {errorMessage}
