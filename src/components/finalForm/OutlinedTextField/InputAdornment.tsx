@@ -21,6 +21,7 @@ function OutlinedTextFieldInputAdornment({
   setInputType,
   iconButtonProps,
   iconProps,
+  size,
   ...rest
 }: OutlinedTextFieldInputAdornmentProps) {
   if (isNull) {

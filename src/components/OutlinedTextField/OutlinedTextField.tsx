@@ -2,14 +2,15 @@ import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import MuiTextField from '@material-ui/core/TextField'
 import cx from 'classnames'
-import Typography from '../Typography'
 
 interface OutlinedTextFieldProps {
   helperText?: string
   error?: boolean
   value?: any
   className?: string
+  label?: React.ReactNode
   margin?: 'normal' | 'dense'
+  fullWidth?: boolean
   inline?: boolean
   wrapperProps?: any
   errorProps?: any
@@ -39,6 +40,14 @@ const useStyles = makeStyles((theme: any) => ({
   input: {
     fontSize: '0.9rem',
   },
+  selectSmall: {},
+  selectMedium: {},
+  inputSmall: {
+    padding: '8px 0',
+  },
+  inputMedium: {
+    padding: '18.5px 14px',
+  },
 }))
 
 const OutlinedTextField: React.FC<OutlinedTextFieldProps> = (props) => {
@@ -56,6 +65,7 @@ const OutlinedTextField: React.FC<OutlinedTextFieldProps> = (props) => {
     selectProps = {},
     selectDisplayProps = {},
     menuProps = {},
+    size = 'small',
     ...otherProps
   } = props
   const classes = useStyles({ wrapperProps })
@@ -94,6 +104,9 @@ const OutlinedTextField: React.FC<OutlinedTextFieldProps> = (props) => {
       InputProps: {
         ...inputProps,
         classes: {
+          marginDense: cx({
+            [classes.inputSmall]: size === 'small',
+          }),
           ...inputProps.classes,
           input: classes.input,
         },
