@@ -1,6 +1,6 @@
 {
   "name": "@aitmed/react",
-  "version": "1.6.7",
+  "version": "1.7.1",
   "description": "React component library to build TeleMedicine apps",
   "author": "pfftdammitchris",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "npm": ">=5"
   },
   "scripts": {
-    "build": "npm run deploydocs && rollup -c",
+    "build": "rollup -c",
     "build-storybook": "build-storybook -c .storybook -o docs",
     "deploydocs": "npm run build-storybook && storybook-to-ghpages --existing-output-dir=docs",
     "predeploy": "cd example && npm install && npm run build",

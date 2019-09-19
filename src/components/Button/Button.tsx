@@ -4,8 +4,6 @@ import { createStyles, makeStyles } from '@material-ui/styles'
 import cx from 'classnames'
 import { ButtonProps } from './types'
 
-const Link = (props: any) => <a {...props} />
-
 const useStyles = makeStyles((theme: any) =>
   createStyles({
     root: {
@@ -313,31 +311,34 @@ const useStyles = makeStyles((theme: any) =>
   }),
 )
 
-const Button: React.FC<ButtonProps> = ({
-  className,
-  children,
-  primary,
-  secondary,
-  thirdary,
-  neutral,
-  error,
-  red,
-  danger,
-  hover = {},
-  small,
-  medium,
-  large,
-  xlarge,
-  size = 'medium',
-  disabled,
-  outlined,
-  textColor,
-  background,
-  overwriteClassName,
-  overWrittenClassNames,
-  centerOnSmall,
-  ...others
-}) => {
+const Button = React.forwardRef(function(
+  {
+    className,
+    children,
+    primary,
+    secondary,
+    thirdary,
+    neutral,
+    error,
+    red,
+    danger,
+    hover = {},
+    small,
+    medium,
+    large,
+    xlarge,
+    size = 'medium',
+    disabled,
+    outlined,
+    textColor,
+    background,
+    overwriteClassName,
+    overWrittenClassNames,
+    centerOnSmall,
+    ...others
+  }: ButtonProps,
+  ref: any,
+) {
   const classes = useStyles()
   const muiSizes = ['small', 'medium', 'large']
 
@@ -401,6 +402,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <MaterialUIButton
+      buttonRef={ref}
       style={{ background }}
       className={overwriteClassName ? overWrittenClassNames : classNames}
       variant={
@@ -419,6 +421,6 @@ const Button: React.FC<ButtonProps> = ({
       {children}
     </MaterialUIButton>
   )
-}
+})
 
 export default Button

@@ -8,3 +8,7 @@ export { default as Divider } from './components/Divider'
 export { default as Flex } from './components/Flex'
 export { default as LoadingSpinner } from './components/LoadingSpinner'
 export { default as Typography } from './components/Typography'
+export { default as OutlinedTextField } from './components/OutlinedTextField'
+export {
+  default as AlignOutlinedTextFields,
+} from './components/AlignOutlinedTextFields'

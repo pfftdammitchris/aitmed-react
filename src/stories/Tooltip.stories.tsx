@@ -1,46 +1,51 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Form, Field } from 'react-final-form'
 import { muiTheme } from 'storybook-addon-material-ui'
-import Button from '../components/Button'
-import PhoneNumField from '../components/finalForm/PhoneNumField'
-import OutlinedTextField from '../components/finalForm/OutlinedTextField'
 import Tooltip from '../components/Tooltip'
+import Button from '../components/Button'
 import theme from '../config/theme'
-import readme from './docs/checkbox.md'
+import readme from './docs/tooltip.md'
 
-function onSubmit(values) {
-  console.log(values)
+function Wrapper(props) {
+  return <div style={{ padding: '25px 0' }} {...props} />
 }
 
 storiesOf('Tooltip', module)
   .addDecorator(muiTheme(theme))
   .add('README', () => <div />, {
-    readme: { content: `# Stub` },
+    readme: { content: readme },
   })
-  .add('default', () => <h1>Tooltip (Stub)</h1>)
-  .add('s', () => {
-    return (
-      <div>
-        <Form
-          onSubmit={onSubmit}
-          subscription={{ submitting: true }}
-          render={({ handleSubmit }) => (
-            <form onSubmit={handleSubmit}>
-              <Field name="phone" component={PhoneNumField} />
-              <Field
-                type="password"
-                name="password"
-                component={OutlinedTextField}
-              />
-            </form>
-          )}
-        />
-      </div>
-    )
-  })
-// .add('default', () => (
-//   <Tooltip title="lorem ipsum something something">
-//     <Button>Hover for the tooltip</Button>
-//   </Tooltip>
-// ))
+  .add(
+    'default',
+    () => (
+      <Wrapper>
+        <Tooltip title="lorem ipsum something something">
+          <Button type="button" hover={{ primary: 'white' }} primary small>
+            Hover for the tooltip
+          </Button>
+        </Tooltip>
+      </Wrapper>
+    ),
+    {
+      readme: {
+        content: `
+<!-- STORY -->
+
+\`\`\`jsx
+import React from 'react'
+import { Button, Tooltip } from '@aitmed/react'
+
+function App() {
+  return (
+    <Tooltip title="lorem ipsum something something">
+      <Button type="button" hover={{ primary: 'white' }} primary small>
+        Hover for the tooltip
+      </Button>
+    </Tooltip>
+  )
+}
+\`\`\`
+      `,
+      },
+    },
+  )
