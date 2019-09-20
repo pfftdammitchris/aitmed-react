@@ -12,3 +12,4 @@ export { default as OutlinedTextField } from './components/OutlinedTextField'
 export {
   default as AlignOutlinedTextFields,
 } from './components/AlignOutlinedTextFields'
+export { default as Tooltip } from './components/Tooltip'
