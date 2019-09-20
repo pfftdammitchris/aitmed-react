@@ -1,6 +1,5 @@
 import React from 'react'
-import isArray from 'lodash/isArray'
-import isString from 'lodash/isString'
+import { isArray, isObject, isString } from '../../utils'
 import { LightboxSrc, SrcProps } from './types'
 
 function format(src: SrcProps) {
@@ -8,18 +7,19 @@ function format(src: SrcProps) {
     // 2 versions:
     //    1. array of strings
     //    2. array of objects
+    // @ts-ignore
     return src.map((options: LightboxSrc) => {
       let option: LightboxSrc = { src: '' }
       if (isString(options)) {
         option.src = options
       } else {
-        if (options && typeof options === 'object') {
+        if (isObject(options)) {
           option = options
         }
       }
       return option
     })
-  } else if (src && typeof src === 'object') {
+  } else if (isObject(src)) {
     return [src]
   }
   // We will assume its a string now
@@ -33,7 +33,6 @@ function useLightbox({ src }) {
 
   React.useEffect(() => {
     if (src && !images) {
-      const formatted = format(src)
       setImages(format(src))
     }
   }, [])
