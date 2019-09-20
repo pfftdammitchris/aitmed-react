@@ -2,7 +2,36 @@ import React from 'react'
 import MaterialUIButton from '@material-ui/core/Button'
 import { createStyles, makeStyles } from '@material-ui/styles'
 import cx from 'classnames'
-import { ButtonProps } from './types'
+import { getPrimaryOrSecondaryOrThirdary } from './utils'
+
+interface ButtonProps extends React.HTMLAttributes<{}> {
+  className?: string
+  primary?: boolean
+  secondary?: boolean
+  thirdary?: boolean
+  neutral?: boolean
+  error?: boolean
+  red?: boolean
+  danger?: boolean
+  hover?: {
+    [themeType: string]: string
+  }
+  small?: boolean
+  medium?: boolean
+  large?: boolean
+  xlarge?: boolean
+  size?: Size
+  disabled?: boolean
+  outlined?: boolean
+  textColor?: string
+  background?: string
+  overwriteClassName?: boolean
+  overWrittenClassNames?: string
+  centerOnSmall?: boolean
+  type?: 'button' | 'submit'
+}
+
+type Size = 'small' | 'medium' | 'large'
 
 const useStyles = makeStyles((theme: any) =>
   createStyles({
@@ -18,36 +47,11 @@ const useStyles = makeStyles((theme: any) =>
         color: theme.palette.primary.main,
       },
     },
-    primary: {
-      border: `1px solid ${theme.palette.primary.main}`,
-      color: '#fff',
-      background: `${theme.palette.primary.main} !important`,
-      '&:hover': {
-        border: `1px solid ${theme.palette.primary.dark} !important`,
-        background: `${theme.palette.primary.dark} !important`,
-        color: '#fff',
-      },
-    },
-    secondary: {
-      border: `1px solid ${theme.palette.secondary.main}`,
-      color: '#fff',
-      background: `${theme.palette.secondary.main}`,
-      '&:hover': {
-        border: `1px solid ${theme.palette.secondary.dark} !important`,
-        background: `${theme.palette.secondary.dark} !important`,
-        color: '#fff',
-      },
-    },
-    thirdary: {
-      border: `1px solid ${theme.palette.thirdary.main}`,
-      color: '#fff',
-      background: theme.palette.thirdary.main,
-      '&:hover': {
-        border: `1px solid ${theme.palette.thirdary.dark} !important`,
-        background: `${theme.palette.thirdary.dark} !important`,
-        color: '#fff',
-      },
-    },
+    primary: getPrimaryOrSecondaryOrThirdary(theme, { themeType: 'primary' }),
+    secondary: getPrimaryOrSecondaryOrThirdary(theme, {
+      themeType: 'secondary',
+    }),
+    thirdary: getPrimaryOrSecondaryOrThirdary(theme, { themeType: 'thirdary' }),
     neutral: {
       border: `1px solid ${theme.palette.inactive}`,
       color: '#fff',
@@ -311,7 +315,7 @@ const useStyles = makeStyles((theme: any) =>
   }),
 )
 
-const Button = React.forwardRef(function(
+const Button: React.FC<ButtonProps> = React.forwardRef(function(
   {
     className,
     children,
@@ -336,7 +340,7 @@ const Button = React.forwardRef(function(
     overWrittenClassNames,
     centerOnSmall,
     ...others
-  }: ButtonProps,
+  },
   ref: any,
 ) {
   const classes = useStyles()
