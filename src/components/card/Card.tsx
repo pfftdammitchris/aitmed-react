@@ -1,11 +1,24 @@
 import React from 'react'
 import cx from 'classnames'
 import { makeStyles } from '@material-ui/styles'
-import Card from '@material-ui/core/Card'
+import MuiCard from '@material-ui/core/Card'
 import Divider from '@material-ui/core/Divider'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '../Typography'
-import { CardProps, CardDividerProps } from './types'
+import { CardDividerProps } from './types'
+
+interface CardProps {
+  className?: string
+  classNames?: {
+    card?: string
+    content?: string
+    divider?: string
+    header?: string
+  }
+  contentProps?: any
+  render?: any
+  square?: boolean
+}
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
@@ -39,14 +52,14 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }))
 
-const Cardv2: React.FC<CardProps> = ({
+function Card({
   className,
   classNames = {},
   render,
   contentProps,
   square,
   ...rest
-}) => {
+}: CardProps) {
   const classes = useStyles()
 
   const CardDivider: React.FC<CardDividerProps> = ({
@@ -77,7 +90,7 @@ const Cardv2: React.FC<CardProps> = ({
   )
 
   return (
-    <Card
+    <MuiCard
       className={cx(classes.root, className, classNames.card, {
         [classes.square]: !!square,
       })}
@@ -95,8 +108,8 @@ const Cardv2: React.FC<CardProps> = ({
             CardHeader,
           })}
       </CardContent>
-    </Card>
+    </MuiCard>
   )
 }
 
-export default Cardv2
+export default Card

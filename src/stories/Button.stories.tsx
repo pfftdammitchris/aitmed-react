@@ -35,7 +35,6 @@ storiesOf('Button', module)
   .add('README', () => <div />, {
     readme: { content: readme },
   })
-  .add('default', () => <Button>Button</Button>)
   .add('controls', () => {
     function useSizeSwitches() {
       const [size, setSize] = React.useState('medium')

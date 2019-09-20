@@ -28,7 +28,7 @@ function format(src: SrcProps) {
   }
 }
 
-function useLightbox({ src }) {
+function useLightbox({ src }: { src: SrcProps }) {
   const [images, setImages] = React.useState<any | null>()
 
   React.useEffect(() => {
