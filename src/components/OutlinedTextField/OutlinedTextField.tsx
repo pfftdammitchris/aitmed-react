@@ -21,6 +21,7 @@ interface OutlinedTextFieldProps {
   selectDisplayProps?: any
   selectProps?: any
   select?: boolean
+  size?: 'small' | 'medium' | 'large'
   classes?: any
 }
 
@@ -40,13 +41,19 @@ const useStyles = makeStyles((theme: any) => ({
   input: {
     fontSize: '0.9rem',
   },
-  selectSmall: {},
-  selectMedium: {},
-  inputSmall: {
-    padding: '8px 0',
+  selectSmall: {
+    paddingTop: '10.5px !important',
+    paddingBottom: '10.5px !important',
+  },
+  selectLarge: {
+    paddingTop: '22.5px !important',
+    paddingBottom: '22.5px !important',
   },
   inputMedium: {
-    padding: '18.5px 14px',
+    padding: '8px 12px',
+  },
+  inputLarge: {
+    padding: 12,
   },
 }))
 
@@ -65,7 +72,7 @@ const OutlinedTextField: React.FC<OutlinedTextFieldProps> = (props) => {
     selectProps = {},
     selectDisplayProps = {},
     menuProps = {},
-    size = 'small',
+    size = 'medium',
     ...otherProps
   } = props
   const classes = useStyles({ wrapperProps })
@@ -86,6 +93,10 @@ const OutlinedTextField: React.FC<OutlinedTextFieldProps> = (props) => {
             classes.select,
             className,
             selectProps.classes && selectProps.classes.select,
+            {
+              [classes.selectSmall]: size === 'small',
+              [classes.selectLarge]: size === 'large',
+            },
           ),
         },
         MenuProps: menuProps,
@@ -105,7 +116,8 @@ const OutlinedTextField: React.FC<OutlinedTextFieldProps> = (props) => {
         ...inputProps,
         classes: {
           marginDense: cx({
-            [classes.inputSmall]: size === 'small',
+            [classes.inputMedium]: size === 'medium',
+            [classes.inputLarge]: size === 'large',
           }),
           ...inputProps.classes,
           input: classes.input,
