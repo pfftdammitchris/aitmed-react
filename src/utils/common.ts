@@ -38,6 +38,10 @@ export function isString(val: any): val is string {
   return typeof val === 'string'
 }
 
+export function isUndefined(val: any): val is undefined {
+  return typeof val === 'undefined'
+}
+
 /* -------------------------------------------------------
   ---- PARSERS (pass into "parse" prop to <Field />)
 -------------------------------------------------------- */
@@ -91,4 +95,14 @@ export function parseSSN(val: string | FormatOptions): Formatter | string {
     return evalCustomFormatter({ ...val, wrap: formatOnlyNumbers })
   }
   return formatString(defaultSSNFormat, formatOnlyNumbers(val))
+}
+
+export function getDisplayName(Component: any) {
+  if (typeof Component === 'string') {
+    return Component
+  }
+  if (!Component) {
+    return undefined
+  }
+  return Component.displayName || Component.name || 'Component'
 }
