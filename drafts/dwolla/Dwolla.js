@@ -17,7 +17,7 @@ import {
   cancelDwollaIavFlow,
 } from 'actions/aitmed'
 import { env } from 'config/urls'
-import Container from 'components/dwolla/Container'
+import Container from './Container'
 
 let intervalId
 

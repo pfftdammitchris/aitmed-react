@@ -1,0 +1,25 @@
+.dwolla-iav-header {
+  color: #333;
+}
+
+.dwolla-iav-text {
+  color: #666;
+}
+
+.dwolla-iav-button {
+  background: #398fcd;
+  color: #fff;
+  border: 1px solid #54a3d3;
+}
+
+.dwolla-iav-button:hover {
+  border: 1px solid #fff;
+}
+
+.dwolla-iav-link {
+  color: #0070c2;
+}
+
+.dwolla-iav-link:hover {
+  color: #f8a31e;
+}
