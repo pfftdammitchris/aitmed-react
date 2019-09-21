@@ -1,6 +1,6 @@
 {
   "name": "@aitmed/react",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "description": "React component library to build TeleMedicine apps",
   "author": "pfftdammitchris",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "deploydocs": "npm run build-storybook && storybook-to-ghpages --existing-output-dir=docs",
     "predeploy": "cd example && npm install && npm run build",
     "pub": "npm run build && npm publish --access public",
-    "runall": "npm run pub && npm run deploydocs",
+    "all": "npm run pub && npm run deploydocs",
     "start": "rollup -c -w",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "cross-env CI=1 react-scripts-ts test --env=jsdom"
@@ -97,7 +97,6 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-typescript2": "^0.24.0",
     "rollup-plugin-url": "^2.2.2",
     "storybook-addon-material-ui": "^0.9.0-alpha.20",
     "storybook-readme": "^5.0.8",
