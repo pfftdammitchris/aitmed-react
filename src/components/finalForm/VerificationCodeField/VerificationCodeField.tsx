@@ -77,6 +77,7 @@ function VerificationCodeField({
               getInputElem={getInputElem}
               getInputId={getInputId}
               focus={focus}
+              size="small"
               {...textFieldProps}
             />
           )

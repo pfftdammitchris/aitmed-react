@@ -1,11 +1,24 @@
 import React from 'react'
+import { Form } from 'react-final-form'
 import { storiesOf } from '@storybook/react'
+import arrayMutators from 'final-form-arrays'
 import { muiTheme } from 'storybook-addon-material-ui'
+import Grid from '@material-ui/core/Grid'
 import AlignOutlinedTextFields from '../components/AlignOutlinedTextFields'
+import EmployeeFields from '../forms/DWC_PR1/Employee'
+import EmployerFields from '../forms/DWC_PR1/Employer'
+import Divider from '../components/Divider'
 import OutlinedTextField from '../components/OutlinedTextField'
+import Button from '../components/Button'
+import Typography from '../components/Typography'
 import Flex from '../components/Flex'
 import theme from '../config/theme'
-import readme from './docs/alignOutlinedTextFields.md'
+import readme from './docs/AlignOutlinedTextFields/readme.md'
+import sizeMd from './docs/AlignOutlinedTextFields/size.md'
+
+function onSubmit(values) {
+  console.log(values)
+}
 
 storiesOf('AlignOutlinedTextFields', module)
   .addDecorator(muiTheme(theme))
@@ -68,4 +81,91 @@ function App() {
       `,
       },
     },
+  )
+  .add(
+    'props.size',
+    () => {
+      return React.createElement(() => {
+        const [size, setSize] = React.useState('medium')
+        const employeeSignatureRef = React.useRef()
+        const employerSignatureRef = React.createRef()
+
+        function onSizeChange(newSize) {
+          return () => setSize(newSize)
+        }
+
+        const sizeBtns = [
+          { onClick: onSizeChange('small'), children: 'Small', name: 'small' },
+          {
+            onClick: onSizeChange('medium'),
+            children: 'Medium',
+            name: 'medium',
+          },
+          { onClick: onSizeChange('large'), children: 'Large', name: 'large' },
+        ]
+
+        const DWC_PR1 = ({ states = [], ...props }) => (
+          <Form
+            keepDirtyOnReinitialize
+            onSubmit={onSubmit}
+            subscription={{ submitting: true }}
+            // @ts-ignore
+            mutators={arrayMutators}
+            render={({ handleSubmit, submitting, ...rest }: any) => (
+              <form onSubmit={handleSubmit}>
+                <EmployeeFields
+                  name="employee"
+                  signatureRef={employeeSignatureRef}
+                  states={states}
+                />
+                <Divider />
+                <EmployerFields
+                  name="employer"
+                  signatureRef={employerSignatureRef}
+                />
+              </form>
+            )}
+            {...props}
+          />
+        )
+
+        return (
+          <div style={{ padding: 25 }}>
+            <Grid spacing={1} justify="center" container>
+              <Grid item>
+                <Typography
+                  variant="h1"
+                  gutterBottom
+                  paragraph
+                  secondary
+                  center
+                >
+                  Select a Size
+                </Typography>
+                {sizeBtns.map((props, index) => (
+                  <React.Fragment key={`size_${index}`}>
+                    <Button
+                      type="button"
+                      hover={{ primary: 'white' }}
+                      disabled={props.name === size}
+                      primary
+                      small
+                      {...props}
+                    />
+                    &nbsp;
+                  </React.Fragment>
+                ))}
+              </Grid>
+            </Grid>
+            <Divider />
+            <Grid spacing={1} justify="center" container>
+              <AlignOutlinedTextFields size={size}>
+                <DWC_PR1 onSubmit={onSubmit} />
+              </AlignOutlinedTextFields>
+            </Grid>
+          </div>
+        )
+      })
+    },
+    { readme: { content: sizeMd } },
   )

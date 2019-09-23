@@ -56,7 +56,7 @@ const RFA_Physician: React.FC<RFA_PhysicianProps> = ({
       <Field
         name={`${name}.state`}
         component={WrappedOutlinedTextField}
-        selectProps={{ SelectProps: { native: true } }}
+        selectProps={{ native: true }}
         select
         fullWidth
       >
@@ -96,7 +96,7 @@ const RFA_Physician: React.FC<RFA_PhysicianProps> = ({
         name={`${name}.specialty`}
         component={WrappedOutlinedTextField}
         wrapperProps={{ marginRight: 3 }}
-        selectProps={{ SelectProps: { native: true } }}
+        selectProps={{ native: true }}
         select
         fullWidth
       >

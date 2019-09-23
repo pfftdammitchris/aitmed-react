@@ -47,7 +47,7 @@ const RFA_ClaimsAdministrator: React.FC<RFA_ClaimsAdministratorProps> = ({
       <Field
         name={`${name}.state`}
         component={WrappedOutlinedTextField}
-        selectProps={{ SelectProps: { native: true } }}
+        selectProps={{ native: true }}
         select
         fullWidth
       >
