@@ -7,6 +7,7 @@ import { Breakpoint } from '@material-ui/core/styles/createBreakpoints'
 
 declare module '*'
 declare module 'resources'
+declare module 'react-progressed'
 
 declare module '*.css' {
   const content: { [className: string]: string }
