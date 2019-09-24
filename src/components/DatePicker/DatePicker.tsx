@@ -1,43 +1,50 @@
 // API --> https://material-ui-pickers.dev/api/DatePicker
 import React from 'react'
 import format from 'date-fns/format'
-import { DatePicker as MuiDatePicker } from '@material-ui/pickers'
+import {
+  DatePicker as MuiDatePicker,
+  DatePickerProps as MuiDatePickerProps,
+} from '@material-ui/pickers'
 import OutlinedTextField from './OutlinedTextField'
 import DatePickerToolbar from './Toolbar'
 
-interface DatePickerProps {
+type DatePickerVariant = 'dialog' | 'inline' | 'static' | undefined
+type DatePickerInputVariant = 'outlined' | 'standard' | 'filled'
+
+interface DatePickerProps extends MuiDatePickerProps {
   label?: string
-  value?: string
+  value: number | Date
   onChange: (date: any) => void
-  variant?: 'outlined' | 'standard' | 'filled'
+  variant?: DatePickerVariant
+  inputVariant?: DatePickerInputVariant
 }
 
 function DatePicker({
   onChange: onChangeProp,
   value,
   label,
-  variant = 'outlined',
+  variant = 'dialog',
+  inputVariant = 'outlined',
   ...rest
 }: DatePickerProps) {
-  const [selectedDate, setSelectedDate] = React.useState<any>(new Date())
-
   function onChange(date: any) {
-    setSelectedDate(new Date(date))
     if (onChangeProp) {
       onChangeProp(date)
     }
   }
+
+  const formattedValue = format(value, 'yyyy-MM-dd')
 
   return (
     <MuiDatePicker
       // @ts-ignore
       TextFieldComponent={OutlinedTextField}
       ToolbarComponent={DatePickerToolbar}
-      format={format(selectedDate, 'yyyy-MM-dd')}
+      format={formattedValue}
       label={label}
-      inputVariant={variant}
-      variant="dialog"
-      value={value || selectedDate}
+      inputVariant={inputVariant}
+      variant={variant}
+      value={formattedValue}
       onChange={onChange}
       cancelLabel="Close"
       showTodayButton
