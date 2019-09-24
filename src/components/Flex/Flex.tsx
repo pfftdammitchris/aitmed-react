@@ -70,7 +70,7 @@ const Flex: React.FC<Props> = (props) => {
       style={{
         display: 'flex',
         justifyContent: computeJustify(props),
-        alignItems: 'center',
+        alignItems: 'flex-start',
         flexGrow,
         flexDirection,
         textAlign,
