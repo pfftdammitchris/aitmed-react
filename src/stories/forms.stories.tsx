@@ -1,5 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { MuiPickersUtilsProvider } from '@material-ui/pickers'
+import DateFnsUtils from '@date-io/date-fns'
 import { muiTheme } from 'storybook-addon-material-ui'
 import DWC_PR1 from '../forms/DWC_PR1'
 import DWC_PR2 from '../forms/DWC_PR2'
@@ -17,6 +19,11 @@ const onSubmit = async (values: any) => {
 
 storiesOf('forms', module)
   .addDecorator(muiTheme(theme))
+  .addDecorator((s) => (
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      {s()}
+    </MuiPickersUtilsProvider>
+  ))
   .add('DWC_PR1', () => {
     return (
       <div style={{ maxWidth: 800, margin: 'auto' }}>

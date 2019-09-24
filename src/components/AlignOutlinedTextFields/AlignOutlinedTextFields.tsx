@@ -2,6 +2,8 @@ import React from 'react'
 import cx from 'classnames'
 import { makeStyles } from '@material-ui/styles'
 import { Theme } from '@material-ui/core'
+import Context from './Context'
+import Provider from './Provider'
 
 interface AlignOutlinedTextFieldsProps {
   children: React.ReactNode
@@ -18,7 +20,9 @@ const small = {
 }
 
 const medium = {
-  '& input': {},
+  '& input': {
+    padding: '10px 8px',
+  },
   '& select': {
     padding: '18.5px 14px',
   },
@@ -56,10 +60,11 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 function AlignOutlinedTextFields({
   children,
-  size = 'medium',
   ...rest
 }: AlignOutlinedTextFieldsProps) {
   const classes = useStyles()
+  const ctx = React.useContext<any>(Context)
+  const size = ctx ? ctx.size : undefined
 
   return (
     <div
@@ -75,4 +80,8 @@ function AlignOutlinedTextFields({
   )
 }
 
-export default AlignOutlinedTextFields
+export default (props: any) => (
+  <Provider {...props}>
+    <AlignOutlinedTextFields {...props} />
+  </Provider>
+)

@@ -1,6 +1,7 @@
 import React from 'react'
 import { FieldRenderProps } from 'react-final-form'
 import OriginalOutlinedTextField from '../../OutlinedTextField'
+import DatePicker from '../../DatePicker'
 import InputAdornment from './InputAdornment'
 import Typography from '../../Typography'
 
@@ -21,6 +22,11 @@ const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = ({
 }) => {
   // Override input.type for more control (ex: for show/hide passwords)
   const [inputType, setInputType] = React.useState(input && input.type)
+
+  // Experimenting the date picker
+  if (input && input.type === 'date') {
+    return <DatePicker {...input} {...inputProps} {...otherProps} />
+  }
 
   // This is to avoid endAdornment being passed to Select
   const additionalInputProps: any = {}

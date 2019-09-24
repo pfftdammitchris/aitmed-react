@@ -115,12 +115,18 @@ const OutlinedTextField: React.FC<OutlinedTextFieldProps> = (props) => {
       InputProps: {
         ...inputProps,
         classes: {
-          marginDense: cx({
-            [classes.inputMedium]: size === 'medium',
-            [classes.inputLarge]: size === 'large',
-          }),
           ...inputProps.classes,
-          input: classes.input,
+          marginDense: cx(
+            inputProps.classes ? inputProps.classes.marginDense : false,
+            {
+              [classes.inputMedium]: size === 'medium',
+              [classes.inputLarge]: size === 'large',
+            },
+          ),
+          input: cx(
+            classes.input,
+            inputProps.classes ? inputProps.classes.input : false,
+          ),
         },
       },
       InputLabelProps: {
