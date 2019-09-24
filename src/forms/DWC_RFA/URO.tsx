@@ -2,6 +2,7 @@ import React from 'react'
 import { Field } from 'react-final-form'
 import { parsePhone } from '../../utils'
 import Flex from '../../components/Flex'
+import OutlinedTextField from '../../components/finalForm/OutlinedTextField'
 import SignatureCanvas from '../../components/finalForm/SignatureCanvas'
 
 interface RFA_UROResponseProps {
@@ -86,7 +87,7 @@ const RFA_UROResponse: React.FC<RFA_UROResponseProps> = ({
         type="date"
         label="Date"
         name={`${name}.date`}
-        component={WrappedOutlinedTextField}
+        component={OutlinedTextField}
         wrapperProps={{ marginRight: 3 }}
         fullWidth
       />

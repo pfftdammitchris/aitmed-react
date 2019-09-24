@@ -70,7 +70,7 @@ const PatientInfo: React.FC<PatientInfoProps> = ({
         </Field>
         <Field
           type="date"
-          component={WrappedTextField}
+          component={OutlinedTextField}
           name={`${name}.dob`}
           label="Date of Birth"
           wrapperProps={{ marginRight: 3 }}
