@@ -1,6 +1,6 @@
 {
   "name": "@aitmed/react",
-  "version": "1.7.7",
+  "version": "1.7.9",
   "description": "React component library to build TeleMedicine apps",
   "author": "pfftdammitchris",
   "license": "MIT",

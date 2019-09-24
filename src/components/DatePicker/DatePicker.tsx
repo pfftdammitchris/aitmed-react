@@ -33,7 +33,7 @@ function DatePicker({
     }
   }
 
-  const formattedValue = format(value, 'yyyy-MM-dd')
+  const formattedValue = value ? format(value, 'yyyy-MM-dd') : ''
 
   return (
     <MuiDatePicker
@@ -47,6 +47,7 @@ function DatePicker({
       value={formattedValue}
       onChange={onChange}
       cancelLabel="Close"
+      invalidDateMessage=""
       showTodayButton
       {...rest}
     />

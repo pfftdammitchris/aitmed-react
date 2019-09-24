@@ -65,6 +65,7 @@ function AlignOutlinedTextFields({
   const classes = useStyles()
   const ctx = React.useContext<any>(Context)
   const size = ctx ? ctx.size : undefined
+  console.log(size)
 
   return (
     <div

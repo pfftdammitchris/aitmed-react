@@ -86,7 +86,7 @@ function onChange(fileList, e) {
                 >
                   <h4>Select Images to See Thumbnails</h4>
                   <img
-                    src="https://pixabay.com/get/55e2d6444351a514f1dc8460825668204022dfe05558734f74267bdd/underwater-3237939_640.jpg"
+                    src="https://jsmanifest.s3-us-west-1.amazonaws.com/posts/14-beneficial-tips-to-write-cleaner-code-in-react/thumbnail.jpg"
                     style={{
                       width: '100%',
                       height: '100%',

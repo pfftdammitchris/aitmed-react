@@ -2,9 +2,14 @@ import React from 'react'
 import { Form } from 'react-final-form'
 import { storiesOf } from '@storybook/react'
 import arrayMutators from 'final-form-arrays'
+import { MuiPickersUtilsProvider } from '@material-ui/pickers'
+import DateFnsUtils from '@date-io/date-fns'
 import { muiTheme } from 'storybook-addon-material-ui'
 import Grid from '@material-ui/core/Grid'
-import AlignOutlinedTextFields from '../components/AlignOutlinedTextFields'
+import AlignOutlinedTextFields, {
+  Context,
+  Provider,
+} from '../components/AlignOutlinedTextFields'
 import EmployeeFields from '../forms/DWC_PR1/Employee'
 import EmployerFields from '../forms/DWC_PR1/Employer'
 import Divider from '../components/Divider'
@@ -22,6 +27,11 @@ function onSubmit(values) {
 
 storiesOf('AlignOutlinedTextFields', module)
   .addDecorator(muiTheme(theme))
+  .addDecorator((s) => (
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <Provider>{s()}</Provider>
+    </MuiPickersUtilsProvider>
+  ))
   .add('README', () => <div />, {
     readme: { content: readme },
   })
@@ -86,7 +96,8 @@ function App() {
     'props.size',
     () => {
       return React.createElement(() => {
-        const [size, setSize] = React.useState('medium')
+        const { size, setSize } = React.useContext<any>(Context)
+
         const employeeSignatureRef = React.useRef()
         const employerSignatureRef = React.createRef()
 

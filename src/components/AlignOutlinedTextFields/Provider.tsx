@@ -3,7 +3,7 @@ import Context from './Context'
 
 interface AlignOutlinedTextFieldsProviderProps {
   children: React.ReactNode
-  size: 'small' | 'medium' | 'large'
+  size?: 'small' | 'medium' | 'large'
 }
 
 function AlignOutlinedTextFieldsProvider({
@@ -16,6 +16,12 @@ function AlignOutlinedTextFieldsProvider({
     size: _size,
     setSize,
   }
+
+  React.useEffect(() => {
+    if (size !== _size) {
+      setSize(size)
+    }
+  }, [size])
 
   return <Context.Provider value={ctx}>{children}</Context.Provider>
 }
