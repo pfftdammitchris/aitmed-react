@@ -1,6 +1,12 @@
 import { useForm } from 'react-final-form'
 
-function useVerificationCodeField({ input }: { input: any }) {
+function useVerificationCodeField({
+  input,
+  autoSubmit,
+}: {
+  input: any
+  autoSubmit?: boolean
+}) {
   const form = useForm()
 
   function getInputId(index: number) {
@@ -22,7 +28,9 @@ function useVerificationCodeField({ input }: { input: any }) {
       focus(index + 1)
     } else {
       blur(index)
-      form.submit()
+      if (autoSubmit) {
+        form.submit()
+      }
     }
   }
 

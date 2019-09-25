@@ -7,9 +7,11 @@ import InputLabel from './InputLabel'
 import CodeInput from './CodeInput'
 
 interface VerificationCodeProps extends FieldRenderProps<any, HTMLElement> {
+  component?: React.ElementType<any>
   input: any
   meta: any
   autoFocus?: boolean
+  autoSubmit?: boolean
   digits?: number
   label?: React.ReactNode
   required?: boolean
@@ -27,7 +29,9 @@ function onValidate(value: string) {
 }
 
 function VerificationCodeField({
+  component: Component = 'div',
   autoFocus = false,
+  autoSubmit = false,
   input,
   meta,
   digits = 6,
@@ -46,10 +50,11 @@ function VerificationCodeField({
     focus,
   } = useVerificationCodeField({
     input,
+    autoSubmit,
   })
 
   return (
-    <div>
+    <Component>
       <InputLabel
         input={input}
         label={label}
@@ -88,7 +93,7 @@ function VerificationCodeField({
           {errorMessage}
         </FormHelperText>
       )}
-    </div>
+    </Component>
   )
 }
 
