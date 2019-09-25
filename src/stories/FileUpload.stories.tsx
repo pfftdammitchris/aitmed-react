@@ -1,6 +1,7 @@
 import React from 'react'
 import { muiTheme } from 'storybook-addon-material-ui'
 import { storiesOf } from '@storybook/react'
+import Typography from '../components/Typography'
 import FileUpload from '../components/FileUpload'
 import readme from './docs/FileUpload/readme.md'
 import textMd from './docs/FileUpload/text.md'
@@ -84,7 +85,9 @@ function onChange(fileList, e) {
                 <div
                   style={{ width: '100%', height: '100%', textAlign: 'center' }}
                 >
-                  <h4>Select Images to See Thumbnails</h4>
+                  <Typography variant="h6" padding={12} primary>
+                    Select Images to See Thumbnails
+                  </Typography>
                   <img
                     src="https://jsmanifest.s3-us-west-1.amazonaws.com/posts/14-beneficial-tips-to-write-cleaner-code-in-react/thumbnail.jpg"
                     style={{

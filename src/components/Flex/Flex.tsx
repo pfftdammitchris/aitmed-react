@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/styles'
 import cx from 'classnames'
 
 interface Props {
+  component?: React.ElementType<any>
   center?: boolean
   flexStart?: boolean
   flexEnd?: boolean
@@ -48,6 +49,7 @@ function computeJustify(props: Props) {
 const Flex: React.FC<Props> = (props) => {
   const classes = useStyles(props)
   const {
+    component: Component = 'div',
     style,
     center,
     spaceBetween,
@@ -63,7 +65,7 @@ const Flex: React.FC<Props> = (props) => {
     ...rest
   } = props
   return (
-    <div
+    <Component
       className={cx(classes.root, {
         [classes.xsBlock]: !!xsBlock,
       })}

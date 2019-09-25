@@ -1,7 +1,22 @@
 import formatString from 'format-string-by-pattern'
 
-export const callAll = (...fns: any[]) => (...args: any[]) =>
-  fns.forEach((fn) => fn && fn(...args))
+export function callAll(...fns: any[]) {
+  return (...args: any[]) => fns.forEach((fn) => fn && fn(...args))
+}
+
+export function downloadLink(src: string, fileName: string = 'file') {
+  const browser = getBrowser()
+  if (browser.versions.ios) {
+    window.open(src, fileName)
+  } else {
+    const dlink = document.createElement('a')
+    dlink.download = fileName
+    dlink.href = src
+    document.body.appendChild(dlink)
+    dlink.click()
+    document.body.removeChild(dlink)
+  }
+}
 
 // Strips away non-letters
 export function formatOnlyLetters(val: string): string {
@@ -17,8 +32,39 @@ export function formatOnlyNumbers(val: string): string {
   return String(val).replace(regex, '')
 }
 
+export function getBrowser() {
+  const o: any = { versions: {}, language: null }
+  if (typeof window !== 'undefined') {
+    if (navigator && navigator.geolocation !== undefined) {
+      const u = navigator.userAgent
+      o.versions = {
+        trident: u.indexOf('Trident') > -1, // IE core
+        presto: u.indexOf('Presto') > -1, // opera core
+        webKit: u.indexOf('AppleWebKit') > -1, // apple、google core
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') === -1, // firefox core
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), // is mobile
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), // is ios
+        android: u.indexOf('Android') > -1 || u.indexOf('Adr') > -1, // is android
+        iPhone: u.indexOf('iPhone') > -1, // is iPhone
+        iPad: u.indexOf('iPad') > -1, // is iPad
+        webApp: u.indexOf('Safari') === -1, // is web app
+      }
+      o.language = navigator.language ? navigator.language.toLowerCase() : ''
+    }
+  }
+  return o
+}
+
 export function isArray(val: any): val is Array<any> {
   return Array.isArray(val)
+}
+
+export function isBlob(blob: any) {
+  return !!blob && blob.constructor.name === 'Blob'
+}
+
+export function isFile(file: any) {
+  return !!file && file.constructor.name === 'File'
 }
 
 export function isFunction(val: any): val is Function {
