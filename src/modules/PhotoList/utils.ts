@@ -1,4 +1,4 @@
-import { isArray, isBlob, isObject, isString, commonIcons } from '../../utils'
+import { isArray, isBlob, isObject, isString } from '../../utils'
 
 export function getStringItem(src: string) {
   return {
@@ -22,10 +22,6 @@ export function getBlobItem(item: Blob, options?: any) {
   }
 }
 
-export function getObjectItem(item: any) {
-  //
-}
-
 export function processItems(items: any[]): any[] {
   if (isArray(items)) {
     return items.map((item: any) => {
@@ -34,7 +30,7 @@ export function processItems(items: any[]): any[] {
       } else if (isBlob(item)) {
         return getBlobItem(item)
       } else if (isObject(item)) {
-        return getObjectItem(item)
+        return item
       }
     })
   }

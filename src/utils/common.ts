@@ -4,6 +4,10 @@ export function callAll(...fns: any[]) {
   return (...args: any[]) => fns.forEach((fn) => fn && fn(...args))
 }
 
+export function compose(...fns: any[]) {
+  return (...args: any[]) => fns.reduce((acc, fn) => fn(acc), args)
+}
+
 export function downloadLink(src: string, fileName: string = 'file') {
   const browser = getBrowser()
   if (browser.versions.ios) {

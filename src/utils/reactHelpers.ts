@@ -16,80 +16,94 @@ import {
   MdVoiceChat,
   MdOpenWith,
   MdBugReport,
+  MdPictureAsPdf,
 } from 'react-icons/md'
 
+export interface IconProps {
+  name?: string
+  title?: string
+  component?: React.ElementType<any>
+}
+
 // Common props for each icon and the component itself
-export const commonIcons = {
+// Keys are their names
+export const commonIcons: {
+  [name: string]: IconProps
+} = {
   'arrow-left': {
-    Icon: MdChevronLeft,
+    component: MdChevronLeft,
     title: 'Move Left',
   },
   'arrow-right': {
-    Icon: MdChevronRight,
+    component: MdChevronRight,
     title: 'Move Right',
   },
   bug: {
-    Icon: MdBugReport,
+    component: MdBugReport,
     title: 'Bug/Error',
   },
   'burger-menu': {
-    Icon: MdMenu,
+    component: MdMenu,
     title: 'Open/Close the Menu',
   },
   edit: {
-    Icon: MdModeEdit,
+    component: MdModeEdit,
     title: 'Edit',
   },
   cancel: {
-    Icon: MdClose,
+    component: MdClose,
     title: 'Cancel',
   },
   close: {
-    Icon: MdClose,
+    component: MdClose,
     title: 'Close',
   },
   crop: {
-    Icon: MdCropFree,
+    component: MdCropFree,
     title: 'Crop photo',
   },
   drag: {
-    Icon: MdOpenWith,
+    component: MdOpenWith,
     title: 'Drag',
   },
   'exit-fullscreen': {
-    Icon: MdFullscreenExit,
+    component: MdFullscreenExit,
     title: 'Exit Fullscreen',
   },
   'expand-more': {
-    Icon: MdExpandMore,
+    component: MdExpandMore,
     title: 'Expand More',
   },
   'expand-less': {
-    Icon: MdExpandLess,
+    component: MdExpandLess,
     title: 'Expand Less',
   },
   fullscreen: {
-    Icon: MdFullscreen,
+    component: MdFullscreen,
     title: 'Fullscreen',
   },
   'first-page': {
-    Icon: MdFirstPage,
+    component: MdFirstPage,
     title: 'Go to First Page',
   },
   'last-page': {
-    Icon: MdLastPage,
+    component: MdLastPage,
     title: 'Go to Last Page',
   },
   more: {
-    Icon: MdMoreHoriz,
+    component: MdMoreHoriz,
     title: 'See more',
   },
   'zoom-out': {
-    Icon: MdZoomOutMap,
+    component: MdZoomOutMap,
     title: 'Zoom Out',
   },
   webcam: {
-    Icon: MdVoiceChat,
+    component: MdVoiceChat,
     title: 'Webcam / Voice chat',
+  },
+  pdf: {
+    component: MdPictureAsPdf,
+    title: 'PDF',
   },
 }

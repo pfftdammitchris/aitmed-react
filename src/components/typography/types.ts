@@ -1,11 +1,11 @@
-import React from 'react'
+import { TypographyProps as MuiTypographyProps } from '@material-ui/core/Typography'
 
-export interface TypographyProps {
-  className?: string
-  style?: React.CSSProperties
-  gutterBottom?: boolean
-  paragraph?: boolean
-  color?: string
+export interface TypographyProps extends MuiTypographyProps {
+  // className?: string
+  // style?: React.CSSProperties
+  // gutterBottom?: boolean
+  // paragraph?: boolean
+  // color?: string
   primary?: boolean
   secondary?: boolean
   darkBlue?: boolean
@@ -14,9 +14,9 @@ export interface TypographyProps {
   black?: boolean
   error?: boolean
   red?: boolean
-  link?: boolean
+  // link?: boolean
   fontWeight?: string | number
-  variant?: string
+  // variant?: string
   left?: boolean
   center?: boolean
   centerOnSmall?: boolean

@@ -1,19 +1,28 @@
 import React from 'react'
-import isPlainObject from 'lodash/isPlainObject'
-import reduce from 'lodash/reduce'
-import { FaDownload } from 'react-icons/fa'
-import { MdZoomOutMap, MdRemove } from 'react-icons/md'
 import format from 'date-fns/format'
+import * as T from './types'
 import Context from './Context'
 import { processItems } from './utils'
-import { isArray, downloadLink } from '../../utils'
+import { isArray, isFunction, downloadLink } from '../../utils'
 
-const initialState = {
+type PhotoListAction =
+  | { type: 'set-actions'; actions: any }
+  | { type: 'set-items'; items: T.PhotoListItem[] }
+
+interface PhotoListState {
+  items: T.PhotoListItem[] | null
+  actions: any
+}
+
+const initialState: PhotoListState = {
   items: null,
   actions: null,
 }
 
-const reducer = (state, action) => {
+const reducer = (
+  state: PhotoListState = initialState,
+  action: PhotoListAction,
+): PhotoListState => {
   switch (action.type) {
     case 'set-actions':
       return { ...state, actions: action.actions }
@@ -24,43 +33,57 @@ const reducer = (state, action) => {
   }
 }
 
+const today = format(new Date(), 'yy-MM-dd_hh:mma')
+
 function usePhotoList({
   items,
+  icons,
   actions,
-  defaultDownloadName,
   placeholder,
-} = {}) {
+  defaultDownloadName,
+  onAvatarClick: onAvatarClickProp,
+  onTitleClick: onTitleClickProp,
+  onDescriptionClick: onDescriptionClickProp,
+}: any) {
   const [state, dispatch] = React.useReducer(reducer, initialState)
-  const today = format(new Date(), 'yy-MM-dd_hh:mma')
+
   const defaultFileName = defaultDownloadName || today
 
-  // const processActions = React.useCallback(
-  //   (actions) => {
-  //     if (!isPlainObject(actions)) return []
-  //     const actionKeys = Object.keys(actions)
-  //     const reduceFunc = (arr, actionKey) => {
-  //       if (nativeActions.current.hasOwnProperty(actionKey)) {
-  //         let action
-  //         // If it is a boolean, the dev wants to use the default implementation. Object = overwrite
-  //         if (typeof actions[actionKey] === 'boolean') {
-  //           action = nativeActions.current[actionKey]
-  //         } else action = actions[actionKey]
-  //         arr.push(action)
-  //       } else arr.push(actions[actionKey])
-  //       return arr
-  //     }
-  //     return reduce(actionKeys, reduceFunc, [])
-  //   },
-  //   [nativeActions],
-  // )
+  function onAvatarClick(item: T.PhotoListItem, index: number) {
+    return (e: React.MouseEvent<HTMLElement>) => {
+      if (isFunction(onAvatarClickProp)) {
+        onAvatarClickProp({ item, index }, e)
+      }
+    }
+  }
 
-  // React.useEffect(() => {
-  //   setActions(processActions({}))
-  // }, [processActions])
+  function onTitleClick(item: T.PhotoListItem, index: number) {
+    return (e: React.MouseEvent<HTMLElement>) => {
+      if (isFunction(onTitleClickProp)) {
+        onTitleClickProp({ item, index }, e)
+      }
+    }
+  }
 
-  // React.useEffect(() => {
-  //   setActions(processActions(actionProps))
-  // }, [actionProps, processActions])
+  function onDescriptionClick(item: T.PhotoListItem, index: number) {
+    return (e: React.MouseEvent<HTMLElement>) => {
+      if (isFunction(onDescriptionClickProp)) {
+        onDescriptionClickProp({ item, index }, e)
+      }
+    }
+  }
+
+  function onActionClick(
+    action: T.PhotoListItemAction,
+    item: T.PhotoListItem,
+    index: number,
+  ) {
+    return (e: React.MouseEvent<any>) => {
+      if (action && isFunction(action.onClick)) {
+        action.onClick({ item, action, index }, e)
+      }
+    }
+  }
 
   React.useEffect(() => {
     if (isArray(items)) {
@@ -70,8 +93,14 @@ function usePhotoList({
 
   return {
     ...state,
+    actions,
     defaultFileName,
+    icons,
     placeholder,
+    onAvatarClick,
+    onTitleClick,
+    onDescriptionClick,
+    onActionClick,
   }
 }
 

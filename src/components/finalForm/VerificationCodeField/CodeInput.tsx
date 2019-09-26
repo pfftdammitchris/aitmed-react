@@ -51,6 +51,8 @@ function VerificationCodeFieldCodeInput({
 
   function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     e.persist()
+
+    // the input field we are moving from
     const inputElem = getInputElem(index)
 
     switch (e.keyCode) {

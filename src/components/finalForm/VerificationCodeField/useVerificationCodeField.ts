@@ -24,6 +24,8 @@ function useVerificationCodeField({
 
   // Focus to next field or automatically attempt to submit the form when we reach the end
   function focusNext(index: number) {
+    const elem = getInputElem(index + 1)
+    // console.log(elem)
     if (getInputElem(index + 1)) {
       focus(index + 1)
     } else {
