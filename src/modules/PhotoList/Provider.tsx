@@ -41,7 +41,7 @@ function usePhotoList({
   actions,
   placeholder,
   defaultDownloadName,
-  onAvatarClick: onAvatarClickProp,
+  onVisualClick: onVisualClickProp,
   onTitleClick: onTitleClickProp,
   onDescriptionClick: onDescriptionClickProp,
 }: any) {
@@ -49,10 +49,10 @@ function usePhotoList({
 
   const defaultFileName = defaultDownloadName || today
 
-  function onAvatarClick(item: T.PhotoListItem, index: number) {
+  function onVisualClick(item: T.PhotoListItem, index: number) {
     return (e: React.MouseEvent<HTMLElement>) => {
-      if (isFunction(onAvatarClickProp)) {
-        onAvatarClickProp({ item, index }, e)
+      if (isFunction(onVisualClickProp)) {
+        onVisualClickProp({ item, index }, e)
       }
     }
   }
@@ -97,7 +97,7 @@ function usePhotoList({
     defaultFileName,
     icons,
     placeholder,
-    onAvatarClick,
+    onVisualClick,
     onTitleClick,
     onDescriptionClick,
     onActionClick,

@@ -104,3 +104,16 @@ function App() {
 
 ### `onDescriptionClick`
 
+### `props.mode`
+
+- compact (default)
+- balanced
+
+### rendering variants
+
+- `<PhotoList />`
+- `<PhotoList.Title />`
+- `<PhotoList.Description />`
+- `<PhotoList.Actions />`
+- `<PhotoList.Visual />`
+

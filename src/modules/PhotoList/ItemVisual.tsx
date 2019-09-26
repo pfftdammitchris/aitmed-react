@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }))
 
-function PhotoListItemVisualBox({
+function PhotoListItemVisual({
   src,
   title,
   ext,
@@ -86,4 +86,4 @@ function PhotoListItemVisualBox({
   return <ListItemAvatar className={classes.root}>{component}</ListItemAvatar>
 }
 
-export default PhotoListItemVisualBox
+export default PhotoListItemVisual

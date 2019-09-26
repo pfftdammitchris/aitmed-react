@@ -6,7 +6,7 @@ import PhotoListItems from './Items'
 import PhotoListItemTitle from './ItemTitle'
 import PhotoListItemDescription from './ItemDescription'
 import PhotoListItemActions from './ItemActions'
-import PhotoListItemVisualBox from './ItemVisualBox'
+import PhotoListItemVisual from './ItemVisual'
 import * as T from './types'
 
 interface PhotoListProps {
@@ -16,18 +16,16 @@ interface PhotoListProps {
   children?: React.ReactNode
   // Props below are passed to the Provider by default
   items?: T.PhotoListItems
-  icons?:
-    | React.ElementType<any>
-    | {
-        [key: string]: {
-          round?: boolean
-          component?: React.ElementType<any>
-        }
-      }
+  icons?: {
+    [key: string]: {
+      round?: boolean
+      component?: React.ElementType<any>
+    }
+  }
   actions?: T.PhotoListItemAction[]
   placeholder?: React.ReactNode | string
   defaultDownloadName?: string
-  onAvatarClick?: (e: React.MouseEvent<HTMLElement>) => void
+  onVisualClick?: (e: React.MouseEvent<HTMLElement>) => void
   onTitleClick?: (e: React.MouseEvent<HTMLElement>) => void
   onDescriptionClick?: (e: React.MouseEvent<HTMLElement>) => void
 }
@@ -62,6 +60,6 @@ function PhotoList({
 PhotoList.Title = PhotoListItemTitle
 PhotoList.Description = PhotoListItemDescription
 PhotoList.Actions = PhotoListItemActions
-PhotoList.Visual = PhotoListItemVisualBox
+PhotoList.Visual = PhotoListItemVisual
 
 export default PhotoList

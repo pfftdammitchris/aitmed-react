@@ -2,12 +2,12 @@ import { IconProps } from '../../utils/reactHelpers'
 
 export type PhotoListItem =
   | string
+  | File
+  | Blob
   | {
       src?: string
-      blob?: File | Blob
       title?: string
       description?: string
-      lastModified?: number | string
       ext?: string
     }
 

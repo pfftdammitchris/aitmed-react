@@ -4,7 +4,7 @@ import Fade from '@material-ui/core/Fade'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import PhotoListContext from './Context'
-import PhotoListItemVisualBox from './ItemVisualBox'
+import PhotoListItemVisual from './ItemVisual'
 import PhotoListItemTitle from './ItemTitle'
 import PhotoListItemDescription from './ItemDescription'
 import PhotoListItemActions from './ItemActions'
@@ -44,7 +44,7 @@ function PhotoListItems() {
     actions,
     items,
     icons,
-    onAvatarClick,
+    onVisualClick,
     onTitleClick,
     onDescriptionClick,
     onActionClick,
@@ -56,9 +56,9 @@ function PhotoListItems() {
     items.map((item: any, index: number) => (
       <Fade key={`photoListItem${index}`} timeout={250} in>
         <ListItem className={classes.root} alignItems="center" divider>
-          <PhotoListItemVisualBox
+          <PhotoListItemVisual
             // @ts-ignore
-            onClick={onAvatarClick(item, index)}
+            onClick={onVisualClick(item, index)}
             icons={icons}
             {...item}
           />
