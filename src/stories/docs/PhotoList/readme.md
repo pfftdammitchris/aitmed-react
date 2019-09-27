@@ -159,6 +159,8 @@ function App() {
 }
 ```
 
+If you pass in custom props to each action they will not be passed into the elements if they are invalid html attributes, so it's safe to pass in any arbitrary props without affecting the UI.
+
 ### `props.placeholder`
 
 - string
