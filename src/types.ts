@@ -10,3 +10,5 @@ export interface CreditCard {
   billing_state?: string
   billing_zip_code?: string
 }
+
+export type OnClick = (e: React.MouseEvent<HTMLElement>) => void

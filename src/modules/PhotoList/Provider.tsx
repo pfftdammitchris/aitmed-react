@@ -3,7 +3,20 @@ import format from 'date-fns/format'
 import * as T from './types'
 import Context from './Context'
 import { processItems } from './utils'
-import { isArray, isFunction, downloadLink } from '../../utils'
+import { isArray, isFunction, validReactHtmlAttrs } from '../../utils'
+import { OnClick } from '../../types'
+
+export interface PhotoListContextValue {
+  actions?: T.PhotoListItemAction[]
+  items: T.PhotoListItem[] | null
+  icons?: T.PhotoListIconConfig
+  defaultDownloadName?: string
+  placeholder?: React.ReactNode | string
+  onVisualClick?: T.OnVisualClick
+  onTitleClick: T.OnTitleClick
+  onDescriptionClick?: T.OnDescriptionClick
+  onActionClick?: T.OnActionClick
+}
 
 type PhotoListAction =
   | { type: 'set-actions'; actions: any }
@@ -17,6 +30,7 @@ interface PhotoListState {
 const initialState: PhotoListState = {
   items: null,
   actions: null,
+  // mode: 'compact', // inc. feature
 }
 
 const reducer = (
@@ -44,29 +58,47 @@ function usePhotoList({
   onVisualClick: onVisualClickProp,
   onTitleClick: onTitleClickProp,
   onDescriptionClick: onDescriptionClickProp,
-}: any) {
+}: PhotoListContextValue) {
   const [state, dispatch] = React.useReducer(reducer, initialState)
+  const divRef = React.useRef(document.createElement('div'))
+  const imgRef = React.useRef(document.createElement('img'))
+  const inputRef = React.useRef(document.createElement('input'))
 
   const defaultFileName = defaultDownloadName || today
 
-  function onVisualClick(item: T.PhotoListItem, index: number) {
-    return (e: React.MouseEvent<HTMLElement>) => {
+  // Will strip away custom attrs that isn't supported by native html
+  function returnValidHtmlAttrs(obj) {
+    return Object.keys(obj).reduce((acc, prop) => {
+      if (
+        prop in divRef.current ||
+        prop in imgRef.current ||
+        prop in inputRef.current ||
+        validReactHtmlAttrs.includes(prop)
+      ) {
+        acc[prop] = obj[prop]
+      }
+      return acc
+    }, {})
+  }
+
+  function onVisualClick(item: T.PhotoListItem, index: number): OnClick {
+    return (e) => {
       if (isFunction(onVisualClickProp)) {
         onVisualClickProp({ item, index }, e)
       }
     }
   }
 
-  function onTitleClick(item: T.PhotoListItem, index: number) {
-    return (e: React.MouseEvent<HTMLElement>) => {
+  function onTitleClick(item: T.PhotoListItem, index: number): OnClick {
+    return (e) => {
       if (isFunction(onTitleClickProp)) {
         onTitleClickProp({ item, index }, e)
       }
     }
   }
 
-  function onDescriptionClick(item: T.PhotoListItem, index: number) {
-    return (e: React.MouseEvent<HTMLElement>) => {
+  function onDescriptionClick(item: T.PhotoListItem, index: number): OnClick {
+    return (e) => {
       if (isFunction(onDescriptionClickProp)) {
         onDescriptionClickProp({ item, index }, e)
       }
@@ -77,8 +109,8 @@ function usePhotoList({
     action: T.PhotoListItemAction,
     item: T.PhotoListItem,
     index: number,
-  ) {
-    return (e: React.MouseEvent<any>) => {
+  ): OnClick {
+    return (e) => {
       if (action && isFunction(action.onClick)) {
         action.onClick({ item, action, index }, e)
       }
@@ -86,21 +118,25 @@ function usePhotoList({
   }
 
   React.useEffect(() => {
+    console.log('provider useEffect')
     if (isArray(items)) {
       dispatch({ type: 'set-items', items: processItems(items) })
     }
-  }, [])
+  }, [items])
 
   return {
     ...state,
     actions,
     defaultFileName,
+    divRef,
+    imgRef,
     icons,
     placeholder,
     onVisualClick,
     onTitleClick,
     onDescriptionClick,
     onActionClick,
+    returnValidHtmlAttrs,
   }
 }
 

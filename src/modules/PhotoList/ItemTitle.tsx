@@ -1,10 +1,11 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
+import { OnClick } from '../../types'
 import Typography from '../../components/Typography'
 
 interface PhotoListItemTitleProps {
   children: React.ReactNode
-  onClick?: (e: React.MouseEvent<HTMLElement>) => void
+  onClick: OnClick
 }
 
 const useStyles = makeStyles((theme: any) => ({
@@ -14,11 +15,7 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }))
 
-function PhotoListItemTitle({
-  children,
-  onClick,
-  ...rest
-}: PhotoListItemTitleProps) {
+function PhotoListItemTitle({ children, onClick }: PhotoListItemTitleProps) {
   const classes = useStyles()
 
   return (
@@ -26,7 +23,6 @@ function PhotoListItemTitle({
       classes={{ root: classes.root }}
       variant="body2"
       onClick={onClick}
-      {...rest}
     >
       {children}
     </Typography>

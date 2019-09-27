@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton'
 import { commonIcons } from '../../utils/reactHelpers'
 import { isArray } from '../../utils'
 import { PhotoListItem, PhotoListItemAction } from './types'
+import { OnClick } from '../../types'
 
 interface PhotoListItemActionsProps {
   actions: PhotoListItemAction[]
@@ -16,7 +17,7 @@ interface PhotoListItemActionsProps {
     action: PhotoListItemAction,
     item: PhotoListItem,
     index: number,
-  ) => (e: React.MouseEvent<HTMLElement>) => void
+  ) => OnClick
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -59,9 +60,15 @@ const useStyles = makeStyles((theme: Theme) => ({
 function ItemAction({
   action,
   onClick,
+  item,
+  index,
+  returnValidHtmlAttrs,
 }: {
   action: PhotoListItemAction
   onClick: (e: React.MouseEvent<HTMLElement>) => void
+  item: PhotoListItem
+  index: number
+  returnValidHtmlAttrs: (obj: any) => any
 }) {
   const classes = useStyles()
 
@@ -89,8 +96,7 @@ function ItemAction({
 
   if (Component) {
     // Now apply the rest of the options as props but strip out the non-html props
-    const { component, ...iconProps } = action
-    actionProps = iconProps
+    actionProps = returnValidHtmlAttrs(action)
   } else {
     if (process.env.NODE_ENV !== 'production') {
       console.warn(
@@ -98,7 +104,6 @@ function ItemAction({
           'Not provided'} (PhotoList)`,
       )
     }
-    return null
   }
 
   return (
@@ -118,7 +123,7 @@ function ItemAction({
       {...actionProps}
       onClick={onClick}
     >
-      <Component />
+      <Component item={item} index={index} {...actionProps} />
     </IconButton>
   )
 }
@@ -128,6 +133,7 @@ function PhotoListItemActions({
   item,
   index,
   onActionClick,
+  returnValidHtmlAttrs,
 }: PhotoListItemActionsProps) {
   const classes = useStyles()
 
@@ -142,7 +148,10 @@ function PhotoListItemActions({
           <ItemAction
             key={`photoListAction_${i}`}
             action={action}
+            item={item}
+            index={index}
             onClick={onActionClick(action, item, index)}
+            returnValidHtmlAttrs={returnValidHtmlAttrs}
           />
         ))}
     </ListItemSecondaryAction>

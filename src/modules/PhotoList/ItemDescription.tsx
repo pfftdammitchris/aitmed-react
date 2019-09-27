@@ -1,10 +1,11 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import Typography from '../../components/Typography'
+import { OnClick } from '../../types'
 
 interface PhotoListItemDescriptionProps {
   children: React.ReactNode
-  onClick?: (e: React.MouseEvent<HTMLElement>) => void
+  onClick: OnClick
 }
 
 const useStyles = makeStyles((theme: any) => ({

@@ -17,7 +17,9 @@ import {
   MdOpenWith,
   MdBugReport,
   MdPictureAsPdf,
+  MdPhotoSizeSelectLarge,
 } from 'react-icons/md'
+import { FaFileExcel, FaFileWord } from 'react-icons/fa'
 
 export interface IconProps {
   name?: string
@@ -49,6 +51,10 @@ export const commonIcons: {
   edit: {
     component: MdModeEdit,
     title: 'Edit',
+  },
+  excel: {
+    component: FaFileExcel,
+    title: 'Excel',
   },
   cancel: {
     component: MdClose,
@@ -94,6 +100,10 @@ export const commonIcons: {
     component: MdMoreHoriz,
     title: 'See more',
   },
+  photoshop: {
+    component: MdPhotoSizeSelectLarge,
+    title: 'Photoshop',
+  },
   'zoom-out': {
     component: MdZoomOutMap,
     title: 'Zoom Out',
@@ -104,6 +114,23 @@ export const commonIcons: {
   },
   pdf: {
     component: MdPictureAsPdf,
-    title: 'PDF',
+    title: 'Pdf',
+  },
+  word: {
+    component: FaFileWord,
+    title: 'Word',
   },
 }
+
+export function isClassComponent(elementType: any): boolean {
+  // elementType.prototype?.isReactComponent
+  const { prototype = {} } = elementType
+  return Boolean(prototype.isReactComponent)
+}
+
+// TODO: make this more complete
+export const validReactHtmlAttrs = [
+  'className',
+  'dangerouslySetInnerHTML',
+  'htmlFor',
+]

@@ -3,13 +3,15 @@ import { makeStyles } from '@material-ui/styles'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import Avatar from '@material-ui/core/Avatar'
 import { commonIcons } from '../../utils'
+import { OnClick } from '../../types'
+import { PhotoListIconConfig } from './types'
 
 interface PhotoListItemVisualBoxProps {
-  icons?: { [key: string]: React.ElementType<any> }
+  icons?: PhotoListIconConfig
   src?: string
   title?: string
   ext?: string
-  onClick?: (e: React.MouseEvent<HTMLElement>) => void
+  onClick?: OnClick
 }
 
 const useStyles = makeStyles((theme: any) => ({
@@ -56,21 +58,36 @@ function PhotoListItemVisual({
     )
   }
 
-  let component
+  let VisualComponent
 
   switch (ext) {
-    case '.pdf': {
-      const PdfIcon =
+    case '.csv':
+    case '.xlx':
+      VisualComponent =
+        (icons.excel && icons.excel.component) || commonIcons.excel.component
+    case '.doc':
+    case '.docx':
+    case '.pdf':
+      VisualComponent =
         (icons.pdf && icons.pdf.component) || commonIcons.pdf.component
-      component = (
-        <CustomAvatar>
-          <PdfIcon onClick={onClick} />
-        </CustomAvatar>
-      )
+      break
+    case '.psd':
+      VisualComponent =
+        (icons.photoshop && icons.photoshop.component) ||
+        commonIcons.photoshop.component
+      break
+    default: {
       break
     }
-    default: {
-      component = (
+  }
+
+  return (
+    <ListItemAvatar className={classes.root}>
+      {VisualComponent ? (
+        <CustomAvatar>
+          <VisualComponent />
+        </CustomAvatar>
+      ) : (
         <Avatar
           classes={{ root: classes.avatarRoot }}
           alt={title}
@@ -78,12 +95,9 @@ function PhotoListItemVisual({
           src={src}
           onClick={onClick}
         />
-      )
-      break
-    }
-  }
-
-  return <ListItemAvatar className={classes.root}>{component}</ListItemAvatar>
+      )}
+    </ListItemAvatar>
+  )
 }
 
 export default PhotoListItemVisual

@@ -59,6 +59,29 @@ export function getBrowser() {
   return o
 }
 
+// Returns the size in bytes
+export function getBytesFromBase64(str: string): number | null {
+  if (typeof str !== 'string') return null
+  const length = str.length - (str.indexOf(',') + 1)
+  const padding =
+    str.charAt(str.length - 2) === '='
+      ? 2
+      : str.charAt(str.length - 1) === '='
+      ? 1
+      : 0
+  return length * 0.75 - padding
+}
+
+export function getReadableSizeFromBytes(bytes: number | string): string {
+  const units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+  let l = 0
+  let n = parseInt(String(bytes), 10) || 0
+  while (n >= 1024 && ++l) n /= 1024
+  // include a decimal point and a tenths-place digit if presenting
+  // less than ten of KB or greater units
+  return n.toFixed(n < 10 && l > 0 ? 1 : 0) + ' ' + units[l]
+}
+
 export function isArray(val: any): val is Array<any> {
   return Array.isArray(val)
 }
@@ -155,4 +178,53 @@ export function getDisplayName(Component: any) {
     return undefined
   }
   return Component.displayName || Component.name || 'Component'
+}
+
+/*
+  test cases:
+    const name1 = 'hleoWorld.jpg'
+    const name2 = 'https://github.com/sindresorhus/is-text-path.png'
+    const name3 = '.'
+    const name4 = 'c:/Users/pfftd/desktop/sindrea123_fas-.pdf'
+    const name5 = 'nooneto.know.jpg'
+    const name6 = 'https://asd.fsafsaf.jp.com/fsafsafsa43434_-adw.pnga'
+    const name7 = 'https://sadas24ijadcom/3434/0-_)-__jpg'
+*/
+
+// Returns file ext or an empty string
+export function resolveExt(str: string): string {
+  let result = ''
+  if (str) {
+    const dotIndex = str.lastIndexOf('.')
+    if (dotIndex > -1) {
+      result = str.slice(dotIndex)
+      if (result === '.') {
+        return ''
+      }
+    }
+  }
+  return result
+}
+
+// Returns file name or an empty string
+export function resolveFilename(str: string, defaultName?: string): string {
+  let result = str
+  let dotIndex = str.lastIndexOf('.')
+  const regex = /^.*(\\|\/|\:)/g
+
+  if (dotIndex > -1) {
+    result = result.substring(result.lastIndexOf('/') + 1)
+    dotIndex = result.lastIndexOf('.')
+    result = result.substring(0, dotIndex)
+    if (result) {
+      return result === '.' ? '' : result
+    } else {
+      return ''
+    }
+  }
+  result = result.replace(regex, '')
+  if (result) {
+    return result
+  }
+  return defaultName || ''
 }
