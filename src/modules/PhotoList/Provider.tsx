@@ -2,7 +2,7 @@ import React from 'react'
 import format from 'date-fns/format'
 import * as T from './types'
 import Context from './Context'
-import { processItems } from './utils'
+import { processItems, wrapHofOnClick } from './utils'
 import { isArray, isFunction, validReactHtmlAttrs } from '../../utils'
 import { OnClick } from '../../types'
 
@@ -12,10 +12,12 @@ export interface PhotoListContextValue {
   icons?: T.PhotoListIconConfig
   defaultDownloadName?: string
   placeholder?: React.ReactNode | string
-  onVisualClick?: T.OnVisualClick
-  onTitleClick: T.OnTitleClick
-  onDescriptionClick?: T.OnDescriptionClick
-  onActionClick?: T.OnActionClick
+  debugStyles?: boolean
+  onVisualClick: T.WrappedReturnedHofFn
+  onTitleClick: T.WrappedReturnedHofFn
+  onDescriptionClick: T.WrappedReturnedHofFn
+  onActionClick: T.OnActionClick
+  returnValidHtmlAttrs: (obj: any) => any
 }
 
 type PhotoListAction =
@@ -55,6 +57,7 @@ function usePhotoList({
   actions,
   placeholder,
   defaultDownloadName,
+  debugStyles = false,
   onVisualClick: onVisualClickProp,
   onTitleClick: onTitleClickProp,
   onDescriptionClick: onDescriptionClickProp,
@@ -81,30 +84,6 @@ function usePhotoList({
     }, {})
   }
 
-  function onVisualClick(item: T.PhotoListItem, index: number): OnClick {
-    return (e) => {
-      if (isFunction(onVisualClickProp)) {
-        onVisualClickProp({ item, index }, e)
-      }
-    }
-  }
-
-  function onTitleClick(item: T.PhotoListItem, index: number): OnClick {
-    return (e) => {
-      if (isFunction(onTitleClickProp)) {
-        onTitleClickProp({ item, index }, e)
-      }
-    }
-  }
-
-  function onDescriptionClick(item: T.PhotoListItem, index: number): OnClick {
-    return (e) => {
-      if (isFunction(onDescriptionClickProp)) {
-        onDescriptionClickProp({ item, index }, e)
-      }
-    }
-  }
-
   function onActionClick(
     action: T.PhotoListItemAction,
     item: T.PhotoListItem,
@@ -118,7 +97,6 @@ function usePhotoList({
   }
 
   React.useEffect(() => {
-    console.log('provider useEffect')
     if (isArray(items)) {
       dispatch({ type: 'set-items', items: processItems(items) })
     }
@@ -132,11 +110,12 @@ function usePhotoList({
     imgRef,
     icons,
     placeholder,
-    onVisualClick,
-    onTitleClick,
-    onDescriptionClick,
+    onVisualClick: wrapHofOnClick(onVisualClickProp),
+    onTitleClick: wrapHofOnClick(onTitleClickProp),
+    onDescriptionClick: wrapHofOnClick(onDescriptionClickProp),
     onActionClick,
     returnValidHtmlAttrs,
+    debugStyles,
   }
 }
 

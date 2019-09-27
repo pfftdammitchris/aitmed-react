@@ -12,13 +12,13 @@ import * as T from './types'
 interface PhotoListItemProps {
   item: T.PhotoListItem
   index: number
-  returnValidHtmlAttrs: (obj: any) => any
   icons?: T.PhotoListIconConfig
   actions?: T.PhotoListItemAction[]
-  onVisualClick?: T.OnVisualClick
-  onTitleClick: T.OnTitleClick
-  onDescriptionClick?: T.OnDescriptionClick
-  onActionClick?: T.OnActionClick
+  onVisualClick: T.WrappedReturnedHofFn
+  onTitleClick: T.WrappedReturnedHofFn
+  onDescriptionClick: T.WrappedReturnedHofFn
+  onActionClick: T.OnActionClick
+  returnValidHtmlAttrs: (obj: any) => any
 }
 
 const useStyles = makeStyles({
@@ -44,22 +44,19 @@ function PhotoListItem({
   return (
     <ListItem className={classes.root} alignItems="center" divider>
       <PhotoListItemVisual
-        // @ts-ignore
-        onClick={onVisualClick(item, index)}
+        onClick={onVisualClick({ item, index })}
         icons={icons}
-        {...item}
+        item={item}
       />
       <ListItemText
         primary={
-          // @ts-ignore
-          <PhotoListItemTitle onClick={onTitleClick(item, index)}>
+          <PhotoListItemTitle onClick={onTitleClick({ item, index })}>
             {item.filename + item.ext}
           </PhotoListItemTitle>
         }
         secondary={
           <PhotoListItemDescription
-            // @ts-ignore
-            onClick={onDescriptionClick(item, index)}
+            onClick={onDescriptionClick({ item, index })}
           >
             {item.description}
           </PhotoListItemDescription>
@@ -71,8 +68,8 @@ function PhotoListItem({
           item={item}
           actions={actions}
           index={index}
-          // @ts-ignore
-          onActionClick={onActionClick}
+          icons={icons}
+          onClick={onActionClick}
           returnValidHtmlAttrs={returnValidHtmlAttrs}
         />
       )}

@@ -4,20 +4,22 @@ import { Theme } from '@material-ui/core'
 import cx from 'classnames'
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import IconButton from '@material-ui/core/IconButton'
-import { commonIcons } from '../../utils/reactHelpers'
+import { resolveRenderAction } from './utils'
 import { isArray } from '../../utils'
-import { PhotoListItem, PhotoListItemAction } from './types'
-import { OnClick } from '../../types'
+import {
+  PhotoListItem,
+  PhotoListItemAction,
+  PhotoListIconConfig,
+  OnActionClick,
+} from './types'
 
 interface PhotoListItemActionsProps {
   actions: PhotoListItemAction[]
   item: PhotoListItem
+  icons?: PhotoListIconConfig
   index: number
-  onActionClick: (
-    action: PhotoListItemAction,
-    item: PhotoListItem,
-    index: number,
-  ) => OnClick
+  returnValidHtmlAttrs: (obj: any) => any
+  onClick: OnActionClick
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -61,38 +63,21 @@ function ItemAction({
   action,
   onClick,
   item,
+  icons,
   index,
   returnValidHtmlAttrs,
 }: {
   action: PhotoListItemAction
   onClick: (e: React.MouseEvent<HTMLElement>) => void
   item: PhotoListItem
+  icons?: PhotoListIconConfig
   index: number
   returnValidHtmlAttrs: (obj: any) => any
 }) {
   const classes = useStyles()
+  const Component = resolveRenderAction(action, icons)
 
-  let Component, actionProps: any
-
-  // If the dev provided their own custom component, use that instead
-  if (action.component) {
-    Component = action.component
-  }
-  // If this is already included in our commonIcons obj
-  // @ts-ignore
-  if (action.name in commonIcons) {
-    // If the dev provided their own custom component, give that one higher priority.
-    if (action.component) {
-      Component = action.component
-    }
-    // Otherwise just use the default component
-    else {
-      // @ts-ignore
-      Component = commonIcons[action.name].component
-    }
-  } else {
-    Component = action.component
-  }
+  let actionProps: any
 
   if (Component) {
     // Now apply the rest of the options as props but strip out the non-html props
@@ -104,6 +89,7 @@ function ItemAction({
           'Not provided'} (PhotoList)`,
       )
     }
+    return null
   }
 
   return (
@@ -131,8 +117,9 @@ function ItemAction({
 function PhotoListItemActions({
   actions,
   item,
+  icons,
   index,
-  onActionClick,
+  onClick,
   returnValidHtmlAttrs,
 }: PhotoListItemActionsProps) {
   const classes = useStyles()
@@ -150,7 +137,8 @@ function PhotoListItemActions({
             action={action}
             item={item}
             index={index}
-            onClick={onActionClick(action, item, index)}
+            icons={icons}
+            onClick={onClick({ action, item, index })}
             returnValidHtmlAttrs={returnValidHtmlAttrs}
           />
         ))}

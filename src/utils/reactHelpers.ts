@@ -18,8 +18,11 @@ import {
   MdBugReport,
   MdPictureAsPdf,
   MdPhotoSizeSelectLarge,
+  MdTextFields,
+  MdAudiotrack,
 } from 'react-icons/md'
-import { FaFileExcel, FaFileWord } from 'react-icons/fa'
+import { FaFileExcel, FaFileWord, FaCompress } from 'react-icons/fa'
+import { audioExts, compressedExts } from './info'
 
 export interface IconProps {
   name?: string
@@ -116,10 +119,40 @@ export const commonIcons: {
     component: MdPictureAsPdf,
     title: 'Pdf',
   },
+  rtf: {
+    component: MdTextFields,
+    title: 'Rich Text File',
+  },
+  txt: {
+    component: MdTextFields,
+    title: 'Text File',
+  },
   word: {
     component: FaFileWord,
     title: 'Word',
   },
+  // Audio
+  // IIFE returning an object
+  ...(function() {
+    return audioExts.reduce((acc: any, ext: string) => {
+      acc[ext] = {
+        component: MdAudiotrack,
+        title: 'Audio Track',
+      }
+      return acc
+    }, {})
+  })(),
+  // Compressed files
+  // IIFE returning an object
+  ...(function() {
+    return compressedExts.reduce((acc: any, ext: string) => {
+      acc[ext] = {
+        component: FaCompress,
+        title: 'Compressed File',
+      }
+      return acc
+    }, {})
+  })(),
 }
 
 export function isClassComponent(elementType: any): boolean {

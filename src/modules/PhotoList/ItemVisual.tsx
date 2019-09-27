@@ -2,15 +2,13 @@ import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import Avatar from '@material-ui/core/Avatar'
-import { commonIcons } from '../../utils'
+import { resolveRenderVisual } from './utils'
 import { OnClick } from '../../types'
-import { PhotoListIconConfig } from './types'
+import { PhotoListIconConfig, PhotoListItem } from './types'
 
 interface PhotoListItemVisualBoxProps {
+  item: PhotoListItem
   icons?: PhotoListIconConfig
-  src?: string
-  title?: string
-  ext?: string
   onClick?: OnClick
 }
 
@@ -24,7 +22,6 @@ const useStyles = makeStyles((theme: any) => ({
       height: 25,
     },
   },
-  avatarRoot: {},
   customIcon: {
     minWidth: 56,
     flexShrink: 0,
@@ -42,59 +39,23 @@ const useStyles = makeStyles((theme: any) => ({
 }))
 
 function PhotoListItemVisual({
-  src,
-  title,
-  ext,
-  icons = {}, // user provided prop
+  item,
   onClick,
+  icons = {}, // user provided prop
 }: PhotoListItemVisualBoxProps) {
   const classes = useStyles()
+  const { src, title, ext, alt } = item
 
-  function CustomAvatar({ children, ...rest }: { children: React.ReactNode }) {
-    return (
-      <div className={classes.customIcon} {...rest}>
-        <div>{children}</div>
-      </div>
-    )
-  }
-
-  let VisualComponent
-
-  switch (ext) {
-    case '.csv':
-    case '.xlx':
-      VisualComponent =
-        (icons.excel && icons.excel.component) || commonIcons.excel.component
-    case '.doc':
-    case '.docx':
-    case '.pdf':
-      VisualComponent =
-        (icons.pdf && icons.pdf.component) || commonIcons.pdf.component
-      break
-    case '.psd':
-      VisualComponent =
-        (icons.photoshop && icons.photoshop.component) ||
-        commonIcons.photoshop.component
-      break
-    default: {
-      break
-    }
-  }
+  const CustomAvatar = resolveRenderVisual(ext, icons)
 
   return (
     <ListItemAvatar className={classes.root}>
-      {VisualComponent ? (
-        <CustomAvatar>
-          <VisualComponent />
-        </CustomAvatar>
+      {CustomAvatar ? (
+        <div className={classes.customIcon}>
+          <CustomAvatar />
+        </div>
       ) : (
-        <Avatar
-          classes={{ root: classes.avatarRoot }}
-          alt={title}
-          title={title}
-          src={src}
-          onClick={onClick}
-        />
+        <Avatar title={title} src={src} onClick={onClick} alt={title || alt} />
       )}
     </ListItemAvatar>
   )

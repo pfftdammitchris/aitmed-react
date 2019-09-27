@@ -1,3 +1,4 @@
+import { OnClick } from '../../types'
 import { IconProps } from '../../utils/reactHelpers'
 
 export type PhotoListItemRaw =
@@ -16,6 +17,7 @@ export type PhotoListItem = {
   ext: string
   filename: string
   title?: string
+  alt?: string
   description?: string
   filesize?: string
 }
@@ -44,48 +46,20 @@ export type PhotoListItemActionOnClick = (
   e: React.MouseEvent<HTMLElement>,
 ) => void
 
-export type OnVisualClick = (
-  {
-    item,
-    index,
-  }: {
-    item: PhotoListItem
-    index: number
-  },
-  e: React.MouseEvent<HTMLElement>,
-) => void
+export type WrappedReturnedHofFn = ({
+  item,
+  index,
+}: {
+  item: PhotoListItem
+  index: number
+}) => OnClick
 
-export type OnTitleClick = (
-  {
-    item,
-    index,
-  }: {
-    item: PhotoListItem
-    index: number
-  },
-  e: React.MouseEvent<HTMLElement>,
-) => void
-
-export type OnDescriptionClick = (
-  {
-    item,
-    index,
-  }: {
-    item: PhotoListItem
-    index: number
-  },
-  e: React.MouseEvent<HTMLElement>,
-) => void
-
-export type OnActionClick = (
-  {
-    item,
-    action,
-    index,
-  }: {
-    item: PhotoListItem
-    action: PhotoListItemAction
-    index: number
-  },
-  e: React.MouseEvent<HTMLElement>,
-) => void
+export type OnActionClick = ({
+  item,
+  action,
+  index,
+}: {
+  item: PhotoListItem
+  action: PhotoListItemAction
+  index: number
+}) => OnClick

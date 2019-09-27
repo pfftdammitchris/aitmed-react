@@ -8,7 +8,7 @@ import Button from '../components/Button'
 import readme from './docs/PhotoList/readme.md'
 import theme from '../config/theme'
 
-const images = [
+const items = [
   {
     src:
       'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/the-power-of-higher-order-functions-in-javascript/thumbnail.jpg',
@@ -23,20 +23,20 @@ const images = [
     title: 'This is the title. Nothing new',
   },
   'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/6-ways-to-help-keep-you-going-when-working-on-javascript-projects/thumbnail.jpg',
-  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/8-miraculous-ways-to-bolster-your-react-apps/thumbnail.jpg',
-  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/keeping-ui-completely-synchronized-when-uploading-files-in-react/thumbnail.jpg',
-  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/26-miraculous-vscode-tools-for-javascript-developers-in-2019/todotree1.jpg',
+  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/8-miraculous-ways-to-bolster-your-react-apps/thumbnail.zip',
+  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/keeping-ui-completely-synchronized-when-uploading-files-in-react/thumbnail.7z',
+  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/26-miraculous-vscode-tools-for-javascript-developers-in-2019/todotree1.pdf',
   {
     src:
-      'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/26-miraculous-vscode-tools-for-javascript-developers-in-2019/bracketpaircolorizer.jpg',
+      'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/26-miraculous-vscode-tools-for-javascript-developers-in-2019/bracketpaircolorizer.wma',
     title: '26 tools',
     hasVideo: true,
   },
-  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/8-miraculous-ways-to-bolster-your-react-apps/memoize1.jpg',
+  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/8-miraculous-ways-to-bolster-your-react-apps/memoize1.mp3',
   'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/8-miraculous-ways-to-bolster-your-react-apps/memoize2.jpg',
-  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/build-a-cool-character-select-screen-in-react/destroyer.jpg',
-  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/build-a-cool-character-select-screen-in-react/knight.jpg',
-  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/build-a-cool-character-select-screen-in-react/morph1.jpg',
+  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/build-a-cool-character-select-screen-in-react/destroyer.mpa',
+  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/build-a-cool-character-select-screen-in-react/knight.doc',
+  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/build-a-cool-character-select-screen-in-react/morph1.docx',
   {
     src:
       'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/build-a-cool-character-select-screen-in-react/novice2.jpg',
@@ -45,8 +45,8 @@ const images = [
   },
   'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/build-a-cool-character-select-screen-in-react/sage.jpg',
   'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/build-a-cool-character-select-screen-in-react/selectionscreen1.jpg',
-  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/build-a-cool-character-select-screen-in-react/shapeshifter.jpg',
-  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/build-a-cool-character-select-screen-in-react/sorceress.jpg',
+  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/build-a-cool-character-select-screen-in-react/shapeshifter.rtf',
+  'https://jsmanifest.s3-us-west-1.amazonaws.com/posts/build-a-cool-character-select-screen-in-react/sorceress.txt',
 ]
 
 function Wrapper({ children, expanded, btnProps }: any) {
@@ -90,7 +90,7 @@ const actions = [
         const style: any = {}
         const Icon = (props) => <MdPermDataSetting {...props} />
         // If this is the last item in list then apply a black background to indicate to the user that this is the end
-        if (index === images.length - 1) {
+        if (index === items.length - 1) {
           style.color = 'hotpink'
           style.border = '1px solid magenta'
           style.borderRadius = '50%'
@@ -121,13 +121,13 @@ storiesOf('PhotoList', module)
     return React.createElement(() => {
       const [expanded, setExpanded] = React.useState(false)
       const toggle = () => setExpanded((v) => !v)
-      const items = expanded ? images : [images[0], images[1], images[2]]
+      const _items = expanded ? items : [items[0], items[1], items[2]]
 
       return (
         <Wrapper expanded={expanded} btnProps={{ onClick: toggle }}>
           <PhotoList
             actions={actions}
-            items={items}
+            items={_items}
             icons={{
               pdf: {
                 // round: true,
@@ -137,6 +137,69 @@ storiesOf('PhotoList', module)
                 component: FaHaykal,
               },
             }}
+          />
+        </Wrapper>
+      )
+    })
+  })
+  .add('props.onTitleClick', () => {
+    function onTitleClick(options: any, event: any): void {
+      console.log(options)
+      console.log(event)
+    }
+    return React.createElement(() => {
+      const [expanded, setExpanded] = React.useState(false)
+      const toggle = () => setExpanded((v) => !v)
+      const _items: any = expanded ? items : [items[0], items[1], items[2]]
+
+      return (
+        <Wrapper expanded={expanded} btnProps={{ onClick: toggle }}>
+          <PhotoList
+            actions={actions}
+            items={_items}
+            onTitleClick={onTitleClick}
+          />
+        </Wrapper>
+      )
+    })
+  })
+  .add('props.onDescriptionClick', () => {
+    function onDescriptionClick(options: any, event: any): void {
+      console.log(options)
+      console.log(event)
+    }
+    return React.createElement(() => {
+      const [expanded, setExpanded] = React.useState(false)
+      const toggle = () => setExpanded((v) => !v)
+      const _items: any = expanded ? items : [items[0], items[1], items[2]]
+
+      return (
+        <Wrapper expanded={expanded} btnProps={{ onClick: toggle }}>
+          <PhotoList
+            actions={actions}
+            items={_items}
+            onDescriptionClick={onDescriptionClick}
+          />
+        </Wrapper>
+      )
+    })
+  })
+  .add('props.onVisualClick', () => {
+    function onVisualClick(options: any, event: any): void {
+      console.log(options)
+      console.log(event)
+    }
+    return React.createElement(() => {
+      const [expanded, setExpanded] = React.useState(false)
+      const toggle = () => setExpanded((v) => !v)
+      const _items: any = expanded ? items : [items[0], items[1], items[2]]
+
+      return (
+        <Wrapper expanded={expanded} btnProps={{ onClick: toggle }}>
+          <PhotoList
+            actions={actions}
+            items={_items}
+            onVisualClick={onVisualClick}
           />
         </Wrapper>
       )

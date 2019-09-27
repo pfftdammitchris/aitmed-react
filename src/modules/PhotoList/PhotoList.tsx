@@ -10,7 +10,6 @@ import PhotoListItemDescription from './ItemDescription'
 import PhotoListItemActions from './ItemActions'
 import PhotoListItemVisual from './ItemVisual'
 import * as T from './types'
-import { OnClick } from '../../types'
 
 interface PhotoListProps {
   classes?: any
@@ -21,11 +20,16 @@ interface PhotoListProps {
   items?: T.PhotoListItemRaw[]
   icons?: T.PhotoListIconConfig
   actions?: T.PhotoListItemAction[]
+  onVisualClick?: T.WrappedReturnedHofFn
+  onTitleClick?: T.WrappedReturnedHofFn
+  onDescriptionClick?: T.WrappedReturnedHofFn
+  // Not yet supported
+  debugStyles?: boolean | object
   placeholder?: React.ReactNode | string
   defaultDownloadName?: string
-  onVisualClick?: OnClick
-  onTitleClick?: OnClick
-  onDescriptionClick?: OnClick
+  Title?: React.ElementType<any>
+  Description?: React.ElementType<any>
+  Avatar?: React.ElementType<any>
 }
 
 function PhotoList({

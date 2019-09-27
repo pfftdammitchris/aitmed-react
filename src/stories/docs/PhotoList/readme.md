@@ -11,10 +11,6 @@
     - [ ] if inserts value `true` to any default icons, automatically render them
 - [ ] props.placeholder (used if img is not found on ea. row)
 - [ ] props.defaultFileName (used if file name for downloading the imgs arent found)
-- [ ] support in VisualBox:
-  - [ ] doc, docx
-  - [ ] ppt
-  - [ ] excel, csv
 
 ## Types
 
@@ -58,9 +54,9 @@ function App() {
 
 ### `props.icons`
 
-If you provide `icons` as a prop you can use it to override the default icons. `icons` is an object of `IconConfig` objects where an **icon name** is the key and their value is the `IconConfig` object. You can use this to configure icon defaults in the interface. This will be reflected throughout the component (ex: in the avatars, actions, etc). You can provide the `component` option to override the default icon.
+If you provide `icons` as a prop you can use it to override the default icons. `icons` is an object of `IconConfig` objects where an **icon name** is the key and their value is the `IconConfig` object. You can use this to configure icon defaults in the interface or to override any icons that occur during the lifetime of the PhotoList component. (ex: in the avatars, actions, etc). You can provide the `component` option in an icon config to override an icon from the list of default icons if it exists--otherwise it will fallback to the default component.
 
-Note: This prop has a lower specificity than `props.actions` when rendering an icon for the actions. Instead, `props.actions` is used to determine which icons to render if both `props.icons` and `props.actions` have a conflicting `props.component` for the **icon name**.
+Note: This prop has a higher specificity than `props.actions` when rendering an icon for the actions. If both `props.icons` and `props.actions` have a conflicting **icon name**, `props.icons` will always win.
 
 ```jsx
 import React from 'react'
@@ -88,6 +84,38 @@ function App() {
 }
 ```
 
+#### Using conflicting icon names:
+
+```jsx
+
+
+const icons = [
+  {
+    fullscreen: {
+      component: (props) => <MdFullscreen /> // Will render (higher specificity)
+    }
+  }
+]
+
+const actions = [
+  { name: 'fullscreen', component: (props) => <Fullscreen /> }, // Will not render (lower specificity)
+  { name: 'delete' },
+]
+
+const items = [...]
+
+function App() {
+  return (
+    <PhotoList
+            actions={actions}
+            icons={icons}
+            items={items}
+          />
+  )
+}
+
+```
+
 ### `props.items`
 
 - array of img objs
@@ -101,13 +129,15 @@ function App() {
 
 You can use `props.actions` to determine what actions the user is allowed to use.
 
-This should be an array of `PhotoListItemAction` objects and will be re-used for each row in the rendered list. The object with the `component` key stripped away will be passed into the wrapper element, so it's advised to define common actions in these objects like `onClick` or `title`. If `onClick` is passed in, it will receive the current item's `index`, `action` and `item` as the first argument and the `event` as the second argument.
+This should be an array of `PhotoListItemAction` objects and will be re-used for each row in the rendered list. The object with non-html attributes will be stripped away (ex: `components`) while the remains will be passed to the wrapper [IconButton](https://material-ui.com/api/icon-button/) component to avoid unnecessary console errors.
+
+If `onClick` is passed in, it will receive the current item's `index`, `action` and `item` as the first argument and the `event` as the second argument.
 
 You do not have to declare a `name` property in each of the actions but if you do, the module will attempt to use the default icon component if a `component` key isn't found.
 
-If you don't declare a `name` property on an action and a `component` key is not found it will be ignored and will not be rendered.
+If you don't declare a `name` property on an action and a `component` key is not found nothing will be rendered.
 
-The component will receive the action object, current row data and index as arguments. You can use this to conditionally render different icons based on what data is available in each row.
+The component will receive the action object, current row data and index as arguments. You can use this to conditionally render different icons based on what data is available in each row. For example you can choose to render a video icon for a row if only a youtube link was provided.
 
 ```jsx
 import React from 'react'
@@ -133,7 +163,7 @@ const actions = [
   },
   {
     name: 'music-video',
-component: function({ action, item, index }) {
+    component: function({ action, item, index }) {
       if (item && item.hasVideo) {
         return (
           <MdMusicVideo style={{ transform: 'scale(2.3)', color: 'hotpink' }} />
@@ -161,6 +191,50 @@ function App() {
 
 If you pass in custom props to each action they will not be passed into the elements if they are invalid html attributes, so it's safe to pass in any arbitrary props without affecting the UI.
 
+If an action object contains a `name` property `props.icons` also includes the same name, the component defined in `props.icons` will override it.
+
+### `props.onVisualClick: ({ item, index }, event) => void`
+
+An `onClick` called when the visual box (photo/thumbnail) is clicked. The handler will receive the current item and index in the row as the first argument, and the click event as the second.
+
+### `onTitleClick: ({ item, index }, event) => void`
+
+An `onClick` called when the title is clicked. The handler will receive the current item and index in the row as the first argument, and the click event as the second.
+
+### `onDescriptionClick: ({ item, index }, event) => void`
+
+An `onClick` called when the description is clicked. The handler will receive the current item and index in the row as the first argument, and the click event as the second.
+
+### rendering variants
+
+- `<PhotoList />`
+- `<PhotoList.Title />`
+- `<PhotoList.Description />`
+- `<PhotoList.Actions />`
+- `<PhotoList.Visual />`
+
+## Props not yet supported:
+
+### `props.debugStyles: boolean | object`
+
+If `debugStyles` is `true`, these components will render with 1px borders:
+
+- `PhotoList` (root node) | 1px solid red
+- `PhotoList.Title` | 1px solid magenta
+- `PhotoList.Description` | 1px solid teal
+- `PhotoList.Actions` | 1px solid salmon
+- `PhotoList.Visual` | 1px solid green
+
+You can optionally provide an object as the value and pass in your own custom colors. `PhotoList` will automatically treat this as enabling debugging styles.
+
+```jsx
+```
+
+### `props.mode`
+
+- compact (default)
+- balanced
+
 ### `props.placeholder`
 
 - string
@@ -172,45 +246,14 @@ Will be used as the default file name when a `download` action is invoked. If th
 
 Example: `'092619_011113_PM.png'`
 
-### `props.onVisualClick`
+### `props.Title`
 
-An `onClick` called when the visual box (photo/thumbnail) is clicked. The handler will receive the current item and index in the row as the first argument, and the click event as the second.
+Component to use for item titles. Defaults to [Typography](https://material-ui.com/api/typography/).
 
-### `onTitleClick: ({ item, index }, event) => void`
+### `props.Description`
 
-An `onClick` called when the title is clicked. The handler will receive the current item and index in the row as the first argument, and the click event as the second.
+Component to use for item descriptions. Defaults to [Typography](https://material-ui.com/api/typography/).
 
-### `onDescriptionClick`
+### `props.Avatar`
 
-An `onClick` called when the description is clicked. The handler will receive the current item and index in the row as the first argument, and the click event as the second.
-
-### `props.mode`
-
-- compact (default)
-- balanced
-
-### rendering variants
-
-- `<PhotoList />`
-- `<PhotoList.Title />`
-- `<PhotoList.Description />`
-- `<PhotoList.Actions />`
-- `<PhotoList.Visual />`
-
-## Resolving algorithms
-
-- title
-  - src
-    - looks for ending extensions at the end of the string
-    - then looks for ending extensions anywhere in the string
-      - if only 1 extension is found, use it
-      - if 2 or more extensions are found, ignore it and use `getDefaultFilename`
-  - blob
-    - blob.filename
-  - obj
-- ext
-  - src
-    - looks for extensions at the end of the string
-    - then looks for ending extensions anywhere in the string
-      - if only 1 ext is found, use it
-      - if 2 or more ext's are found, dont add an extension
+Component to use for item visuals (a.k.a avatars). Defaults to [Avatar](https://material-ui.com/api/avatar/) if rendering images, otherwise defaults to a custom `div` root element for everything else.

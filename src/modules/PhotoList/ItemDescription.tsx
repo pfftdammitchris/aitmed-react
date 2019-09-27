@@ -4,6 +4,7 @@ import Typography from '../../components/Typography'
 import { OnClick } from '../../types'
 
 interface PhotoListItemDescriptionProps {
+  component?: React.ElementType<any>
   children: React.ReactNode
   onClick: OnClick
 }
@@ -15,6 +16,7 @@ const useStyles = makeStyles((theme: any) => ({
 }))
 
 function PhotoListItemDescription({
+  component: Component = Typography,
   children,
   onClick,
   ...rest
@@ -22,14 +24,14 @@ function PhotoListItemDescription({
   const classes = useStyles()
 
   return (
-    <Typography
+    <Component
       classes={{ root: classes.root }}
       variant="subtitle2"
       onClick={onClick}
       {...rest}
     >
       {children}
-    </Typography>
+    </Component>
   )
 }
 
