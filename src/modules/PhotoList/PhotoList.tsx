@@ -9,6 +9,7 @@ import PhotoListItemTitle from './ItemTitle'
 import PhotoListItemDescription from './ItemDescription'
 import PhotoListItemActions from './ItemActions'
 import PhotoListItemVisual from './ItemVisual'
+import { resolveDebugStyle } from './utils'
 import * as T from './types'
 
 interface PhotoListProps {
@@ -24,12 +25,12 @@ interface PhotoListProps {
   onTitleClick?: T.WrappedReturnedHofFn
   onDescriptionClick?: T.WrappedReturnedHofFn
   // Not yet supported
-  debugStyles?: boolean | object
+  debugStyles?: T.DebugStyles
   placeholder?: React.ReactNode | string
   defaultDownloadName?: string
   Title?: React.ElementType<any>
   Description?: React.ElementType<any>
-  Avatar?: React.ElementType<any>
+  Visual?: React.ElementType<any>
 }
 
 function PhotoList({
@@ -53,6 +54,9 @@ function PhotoList({
             root: cx(classesProp.root, className),
             subheader: classesProp.subheader,
           }}
+          style={{
+            border: resolveDebugStyle('root', rest.debugStyles || false),
+          }}
           // @ts-ignore
           subheader={header}
           dense
@@ -72,6 +76,10 @@ function PhotoList({
                       onDescriptionClick={ctx.onDescriptionClick}
                       onActionClick={ctx.onActionClick}
                       returnValidHtmlAttrs={ctx.returnValidHtmlAttrs}
+                      debugStyles={ctx.debugStyles}
+                      Title={ctx.Title}
+                      Description={ctx.Description}
+                      Visual={ctx.Visual}
                     />
                   ))
                 : null

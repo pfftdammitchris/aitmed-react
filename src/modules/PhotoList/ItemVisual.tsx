@@ -2,14 +2,16 @@ import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import Avatar from '@material-ui/core/Avatar'
-import { resolveRenderVisual } from './utils'
+import { resolveDebugStyle, resolveRenderVisual } from './utils'
 import { OnClick } from '../../types'
-import { PhotoListIconConfig, PhotoListItem } from './types'
+import { DebugStyles, PhotoListIconConfig, PhotoListItem } from './types'
 
 interface PhotoListItemVisualBoxProps {
+  component?: React.ElementType<any>
   item: PhotoListItem
   icons?: PhotoListIconConfig
   onClick?: OnClick
+  debugStyles: DebugStyles
 }
 
 const useStyles = makeStyles((theme: any) => ({
@@ -39,23 +41,35 @@ const useStyles = makeStyles((theme: any) => ({
 }))
 
 function PhotoListItemVisual({
+  component: Component = 'div'
   item,
   onClick,
   icons = {}, // user provided prop
+  debugStyles,
 }: PhotoListItemVisualBoxProps) {
   const classes = useStyles()
   const { src, title, ext, alt } = item
 
   const CustomAvatar = resolveRenderVisual(ext, icons)
+  const styles = {
+    border: resolveDebugStyle('visual', debugStyles),
+  }
 
   return (
     <ListItemAvatar className={classes.root}>
       {CustomAvatar ? (
-        <div className={classes.customIcon}>
+        <Component className={classes.customIcon} style={styles}>
           <CustomAvatar />
-        </div>
+        </Component>
       ) : (
-        <Avatar title={title} src={src} onClick={onClick} alt={title || alt} />
+        <Avatar
+        component={Component}
+          style={styles}
+          title={title}
+          src={src}
+          onClick={onClick}
+          alt={title || alt}
+        />
       )}
     </ListItemAvatar>
   )

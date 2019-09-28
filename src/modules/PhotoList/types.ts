@@ -1,6 +1,16 @@
 import { OnClick } from '../../types'
 import { IconProps } from '../../utils/reactHelpers'
 
+export type DebugStyles =
+  | boolean
+  | {
+      root?: string
+      title?: string
+      description?: string
+      actions?: string
+      visual?: string
+    }
+
 export type PhotoListItemRaw =
   | string
   | File
@@ -38,28 +48,17 @@ export interface PhotoListItemAction extends IconProps {
 }
 
 export type PhotoListItemActionOnClick = (
-  {
-    action,
-    item,
-    index,
-  }: { action: PhotoListItemAction; item: PhotoListItem; index: number },
+  options: { action: PhotoListItemAction; item: PhotoListItem; index: number },
   e: React.MouseEvent<HTMLElement>,
 ) => void
 
-export type WrappedReturnedHofFn = ({
-  item,
-  index,
-}: {
+export type WrappedReturnedHofFn = (options: {
   item: PhotoListItem
   index: number
 }) => OnClick
 
-export type OnActionClick = ({
-  item,
-  action,
-  index,
-}: {
-  item: PhotoListItem
-  action: PhotoListItemAction
-  index: number
-}) => OnClick
+export type OnActionClick = (
+  action: PhotoListItemAction,
+  index: number,
+  item: PhotoListItem,
+) => OnClick

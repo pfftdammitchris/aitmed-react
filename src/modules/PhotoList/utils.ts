@@ -6,6 +6,7 @@ import {
   info,
   isArray,
   isBlob,
+  isBoolean,
   isFunction,
   isObject,
   isString,
@@ -13,6 +14,7 @@ import {
   resolveFilename as resolveFilenameStr,
 } from '../../utils'
 import {
+  DebugStyles,
   PhotoListItem,
   PhotoListItemAction,
   PhotoListIconConfig,
@@ -67,6 +69,48 @@ export function processItems(items: any[]): any[] {
     })
   }
   return []
+}
+
+const debugStyles = {
+  root: '1px solid red',
+  actions: '1px solid blue',
+  description: '1px solid teal',
+  title: '1px solid magenta',
+  visual: '1px solid green',
+}
+
+// Returns a border style like '1px solid red' or undefined
+export function resolveDebugStyle(
+  name: string,
+  styles: DebugStyles,
+): string | undefined {
+  if (styles === false) {
+    return
+  }
+  switch (name) {
+    case 'root':
+      return isBoolean(styles)
+        ? debugStyles.root
+        : styles.root || debugStyles.root
+    case 'actions':
+      return isBoolean(styles)
+        ? debugStyles.actions
+        : styles.actions || debugStyles.actions
+    case 'description':
+      return isBoolean(styles)
+        ? debugStyles.description
+        : styles.description || debugStyles.description
+    case 'title':
+      return isBoolean(styles)
+        ? debugStyles.title
+        : styles.title || debugStyles.title
+    case 'visual':
+      return isBoolean(styles)
+        ? debugStyles.visual
+        : styles.visual || debugStyles.visual
+    default:
+      return
+  }
 }
 
 /*

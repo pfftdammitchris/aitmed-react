@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton'
 import { resolveRenderAction } from './utils'
 import { isArray } from '../../utils'
 import {
+  DebugStyles,
   PhotoListItem,
   PhotoListItemAction,
   PhotoListIconConfig,
@@ -20,6 +21,7 @@ interface PhotoListItemActionsProps {
   index: number
   returnValidHtmlAttrs: (obj: any) => any
   onClick: OnActionClick
+  debugStyles: DebugStyles
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -57,6 +59,9 @@ const useStyles = makeStyles((theme: Theme) => ({
       },
     },
   },
+  debug: {
+    border: '1px solid blue',
+  },
 }))
 
 function ItemAction({
@@ -66,6 +71,7 @@ function ItemAction({
   icons,
   index,
   returnValidHtmlAttrs,
+  debugStyles,
 }: {
   action: PhotoListItemAction
   onClick: (e: React.MouseEvent<HTMLElement>) => void
@@ -73,6 +79,7 @@ function ItemAction({
   icons?: PhotoListIconConfig
   index: number
   returnValidHtmlAttrs: (obj: any) => any
+  debugStyles: DebugStyles
 }) {
   const classes = useStyles()
   const Component = resolveRenderAction(action, icons)
@@ -104,6 +111,7 @@ function ItemAction({
           actionProps && actionProps.classes
             ? actionProps.classes.root
             : undefined,
+          { [classes.debug]: !!debugStyles },
         ),
       }}
       {...actionProps}
@@ -121,6 +129,7 @@ function PhotoListItemActions({
   index,
   onClick,
   returnValidHtmlAttrs,
+  debugStyles,
 }: PhotoListItemActionsProps) {
   const classes = useStyles()
 
@@ -140,6 +149,7 @@ function PhotoListItemActions({
             icons={icons}
             onClick={onClick({ action, item, index })}
             returnValidHtmlAttrs={returnValidHtmlAttrs}
+            debugStyles={debugStyles}
           />
         ))}
     </ListItemSecondaryAction>

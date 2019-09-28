@@ -5,6 +5,7 @@ import Context from './Context'
 import { processItems, wrapHofOnClick } from './utils'
 import { isArray, isFunction, validReactHtmlAttrs } from '../../utils'
 import { OnClick } from '../../types'
+import { DebugStyles, OnActionClick } from './types'
 
 export interface PhotoListContextValue {
   actions?: T.PhotoListItemAction[]
@@ -12,11 +13,14 @@ export interface PhotoListContextValue {
   icons?: T.PhotoListIconConfig
   defaultDownloadName?: string
   placeholder?: React.ReactNode | string
-  debugStyles?: boolean
+  debugStyles: DebugStyles
   onVisualClick: T.WrappedReturnedHofFn
   onTitleClick: T.WrappedReturnedHofFn
   onDescriptionClick: T.WrappedReturnedHofFn
   onActionClick: T.OnActionClick
+  Title?: React.ElementType<any>
+  Description?: React.ElementType<any>
+  Visual?: React.ElementType<any>
   returnValidHtmlAttrs: (obj: any) => any
 }
 
@@ -52,15 +56,18 @@ const reducer = (
 const today = format(new Date(), 'yy-MM-dd_hh:mma')
 
 function usePhotoList({
-  items,
-  icons,
-  actions,
-  placeholder,
-  defaultDownloadName,
-  debugStyles = false,
   onVisualClick: onVisualClickProp,
   onTitleClick: onTitleClickProp,
   onDescriptionClick: onDescriptionClickProp,
+  items,
+  icons,
+  actions,
+  defaultDownloadName,
+  debugStyles = false,
+  Title,
+  Description,
+  Visual,
+  ...rest
 }: PhotoListContextValue) {
   const [state, dispatch] = React.useReducer(reducer, initialState)
   const divRef = React.useRef(document.createElement('div'))
@@ -84,11 +91,11 @@ function usePhotoList({
     }, {})
   }
 
-  function onActionClick(
+  const onActionClick: OnActionClick = (
     action: T.PhotoListItemAction,
-    item: T.PhotoListItem,
     index: number,
-  ): OnClick {
+    item: T.PhotoListItem,
+  ): OnClick => {
     return (e) => {
       if (action && isFunction(action.onClick)) {
         action.onClick({ item, action, index }, e)
@@ -104,18 +111,21 @@ function usePhotoList({
 
   return {
     ...state,
-    actions,
-    defaultFileName,
-    divRef,
-    imgRef,
-    icons,
-    placeholder,
+    ...rest,
     onVisualClick: wrapHofOnClick(onVisualClickProp),
     onTitleClick: wrapHofOnClick(onTitleClickProp),
     onDescriptionClick: wrapHofOnClick(onDescriptionClickProp),
     onActionClick,
-    returnValidHtmlAttrs,
+    actions,
     debugStyles,
+    defaultFileName,
+    divRef,
+    icons,
+    imgRef,
+    returnValidHtmlAttrs,
+    Title,
+    Description,
+    Visual,
   }
 }
 

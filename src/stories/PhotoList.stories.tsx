@@ -205,3 +205,16 @@ storiesOf('PhotoList', module)
       )
     })
   })
+  .add('props.debugStyles', () => {
+    return React.createElement(() => {
+      const [expanded, setExpanded] = React.useState(false)
+      const toggle = () => setExpanded((v) => !v)
+      const _items: any = expanded ? items : [items[0], items[1], items[2]]
+
+      return (
+        <Wrapper expanded={expanded} btnProps={{ onClick: toggle }}>
+          <PhotoList actions={actions} items={_items} debugStyles />
+        </Wrapper>
+      )
+    })
+  })

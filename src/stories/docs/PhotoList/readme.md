@@ -15,13 +15,49 @@
 ## Types
 
 ```ts
+type DebugStyles =
+  | boolean
+  | {
+      root?: string
+      title?: string
+      description?: string
+      actions?: string
+      visual?: string
+    }
+
 interface IconConfig {
   name: string
   component?: React.ElementType<any>
   round?: boolean
 }
 
-type PhotoListItemAction
+type PhotoListItem = {
+  src: string
+  ext: string
+  filename: string
+  title?: string
+  alt?: string
+  description?: string
+  filesize?: string
+}
+
+interface PhotoListIconConfig {
+  [key: string]: {
+    component?: React.ElementType<any>
+    rounded?: boolean
+  }
+}
+
+interface PhotoListItemAction {
+  name?: string
+  component?: React.ElementType<any>
+  onClick?: PhotoListItemActionOnClick
+}
+
+type WrappedReturnedHofFn = (options: {
+  item: PhotoListItem
+  index: number
+}) => OnClick
 ```
 
 **All other props are passed into the [DatePicker](https://material-ui-pickers.dev/api/DatePicker) component.**
@@ -42,6 +78,36 @@ function App() {
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 
+
+### `props.items (required)`
+
+The most important prop that `PhotoList` requires is the `items` prop. `props.items` is an array of items where each can take on any of the following shapes:
+
+- `string` (URLS. Blob URLs soon to be supported)
+- `Blob`
+- `File` (soon to be supported)
+- `PhotoListItem`
+
+Before rendering, the `PhotoList` will process the items into `PhotoListItem` objects which will be used throughout the module.
+
+Below are the tactics used to generate the default UI components:
+
+If an item is a `string`:
+
+- `src` is the `string`.
+- `ext` will be grabbed from the string if found.
+- `filename` will be grabbed from the string if found.
+
+If an item is a `Blob`:
+
+- `src` will be a URL generated from the blob.
+- `filename` will be the `filename` property from the blob if found.
+- `description` will be generated as a human readable file size using the `size` property from the blob.
+- `ext` will be generated using the `type` property from the blob.
+
+If an item is an `object`:
+
+- Will be taken as a `PhotoListItem`
 
 ### `props.className`
 
@@ -116,15 +182,6 @@ function App() {
 
 ```
 
-### `props.items`
-
-- array of img objs
-- can use any of these varieties as individual img objs:
-  - string
-  - PhotoListItem
-  - Blob
-    - todo: revoked object URL on unmount
-
 ### `props.actions`
 
 You can use `props.actions` to determine what actions the user is allowed to use.
@@ -193,17 +250,58 @@ If you pass in custom props to each action they will not be passed into the elem
 
 If an action object contains a `name` property `props.icons` also includes the same name, the component defined in `props.icons` will override it.
 
+### `props.debugStyles: boolean | object`
+
+If `debugStyles` is `true`, these components will render with 1px borders:
+
+- `PhotoList` (root node) | 1px solid red
+- `PhotoList.Title` | 1px solid magenta
+- `PhotoList.Description` | 1px solid teal
+- `PhotoList.Actions` | 1px solid blue
+- `PhotoList.Visual` | 1px solid green
+
+You can optionally provide an object as the value and pass in your own custom borders. `PhotoList` will automatically treat this as enabling debugging styles.
+
+```jsx
+const debugStyles = {
+  root: '1px solid red',
+  title: '1px solid red',
+  description: '1px solid red',
+  actions: '1px solid red',
+  visual: '1px solid red',
+}
+
+const actions = {...}
+const items = [...]
+
+function App() {
+  return  <PhotoList actions={actions} items={items} debugStyles={debugStyles} />
+}
+```
+
 ### `props.onVisualClick: ({ item, index }, event) => void`
 
 An `onClick` called when the visual box (photo/thumbnail) is clicked. The handler will receive the current item and index in the row as the first argument, and the click event as the second.
 
-### `onTitleClick: ({ item, index }, event) => void`
+### `props.onTitleClick: ({ item, index }, event) => void`
 
 An `onClick` called when the title is clicked. The handler will receive the current item and index in the row as the first argument, and the click event as the second.
 
-### `onDescriptionClick: ({ item, index }, event) => void`
+### `props.onDescriptionClick: ({ item, index }, event) => void`
 
 An `onClick` called when the description is clicked. The handler will receive the current item and index in the row as the first argument, and the click event as the second.
+
+### `props.Title`
+
+Component to use for item titles. Defaults to [Typography](https://material-ui.com/api/typography/).
+
+### `props.Description`
+
+Component to use for item descriptions. Defaults to [Typography](https://material-ui.com/api/typography/).
+
+### `props.Visual`
+
+Component to use for item visuals (a.k.a avatars). Defaults to [Avatar](https://material-ui.com/api/avatar/) if rendering images, otherwise defaults to a custom `div` root element for everything else.
 
 ### rendering variants
 
@@ -214,21 +312,6 @@ An `onClick` called when the description is clicked. The handler will receive th
 - `<PhotoList.Visual />`
 
 ## Props not yet supported:
-
-### `props.debugStyles: boolean | object`
-
-If `debugStyles` is `true`, these components will render with 1px borders:
-
-- `PhotoList` (root node) | 1px solid red
-- `PhotoList.Title` | 1px solid magenta
-- `PhotoList.Description` | 1px solid teal
-- `PhotoList.Actions` | 1px solid salmon
-- `PhotoList.Visual` | 1px solid green
-
-You can optionally provide an object as the value and pass in your own custom colors. `PhotoList` will automatically treat this as enabling debugging styles.
-
-```jsx
-```
 
 ### `props.mode`
 
@@ -245,15 +328,3 @@ You can optionally provide an object as the value and pass in your own custom co
 Will be used as the default file name when a `download` action is invoked. If this isn't provided, a default file name using the current date and time will be generated if the module cannot scan for a filename anywhere.
 
 Example: `'092619_011113_PM.png'`
-
-### `props.Title`
-
-Component to use for item titles. Defaults to [Typography](https://material-ui.com/api/typography/).
-
-### `props.Description`
-
-Component to use for item descriptions. Defaults to [Typography](https://material-ui.com/api/typography/).
-
-### `props.Avatar`
-
-Component to use for item visuals (a.k.a avatars). Defaults to [Avatar](https://material-ui.com/api/avatar/) if rendering images, otherwise defaults to a custom `div` root element for everything else.
