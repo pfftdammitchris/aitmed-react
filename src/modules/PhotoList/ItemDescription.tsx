@@ -8,7 +8,7 @@ import { resolveDebugStyle } from './utils'
 interface PhotoListItemDescriptionProps {
   component?: React.ElementType<any>
   children: React.ReactNode
-  onClick: OnClick
+  onClick?: OnClick
   debugStyles: DebugStyles
 }
 
@@ -32,6 +32,7 @@ function PhotoListItemDescription({
       className={classes.root}
       style={{
         border: resolveDebugStyle('description', debugStyles),
+        cursor: onClick && 'pointer',
       }}
       variant="subtitle2"
       onClick={onClick}

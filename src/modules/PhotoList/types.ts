@@ -55,7 +55,7 @@ export type PhotoListItemActionOnClick = (
 export type WrappedReturnedHofFn = (options: {
   item: PhotoListItem
   index: number
-}) => OnClick
+}) => OnClick | undefined
 
 export type OnActionClick = (
   action: PhotoListItemAction,

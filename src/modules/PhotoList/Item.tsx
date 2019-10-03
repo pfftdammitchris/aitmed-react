@@ -4,7 +4,6 @@ import isEqual from 'lodash.isequal'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import PhotoListItemTitle from './ItemTitle'
-
 import PhotoListItemDescription from './ItemDescription'
 import PhotoListItemActions from './ItemActions'
 import PhotoListItemVisual from './ItemVisual'

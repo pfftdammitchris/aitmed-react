@@ -283,7 +283,13 @@ export function resolveFilename(item: any): string {
 }
 
 export function wrapHofOnClick(callback?: Function): WrappedReturnedHofFn {
-  return function(options: { item: PhotoListItem; index: number }): OnClick {
+  return function(options: {
+    item: PhotoListItem
+    index: number
+  }): OnClick | undefined {
+    if (!isFunction(callback)) {
+      return
+    }
     return function(e): void {
       if (isFunction(callback)) {
         callback(options, e)

@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme: any) => ({
 }))
 
 function PhotoListItemVisual({
-  component: Component = 'div'
+  component: Component = 'div',
   item,
   onClick,
   icons = {}, // user provided prop
@@ -56,14 +56,17 @@ function PhotoListItemVisual({
   }
 
   return (
-    <ListItemAvatar className={classes.root}>
+    <ListItemAvatar
+      className={classes.root}
+      style={{ cursor: onClick && 'pointer' }}
+    >
       {CustomAvatar ? (
         <Component className={classes.customIcon} style={styles}>
           <CustomAvatar />
         </Component>
       ) : (
         <Avatar
-        component={Component}
+          component={Component}
           style={styles}
           title={title}
           src={src}

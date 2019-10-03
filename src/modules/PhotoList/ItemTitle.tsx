@@ -7,7 +7,7 @@ import Typography from '../../components/Typography'
 
 interface PhotoListItemTitleProps {
   children: React.ReactNode
-  onClick: OnClick
+  onClick?: OnClick
   debugStyles: DebugStyles
   component?: React.ElementType<any>
 }
@@ -32,6 +32,7 @@ function PhotoListItemTitle({
       className={classes.root}
       style={{
         border: resolveDebugStyle('title', debugStyles),
+        cursor: onClick && 'pointer',
       }}
       variant="body2"
       onClick={onClick}
