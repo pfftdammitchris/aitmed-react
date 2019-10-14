@@ -8,13 +8,17 @@ import themeObj from './config/theme'
 
 interface LibraryProps {
   theme?: any
+  overrideTheme?: any
 }
 
 const AiTmedThemeProvider: React.FC<LibraryProps> = ({
   children,
   theme: themeProp = {},
+  overrideTheme,
 }) => {
-  const theme = createMuiTheme(merge({}, themeObj, themeProp))
+  const theme = overrideTheme
+    ? createMuiTheme(overrideTheme)
+    : createMuiTheme(merge({}, themeObj, themeProp))
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
