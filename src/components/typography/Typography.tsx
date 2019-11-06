@@ -91,6 +91,9 @@ const useStyles = makeStyles((theme: any) => ({
   },
   body1: {
     fontSize: '0.95em',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '0.90em',
+    },
     [theme.breakpoints.down('sm')]: {
       fontSize: '0.82em',
     },
@@ -99,6 +102,9 @@ const useStyles = makeStyles((theme: any) => ({
     },
   },
   body2: {
+    [theme.breakpoints.down('md')]: {
+      fontSize: '0.80em',
+    },
     [theme.breakpoints.down('sm')]: {
       fontSize: '0.73em',
     },
@@ -115,8 +121,14 @@ const useStyles = makeStyles((theme: any) => ({
     },
   },
   caption: {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
+      fontSize: '0.7.5em',
+    },
+    [theme.breakpoints.down('md')]: {
       fontSize: '0.7em',
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.65em',
     },
     [theme.breakpoints.down('xs')]: {
       fontSize: '0.58em',

@@ -127,3 +127,12 @@ function onChange(fileList, e) {
     },
     { readme: { content: onChangeMd } },
   )
+  .add('props.borderColor', () => {
+    return <div>Stub - coming soon</div>
+  })
+  .add('props.borderStyle', () => {
+    return <div>Stub - coming soon</div>
+  })
+  .add('props.borderSize', () => {
+    return <div>Stub - coming soon</div>
+  })

@@ -44,9 +44,12 @@ export default App
 
 ## Props
 
-| Prop                  | Type             | Default | Description                                                               |
-| --------------------- | ---------------- | ------- | ------------------------------------------------------------------------- |
-| `onChange` (required) | function         |         | Called when user selects files                                            |
-| `text`                | string           |         | Text/label shown in the middle of the upload box when files aren't loaded |
-| `multiple`            | boolean          | `true`  | Allows the user to select multiple files                                  |
-| `inputRef`            | createRef/useRef |         | Can be used to grab a reference to the input element                      |
+| Prop                  | Type             | Default              | Description                                                               |
+| --------------------- | ---------------- | -------------------- | ------------------------------------------------------------------------- |
+| `onChange` (required) | function         |                      | Called when user selects files                                            |
+| `text`                | string           |                      | Text/label shown in the middle of the upload box when files aren't loaded |
+| `multiple`            | boolean          | `true`               | Allows the user to select multiple files                                  |
+| `inputRef`            | createRef/useRef |                      | Can be used to grab a reference to the input element                      |
+| `borderColor`         | string           | `rgb(110, 135, 139)` | Color of the border                                                       |
+| `borderStyle`         | string           | `'dashed'`           | Border style                                                              |
+| `borderSize`          | string or number | `'3px'`              | Size of the border                                                        |

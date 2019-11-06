@@ -166,6 +166,7 @@ const App = () => (
         subtitle2: 'h6',
         body1: 'p',
         body2: 'p',
+        caption: 'caption',
       })
       return variants.map((variant) => (
         <Grid key={variant} justify="center" container>
