@@ -106,7 +106,7 @@ export function isNumber(val: any): val is number {
   return typeof val === 'number'
 }
 
-export function isObject(val: any): val is Object {
+export function isObject(val: any): val is object {
   if (Array.isArray(val) || isFunction(val)) return false
   return val instanceof Object
 }

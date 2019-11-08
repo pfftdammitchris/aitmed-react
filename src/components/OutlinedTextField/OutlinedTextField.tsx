@@ -25,7 +25,7 @@ interface OutlinedTextFieldProps {
   classes?: any
 }
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles({
   helperTextRoot: {
     color: '#666',
   },
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme: any) => ({
   inputLarge: {
     padding: 12,
   },
-}))
+})
 
 const OutlinedTextField: React.FC<OutlinedTextFieldProps> = (props) => {
   const {

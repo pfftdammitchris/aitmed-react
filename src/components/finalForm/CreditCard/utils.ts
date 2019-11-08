@@ -1,3 +1,4 @@
+// @ts-ignore
 import Payment from 'payment'
 import forEach from 'lodash/forEach'
 import { CreditCard } from '../../../types'

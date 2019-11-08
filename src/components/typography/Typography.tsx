@@ -220,9 +220,9 @@ const Typography: React.FC<TypographyProps> = ({
   if (center) styles.textAlign = 'center'
   if (right) styles.textAlign = 'right'
 
-  const classNames = []
+  // @ts-ignore
+  const classNames = [classes[variant]]
   if (centerOnSmall) classNames.push(classes.centerOnSmall)
-  if (variant && variant !== 'subheading') classNames.push(classes[variant])
 
   return (
     <>

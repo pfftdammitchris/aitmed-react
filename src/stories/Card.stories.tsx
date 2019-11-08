@@ -5,6 +5,7 @@ import { muiTheme } from 'storybook-addon-material-ui'
 import { storiesOf } from '@storybook/react'
 import Card from '../components/Card'
 import getCodeDoc from '../utils/getCodeDoc'
+// @ts-ignore
 import readme from './docs/card.md'
 import theme from '../config/theme'
 

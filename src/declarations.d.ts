@@ -26,6 +26,7 @@ declare module '*.svg' {
 
 declare module '@material-ui/core/styles/createMuiTheme' {
   interface Theme {
+    // @ts-ignore
     palette: {
       background: {
         dark: string
@@ -134,113 +135,112 @@ declare module '@material-ui/core/styles/createMuiTheme' {
       }
     }
   }
-  // allow configuration using `createMuiTheme`
-  interface ThemeOptions {
-    background: {
-      dark: string
-      darkAdmin: string
-      darkAdminLightShade: string
-      darkAdminDark: string
-      darkAdminDarkerShade: string
-      coolShade: string
-      cool: string
-      lightGrey2: string
-      lightGrey: string
-      light: string
-      primary: string
-      secondary: string
-      thirdary: string
-      thirdaryDark: string
+}
+// allow configuration using `createMuiTheme`
+interface ThemeOptions {
+  background: {
+    dark: string
+    darkAdmin: string
+    darkAdminLightShade: string
+    darkAdminDark: string
+    darkAdminDarkerShade: string
+    coolShade: string
+    cool: string
+    lightGrey2: string
+    lightGrey: string
+    light: string
+    primary: string
+    secondary: string
+    thirdary: string
+    thirdaryDark: string
+  }
+  borders: {
+    secondary: string
+    cool: string
+    dark: string
+    slightlyDark: string
+    darkAdmin: string
+    darkAdminLightShade: string
+    ghost: string
+    cloud: string
+    cloudier: string
+    cloudiest: string
+    cloudiest2: string
+  }
+  primary: {
+    lightest: string
+    lighter: string
+    light: string
+    main: string
+    dark: string
+  }
+  secondary: {
+    lightest: string
+    lighter: string
+    light: string
+    main: string
+    dark: string
+    darker: string
+  }
+  thirdary: {
+    lighter: string
+    light: string
+    main: string
+    dark: string
+  }
+  inactive: string
+  text: {
+    lighter2: string
+    lighter: string
+    light: string
+    soft: string
+    normal: string
+    dark: string
+    secondary: string
+  }
+  error: {
+    main: string
+    dark: string
+  }
+  warning: string
+  success: string
+  link: {
+    nav: string
+    normal: string
+    hovering: string
+    hoveringOnSecondary: string
+  }
+  highlight: {
+    teal: string
+  }
+  panel: {
+    active: {
+      background: string
     }
-    borders: {
-      secondary: string
-      cool: string
-      dark: string
-      slightlyDark: string
-      darkAdmin: string
-      darkAdminLightShade: string
-      ghost: string
-      cloud: string
-      cloudier: string
-      cloudiest: string
-      cloudiest2: string
-    }
-    primary: {
-      lightest: string
-      lighter: string
-      light: string
-      main: string
-      dark: string
-    }
-    secondary: {
-      lightest: string
-      lighter: string
-      light: string
-      main: string
-      dark: string
-      darker: string
-    }
-    thirdary: {
-      lighter: string
-      light: string
-      main: string
-      dark: string
-    }
-    inactive: string
-    text: {
-      lighter2: string
-      lighter: string
-      light: string
-      soft: string
-      normal: string
-      dark: string
-      secondary: string
-    }
-    error: {
-      main: string
-      dark: string
-    }
-    warning: string
-    success: string
+    navbar: string
     link: {
-      nav: string
-      normal: string
-      hovering: string
-      hoveringOnSecondary: string
-    }
-    highlight: {
-      teal: string
-    }
-    panel: {
-      active: {
-        background: string
-      }
-      navbar: string
-      link: {
-        highlight: string
-      }
-    }
-    social: {
-      facebook: string
-      twitter: string
-      youtube: string
-      instagram: string
-      pinterest: string
-      linkedin: string
-      googleplus: string
-      snapchat: string
-      tumblr: string
-      reddit: string
-      spotify: string
-      amazon: string
-      medium: string
-      vimeo: string
-      skype: string
-      quora: string
-      yahoo: string
-      deviantart: string
-      vk: string
+      highlight: string
     }
   }
+  social: {
+    facebook: string
+    twitter: string
+    youtube: string
+    instagram: string
+    pinterest: string
+    linkedin: string
+    googleplus: string
+    snapchat: string
+    tumblr: string
+    reddit: string
+    spotify: string
+    amazon: string
+    medium: string
+    vimeo: string
+    skype: string
+    quora: string
+    yahoo: string
+    deviantart: string
+    vk: string
   }
 }

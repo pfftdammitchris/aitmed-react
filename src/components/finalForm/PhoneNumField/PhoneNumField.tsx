@@ -78,6 +78,7 @@ function PhoneNumField({
           render={({ input, meta, ...rest }) => {
             const errMsg = meta.error || meta.submitError || ''
             return (
+              // @ts-ignore
               <OutlinedTextField
                 classes={{ root: classes.phone }}
                 margin="normal"

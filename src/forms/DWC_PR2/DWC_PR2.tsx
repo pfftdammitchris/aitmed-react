@@ -74,6 +74,7 @@ const PR2: React.FC<DWC_PR2Props> = ({
   )
   const signatureCanvas = (
     <Field
+      // @ts-ignore
       component={SignatureCanvas}
       name="signature"
       signatureRef={signatureRef}

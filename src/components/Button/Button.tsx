@@ -315,7 +315,7 @@ const useStyles = makeStyles((theme: any) =>
   }),
 )
 
-const Button: React.FC<ButtonProps> = React.forwardRef(function(
+const Button = React.forwardRef(function(
   {
     className,
     children,
@@ -340,7 +340,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef(function(
     overWrittenClassNames,
     centerOnSmall,
     ...others
-  },
+  }: ButtonProps,
   ref: any,
 ) {
   const classes = useStyles()
@@ -405,6 +405,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef(function(
   })
 
   return (
+    // @ts-ignore
     <MaterialUIButton
       buttonRef={ref}
       style={{ background }}

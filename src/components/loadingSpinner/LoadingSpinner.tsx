@@ -5,7 +5,9 @@ import withWidth from '@material-ui/core/withWidth'
 import cx from 'classnames'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { isFunction } from '../../utils'
+// @ts-ignore
 import logo from '../../resources/appIcon.png'
+// @ts-ignore
 import logoWhite from '../../resources/appIconWhite.png'
 import Typography from '../Typography'
 import useLoadingSpinner from './useLoadingSpinner'

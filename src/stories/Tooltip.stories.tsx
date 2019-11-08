@@ -6,7 +6,7 @@ import Button from '../components/Button'
 import theme from '../config/theme'
 import readme from './docs/tooltip.md'
 
-function Wrapper(props) {
+function Wrapper(props: any) {
   return <div style={{ padding: '25px 0' }} {...props} />
 }
 

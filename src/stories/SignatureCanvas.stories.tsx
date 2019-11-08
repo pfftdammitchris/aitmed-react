@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { muiTheme } from 'storybook-addon-material-ui'
@@ -5,7 +6,6 @@ import { Form, Field } from 'react-final-form'
 import { makeStyles } from '@material-ui/styles'
 import Button from '../components/Button'
 import SignatureCanvas from '../components/finalForm/SignatureCanvas'
-// import getCodeDoc from 'utils/getCodeDoc'
 import Typography from '../components/Typography'
 import readme from './docs/finalForm/SignatureCanvas/readme.md'
 import canvasContainerPropsMd from './docs/finalForm/SignatureCanvas/canvasContainerProps.md'
@@ -22,7 +22,7 @@ import signatureLabelMd from './docs/finalForm/SignatureCanvas/signatureLabel.md
 import xPropsMd from './docs/finalForm/SignatureCanvas/xProps.md'
 import theme from '../config/theme'
 
-async function onSubmit(values) {
+async function onSubmit(values: any) {
   try {
     console.log(values)
     window.alert(JSON.stringify(values, null, 2))
@@ -31,7 +31,7 @@ async function onSubmit(values) {
   }
 }
 
-function Wrapper({ children }) {
+function Wrapper({ children }: any) {
   return (
     <Form
       onSubmit={onSubmit}

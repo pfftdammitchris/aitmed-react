@@ -1,5 +1,6 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
+// import { makeStyles } from '@material-ui/styles'
+// @ts-ignore
 import Carousel, { Modal, ModalGateway } from 'react-images'
 import LightboxFooterCaption from './LightboxFooterCaption'
 import LightboxFooterCount from './LightboxFooterCount'
@@ -29,11 +30,11 @@ interface LightboxProps {
   }
 }
 
-const useStyles = makeStyles((theme: any) => ({
-  root: {
-    //
-  },
-}))
+// const useStyles = makeStyles({
+//   root: {
+//     //
+//   },
+// })
 
 function Lightbox({
   src,
@@ -42,7 +43,7 @@ function Lightbox({
   modalStyles,
   actionsConfig = {},
 }: LightboxProps) {
-  const classes = useStyles()
+  // const classes = useStyles()
   const { images } = useLightbox({ src })
 
   return (

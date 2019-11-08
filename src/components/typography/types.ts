@@ -14,7 +14,7 @@ export interface TypographyProps extends MuiTypographyProps {
   black?: boolean
   error?: boolean
   red?: boolean
-  // link?: boolean
+  link?: boolean
   fontWeight?: string | number
   // variant?: string
   left?: boolean

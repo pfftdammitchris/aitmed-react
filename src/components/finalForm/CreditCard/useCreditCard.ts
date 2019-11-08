@@ -1,4 +1,5 @@
 import { useState } from 'react'
+// @ts-ignore
 import Payment from 'payment'
 import { clearNumber } from './utils'
 

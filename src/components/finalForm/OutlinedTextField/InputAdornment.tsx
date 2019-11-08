@@ -11,6 +11,7 @@ interface OutlinedTextFieldInputAdornmentProps {
   setInputType: (inputType: string) => void
   iconButtonProps?: any
   iconProps?: any
+  size?: any
 }
 
 function OutlinedTextFieldInputAdornment({

@@ -77,7 +77,7 @@ function usePhotoList({
   const defaultFileName = defaultDownloadName || today
 
   // Will strip away custom attrs that isn't supported by native html
-  function returnValidHtmlAttrs(obj) {
+  function returnValidHtmlAttrs(obj: any) {
     return Object.keys(obj).reduce((acc, prop) => {
       if (
         prop in divRef.current ||
@@ -91,11 +91,12 @@ function usePhotoList({
     }, {})
   }
 
-  const onActionClick: OnActionClick = (
-    action: T.PhotoListItemAction,
-    index: number,
-    item: T.PhotoListItem,
-  ): OnClick => {
+  const onActionClick: OnActionClick = (options: {
+    action: T.PhotoListItemAction
+    index: number
+    item: T.PhotoListItem
+  }): OnClick => {
+    const { action, index, item } = options
     return (e) => {
       if (action && isFunction(action.onClick)) {
         action.onClick({ item, action, index }, e)

@@ -1,11 +1,7 @@
 import React from 'react'
-import { MdFullscreen, MdFullscreenExit } from 'react-icons/md'
+import { MdFullscreen } from 'react-icons/md'
 
-interface LightboxHeaderFullscreenProps {
-  //
-}
-
-function LightboxHeaderFullscreen(props: LightboxHeaderFullscreenProps) {
+function LightboxHeaderFullscreen() {
   return <MdFullscreen />
 }
 

@@ -15,6 +15,7 @@ import {
 } from '../../utils'
 import {
   DebugStyles,
+  PhotoListFileObject,
   PhotoListItem,
   PhotoListItemAction,
   PhotoListIconConfig,
@@ -230,7 +231,7 @@ export function resolveRenderVisual(
 }
 
 // Returns the ext ensuring a prefixed dot. Otherwise returns empty str
-export function resolveExt(item: any): string {
+export function resolveExt(item: Blob | string | PhotoListFileObject): string {
   if (isString(item)) {
     return resolveExtStr(item)
   } else if (isBlob(item)) {
@@ -239,9 +240,10 @@ export function resolveExt(item: any): string {
       ? `.${item.type.substring(slashIndex + 1)}`
       : `.${item.type}`
   } else if (isObject(item)) {
-    if (isString(item.src)) {
+    if ('src' in item && isString(item.src)) {
       // If it's a link, theres almost always the extension included which is reliable
       // Also, item.src can be a huge data URI string so we will not use it to get the file ext
+
       if (item.src.startsWith('http')) {
         const result = resolveExtStr(item.src)
         if (result) {
@@ -249,12 +251,16 @@ export function resolveExt(item: any): string {
         }
       }
     }
-    return resolveExtStr(item.ext || item.filename)
+    if ('ext' in item || 'filename' in item) {
+      return resolveExtStr(item.ext || item.filename)
+    }
   }
   return ''
 }
 
-export function resolveFilename(item: any): string {
+export function resolveFilename(
+  item: Blob | string | PhotoListFileObject,
+): string {
   if (isString(item)) {
     if (item.startsWith('http')) {
       const result = resolveFilenameStr(item)
@@ -265,17 +271,17 @@ export function resolveFilename(item: any): string {
     return getDefaultFilename()
   } else if (isBlob(item)) {
     // Use the existing filename if its already provided
-    if (item.filename) {
+    if ('filename' in item) {
       return item.filename
     }
   } else if (isObject(item)) {
-    if (item.src.startsWith('http')) {
+    if ('src' in item && item.src.startsWith('http')) {
       const result = resolveFilenameStr(item.src)
       if (result) {
         return result
       }
     }
-    if (item.filename) {
+    if ('filename' in item) {
       return item.filename
     }
   }

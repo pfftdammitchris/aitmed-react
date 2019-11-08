@@ -57,8 +57,15 @@ export type WrappedReturnedHofFn = (options: {
   index: number
 }) => OnClick | undefined
 
-export type OnActionClick = (
-  action: PhotoListItemAction,
-  index: number,
-  item: PhotoListItem,
-) => OnClick
+export type OnActionClick = (options: {
+  action: PhotoListItemAction
+  index: number
+  item: PhotoListItem
+}) => OnClick
+
+export interface PhotoListFileObject {
+  src: string
+  ext: string
+  type: string
+  filename: string
+}

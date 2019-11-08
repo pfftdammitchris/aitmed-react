@@ -70,6 +70,7 @@ function withLightboxActionEnhancement(WrappedComponent: any, config?: Config) {
     WrappedComponent,
   )})`
 
+  // @ts-ignore
   return withStyles(styles)(WithLightboxActionIconButton)
 }
 

@@ -11,6 +11,7 @@ interface FinalFormOutlinedTextFieldProps
   meta: any
   inputProps?: any
   errorProps?: any
+  error?: boolean
 }
 
 const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = ({

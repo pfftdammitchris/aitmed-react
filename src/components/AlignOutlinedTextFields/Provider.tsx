@@ -23,6 +23,7 @@ function AlignOutlinedTextFieldsProvider({
     }
   }, [size])
 
+  // @ts-ignore
   return <Context.Provider value={ctx}>{children}</Context.Provider>
 }
 

@@ -13,7 +13,7 @@ interface CountryCodeFieldProps {
   selectProps?: any
 }
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles({
   root: {
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: any) => ({
   input: {
     minWidth: 80,
   },
-}))
+})
 
 function CountryCodeField({
   input,
@@ -41,42 +41,44 @@ function CountryCodeField({
 
   const errMsg = meta.error || meta.submitError || ''
 
-  function onChange(e) {
+  function onChange(e: React.SyntheticEvent<HTMLInputElement>) {
     e.persist()
+    // @ts-ignore
     input.onChange(e.target.value)
   }
 
-  return (
-    <div className={classes.root}>
-      <OutlinedTextField
-        error={!!errMsg}
-        helperText={errMsg}
-        margin="normal"
-        inputProps={{
-          className: cx(classes.input, className),
-          ...inputProps,
-        }}
-        inputLabelProps={{
-          shrink: true,
-          ...inputLabelProps,
-        }}
-        selectProps={{
-          displayEmpty: true,
-          native: true,
-          onChange,
-          ...selectProps,
-        }}
-        select
-        {...rest}
-      >
-        {countries.codes.map((code) => (
-          <option key={code} value={code}>
-            {`${code} +${countries.mapper[code].phone_code}`}
-          </option>
-        ))}
-      </OutlinedTextField>
-    </div>
+  const node = (
+    // @ts-ignore
+    <OutlinedTextField
+      error={!!errMsg}
+      helperText={errMsg}
+      margin="normal"
+      inputProps={{
+        className: cx(classes.input, className),
+        ...inputProps,
+      }}
+      inputLabelProps={{
+        shrink: true,
+        ...inputLabelProps,
+      }}
+      selectProps={{
+        displayEmpty: true,
+        native: true,
+        onChange,
+        ...selectProps,
+      }}
+      select
+      {...rest}
+    >
+      {countries.codes.map((code) => (
+        <option key={code} value={code}>
+          {`${code} +${countries.mapper[code].phone_code}`}
+        </option>
+      ))}
+    </OutlinedTextField>
   )
+
+  return <div className={classes.root}>{node}</div>
 }
 
 export default CountryCodeField

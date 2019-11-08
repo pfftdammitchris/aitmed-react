@@ -2,6 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import { makeStyles, useTheme } from '@material-ui/styles'
 import { Theme } from '@material-ui/core'
+// @ts-ignore
 import Signature from 'react-signature-canvas'
 import useSignatureCanvas from './useSignatureCanvas'
 import Typography from '../../Typography'

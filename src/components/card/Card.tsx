@@ -5,20 +5,7 @@ import MuiCard from '@material-ui/core/Card'
 import Divider from '@material-ui/core/Divider'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '../Typography'
-import { CardDividerProps } from './types'
-
-interface CardProps {
-  className?: string
-  classNames?: {
-    card?: string
-    content?: string
-    divider?: string
-    header?: string
-  }
-  contentProps?: any
-  render?: any
-  square?: boolean
-}
+import { CardProps, CardDividerProps } from './types'
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
