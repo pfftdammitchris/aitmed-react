@@ -47,7 +47,8 @@
     "react-icons": "^3.7.0",
     "react-images": "^1.0.0",
     "react-progressed": "^1.0.6",
-    "react-signature-canvas": "^1.0.3"
+    "react-signature-canvas": "^1.0.3",
+    "rollup-plugin-typescript": "^1.0.1"
   },
   "peerDependencies": {
     "@material-ui/core": "^4.4.0",
