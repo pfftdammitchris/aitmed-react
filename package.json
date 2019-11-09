@@ -14,7 +14,7 @@
     "npm": ">=6"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c --environment INCLUDE_DEPS,BUILD:production",
     "build:types": "tsc --emitDeclarationOnly --noEmit false",
     "build-storybook": "build-storybook -c .storybook -o docs",
     "deploydocs": "npm run build-storybook && storybook-to-ghpages --existing-output-dir=docs",
