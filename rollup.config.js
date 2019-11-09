@@ -5,7 +5,6 @@ import builtins from 'rollup-plugin-node-builtins'
 import globals from 'rollup-plugin-node-globals'
 import postcss from 'rollup-plugin-postcss'
 import json from 'rollup-plugin-json'
-import typescript from 'rollup-plugin-typescript'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
 import pkg from './package.json'
@@ -13,7 +12,6 @@ import pkg from './package.json'
 const extensions = ['.js', '.jsx', '.ts', '.tsx', 'json', '.mjs', '.es6']
 
 const plugins = [
-  typescript(),
   external({
     includeDependencies: true,
   }),
