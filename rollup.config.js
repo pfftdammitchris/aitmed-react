@@ -7,7 +7,7 @@ import postcss from 'rollup-plugin-postcss'
 import json from 'rollup-plugin-json'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
-// import pkg from './package.json'
+import pkg from './package.json'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx', 'json', '.mjs', '.es6']
 
@@ -92,8 +92,8 @@ function getOutput(options) {
 const components = {
   input: 'src/index.tsx',
   output: [
-    getOutput({ file: 'dist/index.js', format: 'cjs' }),
-    getOutput({ file: 'dist/index.es.js', format: 'es' }),
+    getOutput({ file: pkg.main, format: 'cjs' }),
+    getOutput({ file: pkg.module, format: 'es' }),
   ],
   plugins,
 }
