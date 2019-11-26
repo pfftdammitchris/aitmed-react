@@ -1,15 +1,22 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import commonUtilitiesReadme from './docs/commonUtilities.md'
 import readme from './docs/finalForm/utilities.md'
 
 storiesOf('utilities', module)
-  .add('common', () => {
-    return (
-      <div>
-        <pre>callAll</pre>
-      </div>
-    )
-  })
+  .add(
+    'common',
+    () => {
+      return (
+        <div>
+          <pre>callAll</pre>
+        </div>
+      )
+    },
+    {
+      readme: { content: commonUtilitiesReadme },
+    },
+  )
   .add(
     'final form',
     () => {

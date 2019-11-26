@@ -1,4 +1,9 @@
 import formatString from 'format-string-by-pattern'
+import {
+  AsYouType,
+  isValidNumberForRegion,
+  CountryCode,
+} from 'libphonenumber-js'
 
 export function callAll(...fns: any[]) {
   return (...args: any[]) => fns.forEach((fn) => fn && fn(...args))
@@ -34,6 +39,24 @@ export function formatOnlyNumbers(val: string): string {
   if (!val) return val
   const regex = /[^\d]/g
   return String(val).replace(regex, '')
+}
+
+// Takes a country code + a phone number
+export async function genPhoneNumberForDatabase({
+  phone_number,
+  code,
+}: {
+  phone_number: string
+  code: CountryCode
+}): Promise<false | string> {
+  const asYouType = new AsYouType(code)
+  await asYouType.input(phone_number)
+  const result = await asYouType.getNumber()
+  if (!result) {
+    return false
+  }
+  const { countryCallingCode, nationalNumber } = result
+  return `+${countryCallingCode} ${nationalNumber}`
 }
 
 export function getBrowser() {
@@ -231,4 +254,15 @@ export function resolveFilename(str: string, defaultName?: string): string {
     return result
   }
   return defaultName || ''
+}
+
+export async function validatePhoneNumber({
+  phone_number,
+  code,
+}: {
+  phone_number: string
+  code: CountryCode
+}): Promise<boolean> {
+  const isValid = await isValidNumberForRegion(phone_number, code)
+  return isValid
 }

@@ -55,6 +55,7 @@ function CountryCodeField({
       margin="normal"
       inputProps={{
         className: cx(classes.input, className),
+        value: input.value,
         ...inputProps,
       }}
       inputLabelProps={{

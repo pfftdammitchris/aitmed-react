@@ -15,7 +15,7 @@ const plugins = [
   external({
     includeDependencies: true,
   }),
-  postcss({ modules: true }),
+  postcss({ modules: false }),
   url(),
   json(),
   resolve({
@@ -76,6 +76,7 @@ const plugins = [
     extensions,
     include: ['src/**/*'],
     exclude: ['node_modules/**', 'src/stories/**/*'],
+    runtimeHelpers: true,
   }),
 ]
 

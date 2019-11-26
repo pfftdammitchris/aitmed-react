@@ -75,7 +75,7 @@ function PhoneNumField({
             return phone
           }}
           {...phoneFieldProps}
-          render={({ input, meta, ...rest }) => {
+          render={({ input: phoneInput, meta, ...rest }) => {
             const errMsg = meta.error || meta.submitError || ''
             return (
               // @ts-ignore
@@ -86,7 +86,7 @@ function PhoneNumField({
                 inputLabelProps={{ shrink: true }}
                 error={!!errMsg}
                 helperText={errMsg || ''}
-                {...input}
+                {...phoneInput}
                 {...rest}
               />
             )
