@@ -1,7 +1,8 @@
 import React from 'react'
 import IconButton from '@material-ui/core/IconButton'
 import InputAdornment from '@material-ui/core/InputAdornment'
-import { FaEyeSlash, FaEye } from 'react-icons/fa'
+import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined'
+import VisibilityOffOutlinedIcon from '@material-ui/icons/VisibilityOffOutlined'
 
 interface OutlinedTextFieldInputAdornmentProps {
   children?: React.ReactNode
@@ -43,9 +44,9 @@ function OutlinedTextFieldInputAdornment({
 
   if (originalInputType === 'password') {
     if (inputType === 'password') {
-      child = <FaEye {...iconProps} />
+      child = <VisibilityOutlinedIcon {...iconProps} />
     } else if (inputType === 'text') {
-      child = <FaEyeSlash {...iconProps} />
+      child = <VisibilityOffOutlinedIcon {...iconProps} />
     }
   }
 

@@ -1,8 +1,11 @@
 import React from 'react'
 import { muiTheme } from 'storybook-addon-material-ui'
 import { storiesOf } from '@storybook/react'
-import { MdVpnLock, MdMusicVideo, MdPermDataSetting } from 'react-icons/md'
-import { FaLaughBeam, FaLifeRing } from 'react-icons/fa'
+import VpnLockOutlinedIcon from '@material-ui/icons/VpnLockOutlined'
+import MusicVideoOutlinedIcon from '@material-ui/icons/MusicVideoOutlined'
+import PermDataSettingOutlinedIcon from '@material-ui/icons/PermDataSettingOutlined'
+import RingVolumeOutlinedIcon from '@material-ui/icons/RingVolumeOutlined'
+import BorderBottomOutlinedIcon from '@material-ui/icons/BorderBottomOutlined'
 import PhotoList from '../modules/PhotoList'
 import Button from '../components/Button'
 import readme from './docs/PhotoList/readme.md'
@@ -87,7 +90,7 @@ const actions = [
   },
   {
     component: function(props) {
-      return <MdVpnLock style={{ color: 'salmon' }} />
+      return <VpnLockOutlinedIcon style={{ color: 'salmon' }} />
     },
   },
   {
@@ -95,11 +98,13 @@ const actions = [
     component: function({ action, item, index }) {
       if (item && item.hasVideo) {
         return (
-          <MdMusicVideo style={{ transform: 'scale(2.3)', color: 'hotpink' }} />
+          <MusicVideoOutlinedIcon
+            style={{ transform: 'scale(2.3)', color: 'hotpink' }}
+          />
         )
       } else {
         const style: any = {}
-        const Icon = (props) => <MdPermDataSetting {...props} />
+        const Icon = (props) => <PermDataSettingOutlinedIcon {...props} />
         // If this is the last item in list then apply a black background to indicate to the user that this is the end
         if (index === items.length - 1) {
           style.color = 'hotpink'
@@ -166,7 +171,7 @@ storiesOf('PhotoList', module)
         },
         {
           component: function(props) {
-            return <MdVpnLock style={{ color: 'salmon' }} />
+            return <VpnLockOutlinedIcon style={{ color: 'salmon' }} />
           },
         },
         {
@@ -174,13 +179,13 @@ storiesOf('PhotoList', module)
           component: function({ action, item, index }) {
             if (item && item.hasVideo) {
               return (
-                <MdMusicVideo
+                <MusicVideoOutlinedIcon
                   style={{ transform: 'scale(2.3)', color: 'hotpink' }}
                 />
               )
             } else {
               const style: any = {}
-              const Icon = (props) => <MdPermDataSetting {...props} />
+              const Icon = (props) => <PermDataSettingOutlinedIcon {...props} />
               // If this is the last item in list then apply a black background to indicate to the user that this is the end
               if (index === items.length - 1) {
                 style.color = 'hotpink'
@@ -222,10 +227,10 @@ storiesOf('PhotoList', module)
               items={_rows}
               icons={{
                 pdf: {
-                  component: FaLaughBeam,
+                  component: BorderBottomOutlinedIcon,
                 },
                 word: {
-                  component: FaLifeRing,
+                  component: RingVolumeOutlinedIcon,
                 },
               }}
             />

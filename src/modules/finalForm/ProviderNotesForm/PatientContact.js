@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { MdEmail, MdCall } from 'react-icons/md'
+import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined'
+import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined'
 import Typography from '../../../components/common/Typography'
 
 const ProviderMeetingDrawerPatientContact = ({
@@ -24,8 +25,13 @@ const ProviderMeetingDrawerPatientContact = ({
       gutterBottom
       paragraph
     >
-      <MdEmail style={{ color: '#356f97', transform: 'scale(1.2)' }} /> {email}{' '}
-      <MdCall style={{ color: '#356f97', transform: 'scale(1.2)' }} />{' '}
+      <EmailOutlinedIcon
+        style={{ color: '#356f97', transform: 'scale(1.2)' }}
+      />{' '}
+      {email}{' '}
+      <PhoneOutlinedIcon
+        style={{ color: '#356f97', transform: 'scale(1.2)' }}
+      />{' '}
       {primaryPhoneNum}
     </Typography>
   </div>

@@ -2,9 +2,9 @@ import React from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Input from '@material-ui/core/Input'
-import { IoIosSearch } from 'react-icons/io'
 import Downshift from 'downshift'
 import PopupMenu from './PopupMenu'
 
@@ -99,7 +99,7 @@ const ProviderPortalProverNotesICD10SearchInput = ({
         <Input
           {...getInputProps({
             startAdornment: (
-              <IoIosSearch
+              <SearchOutlinedIcon
                 className={cx(classes.searchIcon, {
                   [classes.searchIconSearching]: fetching,
                 })}

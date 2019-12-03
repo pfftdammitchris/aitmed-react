@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { makeStyles } from '@material-ui/styles'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Input from '@material-ui/core/Input'
-import { IoIosSearch } from 'react-icons/io'
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined'
 import Downshift from 'downshift'
 import ICD10PopupMenu from './ICD10PopupMenu'
 import { ICD10ResultItem } from './types'
@@ -95,7 +95,7 @@ const ICD10SearchInput: React.FC<ICD10SearchInputProps> = ({
     <Input
       {...getInputProps({
         startAdornment: (
-          <IoIosSearch
+          <SearchOutlinedIcon
             className={cx(classes.searchIcon, {
               [classes.searchIconSearching]: fetching,
             })}

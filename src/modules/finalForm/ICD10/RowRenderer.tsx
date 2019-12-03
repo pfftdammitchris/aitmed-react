@@ -3,8 +3,8 @@ import { Field } from 'react-final-form'
 import cx from 'classnames'
 import { makeStyles } from '@material-ui/styles'
 import MaterialUIInput from '@material-ui/core/Input'
+import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined'
 import TableRow from '@material-ui/core/TableRow'
-import { IoIosCloseCircle } from 'react-icons/io'
 import TableCell from './TableCell'
 
 interface RowRendererProps {
@@ -108,7 +108,7 @@ const ICD10RowRenderer: React.FC<RowRendererProps> = ({
       ))}
 
       <TableCell>
-        <IoIosCloseCircle
+        <CancelOutlinedIcon
           onClick={onDelete}
           title="Delete this row"
           className={classes.closeIcon}

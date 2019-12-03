@@ -1,7 +1,8 @@
 import React from 'react'
 import cx from 'classnames'
 import { makeStyles } from '@material-ui/styles'
-import { MdFiberManualRecord, MdInfo } from 'react-icons/md'
+import FiberManualRecordOutlinedIcon from '@material-ui/icons/FiberManualRecordOutlined'
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined'
 import MaterialUITooltip from '@material-ui/core/Tooltip'
 import Fade from '@material-ui/core/Fade'
 
@@ -76,9 +77,9 @@ function Tooltip({
 
   const renderProps = {
     Bullet: (props: any) => (
-      <MdFiberManualRecord className={classes.bullet} {...props} />
+      <FiberManualRecordOutlinedIcon className={classes.bullet} {...props} />
     ),
-    InfoIcon: MdInfo,
+    InfoIcon: InfoOutlinedIcon,
   }
 
   return (

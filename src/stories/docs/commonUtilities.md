@@ -15,7 +15,7 @@ const params = {
   code: 'US',
 }
 
-formatPhoneNumberForDatabase(params)
+genPhoneNumberForDatabase(params)
   .then((result) => {
     if (result === undefined) {
       //

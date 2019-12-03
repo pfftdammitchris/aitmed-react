@@ -1,4 +1,4 @@
-export const primary: any = {
+export const primary = {
   lightest: '#69e98a', // custom
   lighter: '#6dda89', // custom
   light: '#63C17B',
@@ -6,7 +6,7 @@ export const primary: any = {
   dark: '#3D844F',
 }
 
-export const secondary: any = {
+export const secondary = {
   lightest: '#6bc8ff', //custom
   lighter: '#5eb5e9', //custom
   light: '#54A3D3',
@@ -15,33 +15,33 @@ export const secondary: any = {
   darker: '#072E48',
 }
 
-export const thirdary: any = {
+export const thirdary = {
   lighter: '#ffe658', // custom
   light: '#F8D822',
   main: '#F8A31E',
   dark: '#FC9208',
 }
 
-export const success: any = {
+export const success = {
   nav: '#333',
   normal: '#0070c2',
   hovering: '#F8A31E',
   hoveringOnSecondary: '#b9f0ff',
 }
 
-export const error: any = {
+export const error = {
   main: '#ff4545',
   dark: '#dd2a2a',
 }
 
-export const link: any = {
+export const link = {
   nav: '#333',
   normal: '#0070c2',
   hovering: '#F8A31E',
   hoveringOnSecondary: '#b9f0ff',
 }
 
-export const background: any = {
+export const background = {
   dark: '#0E0F12',
   darkAdmin: '#2f323b',
   darkAdminLightShade: 'rgba(68, 70, 79, 0.5)',
@@ -58,7 +58,7 @@ export const background: any = {
   thirdaryDark: '#CB9B52',
 }
 
-export const borders: any = {
+export const borders = {
   secondary: secondary.main,
   cool: '#d7dfe3',
   dark: '#333',
@@ -72,7 +72,7 @@ export const borders: any = {
   cloudiest2: '#cad0d2',
 }
 
-export const text: any = {
+export const text = {
   lighter2: '#DCEAED',
   lighter: '#cdcbcb',
   light: '#999',
@@ -84,7 +84,7 @@ export const text: any = {
 
 export const inactive = '#a09e9e'
 
-const theme: any = {
+const theme = {
   palette: {
     background,
     borders,

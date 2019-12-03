@@ -1,27 +1,26 @@
-import {
-  MdChevronLeft,
-  MdChevronRight,
-  MdModeEdit,
-  MdCropFree,
-  MdZoomOutMap,
-  MdFullscreen,
-  MdFullscreenExit,
-  MdExpandMore,
-  MdExpandLess,
-  MdClose,
-  MdMoreHoriz,
-  MdLastPage,
-  MdFirstPage,
-  MdMenu,
-  MdVoiceChat,
-  MdOpenWith,
-  MdBugReport,
-  MdPictureAsPdf,
-  MdPhotoSizeSelectLarge,
-  MdTextFields,
-  MdAudiotrack,
-} from 'react-icons/md'
-import { FaFileExcel, FaFileWord, FaCompress } from 'react-icons/fa'
+import ChevronLeftOutlinedIcon from '@material-ui/icons/ChevronLeftOutlined'
+import ChevronRightOutlinedIcon from '@material-ui/icons/ChevronRightOutlined'
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
+import CropOutlinedIcon from '@material-ui/icons/CropOutlined'
+import ZoomOutMapOutlinedIcon from '@material-ui/icons/ZoomOutMapOutlined'
+import FullscreenOutlinedIcon from '@material-ui/icons/FullscreenOutlined'
+import FullscreenExitOutlinedIcon from '@material-ui/icons/FullscreenExitOutlined'
+import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined'
+import ExpandLessOutlinedIcon from '@material-ui/icons/ExpandLessOutlined'
+import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined'
+import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined'
+import LastPageOutlinedIcon from '@material-ui/icons/LastPageOutlined'
+import FirstPageOutlinedIcon from '@material-ui/icons/FirstPageOutlined'
+import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined'
+import RecordVoiceOverOutlinedIcon from '@material-ui/icons/RecordVoiceOverOutlined'
+import OpenWithOutlinedIcon from '@material-ui/icons/OpenWithOutlined'
+import BugReportOutlinedIcon from '@material-ui/icons/BugReportOutlined'
+import PictureAsPdfOutlinedIcon from '@material-ui/icons/PictureAsPdfOutlined'
+import PhotoSizeSelectLargeOutlinedIcon from '@material-ui/icons/PhotoSizeSelectLargeOutlined'
+import TextFieldsOutlinedIcon from '@material-ui/icons/TextFieldsOutlined'
+import AudiotrackOutlinedIcon from '@material-ui/icons/AudiotrackOutlined'
+import InsertDriveFileOutlinedIcon from '@material-ui/icons/InsertDriveFileOutlined'
+import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined'
 import { audioExts, compressedExts } from './info'
 
 export interface IconProps {
@@ -36,99 +35,99 @@ export const commonIcons: {
   [name: string]: IconProps
 } = {
   'arrow-left': {
-    component: MdChevronLeft,
+    component: ChevronLeftOutlinedIcon,
     title: 'Move Left',
   },
   'arrow-right': {
-    component: MdChevronRight,
+    component: ChevronRightOutlinedIcon,
     title: 'Move Right',
   },
   bug: {
-    component: MdBugReport,
+    component: BugReportOutlinedIcon,
     title: 'Bug/Error',
   },
   'burger-menu': {
-    component: MdMenu,
+    component: MenuOutlinedIcon,
     title: 'Open/Close the Menu',
   },
   edit: {
-    component: MdModeEdit,
+    component: EditOutlinedIcon,
     title: 'Edit',
   },
   excel: {
-    component: FaFileExcel,
+    component: InsertDriveFileOutlinedIcon,
     title: 'Excel',
   },
   cancel: {
-    component: MdClose,
+    component: CloseOutlinedIcon,
     title: 'Cancel',
   },
   close: {
-    component: MdClose,
+    component: CloseOutlinedIcon,
     title: 'Close',
   },
   crop: {
-    component: MdCropFree,
+    component: CropOutlinedIcon,
     title: 'Crop photo',
   },
   drag: {
-    component: MdOpenWith,
+    component: OpenWithOutlinedIcon,
     title: 'Drag',
   },
   'exit-fullscreen': {
-    component: MdFullscreenExit,
+    component: FullscreenExitOutlinedIcon,
     title: 'Exit Fullscreen',
   },
   'expand-more': {
-    component: MdExpandMore,
+    component: ExpandMoreOutlinedIcon,
     title: 'Expand More',
   },
   'expand-less': {
-    component: MdExpandLess,
+    component: ExpandLessOutlinedIcon,
     title: 'Expand Less',
   },
   fullscreen: {
-    component: MdFullscreen,
+    component: FullscreenOutlinedIcon,
     title: 'Fullscreen',
   },
   'first-page': {
-    component: MdFirstPage,
+    component: FirstPageOutlinedIcon,
     title: 'Go to First Page',
   },
   'last-page': {
-    component: MdLastPage,
+    component: LastPageOutlinedIcon,
     title: 'Go to Last Page',
   },
   more: {
-    component: MdMoreHoriz,
+    component: MoreHorizOutlinedIcon,
     title: 'See more',
   },
   photoshop: {
-    component: MdPhotoSizeSelectLarge,
+    component: PhotoSizeSelectLargeOutlinedIcon,
     title: 'Photoshop',
   },
   'zoom-out': {
-    component: MdZoomOutMap,
+    component: ZoomOutMapOutlinedIcon,
     title: 'Zoom Out',
   },
   webcam: {
-    component: MdVoiceChat,
+    component: RecordVoiceOverOutlinedIcon,
     title: 'Webcam / Voice chat',
   },
   pdf: {
-    component: MdPictureAsPdf,
+    component: PictureAsPdfOutlinedIcon,
     title: 'Pdf',
   },
   rtf: {
-    component: MdTextFields,
+    component: TextFieldsOutlinedIcon,
     title: 'Rich Text File',
   },
   txt: {
-    component: MdTextFields,
+    component: TextFieldsOutlinedIcon,
     title: 'Text File',
   },
   word: {
-    component: FaFileWord,
+    component: InsertDriveFileOutlinedIcon,
     title: 'Word',
   },
   // Audio
@@ -136,7 +135,7 @@ export const commonIcons: {
   ...(function() {
     return audioExts.reduce((acc: any, ext: string) => {
       acc[ext] = {
-        component: MdAudiotrack,
+        component: AudiotrackOutlinedIcon,
         title: 'Audio Track',
       }
       return acc
@@ -147,7 +146,7 @@ export const commonIcons: {
   ...(function() {
     return compressedExts.reduce((acc: any, ext: string) => {
       acc[ext] = {
-        component: FaCompress,
+        component: FileCopyOutlinedIcon,
         title: 'Compressed File',
       }
       return acc

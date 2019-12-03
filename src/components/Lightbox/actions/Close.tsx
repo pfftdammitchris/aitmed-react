@@ -1,8 +1,8 @@
 import React from 'react'
-import { MdClose } from 'react-icons/md'
+import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined'
 
 function LightboxHeaderClose() {
-  return <MdClose />
+  return <CloseOutlinedIcon />
 }
 
 export default LightboxHeaderClose

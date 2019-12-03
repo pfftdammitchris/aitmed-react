@@ -1,8 +1,8 @@
 import React from 'react'
-import { MdFullscreen } from 'react-icons/md'
+import FullscreenOutlinedIcon from '@material-ui/icons/FullscreenOutlined'
 
 function LightboxHeaderFullscreen() {
-  return <MdFullscreen />
+  return <FullscreenOutlinedIcon />
 }
 
 export default LightboxHeaderFullscreen

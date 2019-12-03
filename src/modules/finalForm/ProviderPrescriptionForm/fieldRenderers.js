@@ -2,7 +2,8 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { Field } from 'react-final-form'
-import { IoIosAdd, IoIosSearch } from 'react-icons/io'
+import AddOutlinedIcon from '@material-ui/icons/AddOutlined'
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import BottleField from './BottleField'
 import VoidInput from './VoidInput'
@@ -46,7 +47,7 @@ export const renderBottles = ({
                 <Typography variant="caption">
                   Add another prescription
                 </Typography>
-                <IoIosAdd
+                <AddOutlinedIcon
                   title="add-new-bottle-icon"
                   onClick={() => fields.push(makeBottle())}
                   className={addIconClassName}
@@ -63,7 +64,7 @@ export const renderBottles = ({
                 }}
               >
                 <Typography variant="caption">Reference</Typography>
-                <IoIosSearch
+                <SearchOutlinedIcon
                   title="reference-icon"
                   onClick={openInNewTab('https://www.drugs.com/dosage/')}
                   className={addIconClassName}
