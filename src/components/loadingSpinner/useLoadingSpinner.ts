@@ -10,6 +10,7 @@ const useLoadingSpinner = () => {
       primary.lightest,
       primary.lighter,
       primary.main,
+      // @ts-ignore
       secondary.lightest2,
       secondary.lightest,
       secondary.main,
@@ -22,6 +23,7 @@ const useLoadingSpinner = () => {
     primary.lightest,
     primary.main,
     secondary.lightest,
+    // @ts-ignore
     secondary.lightest2,
     secondary.main,
     thirdary.light,

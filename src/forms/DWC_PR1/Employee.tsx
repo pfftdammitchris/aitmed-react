@@ -72,6 +72,7 @@ const DWC_1_Employee: React.FC<DWC_1_EmployeeProps> = ({
             <OutlinedTextField
               {...input}
               {...rest}
+              // @ts-ignore
               value={format(new Date(), 'yyyy-MM-dd')}
             />
           )}

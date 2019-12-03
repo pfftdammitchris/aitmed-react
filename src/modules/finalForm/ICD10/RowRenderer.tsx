@@ -110,6 +110,7 @@ const ICD10RowRenderer: React.FC<RowRendererProps> = ({
       <TableCell>
         <CancelOutlinedIcon
           onClick={onDelete}
+          // @ts-ignore
           title="Delete this row"
           className={classes.closeIcon}
         />
