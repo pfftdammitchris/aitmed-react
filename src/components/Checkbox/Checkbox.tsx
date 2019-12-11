@@ -12,7 +12,7 @@ import MuiCheckbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import TextField from '@material-ui/core/TextField'
 
-interface Props {
+export interface Props {
   wrapperRootProps?: any
   wrapperProps?: any
   checkboxProps?: any

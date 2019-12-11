@@ -5,7 +5,7 @@ import { Theme } from '@material-ui/core'
 import Context from './Context'
 import Provider from './Provider'
 
-interface AlignOutlinedTextFieldsProps {
+export interface AlignOutlinedTextFieldsProps {
   children: React.ReactNode
   size?: 'small' | 'medium' | 'large'
 }

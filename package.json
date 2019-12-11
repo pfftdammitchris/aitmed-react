@@ -1,6 +1,6 @@
 {
   "name": "@aitmed/react",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "description": "React component library to build TeleMedicine apps",
   "author": "pfftdammitchris",
   "license": "MIT",
@@ -8,7 +8,7 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "typings": "dist/types/index.d.ts",
   "engines": {
     "node": ">=10",
     "npm": ">=6"
