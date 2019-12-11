@@ -15,6 +15,7 @@
   "scripts": {
     "build": "rollup -c",
     "build-storybook": "build-storybook -c .storybook -o docs",
+    "build:types": "tsc --emitDeclarationOnly",
     "deploydocs": "npm run build-storybook && storybook-to-ghpages --existing-output-dir=docs",
     "predeploy": "cd example && npm install && npm run build",
     "pub": "npm run build && npm publish --access public",
