@@ -1,6 +1,6 @@
 {
   "name": "@aitmed/react",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "description": "React component library to build TeleMedicine apps",
   "author": "pfftdammitchris",
   "license": "MIT",
@@ -46,7 +46,7 @@
     "react-final-form": "^6.3.0",
     "react-final-form-arrays": "^3.1.0",
     "react-images": "^1.0.0",
-    "react-progressed": "^2.0.0",
+    "react-progressed": "^2.0.1",
     "react-signature-canvas": "^1.0.3"
   },
   "peerDependencies": {
