@@ -1,6 +1,11 @@
 import cx from 'classnames'
+import { AsYouType } from 'libphonenumber-js'
 
-export function getPhoneFieldProps({ classes, errMsg = '', userProps = {} }) {
+export function getPhoneFieldProps({
+  classes,
+  errMsg = '',
+  userProps = {},
+}: any) {
   const {
     classes: userClasses = {},
     className: userClassName,
@@ -29,7 +34,7 @@ export function getPhoneFieldProps({ classes, errMsg = '', userProps = {} }) {
   }
 }
 
-export function parsePhoneField({ currentPhoneVal, input }) {
+export function parsePhoneField({ currentPhoneVal, input }: any) {
   return (value: string) => {
     const trimValue = value.trim()
     let phone
