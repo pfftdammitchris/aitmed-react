@@ -31,7 +31,10 @@ const FinalFormOutlinedTextField: React.FC<FinalFormOutlinedTextFieldProps> = ({
 
   // This is to avoid endAdornment being passed to Select
   const additionalInputProps: any = {}
-  if (inputProps.endAdornment || (input && input.type === 'password')) {
+  if (
+    (inputProps.endAdornment || otherProps ? otherProps.endAdornment : false) ||
+    (input && input.type === 'password')
+  ) {
     additionalInputProps.endAdornment = (
       <InputAdornment
         isNull={inputProps.endAdornment === null}

@@ -2,11 +2,11 @@ import * as React from 'react'
 import cx from 'classnames'
 import { makeStyles } from '@material-ui/styles'
 import { Field } from 'react-final-form'
-import { AsYouType } from 'libphonenumber-js'
 import CountryCodeField from './CountryCodeField'
 import Typography from '../../Typography'
 import OutlinedTextField from '../OutlinedTextField'
 import Synchronizer from './Synchronizer'
+import { getPhoneFieldProps, parsePhoneField } from './utils'
 
 export interface PhoneNumFieldProps {
   input: any
@@ -60,34 +60,18 @@ function PhoneNumField({
         />
         <Field
           name={`${input.name}.phone_number`}
-          parse={(value) => {
-            const trimValue = value.trim()
-            let phone
-            // If deleting a non number character
-            if (
-              trimValue.length < currentPhoneVal.length &&
-              !/(\d)$/.test(currentPhoneVal)
-            ) {
-              phone = trimValue
-            } else {
-              phone = new AsYouType(input.value.code).input(trimValue)
-            }
-            return phone
-          }}
+          parse={parsePhoneField({ currentPhoneVal, input })}
           {...phoneFieldProps}
-          render={({ input: phoneInput, meta, ...rest }) => {
+          render={({ input: phoneInput, meta, ...userProps }) => {
             const errMsg = meta.error || meta.submitError || ''
             return (
               <OutlinedTextField
-                // @ts-ignore
-                classes={{ root: classes.phone }}
-                margin="normal"
-                inputProps={{ className: classes.phoneInput }}
-                inputLabelProps={{ shrink: true }}
-                error={!!errMsg}
-                helperText={errMsg || ''}
+                {...getPhoneFieldProps({
+                  classes,
+                  errMsg,
+                  userProps,
+                })}
                 {...phoneInput}
-                {...rest}
               />
             )
           }}
