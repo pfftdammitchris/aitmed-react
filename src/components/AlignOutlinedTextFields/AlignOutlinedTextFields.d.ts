@@ -1,1 +1,0 @@
-export { AlignOutlinedTextFieldsProps } from './AlignOutlinedTextFields'
