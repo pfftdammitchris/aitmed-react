@@ -14,12 +14,12 @@
     "npm": ">=6"
   },
   "scripts": {
-    "build": "rollup -c --environment INCLUDE_DEPS,BUILD:production",
+    "build": "rm -rf dist && rollup -c --environment INCLUDE_DEPS,BUILD:production",
     "build:types": "tsc --emitDeclarationOnly --noEmit false",
     "build-storybook": "build-storybook -c .storybook -o docs",
     "deploydocs": "npm run build-storybook && storybook-to-ghpages --existing-output-dir=docs",
     "predeploy": "cd example && npm install && npm run build",
-    "all": "rm -rf dist && npm run build && npm run build:types && npm publish",
+    "all": "npm run build && npm run build:types && npm publish",
     "start": "rollup -c -w",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "cross-env CI=1 react-scripts-ts test --env=jsdom"

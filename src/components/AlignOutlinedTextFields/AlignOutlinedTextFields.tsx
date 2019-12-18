@@ -4,7 +4,12 @@ import { makeStyles } from '@material-ui/styles'
 import { Theme } from '@material-ui/core'
 import Context from './Context'
 import Provider from './Provider'
-import { AlignOutlinedTextFieldsProps } from './types'
+// import { AlignOutlinedTextFieldsProps } from './types'
+
+export interface AlignOutlinedTextFieldsProps {
+  children: React.ReactNode
+  size?: 'small' | 'medium' | 'large'
+}
 
 const small = {
   '& input': {
