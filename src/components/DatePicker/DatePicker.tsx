@@ -8,10 +8,10 @@ import {
 import OutlinedTextField from './OutlinedTextField'
 import DatePickerToolbar from './Toolbar'
 
-type DatePickerVariant = 'dialog' | 'inline' | 'static' | undefined
-type DatePickerInputVariant = 'outlined' | 'standard' | 'filled'
+export type DatePickerVariant = 'dialog' | 'inline' | 'static' | undefined
+export type DatePickerInputVariant = 'outlined' | 'standard' | 'filled'
 
-interface DatePickerProps extends MuiDatePickerProps {
+export interface DatePickerProps extends MuiDatePickerProps {
   label?: string
   value: number | Date
   onChange: (date: any) => void

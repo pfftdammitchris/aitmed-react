@@ -4,7 +4,7 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined'
 import VisibilityOffOutlinedIcon from '@material-ui/icons/VisibilityOffOutlined'
 
-interface OutlinedTextFieldInputAdornmentProps {
+export interface OutlinedTextFieldInputAdornmentProps {
   children?: React.ReactNode
   isNull?: boolean
   originalInputType: string // react-final-form

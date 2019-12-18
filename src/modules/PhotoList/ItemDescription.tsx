@@ -5,7 +5,7 @@ import { OnClick } from '../../types'
 import { DebugStyles } from './types'
 import { resolveDebugStyle } from './utils'
 
-interface PhotoListItemDescriptionProps {
+export interface PhotoListItemDescriptionProps {
   component?: React.ElementType<any>
   children: React.ReactNode
   onClick?: OnClick

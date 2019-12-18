@@ -4,7 +4,7 @@ import Flex from '../../components/Flex'
 import { states } from '../../utils/info'
 import { parsePhone } from '../../utils'
 
-interface RFA_ClaimsAdministratorProps {
+export interface RFA_ClaimsAdministratorProps {
   name: 'claimsAdministrator'
   component: React.FC<any>
 }

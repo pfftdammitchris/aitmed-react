@@ -3,7 +3,7 @@ import cx from 'classnames'
 import MuiDivider from '@material-ui/core/Divider'
 import { makeStyles } from '@material-ui/styles'
 
-interface DividerProps {
+export interface DividerProps {
   classNames?: {
     root?: string
     absolute?: string

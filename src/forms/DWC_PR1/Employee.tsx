@@ -9,7 +9,7 @@ import Flex from '../../components/Flex'
 import OutlinedTextField from '../../components/finalForm/OutlinedTextField'
 import Typography from '../../components/Typography'
 
-interface DWC_1_EmployeeProps {
+export interface DWC_1_EmployeeProps {
   name: 'employee'
   signatureRef: any
   states: string[]

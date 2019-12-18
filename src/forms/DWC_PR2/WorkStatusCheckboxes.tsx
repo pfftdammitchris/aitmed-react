@@ -10,7 +10,7 @@ import Checkbox from '../../components/Checkbox'
 import Typography from '../../components/Typography'
 import useObjectizedCheckboxes from '../../hooks/finalForm/useObjectizedCheckboxes'
 
-interface WorkStatusCheckboxesProps extends FieldProps<any, any> {
+export interface WorkStatusCheckboxesProps extends FieldProps<any, any> {
   input: any
   meta: any
 }

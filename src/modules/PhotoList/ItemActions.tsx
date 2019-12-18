@@ -14,7 +14,7 @@ import {
   OnActionClick,
 } from './types'
 
-interface PhotoListItemActionsProps {
+export interface PhotoListItemActionsProps {
   actions: PhotoListItemAction[]
   item: PhotoListItem
   icons?: PhotoListIconConfig

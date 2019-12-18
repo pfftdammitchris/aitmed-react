@@ -2,11 +2,11 @@ import * as React from 'react'
 import { FormSpy } from 'react-final-form'
 import { AsYouType, CountryCode } from 'libphonenumber-js'
 
-interface SynchronizerProps {
+export interface SynchronizerProps {
   phoneKey: string
 }
 
-interface PhoneUpdaterProps {
+export interface PhoneUpdaterProps {
   countryCode: CountryCode
   phoneNumber: string
   phoneKey: string

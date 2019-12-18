@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from 'react-final-form'
 import InputLabel from '@material-ui/core/InputLabel'
 
-interface VerificationCodeFieldInputLabelProps {
+export interface VerificationCodeFieldInputLabelProps {
   label?: React.ReactNode
   input: any
 }

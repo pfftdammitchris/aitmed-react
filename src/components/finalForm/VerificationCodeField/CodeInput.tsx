@@ -10,7 +10,7 @@ function selectText(elem: any): void {
   }
 }
 
-interface VerificationCodeFieldCodeInputProps {
+export interface VerificationCodeFieldCodeInputProps {
   input: any
   meta: any
   id: string

@@ -12,7 +12,7 @@ import PhotoListItemVisual from './ItemVisual'
 import { resolveDebugStyle } from './utils'
 import * as T from './types'
 
-interface PhotoListProps {
+export interface PhotoListProps {
   classes?: any
   className?: string
   header?: React.ReactNode

@@ -23,7 +23,7 @@ const reasonsList = [
   reasonKeys.slice(7),
 ]
 
-interface ReasonsForFormProps {
+export interface ReasonsForFormProps {
   input: {
     value: {
       [reason: string]: string

@@ -6,7 +6,7 @@ import { resolveDebugStyle, resolveRenderVisual } from './utils'
 import { OnClick } from '../../types'
 import { DebugStyles, PhotoListIconConfig, PhotoListItem } from './types'
 
-interface PhotoListItemVisualBoxProps {
+export interface PhotoListItemVisualBoxProps {
   component?: React.ElementType<any>
   item: PhotoListItem
   icons?: PhotoListIconConfig

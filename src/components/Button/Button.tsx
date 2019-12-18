@@ -4,7 +4,7 @@ import { createStyles, makeStyles } from '@material-ui/styles'
 import cx from 'classnames'
 import { getPrimaryOrSecondaryOrThirdary } from './utils'
 
-export interface ButtonProps extends React.HTMLAttributes<{}> {
+export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   className?: string
   primary?: boolean
   secondary?: boolean

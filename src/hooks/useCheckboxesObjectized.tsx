@@ -3,16 +3,16 @@ import { useEffect, useReducer } from 'react'
 import reduce from 'lodash/reduce'
 import isPlainObject from 'lodash/isPlainObject'
 
-type Action =
+export type UseCheckboxesObjectizedAction =
   | { type: 'on-check'; name: string }
   | { type: 'on-text-change'; values: { [name: string]: string } }
 
-interface State {
+export interface UseCheckboxesObjectizedState {
   values: { [name: string]: string }
   current?: string
 }
 
-interface UseCheckboxesObjectized {
+export interface UseCheckboxesObjectized {
   options: string[]
   value: { [name: string]: string }
   onChange: (value: { [name: string]: string }) => void
@@ -30,12 +30,15 @@ const toComments = (options: string[]) =>
     {},
   )
 
-const initialState: State = {
+const initialState: UseCheckboxesObjectizedState = {
   values: {},
   // current: '', // current will be returned after the user inputs their first value
 }
 
-const reducer = (state: State, action: Action): State => {
+const reducer = (
+  state: UseCheckboxesObjectizedState,
+  action: UseCheckboxesObjectizedAction,
+): UseCheckboxesObjectizedState => {
   switch (action.type) {
     case 'on-check':
       return {

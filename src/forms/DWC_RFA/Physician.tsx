@@ -4,7 +4,7 @@ import Flex from '../../components/Flex'
 import { states } from '../../utils/info'
 import { formatOnlyNumbers, parsePhone } from '../../utils'
 
-interface RFA_PhysicianProps {
+export interface RFA_PhysicianProps {
   name: 'physician'
   component: React.FC<any>
   specialties: string[]

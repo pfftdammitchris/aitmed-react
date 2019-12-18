@@ -3,33 +3,17 @@ import cx from 'classnames'
 import { makeStyles } from '@material-ui/styles'
 import FiberManualRecordOutlinedIcon from '@material-ui/icons/FiberManualRecordOutlined'
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined'
-import MaterialUITooltip from '@material-ui/core/Tooltip'
+import MaterialUITooltip, {
+  TooltipProps as MuiTooltipProps,
+} from '@material-ui/core/Tooltip'
 import Fade from '@material-ui/core/Fade'
 
-interface TooltipProps {
-  title: React.ReactNode
-  children: React.ReactNode
-  classes?: any
-  className?: string
-  placement?:
-    | 'bottom-end'
-    | 'bottom-start'
-    | 'bottom'
-    | 'left-end'
-    | 'left-start'
-    | 'left'
-    | 'right-end'
-    | 'right-start'
-    | 'right'
-    | 'top-end'
-    | 'top-start'
-    | 'top'
+export interface TooltipProps extends MuiTooltipProps {
   primary?: boolean
   secondary?: boolean
   thirdary?: boolean
   darkAdmin?: boolean
   minWidth?: number | string
-  style?: React.CSSProperties
   rootDivProps?: any
   render?: (renderProps: any) => React.ReactNode
 }

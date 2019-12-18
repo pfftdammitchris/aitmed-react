@@ -8,7 +8,7 @@ import Flex from '../../components/Flex'
 import { states } from '../../utils/info'
 import { formatOnlyNumbers, parsePhone } from '../../utils'
 
-interface ClaimsAdministrationProps {
+export interface ClaimsAdministrationProps {
   name: string
 }
 

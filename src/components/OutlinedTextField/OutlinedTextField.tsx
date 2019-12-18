@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/styles'
 import MuiTextField from '@material-ui/core/TextField'
 import cx from 'classnames'
 
-interface OutlinedTextFieldProps {
+export interface OutlinedTextFieldProps {
   helperText?: string
   error?: boolean
   value?: any

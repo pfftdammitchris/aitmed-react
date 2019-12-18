@@ -5,7 +5,7 @@ import { DebugStyles } from './types'
 import { resolveDebugStyle } from './utils'
 import Typography from '../../components/Typography'
 
-interface PhotoListItemTitleProps {
+export interface PhotoListItemTitleProps {
   children: React.ReactNode
   onClick?: OnClick
   debugStyles: DebugStyles

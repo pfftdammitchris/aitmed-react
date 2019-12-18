@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/styles'
 import OutlinedTextField from '../../finalForm/OutlinedTextField'
 import countries from '../../../utils/countries'
 
-interface CountryCodeFieldProps {
+export interface CountryCodeFieldProps {
   input: any
   meta: any
   className?: string

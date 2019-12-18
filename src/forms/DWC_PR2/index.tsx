@@ -1,1 +1,8 @@
 export { default } from './DWC_PR2'
+export * from './ClaimsAdministration'
+export * from './DWC_PR2'
+export * from './Header'
+export * from './PatientInfo'
+export * from './ReasonsForForm'
+export * from './WorkStatusCheckboxes'
+export * from './types'

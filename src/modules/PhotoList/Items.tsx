@@ -2,7 +2,7 @@ import React from 'react'
 import PhotoListContext from './Context'
 import { PhotoListContextValue } from './Provider'
 
-interface PhotoListItemsProps {
+export interface PhotoListItemsProps {
   render: (ctx: PhotoListContextValue) => any
 }
 

@@ -3,7 +3,7 @@ import { useTheme } from '@material-ui/styles'
 import Typography from '../Typography'
 import { LightboxComponent } from './types'
 
-interface LightboxFooterProps extends LightboxComponent {}
+export interface LightboxFooterProps extends LightboxComponent {}
 
 function Count(props: any) {
   const theme = useTheme<any>()

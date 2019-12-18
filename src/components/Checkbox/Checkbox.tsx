@@ -12,7 +12,7 @@ import MuiCheckbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import TextField from '@material-ui/core/TextField'
 
-export interface Props {
+export interface CheckboxProps {
   wrapperRootProps?: any
   wrapperProps?: any
   checkboxProps?: any
@@ -26,7 +26,7 @@ export interface Props {
   textField?: React.ReactNode
 }
 
-const Checkbox: React.FC<Props> = ({
+const Checkbox: React.FC<CheckboxProps> = ({
   wrapperRootProps,
   wrapperProps,
   checkboxProps,

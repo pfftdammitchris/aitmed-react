@@ -9,7 +9,7 @@ import PhotoListItemActions from './ItemActions'
 import PhotoListItemVisual from './ItemVisual'
 import * as T from './types'
 
-interface PhotoListItemProps {
+export interface PhotoListItemProps {
   item: T.PhotoListItem
   index: number
   debugStyles: T.DebugStyles

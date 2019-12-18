@@ -6,7 +6,8 @@ import useVerificationCodeField from './useVerificationCodeField'
 import InputLabel from './InputLabel'
 import CodeInput from './CodeInput'
 
-interface VerificationCodeProps extends FieldRenderProps<any, HTMLElement> {
+export interface VerificationCodeProps
+  extends FieldRenderProps<any, HTMLElement> {
   component?: React.ElementType<any>
   input: any
   meta: any

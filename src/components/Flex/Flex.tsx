@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import cx from 'classnames'
 
-interface Props {
+export interface FlexProps {
   component?: React.ElementType<any>
   center?: boolean
   flexStart?: boolean
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }))
 
-function computeJustify(props: Props) {
+function computeJustify(props: FlexProps) {
   if (props.center) return 'center'
   if (props.spaceBetween) return 'space-between'
   if (props.spaceAround) return 'space-around'
@@ -46,7 +46,7 @@ function computeJustify(props: Props) {
   return 'initial'
 }
 
-const Flex: React.FC<Props> = (props) => {
+const Flex: React.FC<FlexProps> = (props) => {
   const classes = useStyles(props)
   const {
     component: Component = 'div',

@@ -24,11 +24,11 @@ export interface PhotoListContextValue {
   returnValidHtmlAttrs: (obj: any) => any
 }
 
-type PhotoListAction =
+export type PhotoListAction =
   | { type: 'set-actions'; actions: any }
   | { type: 'set-items'; items: T.PhotoListItem[] }
 
-interface PhotoListState {
+export interface PhotoListState {
   items: T.PhotoListItem[] | null
   actions: any
 }

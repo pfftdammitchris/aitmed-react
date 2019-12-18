@@ -5,7 +5,7 @@ import DatePicker from '../../DatePicker'
 import InputAdornment from './InputAdornment'
 import Typography from '../../Typography'
 
-interface FinalFormOutlinedTextFieldProps
+export interface FinalFormOutlinedTextFieldProps
   extends FieldRenderProps<any, HTMLElement> {
   input: any
   meta: any

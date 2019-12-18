@@ -5,7 +5,7 @@ import Flex from '../../components/Flex'
 import OutlinedTextField from '../../components/finalForm/OutlinedTextField'
 import SignatureCanvas from '../../components/finalForm/SignatureCanvas'
 
-interface RFA_UROResponseProps {
+export interface RFA_UROResponseProps {
   name: 'uroResponse'
   textfield: React.FC<any>
   checkbox: React.FC<any>

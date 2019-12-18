@@ -19,7 +19,7 @@ import ClaimsAdministratorFields from './ClaimsAdministrator'
 import UROFields from './URO'
 import { RFA_FormValues } from './types'
 
-interface RFAProps {
+export interface RFAProps {
   initialValues?: RFA_FormValues
   specialties: string[]
   onSubmit: (values: RFA_FormValues) => Promise<void>

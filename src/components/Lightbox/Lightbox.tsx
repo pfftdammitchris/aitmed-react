@@ -8,14 +8,14 @@ import { Close, Fullscreen, withEnhancement } from './actions'
 import useLightbox from './useLightbox'
 import { SrcProps } from './types'
 
-type ModalStyleFn = (
+export type ModalStyleFn = (
   styleObj: ModalStyleFnObj,
   state: ModalStyleFnState,
 ) => React.CSSProperties
-type ModalStyleFnObj = { [key: string]: any }
-type ModalStyleFnState = { [key: string]: any }
+export type ModalStyleFnObj = { [key: string]: any }
+export type ModalStyleFnState = { [key: string]: any }
 
-interface LightboxProps {
+export interface LightboxProps {
   src: SrcProps
   opened: boolean
   onClose: () => void

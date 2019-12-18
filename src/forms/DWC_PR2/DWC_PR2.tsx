@@ -19,7 +19,7 @@ import PatientInfo from './PatientInfo'
 import ClaimsAdministration from './ClaimsAdministration'
 import WorkStatusCheckboxes from './WorkStatusCheckboxes'
 
-interface DWC_PR2Props {
+export interface DWC_PR2Props {
   initialValues?: any
   genders: string[]
   specialties: string[]

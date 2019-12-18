@@ -5,7 +5,7 @@ import { parsePhone, parseSSN } from '../../utils'
 import Flex from '../../components/Flex'
 import OutlinedTextField from '../../components/finalForm/OutlinedTextField'
 
-interface PatientInfoProps {
+export interface PatientInfoProps {
   name: string
   genders: string[]
 }

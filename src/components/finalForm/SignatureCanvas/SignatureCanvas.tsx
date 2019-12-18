@@ -9,7 +9,7 @@ import Typography from '../../Typography'
 import Button from '../../Button'
 import X from './X'
 
-interface SignatureCanvasProps {
+export interface SignatureCanvasProps {
   input: any
   meta: any
   signatureRef: { current: null | any }
